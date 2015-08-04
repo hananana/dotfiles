@@ -34,6 +34,9 @@ NeoBundle 'tpope/vim-endwise'
 " .cppと.hをF2で移動する:
 NeoBundleLazy 'kana/vim-altr'
 
+" color
+NeoBundle 'altercation/vim-colors-solarized'
+
 call neobundle#end()
 
 NeoBundleCheck
@@ -43,6 +46,15 @@ NeoBundleCheck
 " -------------------------------
 let g:rsenseHome = '/usr/local/lib/rsense-0.3'
 let g:rsenseUseOmniFunc = 1
+let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+
+" -------------------------------
+" solarized
+" -------------------------------
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 " --------------------------------
 " neocomplete.vim
