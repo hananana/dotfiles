@@ -31,9 +31,6 @@ NeoBundle 'szw/vim-tags'
 " 自動で閉じる
 NeoBundle 'tpope/vim-endwise'
 
-" インデントに色をつける
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
 " .cppと.hをF2で移動する:
 NeoBundleLazy 'kana/vim-altr'
 
@@ -65,13 +62,6 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
-
-" --------------------------------
-" vim-indent-guides 
-" --------------------------------
-
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
- let g:indent_guides_enable_on_vim_startup = 1
 
 " --------------------------------
 " 基本設定
