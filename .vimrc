@@ -37,6 +37,18 @@ NeoBundleLazy 'kana/vim-altr'
 " color
 NeoBundle 'altercation/vim-colors-solarized'
 
+" csharp
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'OrangeT/vim-csharp'
+NeoBundleLazy 'OmniSharp/omnisharp-vim', {
+            \   'autoload': { 'filetypes': [ 'cs' ] },
+            \   'build': {
+            \     'windows' : 'msbuild server/OmniSharp.sln',
+            \     'mac': 'xbuild server/OmniSharp.sln',
+            \     'unix': 'xbuild server/OmniSharp.sln',
+            \   }
+            \ }
+
 call neobundle#end()
 
 NeoBundleCheck
