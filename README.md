@@ -1,6 +1,12 @@
 
 ## 手順
 
+- vimをいれようず
+
+```
+brew install vim --with-client-server --with-lua
+```
+
 - clone
 - .zshrc .vim .vimrc .gvimrc schemaをln -sでHOME直下からシンボリックリンク
 - NeoBundleをゲット
