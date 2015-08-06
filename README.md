@@ -4,17 +4,27 @@
 - vimをいれようず
 
 ```
-brew install vim --with-client-server --with-lua
+$brew install vim --with-client-server --with-lua
 ```
+- 必要に応じてwhich vimして現在のvimをどっかに追いやってbrewで入れたvimからシンボリックリンク作成
 
 - clone
 - .zshrc .vim .vimrc .gvimrc schemaをln -sでHOME直下からシンボリックリンク
 - NeoBundleをゲット
 
 ```
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+$curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 ```
 
-- iTerm2,MacVimを落とす
-- iTerm2のProfileからsolarizedを設定
-- iTerm2からvimを起動し、:NeoBundleInstall
+- Omnisharpを設定する
+
+```
+$cd .vim/bundle/omnisharp-vim/
+$g submodule update --init
+$cd server
+$xbuild
+```
+
+## MEMO
+
+- C#を読む時はprojectのslnを設定するんだぜ！
