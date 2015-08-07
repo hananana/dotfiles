@@ -1,3 +1,7 @@
+" ファイルタイプをoff　.vimrcの基本
+filetype off
+filetype plugin indent off
+
 " -------------------------------
 " NeoBundle
 " -------------------------------
@@ -193,11 +197,6 @@ syntax enable
 
 " 挿入モードでTABを挿入するとき、代わりに適切な数の空白を使う
 set expandtab
-
-" ファイル形式の検出の有効化する
-" ファイル形式別プラグインのロードを有効化する
-" ファイル形式別インデントのロードを有効化する
-filetype plugin indent on
  
 "バックアップファイルをとらない
 set nobackup
@@ -239,3 +238,6 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " ヘッダとソースファイルの切り替え（cpp)
 nmap <F2> <Plug>(altr-forward)
 call altr#define( '%.cpp', '%.h')
+
+" .vimrcの最後の基本
+filetype plugin indent on
