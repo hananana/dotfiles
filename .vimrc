@@ -231,6 +231,11 @@ set encoding=utf-8
 " 想定される改行コードの指定する
 set fileformats=unix,dos,mac
 
+" インデントまわり
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " ハイライトを有効化する
 syntax enable
 
@@ -278,5 +283,8 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 nmap <F2> <Plug>(altr-forward)
 call altr#define( '%.cpp', '%.h')
 
+" escをctrl+jで代替する
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
 " .vimrcの最後の基本
 filetype plugin indent on
