@@ -192,13 +192,17 @@ let g:neocomplete#force_omni_input_patterns.objc =
 	      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.objcpp =
 	      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_default_keymappings = 0
 let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib"
-let g:clang_use_library = 1
+"let g:clang_use_library = 1
 
+" --------------------------------
+" clang_complete_getopts_ios 
+" --------------------------------
+let g:clang_auto_user_options = 'path, .clang_complete, ios'
+let g:clang_complete_getopts_ios_sdk_directory = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.2.sdk'
 
 " --------------------------------
 " rubocop
