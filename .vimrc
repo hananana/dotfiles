@@ -74,6 +74,10 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 
+" json
+NeoBundle 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
 call neobundle#end()
 
 NeoBundleCheck
