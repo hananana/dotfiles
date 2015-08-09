@@ -19,6 +19,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 "unite
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 
 "unite color
 NeoBundle 'ujihisa/unite-colorscheme'
