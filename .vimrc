@@ -104,26 +104,29 @@ call unite#custom#profile('default', 'context',{
         \ 'smartcase' : 1,
         \})
 
-" バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+noremap <C-U><C-B> :Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-
+noremap <C-U><C-F> :UniteWithBufferDir -buffer-name=files file<CR>
+" 最近使ったファイルの一覧
+noremap <C-U><C-R> :Unite file_mru<CR>
+" レジスタ一覧
+noremap <C-U><C-Y> :Unite -buffer-name=register register<CR>
 " grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-
+noremap <C-U><C-G> :Unite grep:. -buffer-name=search-buffer<CR>
 " カーソル位置の単語をgrep検索
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-
 " grep検索結果の再呼出
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
-  let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-      let g:unite_source_grep_recursive_opt = ''
-      endif
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
+" Cキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 " --------------------------------
 " neocomplete.vim
