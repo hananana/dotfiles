@@ -74,7 +74,12 @@ NeoBundle 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
 " markdown
-NeoBundle 'kurocode25/mdforvim'
+NeoBundle 'kannokanno/previm'
+let g:previm_open_cmd = 'open -a Safari'
+augroup PrevimSettings
+    autocmd!
+        autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+    augroup END
 
 call neobundle#end()
 
