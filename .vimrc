@@ -24,30 +24,14 @@ NeoBundle 'Shougo/neomru.vim'
 "unite color
 NeoBundle 'ujihisa/unite-colorscheme'
 
-" コード補完
+" 汎用コード補完
 NeoBundle 'Shougo/neocomplete.vim'
 
 " rubyの補完
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
-" 静的解析
-NeoBundle 'scrooloose/syntastic'
-
-" ドキュメント参照
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
-
-" メソッド定義元へのジャンプ
-NeoBundle 'szw/vim-tags'
-
-" 自動で閉じる
-NeoBundle 'tpope/vim-endwise'
-
-" color
-NeoBundle 'altercation/vim-colors-solarized'
-
-" csharp
+" csharpの補完
 NeoBundle 'tpope/vim-dispatch'
 NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \   'autoload': { 'filetypes': [ 'cs' ] },
@@ -58,6 +42,21 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \   }
             \ }
 
+" 静的解析
+NeoBundle 'scrooloose/syntastic'
+
+" rubyドキュメント参照
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+
+" rubyメソッド定義元へのジャンプ
+NeoBundle 'szw/vim-tags'
+
+" 自動で閉じる
+NeoBundle 'tpope/vim-endwise'
+
+" color
+NeoBundle 'altercation/vim-colors-solarized'
 
 " いろんな非同期処理
 NeoBundle 'Shougo/vimproc'
@@ -73,6 +72,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 " json
 NeoBundle 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+
+" markdown
+NeoBundle 'kurocode25/mdforvim'
 
 call neobundle#end()
 

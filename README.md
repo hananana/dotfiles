@@ -7,8 +7,8 @@
 $brew install vim --with-client-server --with-lua
 $brew install the_silver_searcher
 ```
-    - 必要に応じてwhich vimして現在のvimをどっかに追いやってbrewで入れたvimからシンボリックリンク作成
 
+- 必要に応じてwhich vimして現在のvimをどっかに追いやってbrewで入れたvimからシンボリックリンク作成
 - このリポジトリをclone
 - .zshrc .vim .vimrc .gvimrc schemaをln -sでHOME直下からシンボリックリンク
 - NeoBundleをゲット
