@@ -42,9 +42,6 @@ NeoBundle 'szw/vim-tags'
 " 自動で閉じる
 NeoBundle 'tpope/vim-endwise'
 
-" .cppと.hをF2で移動する:
-NeoBundleLazy 'kana/vim-altr'
-
 " color
 NeoBundle 'altercation/vim-colors-solarized'
 
@@ -59,9 +56,6 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \   }
             \ }
 
-" cpp
-NeoBundle 'git@github.com:Rip-Rip/clang_complete.git'
-NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 
 " いろんな非同期処理
 NeoBundle 'Shougo/vimproc'
@@ -133,6 +127,8 @@ endif
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
+let g:unite_source_rec_async_command="find . -iname '*.meta' -prune -o -type f -print"
+
 " --------------------------------
 " neocomplete.vim
 " --------------------------------
@@ -200,30 +196,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
-" neocompleteとclang_completeの共存設定
-if !exists('g:neocomplete#force_omni_input_patterns')
-	  let g:neocomplete#force_omni_input_patterns = {}
-	endif
-let g:neocomplete#force_omni_input_patterns.c =
- \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp =
-	      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-let g:neocomplete#force_omni_input_patterns.objc =
-	      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-let g:neocomplete#force_omni_input_patterns.objcpp =
-	      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_default_keymappings = 0
-let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib"
-"let g:clang_use_library = 1
-
-" --------------------------------
-" clang_complete_getopts_ios 
-" --------------------------------
-let g:clang_auto_user_options = 'path, .clang_complete, ios'
-let g:clang_complete_getopts_ios_sdk_directory = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.2.sdk'
-
 " --------------------------------
 " rubocop
 " --------------------------------
@@ -245,6 +217,7 @@ set fileformats=unix,dos,mac
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set softtabstop=4
 
 " ハイライトを有効化する
 syntax enable
@@ -254,6 +227,9 @@ set expandtab
  
 "バックアップファイルをとらない
 set nobackup
+
+" コマンドライン補完をshellと同一にする
+set wildmode=list:longest
  
 "クリップボードをWindowsと連携する
 set clipboard=unnamed
@@ -275,6 +251,9 @@ set incsearch
  
 "行番号を表示する
 set number
+
+" バックスペースでインデント削除
+set backspace=indent,eol,start
  
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
@@ -289,12 +268,9 @@ set grepprg=grep\ -nh
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" ヘッダとソースファイルの切り替え（cpp)
-nmap <F2> <Plug>(altr-forward)
-call altr#define( '%.cpp', '%.h')
-
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+
 " .vimrcの最後の基本
 filetype plugin indent on
