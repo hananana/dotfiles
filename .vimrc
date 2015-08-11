@@ -24,6 +24,10 @@ NeoBundle 'Shougo/neomru.vim'
 "unite color
 NeoBundle 'ujihisa/unite-colorscheme'
 
+" 左ウィンドウにツリー表示
+NeoBundle 'scrooloose/nerdtree'
+noremap <C-N> :NERDTreeToggle <CR>
+
 " 汎用コード補完
 NeoBundle 'Shougo/neocomplete.vim'
 
