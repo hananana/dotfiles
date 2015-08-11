@@ -26,7 +26,10 @@ NeoBundle 'ujihisa/unite-colorscheme'
 
 " 左ウィンドウにツリー表示
 NeoBundle 'scrooloose/nerdtree'
-noremap <C-N> :NERDTreeToggle <CR>
+"デフォで隠しファイル表示
+let NERDTreeShowHidden = 1
+"デフォでツリー表示
+autocmd VimEnter * execute 'NERDTree'
 
 " 汎用コード補完
 NeoBundle 'Shougo/neocomplete.vim'
