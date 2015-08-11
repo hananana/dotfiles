@@ -52,7 +52,6 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
 " c++の補完
 NeoBundle 'git@github.com:Rip-Rip/clang_complete.git'
 NeoBundle 'hanana0501/clang_complete-getopts-cocos2dx'
-let g:clang_complete_include_current_directory_recursively = 1
 let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
 let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
 
