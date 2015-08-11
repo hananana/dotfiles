@@ -262,7 +262,10 @@ set hidden
  
 "インクリメンタルサーチを行う
 set incsearch
- 
+
+" 大文字小文字を区別しないで検索する
+set ignorecase
+
 "行番号を表示する
 set number
 
