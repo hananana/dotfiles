@@ -1,0 +1,8 @@
+-w
+-I cocos2d/cocos 
+-stdlib=libc++ 
+-std=c++11 
+-I /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.3.sdk/System/Library/Frameworks 
+-I /usr/local/Cellar/glfw3/3.1.1/include/GLFW/ 
+-fblocks 
+-I cocos2d/cocos/ui

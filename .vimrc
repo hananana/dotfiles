@@ -49,6 +49,13 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \   }
             \ }
 
+" c++の補完
+NeoBundle 'git@github.com:Rip-Rip/clang_complete.git'
+NeoBundle 'hanana0501/clang_complete-getopts-cocos2dx'
+let g:clang_complete_include_current_directory_recursively = 1
+let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
+let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
+
 " 静的解析
 NeoBundle 'scrooloose/syntastic'
 
@@ -212,6 +219,23 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+" neocompleteとclang_completeの共存設定
+if !exists('g:neocomplete#force_omni_input_patterns')
+let g:neocomplete#force_omni_input_patterns = {}
+        endif
+        let g:neocomplete#force_omni_input_patterns.c =
+                    \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+        let g:neocomplete#force_omni_input_patterns.cpp =
+                    \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+        let g:neocomplete#force_omni_input_patterns.objc =
+                    \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
+        let g:neocomplete#force_omni_input_patterns.objcpp =
+                    \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+        let g:clang_complete_auto = 0
+        let g:clang_auto_select = 0
+        let g:clang_default_keymappings = 0
+        "let g:clang_use_library = 1
 
 " --------------------------------
 " rubocop
