@@ -8,9 +8,7 @@ vim初心者が最終的に全部をvimで開発するためのvim設定のrepos
 
 - syntaxなんとかしようよ
 
-- cocos2d-xに対応
-
-- objcに対応
+- objcとobjc++に対応
 
 ## 手順
 
@@ -51,6 +49,14 @@ $ cd .vim/bundle/vimproc
 $ make
 ```
 
+- GLFWをいれましょう
+
+```
+$ brew tap homebrew/versions
+$ brew install —build-bottle —static glfw3
+```
+
 ## MEMO
 
 - C#を読む時はprojectのslnを設定するんだぜ！
+- cocos2d-xやiOSのコーディングの際にはSDKのverとpathを確認すること
