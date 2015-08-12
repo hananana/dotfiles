@@ -1,6 +1,6 @@
 ## 概要
-vim初心者が最終的に全部をvimで開発するためのvim設定のrepository。C#、ruby,markdownに対応済み
-
+vim初心者が最終的に全部をvimで開発するためのvim設定のrepository。
+C#、ruby,markdownに対応済み。
 参考のakinama氏の[dotfiles](https://github.com/akinama/dotfiles)
 
 ## 手順
