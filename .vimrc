@@ -155,6 +155,8 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
+" 大文字小文字無視
+let g:neocomplete#enable_ignore_case = 1
 " Use Underbar Completion
 let g:neocomplete#enable_underbar_completion = 1
 " Set minimum syntax keyword length.
