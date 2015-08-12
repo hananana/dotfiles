@@ -53,6 +53,14 @@ let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
 
 " 静的解析
 NeoBundle 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " rubyドキュメント参照
 NeoBundle 'thinca/vim-ref'
