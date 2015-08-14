@@ -320,5 +320,5 @@ export PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 # -------------------------------------
 # antigen
 # -------------------------------------
-source ~/.dotfiles/dotfiles/.zsh/antigen/antigen.zsh
+source ~/antigen/antigen.zsh
 antigen-bundle b4b4r07/enhancd
