@@ -44,10 +44,10 @@ setopt hist_ignore_dups
 unsetopt auto_menu
 
 # cd -[tab]で過去のディレクトリにひとっ飛びできるようにする
-setopt auto_pushd
+#setopt auto_pushd
 
 # ディレクトリ名を入力するだけでcdできるようにする
-setopt auto_cd
+#setopt auto_cd
 
 # -------------------------------------
 # プロンプト
@@ -117,16 +117,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 # キーバインド
 # -------------------------------------
 
-bindkey -e
-
-function cdup() {
-   echo
-   cd ..
-   zle reset-prompt
-}
-zle -N cdup
-bindkey '^K' cdup
-
 bindkey "^R" history-incremental-search-backward
 
 # -------------------------------------
@@ -135,12 +125,6 @@ bindkey "^R" history-incremental-search-backward
 
 # cdしたあとで、自動的に ls する
 function chpwd() { ls -1 }
-
-# iTerm2のタブ名を変更する
-function title {
-    echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
-function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
-}
 
 # -------------------------------------
 # ヒストリー
@@ -259,6 +243,7 @@ function pdrb {
  	git push --delete origin ${someBranch##*/}
 }
 
+#グラフ描画
 function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 }
@@ -267,17 +252,11 @@ alias g='git'
 alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 
-# -------------------------------------
-# cd-bookmark
-#https://github.com/mollifier/cd-bookmark
-# -------------------------------------
-fpath=($HOME/Utilities/cd-bookmark(N-/) $fpath)
-autoload -Uz cd-bookmark
-alias cdb='cd-bookmark'
 
 # -------------------------------------
 # cocos
 # macを切り替えると通らんので注意！！
+# こんなとこに環境まわりを書くんじゃねぇチョッコンめ…
 # -------------------------------------
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
@@ -322,3 +301,9 @@ export PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 # -------------------------------------
 source ~/antigen/antigen.zsh
 antigen-bundle b4b4r07/enhancd
+
+# directory-bookmark
+antigen-bundle mollifier/cd-bookmark
+fpath=($HOME/cd-bookmark(N-/) $fpath)
+autoload -Uz cd-bookmark
+alias cdb='cd-bookmark'
