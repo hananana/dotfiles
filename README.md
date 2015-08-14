@@ -5,30 +5,20 @@ C#、ruby,markdownに対応済み。
 
 ## 手順
 
-- vimとsilver_sercherいれようず
-
-```
+```sh
+$cd
+$mkdir .dotfiles
+$cd .dotfiles
+$git clone git@github.com:hanana0501/dotfiles.git
+$sh setting.sh
 $brew install vim --with-client-server --with-lua
 $brew install the_silver_searcher
-```
-
-- 必要に応じてwhich vimして現在のvimをどっかに追いやってbrewで入れたvimからシンボリックリンク作成
-
-- このリポジトリをclone
-
-- .zshrc .vim .vimrc .gvimrc schemaをln -sでHOME直下からシンボリックリンク
-
-- NeoBundleをゲット
-
-```
 $curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 ```
 
-- いったんvimを起動してBundle達をいれる
-
 - Omnisharpを設定する
 
-```
+```sh
 $cd .vim/bundle/omnisharp-vim/
 $g submodule update --init
 $cd server
@@ -37,16 +27,24 @@ $xbuild
 
 - vimprocをいれましょう
 
-```
+```sh
 $ cd .vim/bundle/vimproc
 $ make
 ```
 
 - GLFWをいれましょう
 
-```
+```sh
 $ brew tap homebrew/versions
 $ brew install —build-bottle —static glfw3
+```
+
+- antigenからzshのpluginを導入
+
+```sh
+$cd
+$git clone https://github.com/zsh-users/antigen
+$source ~/.zshrc
 ```
 
 ## MEMO
