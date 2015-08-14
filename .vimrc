@@ -343,5 +343,12 @@ inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 
+" タブとウィンドウ分割"
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sn gt
+nnoremap sp gT
+nnoremap st :<C-u>tabnew<CR>
+
 " .vimrcの最後の基本
 filetype plugin indent on
