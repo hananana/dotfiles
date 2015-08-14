@@ -344,6 +344,11 @@ inoremap ' ''<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 
 " タブとウィンドウ分割"
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sn gt
