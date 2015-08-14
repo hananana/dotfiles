@@ -1,0 +1,27 @@
+#/bin/sh
+DOTFILES_DIR=".dotfiles/dotfiles"
+
+# zshrc
+if [ -e ~/.zshrc ]; then
+    rm -f ~/.zshrc
+fi
+ln -s ~/$DOTFILES_DIR/.zshrc ~/.zshrc
+
+# vimrc
+if [ -e ~/.vimrc ]; then
+    rm -f ~/.vimrc
+fi
+ln -s ~/$DOTFILES_DIR/.vimrc ~/.vimrc
+
+# vim directory
+if [ -d ~/.vim ]; then
+    rm -rf ~/.vim
+fi
+ln -s ~/$DOTFILES_DIR/.vim ~/.vim
+git submodule update --init
+
+#schema
+if [ -d ~/schema ]; then
+    rm -rf ~/schema
+fi
+ln -s ~/$DOTFILES_DIR/schema ~/schema
