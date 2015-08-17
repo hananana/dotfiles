@@ -21,6 +21,17 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 "unite color
 NeoBundle 'ujihisa/unite-colorscheme'
+
+" nerdtree
+NeoBundle 'scrooloose/nerdtree' 
+let NERDTreeShowHidden = 1
+autocmd VimEnter * execute 'NERDTree'
+nmap <silent> <C-e>      :NERDTreeToggle<CR>
+vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+omap <silent> <C-e>      :NERDTreeToggle<CR>
+imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+
 " 汎用コード補完
 NeoBundle 'Shougo/neocomplete.vim'
 
