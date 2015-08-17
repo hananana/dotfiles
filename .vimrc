@@ -131,9 +131,6 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
-" autoformat
-NeoBundle 'Chiel92/vim-autoformat'
-au BufWrite * :Autoformat
 call neobundle#end()
 
 NeoBundleCheck
@@ -300,24 +297,24 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=4
+set noautoindent
+
+"新しい行を作った時に高度な自動インデントを行う
+set smarttab
 
 " ハイライトを有効化する
 syntax enable
-
-" 挿入モードでTABを挿入するとき、代わりに適切な数の空白を使う
-set expandtab
  
 "バックアップファイルをとらない
 set nobackup
+" チルダファイル作成を完全無効化
+set noundofile
 
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
  
 "クリップボードをWindowsと連携する
 set clipboard=unnamed
- 
-" チルダファイル作成を完全無効化
-set noundofile
 
 "vi互換をオフする
 set nocompatible
@@ -342,9 +339,6 @@ set backspace=indent,eol,start
  
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
- 
-"新しい行を作った時に高度な自動インデントを行う
-set smarttab
  
 " grep検索を設定する
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
