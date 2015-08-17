@@ -297,7 +297,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=4
-set noautoindent
+set autoindent
+set smartindent
+set cindent
 
 "新しい行を作った時に高度な自動インデントを行う
 set smarttab
