@@ -30,6 +30,10 @@ vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 omap <silent> <C-e>      :NERDTreeToggle<CR>
 imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+" ファイル指定で開かれた場合はNERDTreeは表示しない
+if !argc()
+    autocmd vimenter * NERDTree|normal gg3j
+endif
 
 " 汎用コード補完
 NeoBundle 'Shougo/neocomplete.vim'
