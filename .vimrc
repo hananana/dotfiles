@@ -296,7 +296,7 @@ set fileformats=unix,dos,mac
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set softtabstop=4
+set softtabstop=0
 set autoindent
 set smartindent
 set cindent
@@ -304,8 +304,12 @@ set cindent
 "新しい行を作った時に高度な自動インデントを行う
 set smarttab
 
+"コマンド表示
+set showcmd
+
 " ハイライトを有効化する
 syntax enable
+syntax on
  
 "バックアップファイルをとらない
 set nobackup
@@ -332,6 +336,7 @@ set incsearch
 
 " 大文字小文字を区別しないで検索する
 set ignorecase
+set smartcase
 
 "行番号を表示する
 set number
