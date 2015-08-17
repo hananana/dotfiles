@@ -296,11 +296,14 @@ set fileformats=unix,dos,mac
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set softtabstop=4
-set noautoindent
+set softtabstop=0
+set autoindent
+set smartindent
+
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
 
 "新しい行を作った時に高度な自動インデントを行う
-set smarttab
+"set smarttab
 
 " ハイライトを有効化する
 syntax enable
