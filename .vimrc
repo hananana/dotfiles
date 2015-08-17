@@ -60,6 +60,7 @@ let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/
 let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
 
 " 静的解析
+" csharpで効いてないくさい
 NeoBundle 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -70,6 +71,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "csharpのsyntax highlight
+"これも効いてないくさい
 NeoBundle 'OrangeT/vim-csharp'
 
 " snipet
@@ -126,9 +128,12 @@ NeoBundle 'kannokanno/previm'
 let g:previm_open_cmd = 'open -a Safari'
 augroup PrevimSettings
     autocmd!
-        autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-    augroup END
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
+" autoformat
+NeoBundle 'Chiel92/vim-autoformat'
+au BufWrite * :Autoformat
 call neobundle#end()
 
 NeoBundleCheck
