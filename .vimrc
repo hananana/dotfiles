@@ -25,7 +25,6 @@ NeoBundle 'ujihisa/unite-colorscheme'
 " nerdtree
 NeoBundle 'scrooloose/nerdtree' 
 let NERDTreeShowHidden = 1
-autocmd VimEnter * execute 'NERDTree'
 nmap <silent> <C-e>      :NERDTreeToggle<CR>
 vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 omap <silent> <C-e>      :NERDTreeToggle<CR>
