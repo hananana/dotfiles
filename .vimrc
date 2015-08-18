@@ -68,6 +68,93 @@ NeoBundleCheck
 " --------------------------------
 filetype plugin indent on
 
+" --------------------------------
+" 基本設定
+" --------------------------------
+" vim内部で使われる文字エンコーディングをutf-8に設定する
+set encoding=utf-8
+
+"キーの李マップ
+nnoremap [ %
+
+" 日本語のずれをなくす
+set ambiwidth=double
+
+" 想定される改行コードの指定する
+set fileformats=unix,dos,mac
+
+" インデントまわり
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=0
+set autoindent
+set smartindent
+set cindent
+
+"新しい行を作った時に高度な自動インデントを行う
+"set smarttab
+
+"コマンド表示
+set showcmd
+
+"バックアップファイルをとらない
+set nobackup
+" チルダファイル作成を完全無効化
+set noundofile
+"スワップファイル用のディレクトリを指定する
+set noswapfile
+
+" コマンドライン補完をshellと同一にする
+set wildmode=list:longest
+ 
+"クリップボードをWindowsと連携する
+set clipboard=unnamed
+
+"vi互換をオフする
+set nocompatible
+ 
+"変更中のファイルでも、保存しないで他のファイルを表示する
+set hidden
+ 
+"インクリメンタルサーチを行う
+set incsearch
+
+" 大文字小文字を区別しないで検索する
+set ignorecase
+set smartcase
+
+"行番号を表示する
+set number
+
+" バックスペースでインデント削除
+set backspace=indent,eol,start
+ 
+"閉括弧が入力された時、対応する括弧を強調する
+set showmatch
+
+" 検索結果のハイライトをEsc連打でクリアする
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" escをctrl+jで代替する
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
+
+" 括弧を補完
+inoremap ( ()<LEFT>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+
+" タブとウィンドウ分割"
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sn gt
+nnoremap sp gT
+nnoremap st :<C-u>tabnew<CR>
 " -------------------------------
 " Rsense
 " -------------------------------
@@ -268,14 +355,6 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
 " For conceal markers.
 if has('conceal')
     set conceallevel=2 concealcursor=niv
@@ -296,89 +375,4 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
-" --------------------------------
-" 基本設定
-" --------------------------------
-" vim内部で使われる文字エンコーディングをutf-8に設定する
-set encoding=utf-8
-
-" 想定される改行コードの指定する
-set fileformats=unix,dos,mac
-
-" インデントまわり
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=0
-set autoindent
-set smartindent
-set cindent
-
-"新しい行を作った時に高度な自動インデントを行う
-"set smarttab
-
-"コマンド表示
-set showcmd
-
-"バックアップファイルをとらない
-set nobackup
-" チルダファイル作成を完全無効化
-set noundofile
-"スワップファイル用のディレクトリを指定する
-set noswapfile
-
-" コマンドライン補完をshellと同一にする
-set wildmode=list:longest
- 
-"クリップボードをWindowsと連携する
-set clipboard=unnamed
-
-"vi互換をオフする
-set nocompatible
- 
-"変更中のファイルでも、保存しないで他のファイルを表示する
-set hidden
- 
-"インクリメンタルサーチを行う
-set incsearch
-
-" 大文字小文字を区別しないで検索する
-set ignorecase
-set smartcase
-
-"行番号を表示する
-set number
-
-" バックスペースでインデント削除
-set backspace=indent,eol,start
- 
-"閉括弧が入力された時、対応する括弧を強調する
-set showmatch
-
-" タブ、空白、改行の可視化 
-set list
-set listchars=tab:>\ ,trail:_
- 
-" 検索結果のハイライトをEsc連打でクリアする
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
-" escをctrl+jで代替する
-noremap <C-j> <esc>
-noremap! <C-j> <esc>
-
-" 括弧を補完
-inoremap ( ()<LEFT>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-
-" タブとウィンドウ分割"
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap sn gt
-nnoremap sp gT
-nnoremap st :<C-u>tabnew<CR>
 
