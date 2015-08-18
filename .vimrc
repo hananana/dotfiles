@@ -293,6 +293,16 @@ inoremap <expr><nul> pumvisible() ? "\<down>" : neocomplete#start_manual_complet
 " Enable omni completion.
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+" --------------------------------
+" OmniSharp
+" --------------------------------
+
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -300,11 +310,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
+noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
 
 " --------------------------------
 " rubocop
