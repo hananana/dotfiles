@@ -1,5 +1,3 @@
-" ファイルタイプをoff　.vimrcの基本
-filetype off
 filetype plugin indent off
 
 " -------------------------------
@@ -16,33 +14,13 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-"unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-"unite color
 NeoBundle 'ujihisa/unite-colorscheme'
-
-" nerdtree
 NeoBundle 'scrooloose/nerdtree' 
-let NERDTreeShowHidden = 1
-nmap <silent> <C-e>      :NERDTreeToggle<CR>
-vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-omap <silent> <C-e>      :NERDTreeToggle<CR>
-imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
-" ファイル指定で開かれた場合はNERDTreeは表示しない
-if !argc()
-    autocmd vimenter * NERDTree|normal gg3j
-endif
-
-" 汎用コード補完
 NeoBundle 'Shougo/neocomplete.vim'
-
-" rubyの補完
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
-
-" csharpの補完
 NeoBundle 'tpope/vim-dispatch'
 NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \   'autoload': { 'filetypes': [ 'cs' ] },
@@ -52,63 +30,23 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \     'unix': 'xbuild server/OmniSharp.sln',
             \   }
             \ }
-
-" c++の補完
 NeoBundle 'git@github.com:Rip-Rip/clang_complete.git'
 NeoBundle 'hanana0501/clang_complete-getopts-cocos2dx'
-let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
-let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
 
-" 静的解析
 " csharpで効いてないくさい
 NeoBundle 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 "csharpのsyntax highlight
 "これも効いてないくさい
 NeoBundle 'OrangeT/vim-csharp'
 
-" snipet
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-
-" rubyドキュメント参照
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
-
-" rubyメソッド定義元へのジャンプ
 NeoBundle 'szw/vim-tags'
-
-" 自動で閉じる
 NeoBundle 'tpope/vim-endwise'
-
-" color
 NeoBundle 'altercation/vim-colors-solarized'
-
-" いろんな非同期処理
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
@@ -118,22 +56,17 @@ NeoBundle 'Shougo/vimproc.vim', {
             \     'unix' : 'make -f make_unix.mak',
             \    },
             \ }
-
-" json
 NeoBundle 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-
-" markdown
 NeoBundle 'kannokanno/previm'
-let g:previm_open_cmd = 'open -a Safari'
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
 
 call neobundle#end()
 
 NeoBundleCheck
+
+" --------------------------------
+" plugin on!!!!!!!!!!!!!!!
+" --------------------------------
+filetype plugin indent on
 
 " -------------------------------
 " Rsense
@@ -187,6 +120,20 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 let g:unite_source_rec_async_command="find . -iname '*.meta' -prune -o -type f -print"
 
+" --------------------------------
+" NERDTree
+" --------------------------------
+
+let NERDTreeShowHidden = 1
+nmap <silent> <C-e>      :NERDTreeToggle<CR>
+vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+omap <silent> <C-e>      :NERDTreeToggle<CR>
+imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+" ファイル指定で開かれた場合はNERDTreeは表示しない
+if !argc()
+    autocmd vimenter * NERDTree|normal gg3j
+endif
 " --------------------------------
 " neocomplete.vim
 " --------------------------------
@@ -258,6 +205,21 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
+
+" --------------------------------
+" rubocop
+" --------------------------------
+" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
+" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
+" --------------------------------
+" clang_complete
+" --------------------------------
+let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
+let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
+
 " neocompleteとclang_completeの共存設定
 if !exists('g:neocomplete#force_omni_input_patterns')
 let g:neocomplete#force_omni_input_patterns = {}
@@ -274,14 +236,52 @@ let g:neocomplete#force_omni_input_patterns = {}
         let g:clang_auto_select = 0
         let g:clang_default_keymappings = 0
         "let g:clang_use_library = 1
+" --------------------------------
+" syntastic
+" --------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" --------------------------------
+" neosnippet
+" --------------------------------
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
 
 " --------------------------------
-" rubocop
+" vim-json
 " --------------------------------
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
+let g:vim_json_syntax_conceal = 0
+
+" --------------------------------
+" markdown
+" --------------------------------
+
+let g:previm_open_cmd = 'open -a Safari'
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
 " --------------------------------
 " 基本設定
@@ -373,5 +373,6 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
 
-" .vimrcの最後の基本
-filetype plugin indent on
+
+
+
