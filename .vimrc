@@ -74,6 +74,9 @@ filetype plugin indent on
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
 
+" ヘルプの検索順
+set helplang=ja,en
+
 "キーの李マップ
 nnoremap [ %
 
