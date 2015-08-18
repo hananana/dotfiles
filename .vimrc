@@ -314,7 +314,8 @@ endif
 let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
 noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
-
+noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
+noremap <C-O><C-R> :OmniSharpRename<CR>
 " --------------------------------
 " rubocop
 " --------------------------------

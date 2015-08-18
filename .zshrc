@@ -6,13 +6,7 @@
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# -------------------------------------
-# vimのhelpが表示されないエラーに対応
-# -------------------------------------
 
-for F in ~/.vim/bundle/.neobundle/doc/*.ja.txt; do
-    mv $F $F:r:r.jax
-done
 # -------------------------------------
 # zshのオプション
 # -------------------------------------
@@ -302,6 +296,16 @@ typeset -U path cdpath fpath manpath
 # PATHの設定がぶっこわれーたのでなおし
 export PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 
+# -------------------------------------
+# vimのhelpが表示されないエラーに対応
+# MixEncordingうんぬんのエラーがでたら使ってね！
+# -------------------------------------
+
+function fix_vim_help(){
+for F in ~/.vim/bundle/.neobundle/doc/*.ja.txt; do
+    mv $F $F:r:r.jax
+done
+}
 
 # -------------------------------------
 # antigen
