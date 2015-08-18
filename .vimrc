@@ -144,7 +144,6 @@ noremap <C-j> <esc>
 noremap! <C-j> <esc>
 
 " 括弧を補完
-inoremap ( ()<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 
 " タブとウィンドウ分割"
