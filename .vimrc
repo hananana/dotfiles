@@ -14,9 +14,10 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'vim-scripts/molokai'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'marcus/rsense'
@@ -46,7 +47,6 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
@@ -75,12 +75,25 @@ let g:rsenseUseOmniFunc = 1
 let g:rsenseHome = '/usr/local/lib/rsense-0.3'
 
 " -------------------------------
-" solarized
+" syntax
 " -------------------------------
+syntax on
+let g:moleokai_original=1
+colorscheme molokai
 
-syntax enable
-set background=dark
-colorscheme solarized
+
+" -------------------------------
+" vim-airline
+" -------------------------------
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ""
+let g:airline#extension#branch#symbol = ''
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_theme = 'dark'
+let g:unite_force_overwrite_statusline = 0
+
 
 " -----------------------------------------------------------------------------
 " unite.vim
@@ -307,14 +320,12 @@ set cindent
 "コマンド表示
 set showcmd
 
-" ハイライトを有効化する
-syntax enable
-syntax on
- 
 "バックアップファイルをとらない
 set nobackup
 " チルダファイル作成を完全無効化
 set noundofile
+"スワップファイル用のディレクトリを指定する
+set noswapfile
 
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
@@ -324,9 +335,6 @@ set clipboard=unnamed
 
 "vi互換をオフする
 set nocompatible
- 
-"スワップファイル用のディレクトリを指定する
-set noswapfile
  
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
@@ -346,10 +354,10 @@ set backspace=indent,eol,start
  
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
- 
-" grep検索を設定する
-set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=grep\ -nh
+
+" タブ、空白、改行の可視化 
+set list
+set listchars=tab:>\ ,trail:_
  
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
@@ -359,6 +367,7 @@ noremap <C-j> <esc>
 noremap! <C-j> <esc>
 
 " 括弧を補完
+inoremap ( ()<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 
 " タブとウィンドウ分割"
@@ -372,7 +381,4 @@ nnoremap sv :<C-u>vs<CR>
 nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
-
-
-
 
