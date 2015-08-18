@@ -51,3 +51,10 @@ $source ~/.zshrc
 
 - C#を読む時はprojectのslnを設定するんだぜ！
 - cocos2d-xやiOSのコーディングの際にはSDKのverとpathを確認すること
+- vimのpluginのヘルプがmix encordingうんたらでエラーを吐いたら
+
+```sh
+fix_vim_help 
+```
+
+
