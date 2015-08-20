@@ -15,9 +15,6 @@ export LC_ALL=en_US.UTF-8
 autoload -U compinit
 compinit
 
-## 入力しているコマンド名が間違っている場合にもしかして：を出す。
-setopt correct
-
 # ビープを鳴らさない
 setopt nobeep
 
@@ -43,12 +40,6 @@ setopt hist_ignore_dups
 # 補完
 ## タブによるファイルの順番切り替えをしない
 unsetopt auto_menu
-
-# cd -[tab]で過去のディレクトリにひとっ飛びできるようにする
-#setopt auto_pushd
-
-# ディレクトリ名を入力するだけでcdできるようにする
-#setopt auto_cd
 
 # -------------------------------------
 # プロンプト
@@ -82,11 +73,14 @@ function vcs_prompt_info() {
 }
 # end VCS
 
-OK="^_^ "
-NG="X_X "
+setopt correct
+# もしかして時のプロンプト指定
+SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
 
 PROMPT=""
-PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
+#PROMPT+="%(?.%F{green}$OK%f.%F{red}$OK%f) "
+PROMPT+="
+%(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
 PROMPT+="%F{blue}%~%f"
 PROMPT+="\$(vcs_prompt_info)"
 PROMPT+="
