@@ -39,7 +39,7 @@ NeoBundle 'scrooloose/syntastic'
 
 "csharpのsyntax highlight
 "これも効いてないくさい
-NeoBundle 'OrangeT/vim-csharp'
+NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
@@ -357,6 +357,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" Get Code Issues and syntax errors
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+
 " --------------------------------
 " neosnippet
 " --------------------------------
