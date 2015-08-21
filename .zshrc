@@ -275,12 +275,6 @@ export PATH=$ANDROID_SDK_ROOT:$PATH
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # -------------------------------------
-# ruby
-# -------------------------------------
-
-eval "$(rbenv init -)"
-
-# -------------------------------------
 # パス
 # -------------------------------------
 
@@ -288,7 +282,14 @@ eval "$(rbenv init -)"
 typeset -U path cdpath fpath manpath
 
 # PATHの設定がぶっこわれーたのでなおし
-export PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH
+export PATH=/User/Hanazawa/.rbenv/shims:/usr/local/bin:bin:/sbin:/usr/bin:/usr/sbin:$PATH
+
+# -------------------------------------
+# ruby
+# -------------------------------------
+
+eval "$(rbenv init -)"
+
 
 # -------------------------------------
 # vimのhelpが表示されないエラーに対応

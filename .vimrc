@@ -58,6 +58,8 @@ NeoBundle 'Shougo/vimproc.vim', {
             \ }
 NeoBundle 'elzr/vim-json'
 NeoBundle 'kannokanno/previm'
+"NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+"NeoBundle 'vim-scripts/cscomment.vim'
 
 call neobundle#end()
 
