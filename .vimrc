@@ -59,7 +59,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'elzr/vim-json'
 NeoBundle 'kannokanno/previm'
 "NeoBundle 'vim-scripts/DoxygenToolkit.vim'
-"NeoBundle 'vim-scripts/cscomment.vim'
+NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 
@@ -375,6 +375,10 @@ if has('conceal')
 endif
 
 " --------------------------------
+" quickrun
+" --------------------------------
+
+" --------------------------------
 " vim-json
 " --------------------------------
 let g:vim_json_syntax_conceal = 0
@@ -383,7 +387,7 @@ let g:vim_json_syntax_conceal = 0
 " markdown
 " --------------------------------
 
-let g:previm_open_cmd = 'open -a Safari'
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
