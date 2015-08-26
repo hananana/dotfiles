@@ -360,8 +360,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" Get Code Issues and syntax errors
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 
 " --------------------------------
 " neosnippet
@@ -379,7 +377,22 @@ endif
 
 " --------------------------------
 " quickrun
+" 動かせてない。。。
 " --------------------------------
+"let g:quickrun_config = {}
+"let g:quickrun_config.cs  = {
+"    \ 'command'              : 'mcs',
+"    \ 'exec'                 : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
+"    \ 'cmdopt'               : '-warn:4',
+"    \ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
+"    \ }
+
+
+"let g:quickrun_config.cs = {
+"            \ 'command': 'dmcs',
+"            \ 'exec': ['%c %o %s -out:%s:p:r.exe', 'mono %s:p:r.exe %a', 'rm -f %s:p:r.exe'],
+"            \ 'tempfile': '%{tempname()}.cs',
+"            \}
 
 " --------------------------------
 " vim-json
