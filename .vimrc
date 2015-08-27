@@ -19,7 +19,6 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
@@ -79,6 +78,9 @@ set encoding=utf-8
 
 " ヘルプの検索順
 set helplang=ja,en
+
+" airlineを常時表示するよ
+set laststatus=2
 
 "キーの李マップ
 nnoremap [ %
@@ -176,19 +178,13 @@ syntax on
 let g:moleokai_original=1
 colorscheme molokai
 
-
 " -------------------------------
 " vim-airline
 " -------------------------------
 let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ""
-let g:airline#extension#branch#symbol = ''
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme = 'dark'
-let g:unite_force_overwrite_statusline = 0
-
+let g:airline_theme = 'molokai'
+let g:airline#extension#tabline#enabled = 1
 
 " -----------------------------------------------------------------------------
 " unite.vim
@@ -202,9 +198,12 @@ call unite#custom#profile('default', 'context',{
         \ 'smartcase' : 1,
         \})
 
+" ファイルをよしなに検索
+let g:unite_source_history_yank_enable = 1
+
+nnoremap <C-U><C-F> :Unite -start-insert file_rec/async<CR>
+" バッファ一覧表示
 noremap <C-U><C-B> :Unite buffer<CR>
-" ファイル一覧を一個ずつ検索
-noremap <C-U><C-F> :UniteWithBufferDir -buffer-name=files file<CR>
 " 最近使ったファイルの一覧
 noremap <C-U><C-R> :Unite file_mru<CR>
 " レジスタ一覧
@@ -217,6 +216,7 @@ nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
+    let g:unite_source_rec_async_command='ag --ncolor --nogroup -g ""'
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
     let g:unite_source_grep_recursive_opt = ''
@@ -228,20 +228,6 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 let g:unite_source_rec_async_command="find . -iname '*.meta' -prune -o -type f -print"
 
-" --------------------------------
-" NERDTree
-" --------------------------------
-
-let NERDTreeShowHidden = 1
-nmap <silent> <C-e>      :NERDTreeToggle<CR>
-vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-omap <silent> <C-e>      :NERDTreeToggle<CR>
-imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
-" ファイル指定で開かれた場合はNERDTreeは表示しない
-if !argc()
-    autocmd vimenter * NERDTree|normal gg3j
-endif
 " --------------------------------
 " neocomplete.vim
 " --------------------------------
