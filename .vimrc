@@ -22,7 +22,9 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
-NeoBundle 'tpope/vim-dispatch'
+
+" cs
+NeoBundleLazy 'tpope/vim-dispatch', { 'autoload' : { 'filetypes' : ['cs'] } }
 NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \   'autoload': { 'filetypes': [ 'cs' ] },
             \   'build': {
@@ -31,15 +33,16 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \     'unix': 'xbuild server/OmniSharp.sln',
             \   }
             \ }
-NeoBundle 'git@github.com:Rip-Rip/clang_complete.git'
-NeoBundle 'hanana0501/clang_complete-getopts-cocos2dx'
+"これも効いてないくさい
+NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
+
+" cocos2dx
+NeoBundleLazy 'git@github.com:Rip-Rip/clang_complete.git', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
+NeoBundleLazy 'hanana0501/clang_complete-getopts-cocos2dx', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
+NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 
 " csharpで効いてないくさい
 NeoBundle 'scrooloose/syntastic'
-
-"csharpのsyntax highlight
-"これも効いてないくさい
-NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
@@ -57,8 +60,7 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 NeoBundle 'elzr/vim-json'
-NeoBundle 'kannokanno/previm'
-"NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
 NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
