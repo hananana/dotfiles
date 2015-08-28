@@ -47,6 +47,18 @@ $git clone https://github.com/zsh-users/antigen
 $source ~/.zshrc
 ```
 
+- evervim
+
+```sh
+$git clone git://github.com/waylan/Python-Markdown.git python-markdown
+$cd python-markdown
+$sudo python setup.py install
+$cd
+$rm -rf python-markdown
+```
+
+あとはvimたちあげて:EverVimSetup
+
 ## MEMO
 
 - C#を読む時はprojectのslnを設定するんだぜ！
