@@ -1,0 +1,9 @@
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+nmap <C-j> <esc>
+vmap <C-j> <esc>
+imap <C-j> <esc>
+omap <C-j> <esc>
