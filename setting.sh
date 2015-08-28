@@ -13,6 +13,12 @@ if [ -e ~/.vimrc ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.vimrc ~/.vimrc
 
+# xvimrc
+if [ -e ~/.xvimrc ]; then
+    rm -f ~/.xvimrc
+fi
+ln -s ~/$DOTFILES_DIR/.xvimrc ~/.xvimrc
+
 # vim directory
 if [ -d ~/.vim ]; then
     rm -rf ~/.vim
