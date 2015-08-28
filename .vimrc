@@ -232,6 +232,9 @@ let g:unite_source_rec_async_command="find . -iname '*.meta' -prune -o -type f -
 " nerdtree
 " --------------------------------
 
+"デフォで隠しファイルを表示する
+let NERDTreeShowHidden = 1
+
 nmap <silent> <C-e>      :NERDTreeToggle<CR>
 vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 omap <silent> <C-e>      :NERDTreeToggle<CR>
