@@ -18,6 +18,7 @@ NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'marcus/rsense'
@@ -167,11 +168,7 @@ nnoremap sv :<C-u>vs<CR>
 nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
-" -------------------------------
-" Rsense
-" -------------------------------
-let g:rsenseUseOmniFunc = 1
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+
 
 " -------------------------------
 " syntax
@@ -229,6 +226,17 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 let g:unite_source_rec_async_command="find . -iname '*.meta' -prune -o -type f -print"
+
+
+" --------------------------------
+" nerdtree
+" --------------------------------
+
+nmap <silent> <C-e>      :NERDTreeToggle<CR>
+vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+omap <silent> <C-e>      :NERDTreeToggle<CR>
+imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 
 " --------------------------------
 " neocomplete.vim
@@ -309,13 +317,6 @@ let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
 noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
 noremap <C-O><C-R> :OmniSharpRename<CR>
-" --------------------------------
-" rubocop
-" --------------------------------
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 
 " --------------------------------
 " clang_complete
@@ -382,6 +383,20 @@ endif
 "            \ 'exec': ['%c %o %s -out:%s:p:r.exe', 'mono %s:p:r.exe %a', 'rm -f %s:p:r.exe'],
 "            \ 'tempfile': '%{tempname()}.cs',
 "            \}
+
+" -------------------------------
+" Rsense
+" -------------------------------
+let g:rsenseUseOmniFunc = 1
+let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+
+" --------------------------------
+" rubocop
+" --------------------------------
+" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
+" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " --------------------------------
 " vim-json
