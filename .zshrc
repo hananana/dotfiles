@@ -153,25 +153,6 @@ setopt nonomatch
 # -------------------------------------
 # peco
 # -------------------------------------
-#ディレクトリ移動
-function pcd {
-#   local dir="$( find . -maxdepth 1 -type d | sed -e 's;\./;;' | peco )"
-#	local dir="$(ls -a | sed -e 's;\./;;' | peco)"
-	local dir="$(ls -a | peco)"
-    if [ ! -z "$dir" ] ; then
-        cd "$dir"
-    fi
-}
-
-#開く
-function pop {
-#    local dir="$( find . -maxdepth 1 -type d | sed -e 's;\./;;' | peco )"
-#	local dir="$(ls -a | sed -e 's;\./;;' | peco)"
-	local dir="$(ls -a | peco)"
-#    if [ ! -z "$dir" ] ; then
-        open "$dir"
-#   fi
-}
 
 function peco-select-path {
 	local filepath="$(ls -a | peco)"
@@ -290,18 +271,6 @@ export PATH=/User/Hanazawa/.rbenv/shims:/usr/local/bin:bin:/sbin:/usr/bin:/usr/s
 
 eval "$(rbenv init -)"
 
-
-# -------------------------------------
-# vimのhelpが表示されないエラーに対応
-# MixEncordingうんぬんのエラーがでたら使ってね！
-# -------------------------------------
-
-function fix_vim_help(){
-for F in ~/.vim/bundle/.neobundle/doc/*.ja.txt; do
-    mv $F $F:r:r.jax
-done
-}
-
 # -------------------------------------
 # antigen
 # -------------------------------------
@@ -313,3 +282,4 @@ antigen-bundle mollifier/cd-bookmark
 fpath=($HOME/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 alias cdb='cd-bookmark'
+
