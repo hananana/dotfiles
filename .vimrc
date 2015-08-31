@@ -321,7 +321,7 @@ let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
 noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
 noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
-noremap <C-O><C-R> :OmniSharpRename<CR>
+noremap <C-O><C-R> :OmniSharpRunTests<CR>
 
 " --------------------------------
 " clang_complete
@@ -331,7 +331,7 @@ let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
 
 " neocompleteとclang_completeの共存設定
 if !exists('g:neocomplete#force_omni_input_patterns')
-let g:neocomplete#force_omni_input_patterns = {}
+    let g:neocomplete#force_omni_input_patterns = {}
         endif
         let g:neocomplete#force_omni_input_patterns.c =
                     \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
@@ -344,7 +344,10 @@ let g:neocomplete#force_omni_input_patterns = {}
         let g:clang_complete_auto = 0
         let g:clang_auto_select = 0
         let g:clang_default_keymappings = 0
-        "let g:clang_use_library = 1
+
+" cocosをrunするぜ
+
+
 " --------------------------------
 " syntastic
 " --------------------------------
