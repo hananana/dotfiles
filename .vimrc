@@ -345,9 +345,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
         let g:clang_auto_select = 0
         let g:clang_default_keymappings = 0
 
-" cocosをrunするぜ
-
-
 " --------------------------------
 " syntastic
 " --------------------------------
@@ -358,6 +355,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
+" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cpp', 'cs', 'objc', 'objcpp'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " --------------------------------
 " neosnippet
@@ -397,14 +399,6 @@ endif
 " -------------------------------
 let g:rsenseUseOmniFunc = 1
 let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-
-" --------------------------------
-" rubocop
-" --------------------------------
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 
 " --------------------------------
 " vim-json
