@@ -355,7 +355,9 @@ let g:syntastic_check_on_wq = 0
 
 " syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
 " active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cpp', 'cs', 'objc', 'objcpp'] }
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cpp', 'cs', 'objc', 'objcpp'] }
+" 設定が不完全なのでいったんcocos系をはじく
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cs'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
 " --------------------------------
