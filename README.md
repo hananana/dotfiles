@@ -47,18 +47,6 @@ $git clone https://github.com/zsh-users/antigen
 $source ~/.zshrc
 ```
 
-- evervim
-
-```sh
-$git clone git://github.com/waylan/Python-Markdown.git python-markdown
-$cd python-markdown
-$sudo python setup.py install
-$cd
-$rm -rf python-markdown
-```
-
-あとはvimたちあげて:EverVimSetup
-
 - geeknote
 
 ```sh
@@ -67,7 +55,8 @@ $mkdir utils
 $cd utils
 $git clone git://github.com/VitaliyRodnenko/geeknote.git
 $cd geeknote
-$python geeknote.py
+$sudo python setup.py install
+
 ```
 
 ## MEMO
