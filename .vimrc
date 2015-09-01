@@ -14,6 +14,7 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
@@ -168,6 +169,11 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
 
+" -------------------------------
+" easy-motion
+" -------------------------------
+let g:EasyMotion_do_mapping = 0
+nmap e <Plug>(easymotion-s2)
 
 " -------------------------------
 " syntax
