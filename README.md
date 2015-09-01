@@ -59,6 +59,17 @@ $rm -rf python-markdown
 
 あとはvimたちあげて:EverVimSetup
 
+- geeknote
+
+```sh
+$cd
+$mkdir utils
+$cd utils
+$git clone git://github.com/VitaliyRodnenko/geeknote.git
+$cd geeknote
+$python geeknote.py
+```
+
 ## MEMO
 
 - C#を読む時はprojectのslnを設定するんだぜ！

@@ -62,9 +62,6 @@ NeoBundle 'Shougo/vimproc.vim', {
             \ }
 NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-NeoBundle 'kakkyz81/evervim'
-let g:evervim_devtoken='S=s415:U=44604ee:E=156cb14ad30:C=14f736380a8:P=1cd:A=en-devtoken:V=2:H=e40006d18e612c9734285d13adb4db3a'
-NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 
@@ -375,25 +372,6 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
-" --------------------------------
-" quickrun
-" 動かせてない。。。
-" --------------------------------
-"let g:quickrun_config = {}
-"let g:quickrun_config.cs  = {
-"    \ 'command'              : 'mcs',
-"    \ 'exec'                 : ['%c %o %s:p > /dev/null', 'mono %s:p:r.exe', 'rm %s:p:r.exe'],
-"    \ 'cmdopt'               : '-warn:4',
-"    \ 'quickfix/errorformat' : '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m',
-"    \ }
-
-
-"let g:quickrun_config.cs = {
-"            \ 'command': 'dmcs',
-"            \ 'exec': ['%c %o %s -out:%s:p:r.exe', 'mono %s:p:r.exe %a', 'rm -f %s:p:r.exe'],
-"            \ 'tempfile': '%{tempname()}.cs',
-"            \}
-
 " -------------------------------
 " Rsense
 " -------------------------------
@@ -414,5 +392,4 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-
 

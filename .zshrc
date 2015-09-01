@@ -283,3 +283,9 @@ fpath=($HOME/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 alias cdb='cd-bookmark'
 
+# -------------------------------------
+# geeknote
+# -------------------------------------
+
+alias gn="python ~/utils/geeknote/build/lib/geeknote/geeknote.py"
+

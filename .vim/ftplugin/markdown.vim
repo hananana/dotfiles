@@ -4,8 +4,6 @@ setlocal foldmethod=indent
 
 nnoremap <buffer> <Leader><Leader> :call ToggleCheckbox()<CR>
 vnoremap <buffer> <Leader><Leader> :call ToggleCheckbox()<CR>
-
-
     
 function! ToggleCheckbox()
     let l:line = getline('.')
