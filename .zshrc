@@ -288,4 +288,5 @@ alias cdb='cd-bookmark'
 # -------------------------------------
 
 alias gn="python ~/utils/geeknote/build/lib/geeknote/geeknote.py"
-
+alias -g nl="notebook-list"
+alias -g tl="find --notebooks"
