@@ -42,6 +42,7 @@ NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 
 NeoBundleLazy 'git@github.com:Rip-Rip/clang_complete.git', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'hanana0501/clang_complete-getopts-cocos2dx', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
+NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
 " csharpで効いてないくさい
 NeoBundle 'scrooloose/syntastic'
@@ -347,6 +348,11 @@ if !exists('g:neocomplete#force_omni_input_patterns')
         let g:clang_complete_auto = 0
         let g:clang_auto_select = 0
         let g:clang_default_keymappings = 0
+
+" --------------------------------
+" vim-altr
+" --------------------------------
+nmap <space><space> <Plug>(altr-forward)
 
 " --------------------------------
 " syntastic
