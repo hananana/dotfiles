@@ -1,6 +1,12 @@
 #/bin/sh
 DOTFILES_DIR=".dotfiles/dotfiles"
 
+# gitconfig
+if [ -e ~/.gitconfig ]; then
+    rm -f ~/.gitconfig
+fi
+ln -s ~/$DOTFILES_DIR/.gitconfig ~/.gitconfig
+
 # zshrc
 if [ -e ~/.zshrc ]; then
     rm -f ~/.zshrc
