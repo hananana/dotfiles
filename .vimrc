@@ -19,6 +19,7 @@ NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
@@ -217,6 +218,8 @@ noremap <C-U><C-R> :Unite -buffer-name=register register<CR>
 noremap <C-U><C-G> :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
 nnoremap <C-U><C-A> :UniteResume search-buffer<CR>
+" outline表示
+nnoremap <C-U><C-O> :Unite outline<CR>
 
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
