@@ -77,6 +77,9 @@ filetype plugin indent on
 " --------------------------------
 " 基本設定
 " --------------------------------
+" leaderをspaceにする
+let mapleader = "\<Space>"
+
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
 
@@ -193,6 +196,7 @@ let g:airline#extension#tabline#enabled = 1
 
 " -----------------------------------------------------------------------------
 " unite.vim
+" <C-l>でキャッシュを更新しようぜ！
 " -----------------------------------------------------------------------------
 "insert modeで開始
 let g:unite_enable_start_insert = 1
@@ -203,36 +207,20 @@ call unite#custom#profile('default', 'context',{
         \ 'smartcase' : 1,
         \})
 
-" ファイルをよしなに検索
-let g:unite_source_history_yank_enable = 1
-
-nnoremap <C-U><C-F> :Unite -start-insert file_rec/async<CR>
+"ファイル検索
+nnoremap <Leader>uf :Unite file_rec/async<CR>
 " バッファ一覧表示
-noremap <C-U><C-B> :Unite buffer<CR>
-" 最近使ったファイルの一覧
-noremap <C-U><C-R> :Unite file_mru<CR>
+noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
-noremap <C-U><C-Y> :Unite -buffer-name=register register<CR>
+noremap <Leader>ur :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <C-U><C-G> :Unite grep:. -buffer-name=search-buffer<CR>
-" カーソル位置の単語をgrep検索
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-    let g:unite_source_rec_async_command='ag --ncolor --nogroup -g ""'
-"    let g:unite_source_grep_command = 'ag'
-"    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-"    let g:unite_source_grep_recursive_opt = ''
-endif
+nnoremap <Leader>ua  :UniteResume search-buffer<CR>
 
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-
-let g:unite_source_rec_async_command="find . -iname '*.meta' -prune -o -type f -print"
-
 
 " --------------------------------
 " nerdtree
