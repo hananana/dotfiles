@@ -208,15 +208,15 @@ call unite#custom#profile('default', 'context',{
         \})
 
 "ファイル検索
-nnoremap <Leader>uf :Unite file_rec/async<CR>
+nnoremap <C-U><C-F> :Unite file_rec/async<CR>
 " バッファ一覧表示
-noremap <Leader>ub :Unite buffer<CR>
+noremap <C-U><C-B> :Unite buffer<CR>
 " レジスタ一覧
-noremap <Leader>ur :Unite -buffer-name=register register<CR>
+noremap <C-U><C-R> :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
+noremap <C-U><C-G> :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
-nnoremap <Leader>ua  :UniteResume search-buffer<CR>
+nnoremap <C-U><C-A> :UniteResume search-buffer<CR>
 
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
