@@ -173,6 +173,7 @@ nnoremap sv :<C-u>vs<CR>
 nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
+nnoremap sc :<C-u>tabclose<CR>
 
 " -------------------------------
 " easy-motion
