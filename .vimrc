@@ -14,6 +14,7 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'https://github.com/mhinz/vim-startify'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
@@ -182,6 +183,16 @@ let g:EasyMotion_do_mapping = 0
 nmap e <Plug>(easymotion-s2)
 
 " -------------------------------
+" startify
+" -------------------------------
+let g:startify_custom_header = 
+    \ map(split(system('date'), '\n'), '"  ".v:val')+['','']
+let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
+let g:startify_bookmarks = [
+  \ '~/.vimrc',
+  \ '~/.zshrc'
+  \]
+" -------------------------------
 " syntax
 " -------------------------------
 syntax on
@@ -242,7 +253,6 @@ cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " --------------------------------
 " neocomplete.vim
 " --------------------------------
-" Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
