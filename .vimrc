@@ -253,78 +253,63 @@ cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " --------------------------------
 " neocomplete.vim
 " --------------------------------
-let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
+" 補完候補が出たら１つめ選択
+let g:neocomplete#enable_auto_select = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " 大文字小文字無視
 let g:neocomplete#enable_ignore_case = 1
 " Use Underbar Completion
 let g:neocomplete#enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" 一文字目から全力で補完します
+let g:neocomplete#auto_completion_start_length = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 " Use Vimproc
 let g:neocomplete#use_vimproc = 1
 " Lock Buffer Name Pattern
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Enable Prefetch
-let g:neocomplete#enable_prefetch = 1
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist'
-      \ }
-
-" Define keyword.
+" バッファからは補完しない
+call neocomplete#custom#source('buffer', 'disabled', 1)
+" よくわからんが公式推奨設定
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-l> neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ?  neocomplete#close_popup() : "\<CR>"
+    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplete#close_popup()
-inoremap <expr><C-e> neocomplete#cancel_popup()
-" ctrl+spaceで手動補完
-inoremap <expr><nul> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
+
+" For smart TAB completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 " Enable omni completion.
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
 
 " --------------------------------
 " OmniSharp
 " --------------------------------
-
-autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
-
 noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
 noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
 noremap <C-O><C-R> :OmniSharpRunTests<CR>
