@@ -244,8 +244,6 @@ cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " --------------------------------
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
-" 補完候補が出たら１つめ選択
-let g:neocomplete#enable_auto_select = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " 大文字小文字無視
@@ -299,6 +297,7 @@ let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+
 " --------------------------------
 " OmniSharp
 " --------------------------------
