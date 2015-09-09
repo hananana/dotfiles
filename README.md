@@ -32,13 +32,6 @@ $ cd .vim/bundle/vimproc
 $ make
 ```
 
-- GLFWをいれましょう
-
-```sh
-$ brew tap homebrew/versions
-$ brew install —build-bottle —static glfw3
-```
-
 - antigenからzshのpluginを導入
 
 ```sh
@@ -63,10 +56,4 @@ $sudo python setup.py install
 
 - C#を読む時はprojectのslnを設定するんだぜ！
 - cocos2d-xやiOSのコーディングの際にはSDKのverとpathを確認すること
-- vimのpluginのヘルプがmix encordingうんたらでエラーを吐いたら
-
-```sh
-fix_vim_help 
-```
-
 
