@@ -36,7 +36,6 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
             \     'unix': 'xbuild server/OmniSharp.sln',
             \   }
             \ }
-"これも効いてないくさい
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 " cocos2dx
@@ -45,9 +44,7 @@ NeoBundleLazy 'hanana0501/clang_complete-getopts-cocos2dx', { 'autoload' : { 'fi
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
-" csharpで効いてないくさい
 NeoBundle 'scrooloose/syntastic'
-
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
 NeoBundle 'thinca/vim-ref'
