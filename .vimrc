@@ -14,7 +14,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'https://github.com/mhinz/vim-startify'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
@@ -183,16 +182,6 @@ let g:EasyMotion_do_mapping = 0
 nmap e <Plug>(easymotion-s2)
 
 " -------------------------------
-" startify
-" -------------------------------
-let g:startify_custom_header = 
-    \ map(split(system('date'), '\n'), '"  ".v:val')+['','']
-let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
-let g:startify_bookmarks = [
-  \ '~/.vimrc',
-  \ '~/.zshrc'
-  \]
-" -------------------------------
 " syntax
 " -------------------------------
 syntax on
@@ -306,7 +295,10 @@ endif
 
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
+let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
 " --------------------------------
 " OmniSharp
 " --------------------------------
@@ -321,20 +313,9 @@ let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/
 let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
 
 " neocompleteとclang_completeの共存設定
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-        endif
-        let g:neocomplete#force_omni_input_patterns.c =
-                    \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-        let g:neocomplete#force_omni_input_patterns.cpp =
-                    \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-        let g:neocomplete#force_omni_input_patterns.objc =
-                    \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-        let g:neocomplete#force_omni_input_patterns.objcpp =
-                    \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-        let g:clang_complete_auto = 0
-        let g:clang_auto_select = 0
-        let g:clang_default_keymappings = 0
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_default_keymappings = 0
 
 " --------------------------------
 " vim-altr
