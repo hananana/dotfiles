@@ -121,6 +121,12 @@ bindkey "^R" history-incremental-search-backward
 # cdしたあとで、自動的に ls する
 function chpwd() { ls -1 }
 
+# iTerm2のタブ名を変更する
+function title {
+   echo -ne "\033]0;"$*"\007"
+}
+
+
 # -------------------------------------
 # ヒストリー
 # -------------------------------------
