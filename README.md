@@ -51,6 +51,15 @@ $cd geeknote
 $sudo python setup.py install
 
 ```
+- YouCompleteMe
+
+```sh
+#brew経由でpythonいれてると失敗するのでリンクを消す
+$brew unlink python
+$cd .dotfiles/dotfiles/.vim/bundle/YouCompleteMe
+$git submodule update --init --recursive
+$./install.py --clang-completer
+```
 
 ## MEMO
 
