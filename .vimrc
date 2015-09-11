@@ -69,7 +69,22 @@ NeoBundleCheck
 " --------------------------------
 " plugin on!!!!!!!!!!!!!!!
 " --------------------------------
+
 filetype plugin indent on
+
+" --------------------------------
+"  completer切り替え
+" --------------------------------
+function! s:switchCompleter()
+    echo 'start'
+    if(&ft=='cpp' || &ft=='objc' || &ft=='objcpp')
+       :NeoBundleDisable neocomplete.vim 
+    else
+       :NeoBundleDisable YouCompleteMe 
+    endif
+endfunction
+
+au FileType * :call s:switchCompleter()
 
 " --------------------------------
 " 基本設定
@@ -247,8 +262,8 @@ let g:neocomplete#enable_ignore_case = 1
 " Use Underbar Completion
 let g:neocomplete#enable_underbar_completion = 1
 " 一文字目から全力で補完します
-let g:neocomplete#auto_completion_start_length = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#auto_completion_start_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 " Use Vimproc
 let g:neocomplete#use_vimproc = 1
 " Lock Buffer Name Pattern
