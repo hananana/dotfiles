@@ -76,7 +76,6 @@ filetype plugin indent on
 "  completer切り替え
 " --------------------------------
 function! s:switchCompleter()
-    echo 'start'
     if(&ft=='cpp' || &ft=='objc' || &ft=='objcpp')
        :NeoBundleDisable neocomplete.vim 
     else
@@ -84,7 +83,7 @@ function! s:switchCompleter()
     endif
 endfunction
 
-au FileType * :call s:switchCompleter()
+"au FileType * :call s:switchCompleter()
 
 " --------------------------------
 " 基本設定
@@ -261,9 +260,9 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_ignore_case = 1
 " Use Underbar Completion
 let g:neocomplete#enable_underbar_completion = 1
-" 一文字目から全力で補完します
-let g:neocomplete#auto_completion_start_length = 3
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" 1文字目から全力で補完します
+let g:neocomplete#auto_completion_start_length = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 " Use Vimproc
 let g:neocomplete#use_vimproc = 1
 " Lock Buffer Name Pattern
@@ -312,9 +311,14 @@ let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\
 " --------------------------------
 " OmniSharp
 " --------------------------------
-noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
-noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
-noremap <C-O><C-R> :OmniSharpRunTests<CR>
+au FileType cs noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
+au FileType cs noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
+
+" --------------------------------
+" YouCompleteMe
+" --------------------------------
+au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
+au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
 
 " --------------------------------
 " vim-altr

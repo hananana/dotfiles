@@ -63,6 +63,7 @@ $./install.py --clang-completer
 
 ## MEMO
 
-- C#を読む時はprojectのslnを設定するんだぜ！
-- cocos2d-xやiOSのコーディングの際にはSDKのverとpathを確認すること
+- しょうがないのでunity or cocosでNeoBundleDisableで切り替える（あとで自動化する
+- C#の時はprojectのslnを設定するんだぜ！
+- cocosの時は.ycm_extra_conf.pyをフォルダトップにコピーすること
 
