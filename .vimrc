@@ -22,9 +22,10 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neocomplete.vim'
 "NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'https://github.com/Valloric/YouCompleteMe'
 
 " cs
 NeoBundleLazy 'tpope/vim-dispatch', { 'autoload' : { 'filetypes' : ['cs'] } }
@@ -39,8 +40,6 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 " cocos2dx
-NeoBundleLazy 'git@github.com:Rip-Rip/clang_complete.git', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
-NeoBundleLazy 'hanana0501/clang_complete-getopts-cocos2dx', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
@@ -255,7 +254,7 @@ let g:neocomplete#use_vimproc = 1
 " Lock Buffer Name Pattern
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " バッファからは補完しない
-call neocomplete#custom#source('buffer', 'disabled', 1)
+"call neocomplete#custom#source('buffer', 'disabled', 1)
 " よくわからんが公式推奨設定
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
@@ -301,17 +300,6 @@ let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\
 noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
 noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
 noremap <C-O><C-R> :OmniSharpRunTests<CR>
-
-" --------------------------------
-" clang_complete
-" --------------------------------
-let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
-let g:clang_auto_user_options = 'path, .clang_complete, cocos2dx'
-
-" neocompleteとclang_completeの共存設定
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_default_keymappings = 0
 
 " --------------------------------
 " vim-altr
