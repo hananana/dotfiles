@@ -1,5 +1,8 @@
 filetype plugin indent off
 
+"vi互換をオフする
+set nocompatible
+
 " -------------------------------
 " NeoBundle
 " -------------------------------
@@ -91,7 +94,9 @@ endfunction
 " leaderをspaceにする
 let mapleader = "\<Space>"
 
-set updatetime=200
+" コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
+" ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
+au FileType * setlocal formatoptions=cq
 
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
@@ -102,7 +107,7 @@ set helplang=ja,en
 " airlineを常時表示するよ
 set laststatus=2
 
-"キーの李マップ
+"キーのリマップ
 nnoremap [ %
 
 " 日本語のずれをなくす
@@ -142,8 +147,6 @@ set wildmode=list:longest
 "クリップボードをWindowsと連携する
 set clipboard=unnamed
 
-"vi互換をオフする
-set nocompatible
  
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
@@ -170,13 +173,6 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
-
-" 括弧を補完
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
 
 " タブとウィンドウ分割"
 nnoremap s <Nop>
