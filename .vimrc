@@ -91,6 +91,8 @@ endfunction
 " leaderをspaceにする
 let mapleader = "\<Space>"
 
+set updatetime=200
+
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
 
@@ -170,7 +172,11 @@ noremap <C-j> <esc>
 noremap! <C-j> <esc>
 
 " 括弧を補完
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 
 " タブとウィンドウ分割"
 nnoremap s <Nop>
@@ -319,6 +325,7 @@ au FileType cs noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
 " --------------------------------
 au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
 au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
+let g:ycm_allow_changing_updatetime = 0
 
 " --------------------------------
 " vim-altr
