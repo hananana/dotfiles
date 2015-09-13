@@ -65,6 +65,26 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
 
+NeoBundleLazy 'supermomonga/jazzradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
+if neobundle#tap('jazzradio.vim')
+    call neobundle#config({
+                \ 'autoload' : {
+                \ 'unite_sources' : [
+                \ 'jazzradio' 
+                \ ], 
+                \ 'commands' : [ 
+                \ 'JazzradioUpdateChannels', 
+                \ 'JazzradioStop', 
+                \ { 
+                \ 'name' : 'JazzradioPlay', 
+                \ 'complete' : 'customlist,jazzradio#channel_id_complete' 
+                \ } 
+                \ ], 
+                \ 'function_prefix' : 'jazzradio' 
+                \ } 
+                \ }) 
+endif
+
 call neobundle#end()
 
 NeoBundleCheck
