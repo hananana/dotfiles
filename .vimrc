@@ -64,8 +64,8 @@ NeoBundle 'Shougo/vimproc.vim', {
             \ }
 NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-
-NeoBundleLazy 'supermomonga/jazzradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
+"NeoBundleLazy 'supermomonga/jazzradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
+NeoBundle 'hanana0501/rockradio.vim'
 if neobundle#tap('jazzradio.vim')
     call neobundle#config({
                 \ 'autoload' : {
