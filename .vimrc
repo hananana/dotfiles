@@ -1,8 +1,5 @@
 filetype plugin indent off
 
-"vi互換をオフする
-set nocompatible
-
 " -------------------------------
 " NeoBundle
 " -------------------------------
@@ -10,25 +7,32 @@ if has('vim_starting')
   if &compatible
     set nocompatible
   endif
-
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle'))
 
+"必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neomru.vim'
-"NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'https://github.com/Valloric/YouCompleteMe'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \    },
+            \ }
+
 
 " cs
 NeoBundleLazy 'tpope/vim-dispatch', { 'autoload' : { 'filetypes' : ['cs'] } }
@@ -43,45 +47,38 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 " cocos2dx
+NeoBundle 'https://github.com/Valloric/YouCompleteMe'
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'hanana0501/neosnippet-snippets'
+" ruby
+"NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build' : {
-            \     'windows' : 'tools\\update-dll-mingw',
-            \     'cygwin' : 'make -f make_cygwin.mak',
-            \     'mac' : 'make -f make_mac.mak',
-            \     'unix' : 'make -f make_unix.mak',
-            \    },
-            \ }
+
+" zatus
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'hanana0501/neosnippet-snippets'
 NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-"NeoBundleLazy 'supermomonga/jazzradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
 NeoBundle 'hanana0501/rockradio.vim'
 if neobundle#tap('jazzradio.vim')
     call neobundle#config({
                 \ 'autoload' : {
-                \ 'unite_sources' : [
-                \ 'jazzradio' 
-                \ ], 
-                \ 'commands' : [ 
-                \ 'JazzradioUpdateChannels', 
-                \ 'JazzradioStop', 
-                \ { 
-                \ 'name' : 'JazzradioPlay', 
-                \ 'complete' : 'customlist,jazzradio#channel_id_complete' 
-                \ } 
-                \ ], 
-                \ 'function_prefix' : 'jazzradio' 
-                \ } 
+                \   'unite_sources' : [ 'jazzradio' ], 
+                \   'commands' : [ 
+                \       'JazzradioUpdateChannels', 
+                \       'JazzradioStop', 
+                \       { 
+                \           'name' : 'JazzradioPlay', 
+                \           'complete' : 'customlist,jazzradio#channel_id_complete' 
+                \       } 
+                \   ], 
+                \   'function_prefix' : 'jazzradio' 
+                \  } 
                 \ }) 
 endif
 
@@ -371,6 +368,12 @@ let g:syntastic_check_on_wq = 0
 " 設定が不完全なのでいったんcocos系をはじく
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cs'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+
+
+" --------------------------------
+" vim-easy-align
+" --------------------------------
+vmap <Enter> <Plug>(EasyAlign)
 
 " --------------------------------
 " neosnippet
