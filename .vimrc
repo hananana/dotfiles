@@ -14,6 +14,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
