@@ -34,7 +34,6 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 
-
 " cs
 NeoBundleLazy 'tpope/vim-dispatch', { 'autoload' : { 'filetypes' : ['cs'] } }
 NeoBundleLazy 'OmniSharp/omnisharp-vim', {
@@ -99,12 +98,10 @@ filetype plugin indent on
 function! s:switchCompleter()
     if(&ft=='cpp' || &ft=='objc' || &ft=='objcpp')
        :NeoBundleDisable neocomplete.vim 
-    else
-       :NeoBundleDisable YouCompleteMe 
     endif
 endfunction
 
-"au FileType * :call s:switchCompleter()
+au FileType * :call s:switchCompleter()
 
 " --------------------------------
 " 基本設定
@@ -348,7 +345,7 @@ au FileType cs noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
 " --------------------------------
 au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
 au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
-let g:ycm_allow_changing_updatetime = 0
+let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1 }
 
 " --------------------------------
 " vim-altr
