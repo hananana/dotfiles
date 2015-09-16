@@ -47,7 +47,7 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 " cocos2dx
-NeoBundle 'https://github.com/Valloric/YouCompleteMe'
+NeoBundle 'git@github.com:hanana0501/clang_complete.git'
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
@@ -91,17 +91,6 @@ NeoBundleCheck
 " --------------------------------
 
 filetype plugin indent on
-
-" --------------------------------
-"  completer切り替え
-" --------------------------------
-function! s:switchCompleter()
-    if(&ft=='cpp' || &ft=='objc' || &ft=='objcpp')
-       :NeoBundleDisable neocomplete.vim 
-    endif
-endfunction
-
-au FileType * :call s:switchCompleter()
 
 " --------------------------------
 " 基本設定
@@ -293,8 +282,6 @@ let g:neocomplete#sources#syntax#min_keyword_length = 1
 let g:neocomplete#use_vimproc = 1
 " Lock Buffer Name Pattern
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" バッファからは補完しない
-"call neocomplete#custom#source('buffer', 'disabled', 1)
 " よくわからんが公式推奨設定
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
@@ -320,15 +307,15 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
@@ -341,11 +328,14 @@ au FileType cs noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
 au FileType cs noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
 
 " --------------------------------
-" YouCompleteMe
+" clangComplete
 " --------------------------------
-au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
-au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
-let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1 }
+let g:clang_library_path = '/usr/local/opt/llvm/lib/'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_default_keymappings = 0
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'clang_complete'
 
 " --------------------------------
 " vim-altr

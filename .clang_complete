@@ -1,0 +1,5 @@
+-std=c++1y
+-stdlib=libc++
+-I cocos2d/external/glfw3/include/mac
+-I cocos2d/cocos
+-I Classes
