@@ -64,7 +64,6 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
 NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-NeoBundle 'hanana0501/rockradio.vim'
 if neobundle#tap('jazzradio.vim')
     call neobundle#config({
                 \ 'autoload' : {
@@ -97,29 +96,21 @@ filetype plugin indent on
 " --------------------------------
 " leaderをspaceにする
 let mapleader = "\<Space>"
-
 " コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
 " ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
 au FileType * setlocal formatoptions=cq
-
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
-
 " ヘルプの検索順
 set helplang=ja,en
-
 " airlineを常時表示するよ
 set laststatus=2
-
 "キーのリマップ
 nnoremap [ %
-
 " 日本語のずれをなくす
 set ambiwidth=double
-
 " 想定される改行コードの指定する
 set fileformats=unix,dos,mac
-
 " インデントまわり
 set tabstop=4
 set shiftwidth=4
@@ -128,56 +119,39 @@ set softtabstop=0
 set autoindent
 set smartindent
 set cindent
-
-"新しい行を作った時に高度な自動インデントを行う
 set smarttab
-
 " ビープ音いらん
 set vb t_vb=
-
 "コマンド表示
 set showcmd
-
 "バックアップファイルをとらない
 set nobackup
 " チルダファイル作成を完全無効化
 set noundofile
 "スワップファイル用のディレクトリを指定する
 set noswapfile
-
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
- 
-"クリップボードをWindowsと連携する
+"クリップボードを連携する
 set clipboard=unnamed
-
- 
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
- 
 "インクリメンタルサーチを行う
 set incsearch
-
 " 大文字小文字を区別しないで検索する
 set ignorecase
 set smartcase
-
 "行番号を表示する
 set number
-
 " バックスペースでインデント削除
 set backspace=indent,eol,start
- 
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
-
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
-
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
-
 " タブとウィンドウ分割"
 nnoremap s <Nop>
 nnoremap sj <C-w>j
@@ -324,8 +298,8 @@ let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\
 " --------------------------------
 " OmniSharp
 " --------------------------------
-au FileType cs noremap <C-O><C-G> :OmniSharpGotoDefinition<CR>
-au FileType cs noremap <C-O><C-T> :OmniSharpTypeLookup<CR>
+au FileType cs noremap <C-G> :OmniSharpGotoDefinition<CR>
+au FileType cs noremap <C-T> :OmniSharpTypeLookup<CR>
 
 " --------------------------------
 " clangComplete
@@ -336,6 +310,10 @@ let g:clang_auto_select = 0
 let g:clang_default_keymappings = 0
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'clang_complete'
+let g:clang_close_preview = 1
+
+"直でforkしたpluginからcompletion起動を<C-O>にしている
+au FileType cpp,objc,objcpp let g:clang_jumpto_declaration_key = "<C-G>"
 
 " --------------------------------
 " vim-altr
