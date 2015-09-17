@@ -209,17 +209,17 @@ let g:unite_source_grep_default_opts =
 let g:unite_source_grep_recursive_opt = ''
 
 "ファイル検索
-nnoremap <C-U><C-F> :Unite file_rec/async<CR>
+nnoremap <Leader>uf :Unite file_rec/async<CR>
 " バッファ一覧表示
-noremap <C-U><C-B> :Unite buffer<CR>
+noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
-noremap <C-U><C-R> :Unite -buffer-name=register register<CR>
+noremap <Leader>ur :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <C-U><C-G> :Unite grep:. -buffer-name=search-buffer<CR>
+noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
-nnoremap <C-U><C-A> :UniteResume search-buffer<CR>
+nnoremap <Leader>ua :UniteResume search-buffer<CR>
 " outline表示
-nnoremap <C-U><C-O> :Unite outline<CR>
+nnoremap <Leader>uo :Unite outline<CR>
 
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
