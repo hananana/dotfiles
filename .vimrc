@@ -14,7 +14,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplete.vim'
+"NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
@@ -47,7 +47,7 @@ NeoBundleLazy 'OmniSharp/omnisharp-vim', {
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 
 " cocos2dx
-NeoBundle 'git@github.com:hanana0501/clang_complete.git'
+NeoBundle 'https://github.com/Valloric/YouCompleteMe'
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
@@ -90,7 +90,16 @@ NeoBundleCheck
 " --------------------------------
 
 filetype plugin indent on
+" --------------------------------
+"  completer切り替え
+" --------------------------------
+function! s:switchCompleter()
+    if(&ft=='cpp' || &ft=='objc' || &ft=='objcpp')
+       :NeoBundleDisable neocomplete.vim 
+    endif
+endfunction
 
+au FileType cpp,objc,objcpp :call s:switchCompleter()
 " --------------------------------
 " 基本設定
 " --------------------------------
@@ -262,19 +271,19 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-
-" For smart TAB completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ neocomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+"endfunction
+"
+"" For smart TAB completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+"            \ <SID>check_back_space() ? "\<TAB>" :
+"            \ neocomplete#start_manual_complete()
+"function! s:check_back_space() "{{{
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction"}}}
 
 " Enable omni completion.
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -302,18 +311,11 @@ au FileType cs noremap <C-G> :OmniSharpGotoDefinition<CR>
 au FileType cs noremap <C-T> :OmniSharpTypeLookup<CR>
 
 " --------------------------------
-" clangComplete
+" YouCompleteMe
 " --------------------------------
-let g:clang_library_path = '/usr/local/opt/llvm/lib/'
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_default_keymappings = 0
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'clang_complete'
-let g:clang_close_preview = 1
-
-"直でforkしたpluginからcompletion起動を<C-O>にしている
-au FileType cpp,objc,objcpp let g:clang_jumpto_declaration_key = "<C-G>"
+au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
+au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
+let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1 }
 
 " --------------------------------
 " vim-altr
