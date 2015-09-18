@@ -14,15 +14,16 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplete.vim' 
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload' : { 'filetypes' : [ 'vim', 'json' ] } } 
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimproc.vim', {
@@ -34,20 +35,9 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 
-" cs
-NeoBundleLazy 'tpope/vim-dispatch', { 'autoload' : { 'filetypes' : ['cs'] } }
-NeoBundleLazy 'OmniSharp/omnisharp-vim', {
-            \   'autoload': { 'filetypes': [ 'cs' ] },
-            \   'build': {
-            \     'windows' : 'msbuild server/OmniSharp.sln',
-            \     'mac': 'xbuild server/OmniSharp.sln',
-            \     'unix': 'xbuild server/OmniSharp.sln',
-            \   }
-            \ }
-NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
-
-" cocos2dx
+"C系補完の神
 NeoBundle 'https://github.com/Valloric/YouCompleteMe'
+NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
@@ -62,9 +52,12 @@ NeoBundle 'tpope/vim-endwise'
 " zatus
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
+
 NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-if neobundle#tap('jazzradio.vim')
+
+NeoBundleLazy 'hanana0501/rockradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
+if neobundle#tap('rockradio.vim')
     call neobundle#config({
                 \ 'autoload' : {
                 \   'unite_sources' : [ 'jazzradio' ], 
@@ -309,7 +302,7 @@ au FileType cs noremap <C-T> :OmniSharpTypeLookup<CR>
 " --------------------------------
 au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
 au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
-let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1 }
+let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
 
 " --------------------------------
 " vim-altr
@@ -329,9 +322,9 @@ let g:syntastic_check_on_wq = 0
 
 " syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
 " active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cpp', 'cs', 'objc', 'objcpp'] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cpp', 'cs', 'objc', 'objcpp'] }
 " 設定が不完全なのでいったんcocos系をはじく
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cs'] }
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cs'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
 
