@@ -16,14 +16,10 @@ $brew install the_silver_searcher
 $curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 ```
 
-- Omnisharpを設定する
+- 神の補完YouCompleteMe
 
-```sh
-$cd .vim/bundle/omnisharp-vim/
-$g submodule update --init
-$cd server
-$xbuild
-```
+でも手順が超複雑なので頑張ろう  
+https://github.com/Valloric/YouCompleteMe
 
 - vimprocをいれましょう
 
@@ -59,7 +55,5 @@ $git config --global --add core.excludesfile "$HOME/.gitignore_global"
 
 ## MEMO
 
-- しょうがないのでunity or cocosでNeoBundleDisableで切り替える（あとで自動化する
-- C#の時はprojectのslnを設定するんだぜ！
-- cocosの時は.ycm_extra_conf.pyをフォルダトップにコピーすること
+- cocosを書く時は.ycm以下略のシンボリックリンクをcocosプロジェクトのトップに作ること
 

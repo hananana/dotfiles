@@ -21,7 +21,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
-
 NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload' : { 'filetypes' : [ 'vim', 'json' ] } } 
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
@@ -50,6 +49,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-endwise'
 
 " zatus
+
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'hanana0501/neosnippet-snippets'
 
@@ -292,16 +292,10 @@ let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|-
 let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
 
 " --------------------------------
-" OmniSharp
-" --------------------------------
-au FileType cs noremap <C-G> :OmniSharpGotoDefinition<CR>
-au FileType cs noremap <C-T> :OmniSharpTypeLookup<CR>
-
-" --------------------------------
 " YouCompleteMe
 " --------------------------------
-au FileType cpp,objc,objcpp noremap <C-O><C-G> :YcmCompleter GoToDeclaration
-au FileType cpp,objc,objcpp noremap <C-O><C-T> :YcmCompleter GetType
+au FileType cpp,objc,objcpp,cs noremap <C-O><C-G> :YcmCompleter GoToDeclaration
+au FileType cpp,objc,objcpp,cs noremap <C-O><C-T> :YcmCompleter GetType
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
 
 " --------------------------------
