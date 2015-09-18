@@ -14,7 +14,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
-"NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim' 
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
@@ -90,16 +90,6 @@ NeoBundleCheck
 " --------------------------------
 
 filetype plugin indent on
-" --------------------------------
-"  completer切り替え
-" --------------------------------
-function! s:switchCompleter()
-    if(&ft=='cpp' || &ft=='objc' || &ft=='objcpp')
-       :NeoBundleDisable neocomplete.vim 
-    endif
-endfunction
-
-au FileType cpp,objc,objcpp :call s:switchCompleter()
 " --------------------------------
 " 基本設定
 " --------------------------------
@@ -271,19 +261,23 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-"endfunction
-"
-"" For smart TAB completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"            \ <SID>check_back_space() ? "\<TAB>" :
-"            \ neocomplete#start_manual_complete()
-"function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction"}}}
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    if neobundle#tap('neocomplete.vim')
+        return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    elseif
+        return "\<CR>"
+    endif
+endfunction
+
+" For smart TAB completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 " Enable omni completion.
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
