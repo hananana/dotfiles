@@ -133,6 +133,8 @@ set incsearch
 " 大文字小文字を区別しないで検索する
 set ignorecase
 set smartcase
+" escした時日本語入力をやめる
+inoremap <ESC> <ESC>:set iminsert=0<CR>
 "行番号を表示する
 set number
 " バックスペースでインデント削除
