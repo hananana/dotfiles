@@ -48,14 +48,17 @@ NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-endwise'
 
-" zatus
+" snippets 
+NeoBundle 'https://github.com/SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
 
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'hanana0501/neosnippet-snippets'
-
+" json
 NeoBundle 'elzr/vim-json'
+
+" markdown
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
 
+" zatsu
 NeoBundleLazy 'hanana0501/rockradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
 if neobundle#tap('rockradio.vim')
     call neobundle#config({
@@ -256,42 +259,42 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    if neobundle#tap('neocomplete.vim')
-        return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-    elseif
-        return "\<CR>"
-    endif
-endfunction
-
-" For smart TAB completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ neocomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-
-" Enable omni completion.
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"    if neobundle#tap('neocomplete.vim')
+"        return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+"    elseif
+"        return "\<CR>"
+"    endif
+"endfunction
+"
+"" For smart TAB completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+"            \ <SID>check_back_space() ? "\<TAB>" :
+"            \ neocomplete#start_manual_complete()
+"function! s:check_back_space() "{{{
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction"}}}
+"
+"" Enable omni completion.
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+"autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+"
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+"let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+"
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"    let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+"let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
+"let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
 
 " --------------------------------
 " YouCompleteMe
@@ -299,8 +302,20 @@ let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\
 au FileType cpp,objc,objcpp,cs noremap <C-O><C-G> :YcmCompleter GoToDeclaration
 au FileType cpp,objc,objcpp,cs noremap <C-O><C-T> :YcmCompleter GetType
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
-let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_filepath_completion_use_working_dir = 1
+
+" --------------------------------
+" ultysnips
+" --------------------------------
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " --------------------------------
 " vim-altr
