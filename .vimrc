@@ -163,10 +163,10 @@ nnoremap st :<C-u>tabnew<CR>
 nnoremap sc :<C-u>tabclose<CR>
 
 " -------------------------------
-" easy-motion
+" easymotion
 " -------------------------------
 let g:EasyMotion_do_mapping = 0
-nmap e <Plug>(easymotion-s2)
+nmap <Leader>e <Plug>(easymotion-s2)
 
 " -------------------------------
 " syntax
@@ -246,9 +246,9 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_ignore_case = 1
 " Use Underbar Completion
 let g:neocomplete#enable_underbar_completion = 1
-" 1文字目から全力で補完します
-let g:neocomplete#auto_completion_start_length = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
+" 2文字目から全力で補完します
+let g:neocomplete#auto_completion_start_length = 2
+let g:neocomplete#sources#syntax#min_keyword_length = 2
 " Use Vimproc
 let g:neocomplete#use_vimproc = 1
 " Lock Buffer Name Pattern
@@ -259,48 +259,24 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"    if neobundle#tap('neocomplete.vim')
-"        return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-"    elseif
-"        return "\<CR>"
-"    endif
-"endfunction
-"
-"" For smart TAB completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"            \ <SID>check_back_space() ? "\<TAB>" :
-"            \ neocomplete#start_manual_complete()
-"function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction"}}}
-"
-"" Enable omni completion.
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-"autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-"
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-"  let g:neocomplete#sources#omni#input_patterns = {}
-"endif
-"let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-"
-"if !exists('g:neocomplete#force_omni_input_patterns')
-"    let g:neocomplete#force_omni_input_patterns = {}
-"endif
-"let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-"let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-"let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-"let g:neocomplete#force_omni_input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-"let g:neocomplete#force_omni_input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+" Enable omni completion.
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
 " --------------------------------
 " YouCompleteMe
 " --------------------------------
-au FileType cpp,objc,objcpp,cs noremap <C-O><C-G> :YcmCompleter GoToDeclaration
-au FileType cpp,objc,objcpp,cs noremap <C-O><C-T> :YcmCompleter GetType
+au FileType cpp,objc,objcpp,cs noremap <Leader>og :YcmCompleter GoToDeclaration
+au FileType cpp,objc,objcpp,cs noremap <Leader>ot :YcmCompleter GetType
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_filepath_completion_use_working_dir = 1
