@@ -21,7 +21,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload' : { 'filetypes' : [ 'vim', 'json' ] } } 
+"NeoBundle 'Shougo/neocomplete.vim' 
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Shougo/vimproc'
