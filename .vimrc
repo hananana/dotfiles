@@ -112,7 +112,6 @@ set shiftwidth=4
 set expandtab
 set softtabstop=0
 set autoindent
-set smartindent
 set cindent
 set smarttab
 " ビープ音いらん
@@ -149,6 +148,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+
 " タブとウィンドウ分割"
 nnoremap s <Nop>
 nnoremap sj <C-w>j
@@ -161,6 +161,8 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
 nnoremap sc :<C-u>tabclose<CR>
+"簡単な保存
+nnoremap <Leader>w :w<CR>
 
 " -------------------------------
 " easymotion
