@@ -278,7 +278,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 au FileType cpp,objc,objcpp,cs noremap <Leader>og :YcmCompleter GoToDeclaration
 au FileType cpp,objc,objcpp,cs noremap <Leader>ot :YcmCompleter GetType
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 
 " --------------------------------
