@@ -21,7 +21,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
-"NeoBundle 'Shougo/neocomplete.vim' 
+NeoBundle 'Shougo/neocomplete.vim' 
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Shougo/vimproc'
@@ -41,7 +41,7 @@ NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : [
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
 " ruby
-"NeoBundle 'marcus/rsense'
+NeoBundle 'NigoroJr/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
@@ -240,8 +240,8 @@ cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " --------------------------------
 " neocomplete.vim
 " --------------------------------
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+" neocompleteは自動では始めない
+let g:neocomplete#enable_at_startup = 0
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " 大文字小文字無視
