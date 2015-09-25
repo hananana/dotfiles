@@ -24,6 +24,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplete.vim' 
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'tyru/caw.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
@@ -199,6 +200,10 @@ au FileType cpp,objc,objcpp,cs nmap <space><space> <Plug>(altr-forward)
 vmap <Enter> <Plug>(EasyAlign)
 " コメントテンプレ展開
 nnoremap <Leader>d :Dox<CR>
+"コメントアウト
+nmap <Leader>c <Plug>(caw:I:toggle)
+vmap <Leader>c <Plug>(caw:I:toggle)
+
 " -------------------------------
 " easymotion
 " -------------------------------
