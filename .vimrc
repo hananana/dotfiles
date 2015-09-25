@@ -143,12 +143,15 @@ set number
 set backspace=indent,eol,start
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
+
+" -------------------------------
+" keymap
+" -------------------------------
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
-
 " タブとウィンドウ分割"
 nnoremap s <Nop>
 nnoremap sj <C-w>j
@@ -163,12 +166,43 @@ nnoremap st :<C-u>tabnew<CR>
 nnoremap sc :<C-u>tabclose<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
-
+"easymotion
+nnoremap <Leader>e <Plug>(easymotion-s2)
+"ファイル検索
+nnoremap <Leader>uf :Unite file_rec/async<CR>
+" バッファ一覧表示
+noremap <Leader>ub :Unite buffer<CR>
+" レジスタ一覧
+noremap <Leader>ur :Unite -buffer-name=register register<CR>
+" grep検索
+noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
+" grep検索結果の再呼出
+nnoremap <Leader>ua :UniteResume search-buffer<CR>
+" outline表示
+nnoremap <Leader>uo :Unite outline<CR>
+" Cキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+"ファイルツリー表示
+nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
+vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+onoremap <silent> <C-e>      :NERDTreeToggle<CR>
+inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+"微妙。。定義ジャンプ
+au FileType cpp,objc,objcpp,cs noremap <Leader>og :YcmCompleter GoToDeclaration
+"型取得
+au FileType cpp,objc,objcpp,cs noremap <Leader>ot :YcmCompleter GetType
+" ヘッダーとの移動
+au FileType cpp,objc,objcpp,cs nmap <space><space> <Plug>(altr-forward)
+" alignそろえる 
+vmap <Enter> <Plug>(EasyAlign)
+" コメントテンプレ展開
+nnoremap <Leader>d :Dox<CR>
 " -------------------------------
 " easymotion
 " -------------------------------
 let g:EasyMotion_do_mapping = 0
-nmap <Leader>e <Plug>(easymotion-s2)
 
 " -------------------------------
 " syntax
@@ -207,35 +241,11 @@ let g:unite_source_grep_default_opts =
             \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
 
-"ファイル検索
-nnoremap <Leader>uf :Unite file_rec/async<CR>
-" バッファ一覧表示
-noremap <Leader>ub :Unite buffer<CR>
-" レジスタ一覧
-noremap <Leader>ur :Unite -buffer-name=register register<CR>
-" grep検索
-noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
-" grep検索結果の再呼出
-nnoremap <Leader>ua :UniteResume search-buffer<CR>
-" outline表示
-nnoremap <Leader>uo :Unite outline<CR>
-
-" Cキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-
 " --------------------------------
 " nerdtree
 " --------------------------------
-
 "デフォで隠しファイルを表示する
 let NERDTreeShowHidden = 1
-
-nmap <silent> <C-e>      :NERDTreeToggle<CR>
-vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-omap <silent> <C-e>      :NERDTreeToggle<CR>
-imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 
 " --------------------------------
 " neocomplete.vim
@@ -277,8 +287,6 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " --------------------------------
 " YouCompleteMe
 " --------------------------------
-au FileType cpp,objc,objcpp,cs noremap <Leader>og :YcmCompleter GoToDeclaration
-au FileType cpp,objc,objcpp,cs noremap <Leader>ot :YcmCompleter GetType
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filepath_completion_use_working_dir = 1
@@ -294,11 +302,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
-" --------------------------------
-" vim-altr
-" --------------------------------
-nmap <space><space> <Plug>(altr-forward)
 
 " --------------------------------
 " syntastic
@@ -318,32 +321,6 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cp
 "let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'cs'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
-
-" --------------------------------
-" vim-easy-align
-" --------------------------------
-vmap <Enter> <Plug>(EasyAlign)
-
-" --------------------------------
-" neosnippet
-" --------------------------------
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" For conceal markers.
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-
-
-" -------------------------------
-" DoxgenTookKit
-" -------------------------------
-nnoremap <Leader>d :Dox<CR>
-
 " -------------------------------
 " Rsense
 " -------------------------------
@@ -358,7 +335,6 @@ let g:vim_json_syntax_conceal = 0
 " --------------------------------
 " markdown
 " --------------------------------
-
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 augroup PrevimSettings
     autocmd!
