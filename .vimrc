@@ -336,6 +336,12 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
+
+" -------------------------------
+" DoxgenTookKit
+" -------------------------------
+nnoremap <Leader>d :Dox<CR>
+
 " -------------------------------
 " Rsense
 " -------------------------------
