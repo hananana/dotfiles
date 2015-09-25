@@ -195,7 +195,7 @@ au FileType cpp,objc,objcpp,cs noremap <Leader>og :YcmCompleter GoToDeclaration
 "型取得
 au FileType cpp,objc,objcpp,cs noremap <Leader>ot :YcmCompleter GetType
 " ヘッダーとの移動
-au FileType cpp,objc,objcpp,cs nmap <space><space> <Plug>(altr-forward)
+au FileType cpp,objc,objcpp,cs nmap <Leader>h <Plug>(altr-forward)
 " alignそろえる 
 vmap <Enter> <Plug>(EasyAlign)
 " コメントテンプレ展開
