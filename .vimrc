@@ -19,6 +19,7 @@ NeoBundle 'vim-scripts/molokai'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplete.vim' 
@@ -26,6 +27,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
@@ -85,7 +87,6 @@ NeoBundleCheck
 " --------------------------------
 " plugin on!!!!!!!!!!!!!!!
 " --------------------------------
-
 filetype plugin indent on
 " --------------------------------
 " 基本設定
@@ -144,6 +145,8 @@ set number
 set backspace=indent,eol,start
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
+"tagファイルの場所
+set tags=./.git/
 
 " -------------------------------
 " keymap
@@ -190,10 +193,6 @@ vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 onoremap <silent> <C-e>      :NERDTreeToggle<CR>
 inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
-"微妙。。定義ジャンプ
-au FileType cpp,objc,objcpp,cs noremap <Leader>og :YcmCompleter GoToDeclaration
-"型取得
-au FileType cpp,objc,objcpp,cs noremap <Leader>ot :YcmCompleter GetType
 " ヘッダーとの移動
 au FileType cpp,objc,objcpp,cs nmap <Leader>h <Plug>(altr-forward)
 " alignそろえる 
@@ -203,26 +202,15 @@ nnoremap <Leader>d :Dox<CR>
 "コメントアウト
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
-
-" -------------------------------
-" easymotion
-" -------------------------------
-let g:EasyMotion_do_mapping = 0
-
-" -------------------------------
-" syntax
-" -------------------------------
-syntax on
-let g:moleokai_original=1
-colorscheme molokai
-
-" -------------------------------
-" vim-airline
-" -------------------------------
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_theme = 'molokai'
-let g:airline#extension#tabline#enabled = 1
+"uniteによるタグジャンプと戻る
+autocmd BufEnter *
+            \   if empty(&buftype)
+            \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+            \|  endif
+autocmd BufEnter *
+            \   if empty(&buftype)
+            \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+            \|  endif
 
 " -----------------------------------------------------------------------------
 " unite.vim
@@ -251,6 +239,26 @@ let g:unite_source_grep_recursive_opt = ''
 " --------------------------------
 "デフォで隠しファイルを表示する
 let NERDTreeShowHidden = 1
+
+" -------------------------------
+" easymotion
+" -------------------------------
+let g:EasyMotion_do_mapping = 0
+
+" -------------------------------
+" syntax
+" -------------------------------
+syntax on
+let g:moleokai_original=1
+colorscheme molokai
+
+" -------------------------------
+" vim-airline
+" -------------------------------
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_theme = 'molokai'
+let g:airline#extension#tabline#enabled = 1
 
 " --------------------------------
 " neocomplete.vim
@@ -346,3 +354,8 @@ augroup PrevimSettings
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+" --------------------------------
+" auto-ctags
+" --------------------------------
+let g:auto_ctags = 1
+let g:auto_ctags_directory_list = ['.git', '.svn']
