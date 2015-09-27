@@ -15,7 +15,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
-"NeoBundle 'vim-scripts/molokai'
 NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
@@ -29,6 +28,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
