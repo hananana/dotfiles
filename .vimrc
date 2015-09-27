@@ -15,7 +15,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'https://github.com/easymotion/vim-easymotion'
-NeoBundle 'vim-scripts/molokai'
+"NeoBundle 'vim-scripts/molokai'
+NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
@@ -258,7 +259,7 @@ let g:EasyMotion_do_mapping = 0
 " -------------------------------
 syntax on
 let g:moleokai_original=1
-colorscheme molokai
+colorscheme mopkai
 
 " -------------------------------
 " vim-airline
