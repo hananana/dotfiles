@@ -309,8 +309,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " YouCompleteMe
 " --------------------------------
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_min_num_of_chars_for_completion = 0
 
 " --------------------------------
 " ultysnips
