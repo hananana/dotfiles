@@ -134,6 +134,8 @@ set clipboard=unnamed
 set hidden
 "インクリメンタルサーチを行う
 set incsearch
+"検索したらハイライト
+set hlsearch
 " 大文字小文字を区別しないで検索する
 set ignorecase
 set smartcase
@@ -153,6 +155,11 @@ set tags=./.git/
 " -------------------------------
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
+"検索結果を画面中央にもってくる
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
