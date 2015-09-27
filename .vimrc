@@ -205,7 +205,8 @@ au FileType cpp,objc,objcpp,cs nmap <Leader>h <Plug>(altr-forward)
 " alignそろえる 
 vmap <Enter> <Plug>(EasyAlign)
 " コメントテンプレ展開
-nnoremap <Leader>d :Dox<CR>
+au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
+
 "コメントアウト
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
