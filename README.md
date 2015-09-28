@@ -50,8 +50,14 @@ $sudo python setup.py install
 - git
 
 ```sh
+$cd
 $git config --global --add core.excludesfile "$HOME/.gitignore_global"
 ```
+
+- フォント  
+http://mix-mplus-ipa.osdn.jp/migu/  
+上記のMigu1Mを16ptがみやすいです
+
 
 ## MEMO
 
