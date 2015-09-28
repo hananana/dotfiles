@@ -180,7 +180,7 @@ nnoremap sc :<C-u>tabclose<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
 "easymotion
-nnoremap <Leader>e <Plug>(easymotion-s2)
+nmap <Leader>e <Plug>(easymotion-s2)
 "ファイル検索
 nnoremap <Leader>uf :Unite file_rec/async<CR>
 " バッファ一覧表示
