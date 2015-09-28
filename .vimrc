@@ -277,7 +277,7 @@ let g:lightline = {
 " -------------------------------
 " tagbar
 " -------------------------------
-au VimEnter * nested :TagbarOpen
+au BufRead,BufNewFile * nested :TagbarOpen
 let g:tagbar_sort = 0
 " -------------------------------
 " easymotion
