@@ -195,6 +195,8 @@ nnoremap <Leader>uo :Unite outline<CR>
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+au FileType unite nnoremap <silent> <buffer> <C-J><C-J> :q<CR>
+au FileType unite inoremap <silent> <buffer> <C-J><C-J> <ESC>:q<CR>
 "ファイルツリー表示
 nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
 vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
@@ -207,7 +209,6 @@ au FileType cpp,objc,objcpp,cs nmap <Leader>h <Plug>(altr-forward)
 vmap <Enter> <Plug>(EasyAlign)
 " コメントテンプレ展開
 au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
-
 "コメントアウト
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
@@ -220,6 +221,8 @@ autocmd BufEnter *
             \   if empty(&buftype)
             \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
             \|  endif
+" fugittiveを呼ぶ
+nnoremap <Leader>g :Git<space>
 
 " -----------------------------------------------------------------------------
 " unite.vim
