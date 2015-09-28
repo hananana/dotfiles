@@ -29,6 +29,7 @@ NeoBundle 'tyru/caw.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
@@ -223,6 +224,8 @@ autocmd BufEnter *
             \|  endif
 " fugittiveを呼ぶ
 nnoremap <Leader>g :Git<space>
+" tagbar表示
+nnoremap <Leader>l :TagbarToggle<CR>
 
 " -----------------------------------------------------------------------------
 " unite.vim
@@ -271,6 +274,11 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }
       \ }
+" -------------------------------
+" tagbar
+" -------------------------------
+au VimEnter * nested :TagbarOpen
+let g:tagbar_sort = 0
 " -------------------------------
 " easymotion
 " -------------------------------
