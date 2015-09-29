@@ -222,8 +222,10 @@ autocmd BufEnter *
             \   if empty(&buftype)
             \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
             \|  endif
-" fugittiveを呼ぶ
-nnoremap <Leader>g :Git<space>
+" fugitive
+nnoremap <Leader>gt :Git<space>
+nnoremap <Leader>gs :Gstatus<CR>
+
 " tagbar表示
 nnoremap <Leader>l :TagbarToggle<CR>
 
