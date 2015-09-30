@@ -45,7 +45,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
             \ 'build'      : {
-            \ 'mac'     : './install.py --clang-completer --system-libclang --omnisharp-completer',
+            \ 'mac'     : './install.py --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
             \ 'unix'    : './install.py --clang-completer --system-libclang --omnisharp-completer',
             \ 'windows' : './install.py --clang-completer --system-libclang --omnisharp-completer',
             \ 'cygwin'  : './install.py --clang-completer --system-libclang --omnisharp-completer'
