@@ -29,7 +29,6 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tyru/caw.vim'
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'majutsushi/tagbar'
@@ -167,7 +166,8 @@ augroup vimrc-checktime
     autocmd!
     autocmd WinEnter * checktime
 augroup END
-
+" 補完時にpreviewを出さない
+set completeopt-=preview
 " -------------------------------
 " keymap
 " -------------------------------
@@ -350,8 +350,6 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " YouCompleteMe
 " --------------------------------
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
-set completeopt-=preview
-
 " --------------------------------
 " ultysnips
 " --------------------------------
