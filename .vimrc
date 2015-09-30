@@ -3,6 +3,9 @@ filetype plugin indent off
 " -------------------------------
 " NeoBundle
 " -------------------------------
+"YCMがinstallに時間がかかるので対策
+let g:neobundle#install_process_timeout = 1500
+
 if has('vim_starting')
   if &compatible
     set nocompatible
@@ -40,7 +43,14 @@ NeoBundle 'Shougo/vimproc.vim', {
             \ }
 
 "C系補完の神
-NeoBundle 'https://github.com/Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe', {
+            \ 'build'      : {
+            \ 'mac'     : './install.py --clang-completer --system-libclang --omnisharp-completer',
+            \ 'unix'    : './install.py --clang-completer --system-libclang --omnisharp-completer',
+            \ 'windows' : './install.py --clang-completer --system-libclang --omnisharp-completer',
+            \ 'cygwin'  : './install.py --clang-completer --system-libclang --omnisharp-completer'
+            \ }
+            \ }
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
@@ -151,7 +161,6 @@ set backspace=indent,eol,start
 set showmatch
 "tagファイルの場所
 set tags=./.git/
-
 " 他のエディタなどで変更があった場合チェックする
 set autoread
 augroup vimrc-checktime
@@ -233,9 +242,6 @@ autocmd BufEnter *
 nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
 
-" tagbar表示
-nnoremap <Leader>l :TagbarToggle<CR>
-
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
@@ -283,11 +289,6 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }
       \ }
-" -------------------------------
-" tagbar
-" -------------------------------
-au BufRead,BufNewFile * nested :TagbarOpen
-let g:tagbar_sort = 0
 " -------------------------------
 " easymotion
 " -------------------------------
@@ -349,7 +350,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " YouCompleteMe
 " --------------------------------
 let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
-let g:ycm_min_num_of_chars_for_completion = 2
+set completeopt-=preview
 
 " --------------------------------
 " ultysnips
