@@ -58,6 +58,12 @@ $git config --global --add core.excludesfile "$HOME/.gitignore_global"
 http://mix-mplus-ipa.osdn.jp/migu/  
 上記のMigu1Mを16ptがみやすいです
 
+- ios-deploy
+
+```sh
+$brew install node
+$npm install -g ios-deploy
+```
 
 ## MEMO
 
