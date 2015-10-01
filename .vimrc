@@ -274,6 +274,11 @@ let g:unite_source_grep_default_opts =
 let g:unite_source_grep_recursive_opt = ''
 
 " --------------------------------
+" ctrlp
+" --------------------------------
+let g:ctrlp_show_hidden = 0
+
+" --------------------------------
 " nerdtree
 " --------------------------------
 "デフォで隠しファイルを表示する
