@@ -5,6 +5,8 @@ C#、ruby,markdownに対応済み。
 
 ## 手順
 
+たぶんneobundleの設定で自動インスコできてるけど念のため記録として残す
+
 ```sh
 $cd
 $mkdir .dotfiles
@@ -57,13 +59,6 @@ $git config --global --add core.excludesfile "$HOME/.gitignore_global"
 - フォント  
 http://mix-mplus-ipa.osdn.jp/migu/  
 上記のMigu1Mを16ptがみやすいです
-
-- ios-deploy
-
-```sh
-$brew install node
-$npm install -g ios-deploy
-```
 
 ## MEMO
 

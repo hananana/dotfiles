@@ -251,6 +251,7 @@ autocmd BufEnter *
 nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
 
+
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
