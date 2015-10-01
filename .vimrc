@@ -166,8 +166,14 @@ augroup vimrc-checktime
     autocmd!
     autocmd WinEnter * checktime
 augroup END
-" 補完時にpreviewを出さない
-set completeopt-=preview
+"プレビューウィンドウ固定
+set previewheight=125
+au BufEnter ?* call PreviewHeightWorkAround()
+func PreviewHeightWorkAround()
+    if &previewwindow
+        exec 'setlocal winheight='.&previewheight
+    endif
+endfunc
 " -------------------------------
 " keymap
 " -------------------------------
