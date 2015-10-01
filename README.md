@@ -5,7 +5,7 @@ C#、ruby,markdownに対応済み。
 
 ## 手順
 
-たぶんneobundleの設定で自動インスコできてるけど念のため記録として残す
+- vimをいれる
 
 ```sh
 $cd
@@ -16,18 +16,6 @@ $sh setting.sh
 $brew install vim --with-client-server --with-lua
 $brew install the_silver_searcher
 $curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-```
-
-- 神の補完YouCompleteMe
-
-でも手順が超複雑なので頑張ろう  
-https://github.com/Valloric/YouCompleteMe
-
-- vimprocをいれましょう
-
-```sh
-$ cd .vim/bundle/vimproc
-$ make
 ```
 
 - antigenからzshのpluginを導入
@@ -47,13 +35,6 @@ $cd utils
 $git clone git://github.com/VitaliyRodnenko/geeknote.git
 $cd geeknote
 $sudo python setup.py install
-```
-
-- git
-
-```sh
-$cd
-$git config --global --add core.excludesfile "$HOME/.gitignore_global"
 ```
 
 - フォント  

@@ -7,6 +7,13 @@ if [ -e ~/.gitconfig ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.gitconfig ~/.gitconfig
 
+# gitglobal
+if [ -e ~/.gitignore_global ]; then
+    rm -f ~/.gitignore_global
+fi
+git config --global --add core.excludesfile "$HOME/.gitignore_global"
+ln -s ~/$DOTFILES_DIR/.gitignore_global ~/.gitignore_global
+
 # zshrc
 if [ -e ~/.zshrc ]; then
     rm -f ~/.zshrc
