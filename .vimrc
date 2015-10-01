@@ -41,6 +41,9 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 
+" 会社PCが激重なのでctrlp
+NeoBundle 'ctrlpvim/ctrlp.vim'
+
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
             \ 'build'      : {
