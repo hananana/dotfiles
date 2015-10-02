@@ -207,7 +207,8 @@ nnoremap <Leader>w :w<CR>
 "easymotion
 nmap <Leader>e <Plug>(easymotion-s2)
 "ファイル検索
-nnoremap <Leader>uf :Unite file_rec/async<CR>
+"会社PCで何故か激重なのでやめとく
+"nnoremap <Leader>uf :Unite file_rec/async<CR>
 " バッファ一覧表示
 noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
@@ -277,7 +278,8 @@ let g:unite_source_grep_recursive_opt = ''
 " --------------------------------
 " ctrlp
 " --------------------------------
-let g:ctrlp_show_hidden = 0
+let g:ctrlp_map = '<Leader>uf'
+let g:ctrlp_show_hidden = 1
 
 " --------------------------------
 " nerdtree
