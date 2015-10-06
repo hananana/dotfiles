@@ -40,6 +40,7 @@ NeoBundle 'Shougo/vimproc.vim', {
             \     'unix' : 'make -f make_unix.mak',
             \    },
             \ }
+NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', { 'autoload' : { 'commands'  : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermTab', 'ConqueTermVSplit'] } }
 
 " 会社PCが激重なのでctrlp
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -251,6 +252,8 @@ autocmd BufEnter *
 " fugitive
 nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
+" Conque
+noremap <silent> <Leader>sh :ConqueTermVSplit zsh<CR>
 
 
 " -----------------------------------------------------------------------------
@@ -306,6 +309,21 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }
       \ }
+
+" -------------------------------
+" Conque
+" -------------------------------
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CWInsert = 1
+" Conque
+function! s:delete_ConqueTerm(buffer_name)
+    let term_obj = conque_term#get_instance(a:buffer_name)
+    call term_obj.close()
+endfunction
+autocmd BufWinLeave zsh\s-\s? call <SID>delete_ConqueTerm(expand('%'))
+
 " -------------------------------
 " easymotion
 " -------------------------------
