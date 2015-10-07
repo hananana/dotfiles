@@ -146,7 +146,7 @@ set noswapfile
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
 "クリップボードを連携する
-set clipboard=unnamed
+set clipboard=unnamed,autoselect
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
 "インクリメンタルサーチを行う
