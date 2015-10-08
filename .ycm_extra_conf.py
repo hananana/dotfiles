@@ -99,7 +99,17 @@ flags = [
 # Headers of your cocos2d-x project
 # run `find Classses -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
 # to obtain all the paths containing your headers
+# 
+# need to set every project
 '-I', 'Classes',
+'-I', 'Classes/Album/',
+'-I', 'Classes/Home/',
+'-I', 'Classes/Setting/',
+'-I', 'Classes/Shop/',
+'-I', 'Classes/libs/SS5Player/',
+'-I', 'Classes/mochi/',
+'-I', 'Classes/mochi/type/',
+'-I', 'Classes/utils/',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
