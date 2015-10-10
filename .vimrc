@@ -60,6 +60,10 @@ NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
+" swift
+NeoBundle 'toyamarinyon/vim-swift'
+NeoBundle 'tokorom/neocomplete-swift-dictionary'
+
 " ruby
 NeoBundle 'NigoroJr/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
