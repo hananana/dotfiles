@@ -180,6 +180,26 @@ func PreviewHeightWorkAround()
         exec 'setlocal winheight='.&previewheight
     endif
 endfunc
+
+" -------------------------------
+" neocompとYCMの切り替え処置
+" -------------------------------
+function! SwitchCompleter()
+    let l:fileTypeOfYCM = ['cpp', 'objc', 'objcpp', 'cs', 'go', 'python']
+    for type in fileTypeOfYCM
+        if &ft == type
+            :NeoCompleteDisable
+            return
+        endif
+    endfor
+    :NeoCompleteEnable
+endfunction
+
+augroup SwitchCompleterGroup
+    autocmd!
+    autocmd BufRead * :call SwitchCompleter()
+augroup END
+
 " -------------------------------
 " keymap
 " -------------------------------
@@ -386,7 +406,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " --------------------------------
 " YouCompleteMe
 " --------------------------------
-let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 }
+let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 , 'go' : 1, 'python' : 1 }
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 
