@@ -242,22 +242,22 @@ alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 # -------------------------------------
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/Users/hanazawa/Cocos2d-x/cocos2d-x/tools/cocos2d-console/bin
+export COCOS_CONSOLE_ROOT=$HOME/Cocos2d-x/cocos2d-x/tools/cocos2d-console/bin
 export PATH=$COCOS_CONSOLE_ROOT:$PATH
 
 # Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
-export COCOS_TEMPLATES_ROOT=/Users/hanazawa/Cocos2d-x/cocos2d-x/templates
+export COCOS_TEMPLATES_ROOT=$HOME/Cocos2d-x/cocos2d-x/templates
 export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 
 # Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=/Users/hanazawa/Android/android-ndk-r10c
+export NDK_ROOT=$HOME/Android/android-ndk-r10c
 export PATH=$NDK_ROOT:$PATH
 
 # Add environment variable ANT_ROOT for cocos2d-x
-export ANT_ROOT=/Users/hanazawa/Android/apache-ant-1.9.6/bin
+export ANT_ROOT=$HOME/Android/apache-ant-1.9.6/bin
 export PATH=$ANT_ROOT:$PATH
 # Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_SDK_ROOT=/Users/hanazawa/Library/Android/sdk
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$ANDROID_SDK_ROOT:$PATH
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
