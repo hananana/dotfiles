@@ -1,6 +1,6 @@
 [user]
-	name = hanazawa
-	email = tkyk.hnzw@gmail.com
+	name = tkykhnzw
+	email = hnzw.tkyk@gmail.com
 [core]
 	excludesfile = /Users/hanazawa/.gitignore_global
 	editor = /usr/local/bin/vim
