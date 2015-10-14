@@ -83,7 +83,7 @@ NeoBundle 'elzr/vim-json'
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
 
 " zatsu
-NeoBundleLazy 'hanana0501/rockradio.vim', { 'depends' : [ 'Shougo/unite.vim' ] }
+NeoBundleLazy 'git@github.com:hananana/rockradio.vim.git', { 'depends' : [ 'Shougo/unite.vim' ] }
 if neobundle#tap('rockradio.vim')
     call neobundle#config({
                 \ 'autoload' : {
