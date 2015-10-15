@@ -1,7 +1,7 @@
 # MUST
 
-* [ ] im_controlで日本語入力制御
 * [ ] ctags動いてない感？
+* [ ] ノーマルモードで日本語入力自動OFF
 
 # SHOULD
 

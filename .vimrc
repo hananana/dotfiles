@@ -168,7 +168,7 @@ set backspace=indent,eol,start
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
 "tagファイルの場所
-set tags=./.git/
+set tags=./tags
 " 他のエディタなどで変更があった場合チェックする
 set autoread
 augroup vimrc-checktime
@@ -449,4 +449,3 @@ augroup END
 " auto-ctags
 " --------------------------------
 let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git', '.svn']
