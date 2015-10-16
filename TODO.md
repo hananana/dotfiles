@@ -1,6 +1,5 @@
 # MUST
 
-* [x] ctags動いてない感？ [2015/10/15 (Thu) 13:08]
 * [ ] ノーマルモードで日本語入力自動OFF
 
 # SHOULD
@@ -28,7 +27,6 @@
 * [ ] cindentoptionでcppやcsのインデントを制御したいね。具体的にはラムダと改行時！
 * [ ] csharpのコメントpluginを書く
 * [ ] shaderでImageのoutline
-
 
 # STACK 
 

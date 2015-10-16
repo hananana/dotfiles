@@ -41,6 +41,17 @@ $sudo python setup.py install
 http://mix-mplus-ipa.osdn.jp/migu/  
 上記のMigu1Mを16ptがみやすいです
 
+- karabiner
+
+```sh
+$brew cask install karabiner
+$cd ~/Library/Application\ Support/Karabiner
+$rm private.xml
+$ln -s ~/.dotfiles/dotfiles/private.xml private.xml
+```
+
+karabinerを起動してLeave Insert Mode（以下略をONに
+
 ## MEMO
 
 - cocosを書く時は.ycm以下略のシンボリックリンクをcocosプロジェクトのトップに作ること
