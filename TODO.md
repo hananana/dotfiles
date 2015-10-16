@@ -1,6 +1,6 @@
 # MUST
 
-* [ ] ノーマルモードで日本語入力自動OFF
+* [x] ノーマルモードで日本語入力自動OFF [2015/10/16 (Fri) 18:23]
 
 # SHOULD
 
@@ -13,7 +13,6 @@
 * [ ] swiftをコマンドラインでたたく
 * [ ] c++向けのrefactoringのpluginをいれる
 * [ ] shaberu.vimをいれる
-* [ ] 海外のpluginを一通り試してみる
 * [ ] 文末改行コード削除をためしてcshartcommentをいれてみる
 
 # BOOK
