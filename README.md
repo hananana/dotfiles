@@ -44,6 +44,7 @@ http://mix-mplus-ipa.osdn.jp/migu/
 - karabiner
 
 ```sh
+$brew install caskroom/cask/brew-cask
 $brew cask install karabiner
 $cd ~/Library/Application\ Support/Karabiner
 $rm private.xml
