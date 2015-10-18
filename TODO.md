@@ -1,10 +1,11 @@
 # MUST
 
-* [x] ノーマルモードで日本語入力自動OFF [2015/10/16 (Fri) 18:23]
+* [ ] vimrcのアンチパターンチェック
+* [ ] qiita.vimをいれる
 
 # SHOULD
 
-* [ ] xctoolを試してみる
+* [ ] xctool, xcodebuild.vimを試してみる
 * [ ] projectごとに.ycmファイルが必要になるのイケテナイ。。
 * [ ] ちゃんとlazyしてvim起動高速化
 * [ ] autocommand.vimとかkeymap.vimとかいれてvimrcをすっきりさせましょう
@@ -12,8 +13,9 @@
 * [ ] wantedlyちゃんといれてみようか
 * [ ] swiftをコマンドラインでたたく
 * [ ] c++向けのrefactoringのpluginをいれる
-* [ ] shaberu.vimをいれる
 * [ ] 文末改行コード削除をためしてcshartcommentをいれてみる
+* [ ] refactoringのpluginをためす
+* [ ] templateを作って新規作成をvimからしたい
 
 # BOOK
 
@@ -29,16 +31,11 @@
 
 # STACK 
 
-* [ ] man勉強したいね
 * [ ] 家のmac miniをserver化
-* [ ] 背景に画像使いたいね
 * [ ] rockRadioのメソッド名が旧来のまんまだから直したいね
-* [ ] unite-radioいれてみたい
-* [ ] templateを作って新規作成をvimからしたい
 * [ ] http://tkengo.github.io/ をなんども読む
 * [ ] https://github.com/n-yoda/unity-vertex-effects のソースを読む
 * [ ] HUD Textの実装を読んで血肉にすべし
 * [ ] messengerの実装を読んで血肉にすべし
 * [ ] よだっち製のoutlineがunityのupdateで使えなくなったので対策
 * [ ] propertyのsnippetsをつくる
-*
