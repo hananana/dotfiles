@@ -2,6 +2,7 @@
 
 * [ ] vimrcのアンチパターンチェック
 * [ ] qiita.vimをいれる
+* [ ] swiftのindentができてない
 
 # SHOULD
 
