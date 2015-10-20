@@ -154,6 +154,7 @@ flags = [
 '-I', 'cocos2d/external',
 '-I', 'cocos2d/external/chipmunk/include/chipmunk',
 '-I', 'cocos2d/external/curl/include/ios',
+'-I', 'cocos2d/external/Box2D',
 '-I', 'cocos2d/cocos/platform/mac',
 '-I', 'cocos2d/cocos/platform/ios',
 # Headers of your cocos2d-x project
