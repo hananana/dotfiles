@@ -1,5 +1,3 @@
-set encoding=utf-8
-scriptencoding utf-8
 filetype plugin indent off
 
 " -------------------------------
@@ -118,6 +116,8 @@ let mapleader = "\<Space>"
 " コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
 " ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
 au FileType * setlocal formatoptions=cq
+" vim内部で使われる文字エンコーディングをutf-8に設定する
+set encoding=utf-8
 " ヘルプの検索順
 set helplang=ja,en
 " airlineを常時表示するよ
@@ -266,17 +266,14 @@ au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
 "uniteによるタグジャンプと戻る
-augroup TagJumpGroup
-    autocmd!
-    autocmd BufEnter *
-                \   if empty(&buftype)
-                \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-                \|  endif
-    autocmd BufEnter *
-                \   if empty(&buftype)
-                \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
-                \|  endif
-augroup END
+autocmd BufEnter *
+            \   if empty(&buftype)
+            \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+            \|  endif
+autocmd BufEnter *
+            \   if empty(&buftype)
+            \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+            \|  endif
 " fugitive
 nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
@@ -350,10 +347,7 @@ function! s:delete_ConqueTerm(buffer_name)
     let term_obj = conque_term#get_instance(a:buffer_name)
     call term_obj.close()
 endfunction
-augroup ConqueGroup
-    autocmd!
-    autocmd BufWinLeave zsh\s-\s? call <SID>delete_ConqueTerm(expand('%'))
-augroup END
+autocmd BufWinLeave zsh\s-\s? call <SID>delete_ConqueTerm(expand('%'))
 
 " -------------------------------
 " easymotion
@@ -400,10 +394,7 @@ endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Enable omni completion.
-augroup NeoCompleteGroup
-    autocmd!
-    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-augroup END
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
@@ -449,7 +440,7 @@ let g:vim_json_syntax_conceal = 0
 " markdown
 " --------------------------------
 let g:previm_open_cmd = 'open -a Google\ Chrome'
-augroup PrevimGroup
+augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
