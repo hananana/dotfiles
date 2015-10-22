@@ -169,6 +169,12 @@ set backspace=indent,eol,start
 set showmatch
 "tagファイルの場所
 set tags=./tags
+" マクロ実行中は再描画しない
+set lazyredraw
+" くそ長い行を値までで略しちゃう
+set synmaxcol=300
+" よくわからんけど早い設定
+set ttyfast
 " 他のエディタなどで変更があった場合チェックする
 set autoread
 augroup vimrc-checktime
