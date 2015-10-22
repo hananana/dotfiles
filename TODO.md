@@ -1,11 +1,16 @@
+# GOAL
+
+* [ ] openGLの英語の原初読もうか
+* [ ] travis,jenkins,circleCIをやる時がきた…！
+
 # MUST
 
-* [ ] screenしようぜ
 * [ ] highwayしてみる
 http://qiita.com/8398a7/items/021e5369ce2d7c269fe0
 
 # SHOULD
 
+* [ ] fugitiveするとオレオレ補完機能vimscriptがエラーる
 * [ ] swiftのindentができてない
 * [ ] sonictemplate-vimをためす
 * [ ] qiita.vimをやってみたい https://github.com/mattn/qiita-vim
