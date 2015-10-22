@@ -108,6 +108,9 @@ alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
+# vim
+alias vi="vim"
+
 # -------------------------------------
 # キーバインド
 # -------------------------------------
