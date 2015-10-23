@@ -180,7 +180,12 @@ augroup vimrc-checktime
 augroup END
 "プレビューウィンドウ固定
 set previewheight=125
-au BufEnter ?* call PreviewHeightWorkAround()
+
+augroup PreviewGroup
+    autocmd!
+    au BufEnter ?* call PreviewHeightWorkAround()
+augroup END
+
 func PreviewHeightWorkAround()
     if &previewwindow
         exec 'setlocal winheight='.&previewheight
@@ -194,16 +199,17 @@ function! SwitchCompleter()
     let l:fileTypeOfYCM = ['cpp', 'objc', 'objcpp', 'cs', 'go', 'python']
     for type in fileTypeOfYCM
         if &ft == type
-            :NeoCompleteDisable
+            let g:neocomplete#enable_at_startup = 0
             return
         endif
     endfor
-    :NeoCompleteEnable
+    let g:neocomplete#enable_at_startup = 1
 endfunction
 
 augroup SwitchCompleterGroup
     autocmd!
-    autocmd BufRead * :call SwitchCompleter()
+    echo 'switch!'
+    autocmd BufRead,BufEnter,BufWinEnter * :call SwitchCompleter()
 augroup END
 
 " -------------------------------

@@ -11,12 +11,13 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 
 # MUST
 
+* [x] fugitiveするとオレオレ補完機能vimscriptがエラーる [2015/10/23 (Fri) 11:17]
 
 # SHOULD
 
-* [ ] fugitiveするとオレオレ補完機能vimscriptがエラーる
 * [ ] swiftのindentができてない
 * [ ] sonictemplate-vimをためす
+* [ ] templateを作って新規作成をvimからしたい
 * [ ] qiita.vimをやってみたい https://github.com/mattn/qiita-vim
 * [ ] projectごとに.ycmファイルが必要になるのイケテナイ。。
 * [ ] ちゃんとlazyしてvim起動高速化
@@ -25,8 +26,6 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 * [ ] wantedlyちゃんといれてみようか
 * [ ] 文末改行コード削除をためしてcshartcommentをいれてみる
 http://qiita.com/rohinomiya/items/0521cc3a12048304f8fd
-* [ ] refactoringのpluginをためす
-* [ ] templateを作って新規作成をvimからしたい
 
 # BOOK
 
