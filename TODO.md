@@ -2,11 +2,15 @@
 
 * [ ] openGLの英語の原初読もうか
 * [ ] travis,jenkins,circleCIをやる時がきた…！
+* [ ] xctoolをためす
+* [ ] xcodebuild.vimを試してみる
+https://github.com/jerrymarino/xcodebuild.vim
+* [ ] swiftならコマンドからビルドしてデプロイだろ
+http://oooooooo.hatenablog.com/entry/2014/10/04/235322
+http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 
 # MUST
 
-* [ ] highwayしてみる
-http://qiita.com/8398a7/items/021e5369ce2d7c269fe0
 
 # SHOULD
 
@@ -14,19 +18,11 @@ http://qiita.com/8398a7/items/021e5369ce2d7c269fe0
 * [ ] swiftのindentができてない
 * [ ] sonictemplate-vimをためす
 * [ ] qiita.vimをやってみたい https://github.com/mattn/qiita-vim
-* [ ] xctoolをためす
-* [ ] xcodebuild.vimを試してみる
-https://github.com/jerrymarino/xcodebuild.vim
-* [ ] swiftならコマンドからビルドしてデプロイだろ
-http://oooooooo.hatenablog.com/entry/2014/10/04/235322
-http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 * [ ] projectごとに.ycmファイルが必要になるのイケテナイ。。
 * [ ] ちゃんとlazyしてvim起動高速化
 * [ ] autocommand.vimとかkeymap.vimとかいれてvimrcをすっきりさせましょう
 * [ ] vimでヤンク。 ブラウザにペーストしたい
 * [ ] wantedlyちゃんといれてみようか
-* [ ] swiftをコマンドラインでたたく
-* [ ] c++向けのrefactoringのpluginをいれる
 * [ ] 文末改行コード削除をためしてcshartcommentをいれてみる
 http://qiita.com/rohinomiya/items/0521cc3a12048304f8fd
 * [ ] refactoringのpluginをためす

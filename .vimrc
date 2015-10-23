@@ -31,9 +31,6 @@ NeoBundle 'tyru/caw.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'majutsushi/tagbar'
-NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', {
-            \'autoload' : {
-            \     'commands'  : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermTab', 'ConqueTermVSplit'] } }
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
