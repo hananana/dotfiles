@@ -12,6 +12,7 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 # MUST
 
 * [x] fugitiveするとオレオレ補完機能vimscriptがエラーる [2015/10/23 (Fri) 11:17]
+* [ ] 一旦plainなvimにしてそれでもuniteが遅いかチェックする
 
 # SHOULD
 
