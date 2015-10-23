@@ -208,7 +208,6 @@ endfunction
 
 augroup SwitchCompleterGroup
     autocmd!
-    echo 'switch!'
     autocmd BufRead,BufEnter,BufWinEnter * :call SwitchCompleter()
 augroup END
 
