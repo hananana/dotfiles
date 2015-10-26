@@ -11,11 +11,11 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 
 # MUST
 
+* [ ] ctrlpの移動をctrl+nとpでやりたい
 * [ ] 一旦plainなvimにしてそれでもuniteが遅いかチェックする
 
 # SHOULD
 
-* [ ] swiftのindentができてない
 * [ ] sonictemplate-vimをためす
 * [ ] templateを作って新規作成をvimからしたい
 * [ ] qiita.vimをやってみたい https://github.com/mattn/qiita-vim

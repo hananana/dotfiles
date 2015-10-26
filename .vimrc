@@ -200,17 +200,15 @@ function! SwitchCompleter()
     for type in fileTypeOfYCM
         if &ft == type
             :NeoCompleteLock
-            echo 'neocomp off'
             return
         endif
     endfor
-    echo 'neocomp on'
     :NeoCompleteUnlock
 endfunction
 
 augroup SwitchCompleterGroup
     autocmd!
-    autocmd BufRead,BufEnter,BufWinEnter * :call SwitchCompleter()
+    autocmd FileType * :call SwitchCompleter()
 augroup END
 
 " -------------------------------
@@ -287,8 +285,8 @@ autocmd BufEnter *
 " fugitive
 nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
-" Conque
-noremap <silent> <Leader>sh :ConqueTermVSplit zsh<CR>
+" neocompleteのonoff
+nnoremap <Leader>n :NeoCompleteToggle<CR>
 
 " -----------------------------------------------------------------------------
 " unite.vim
