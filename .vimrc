@@ -194,21 +194,26 @@ endfunc
 
 " -------------------------------
 " neocompとYCMの切り替え処置
+" FIX: ちゃんと動いてない…
 " -------------------------------
 function! SwitchCompleter()
     let l:fileTypeOfYCM = ['cpp', 'objc', 'objcpp', 'cs', 'go', 'python']
     for type in fileTypeOfYCM
         if &ft == type
-            :NeoCompleteLock
+            echo 'off'
+            ":NeoCompleteLock
+            ":NeoCompleteDisable
             return
         endif
     endfor
-    :NeoCompleteUnlock
+    echo 'on'
+    ":NeoCompleteUnlock
+    ":NeoCompleteEnable
 endfunction
 
 augroup SwitchCompleterGroup
     autocmd!
-    autocmd FileType * :call SwitchCompleter()
+    autocmd FileType,TabEnter * :call SwitchCompleter()
 augroup END
 
 " -------------------------------
