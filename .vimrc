@@ -1,5 +1,6 @@
 filetype plugin indent off
 
+
 " -------------------------------
 " NeoBundle
 " -------------------------------
@@ -200,13 +201,13 @@ function! SwitchCompleter()
     let l:fileTypeOfYCM = ['cpp', 'objc', 'objcpp', 'cs', 'go', 'python']
     for type in fileTypeOfYCM
         if &ft == type
-            echo 'off'
+            "echo 'off'
             ":NeoCompleteLock
             ":NeoCompleteDisable
             return
         endif
     endfor
-    echo 'on'
+    "echo 'on'
     ":NeoCompleteUnlock
     ":NeoCompleteEnable
 endfunction
@@ -320,6 +321,12 @@ let g:unite_source_grep_recursive_opt = ''
 " --------------------------------
 let g:ctrlp_map = '<Leader>uf'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_prompt_mappings = {
+            \ 'PrtSelectMove("j")':   ['<c-n>'],
+            \ 'PrtSelectMove("k")':   ['<c-p>'],
+            \ 'PrtHistory(-1)':       ['<nop>'],
+            \ 'PrtHistory(1)':        ['<nop>']
+            \}
 
 " --------------------------------
 " nerdtree
@@ -346,21 +353,6 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }
       \ }
-
-" --------------------------------
-" Conque
-" --------------------------------
-let g:ConqueTerm_ReadUnfocused = 1
-let g:ConqueTerm_CloseOnEnd = 1
-let g:ConqueTerm_StartMessages = 0
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_EscKey = '<C-J>'
-
-function! s:delete_ConqueTerm(buffer_name)
-    let term_obj = conque_term#get_instance(a:buffer_name)
-    call term_obj.close()
-endfunction
-autocmd BufWinLeave zsh\s-\s? call <SID>delete_ConqueTerm(expand('%'))
 
 " -------------------------------
 " easymotion
