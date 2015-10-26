@@ -141,28 +141,28 @@ flags = [
 # Cocos2d-x headers
 # run `find cocos2d -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
 # to obtain all the header paths of cocos2d-x lib
-'-I', 'MONOLinkPhysics/cocos2d',
-'-I', 'MONOLinkPhysics/cocos2d/cocos',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/base',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/physics',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/math',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/2d',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/ui',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/network',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/audio/include',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/editor-support',
-'-I', 'MONOLinkPhysics/cocos2d/extensions',
-'-I', 'MONOLinkPhysics/cocos2d/external',
-'-I', 'MONOLinkPhysics/cocos2d/external/chipmunk/include/chipmunk',
-'-I', 'MONOLinkPhysics/cocos2d/external/curl/include/ios',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/platform/mac',
-'-I', 'MONOLinkPhysics/cocos2d/cocos/platform/ios',
+'-I', 'MONOLinkCocos/cocos2d',
+'-I', 'MONOLinkCocos/cocos2d/cocos',
+'-I', 'MONOLinkCocos/cocos2d/cocos/base',
+'-I', 'MONOLinkCocos/cocos2d/cocos/physics',
+'-I', 'MONOLinkCocos/cocos2d/cocos/math',
+'-I', 'MONOLinkCocos/cocos2d/cocos/2d',
+'-I', 'MONOLinkCocos/cocos2d/cocos/ui',
+'-I', 'MONOLinkCocos/cocos2d/cocos/network',
+'-I', 'MONOLinkCocos/cocos2d/cocos/audio/include',
+'-I', 'MONOLinkCocos/cocos2d/cocos/editor-support',
+'-I', 'MONOLinkCocos/cocos2d/extensions',
+'-I', 'MONOLinkCocos/cocos2d/external',
+'-I', 'MONOLinkCocos/cocos2d/external/chipmunk/include/chipmunk',
+'-I', 'MONOLinkCocos/cocos2d/external/curl/include/ios',
+'-I', 'MONOLinkCocos/cocos2d/cocos/platform/mac',
+'-I', 'MONOLinkCocos/cocos2d/cocos/platform/ios',
 # Headers of your cocos2d-x project
 # run `find Classses -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
 # to obtain all the paths containing your headers
 # 
 # need to set every project
-'-I', 'MONOLinkPhysics/Classes',
+'-I', 'MONOLink/Classes',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',

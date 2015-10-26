@@ -57,7 +57,7 @@ NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : [
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
 " swift
-NeoBundle 'toyamarinyon/vim-swift'
+NeoBundle 'keith/swift.vim'
 NeoBundle 'tokorom/neocomplete-swift-dictionary'
 
 " ruby
@@ -199,11 +199,13 @@ function! SwitchCompleter()
     let l:fileTypeOfYCM = ['cpp', 'objc', 'objcpp', 'cs', 'go', 'python']
     for type in fileTypeOfYCM
         if &ft == type
-            let g:neocomplete#enable_at_startup = 0
+            :NeoCompleteLock
+            echo 'neocomp off'
             return
         endif
     endfor
-    let g:neocomplete#enable_at_startup = 1
+    echo 'neocomp on'
+    :NeoCompleteUnlock
 endfunction
 
 augroup SwitchCompleterGroup
