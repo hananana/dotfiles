@@ -11,8 +11,8 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 
 # MUST
 
-* [x] ctrlpの移動をctrl+nとpでやりたい [2015/10/26 (Mon) 16:50]
-* [ ] 一旦plainなvimにしてそれでもuniteが遅いかチェックする
+* [ ] oh-my-zshをいれてzsh-powerlineをいれる
+* [ ] zhs-completeいれる
 
 # SHOULD
 
