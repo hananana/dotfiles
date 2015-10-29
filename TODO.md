@@ -13,6 +13,8 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 
 * [ ] oh-my-zshをいれてzsh-powerlineをいれる
 * [ ] zhs-completeいれる
+* [x] tmux [2015/10/29 (Thu) 00:51]
+* [ ] tmuxのkeybindをいい感じに
 
 # SHOULD
 
