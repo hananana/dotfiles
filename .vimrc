@@ -40,9 +40,6 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 
-" 会社PCが激重なのでctrlp
-NeoBundle 'ctrlpvim/ctrlp.vim'
-
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
             \ 'build'      : {
@@ -314,18 +311,6 @@ let g:unite_source_grep_default_opts =
             \ '-i --vimgrep --hidden --ignore ' .
             \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
-
-" --------------------------------
-" ctrlp
-" --------------------------------
-"let g:ctrlp_map = '<Leader>uf'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_prompt_mappings = {
-            \ 'PrtSelectMove("j")':   ['<c-n>'],
-            \ 'PrtSelectMove("k")':   ['<c-p>'],
-            \ 'PrtHistory(-1)':       ['<nop>'],
-            \ 'PrtHistory(1)':        ['<nop>']
-            \}
 
 " --------------------------------
 " nerdtree
