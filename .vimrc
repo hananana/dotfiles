@@ -29,7 +29,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplete.vim' 
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tyru/caw.vim'
-NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Shougo/vimproc.vim', {
@@ -449,8 +448,3 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-
-" --------------------------------
-" auto-ctags
-" --------------------------------
-let g:auto_ctags = 1

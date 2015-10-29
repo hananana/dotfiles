@@ -26,17 +26,6 @@ $git clone https://github.com/zsh-users/antigen
 $source ~/.zshrc
 ```
 
-- geeknote
-
-```sh
-$cd
-$mkdir utils
-$cd utils
-$git clone git://github.com/VitaliyRodnenko/geeknote.git
-$cd geeknote
-$sudo python setup.py install
-```
-
 - フォント  
 http://mix-mplus-ipa.osdn.jp/migu/  
 上記のMigu1Mを16ptがみやすいです
@@ -52,6 +41,14 @@ $ln -s ~/.dotfiles/dotfiles/private.xml private.xml
 ```
 
 karabinerを起動してLeave Insert Mode（以下略をONに
+
+- tmux
+
+```sh
+$brew install tmux
+$git clone https://github.com/erikw/tmux-powerline.git
+$gem install tmuxinator
+```
 
 ## MEMO
 
