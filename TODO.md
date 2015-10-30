@@ -12,10 +12,10 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 # MUST
 
 * [ ] oh-my-zshをいれてzsh-powerlineをいれる
+* [ ] tmuxでdot、mochi,monoをつくる
+* [ ] tmux-poweline
 * [ ] zhs-completeいれる
-* [x] tmux [2015/10/29 (Thu) 00:51]
 * [ ] tmuxのkeybindをいい感じに
-* [ ] tmuxinatorの設定をいい感じに
 * [ ] git commit時にhookしてctags
 
 # SHOULD
