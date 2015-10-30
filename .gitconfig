@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/hanazawa/.gitignore_global
 	editor = /usr/local/bin/vim
+	excludesfile = /Users/Hanac/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
