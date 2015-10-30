@@ -1,7 +1,7 @@
-# ~/.tmuxinator/mochi.yml
+# ~/.tmuxinator/dot.yml
 
-name: mochi
-root: ~/
+name: dot
+root: ~/.dotfiles
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,13 +25,12 @@ root: ~/
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t mochi
+# post: tmux -CC attach -t dot
 
 windows:
-  - editor:
-      layout: main-vertical
+  - dot:
+      layout: bc59,203x52,0,0{101x52,0,0,54,101x52,102,0[101x26,102,0,55,101x25,102,27,56]}
       panes:
-        - vim
-        - guard
-  - server: bundle exec rails s
-  - logs: tail -f log/development.log
+        - vim 
+        - vim TODO.md
+        - echo 'dotfiles'
