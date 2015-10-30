@@ -1,5 +1,5 @@
 #/bin/sh
-DOTFILES_DIR=".dotfiles/dotfiles"
+DOTFILES_DIR=".dotfiles"
 
 # gitconfig
 if [ -e ~/.gitconfig ]; then
