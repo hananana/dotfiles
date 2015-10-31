@@ -1,6 +1,5 @@
 filetype plugin indent off
 
-
 " -------------------------------
 " NeoBundle
 " -------------------------------
@@ -112,9 +111,14 @@ filetype plugin indent on
 let mapleader = "\<Space>"
 " コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
 " ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
+augroup ForMatOptionsGroup
+autocmd!
 au FileType * setlocal formatoptions=cq
+augroup END
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
+" tmuxで色を有効にする
+set t_Co=256
 " ヘルプの検索順
 set helplang=ja,en
 " airlineを常時表示するよ

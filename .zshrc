@@ -1,4 +1,3 @@
-
 # tmux自動起動
 if [ -z $TMUX ]; then
       # tmuxのオプションに-2を付けないとubuntuのtmux上でvimがカラーにならない
@@ -118,6 +117,9 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 # vim
 alias vi="vim"
+
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
 
 # -------------------------------------
 # キーバインド
