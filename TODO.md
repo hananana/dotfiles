@@ -12,14 +12,14 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 # MUST
 
 * [ ] oh-my-zshをいれてzsh-powerlineをいれる
-* [ ] tmuxでdot、mochi,monoをつくる
 * [ ] tmux-poweline
-* [ ] zhs-completeいれる
 * [ ] tmuxのkeybindをいい感じに
-* [ ] git commit時にhookしてctags
+* [ ] tmuxでdot、mochi,monoをつくる
 
 # SHOULD
 
+* [ ] zhs-completeいれる
+* [ ] git commit時にhookしてctags
 * [ ] sonictemplate-vimをためす
 * [ ] templateを作って新規作成をvimからしたい
 * [ ] qiita.vimをやってみたい https://github.com/mattn/qiita-vim
