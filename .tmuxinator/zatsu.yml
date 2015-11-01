@@ -1,0 +1,11 @@
+# ~/.tmuxinator/zatsu.yml
+
+name: zatsu
+root: ~/
+
+windows:
+  - zatsu:
+      layout: main-vertical
+      panes:
+        - 
+        - 
