@@ -1,7 +1,7 @@
-# ~/.tmuxinator/mochi.yml
+# ~/.tmuxinator/mono.yml
 
-name: mochi
-root: ~/Cocos2d-x/Project/mochi
+name: mono
+root: ~/Cocos2d-x/Project/monolink-ios
 
 windows:
   - mochi:
