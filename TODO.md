@@ -14,7 +14,7 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 * [ ] oh-my-zshをいれてzsh-powerlineをいれる
 * [ ] tmux-poweline
 * [ ] tmuxのkeybindをいい感じに
-* [ ] tmuxでdot、mochi,monoをつくる
+* [x] tmuxでdot、mochi,monoをつくる [2015/11/01 (Sun) 19:47]
 
 # SHOULD
 
