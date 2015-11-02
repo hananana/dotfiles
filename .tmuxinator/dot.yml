@@ -33,4 +33,4 @@ windows:
       panes:
         - vim 
         - vim TODO.md
-        - echo 'dotfiles'
+        - 
