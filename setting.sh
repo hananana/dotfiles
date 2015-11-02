@@ -44,3 +44,19 @@ if [ -d ~/schema ]; then
     rm -rf ~/schema
 fi
 ln -s ~/$DOTFILES_DIR/schema ~/schema
+
+# tmux
+if [ -d ~/.tmux.conf ]; then
+    rm -rf ~/.tmux.conf
+fi
+ln -s ~/$DOTFILES_DIR/.tmux.conf ~/.tmux.conf
+
+# tmuxinator
+if [ -d ~/.tmuxinator ]; then
+    rm -rf ~/.tmuxinator
+fi
+ln -s ~/$DOTFILES_DIR/.tmuxinator ~/.tmuxinator
+
+# neobundle
+mkdir ~/.vim/bundle
+git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
