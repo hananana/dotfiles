@@ -310,6 +310,6 @@ export PATH=/usr/local/Cellar/node/0.12.7/libexec/npm/lib/node_modules/ios-deplo
 # -------------------------------------
 # powerline
 # -------------------------------------
-export PATH=$PATH:~/Library/Python/2.7/bin
-powerline-daemon -q
-. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+#export PATH=$PATH:~/Library/Python/2.7/bin
+#powerline-daemon -q
+#. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
