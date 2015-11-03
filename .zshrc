@@ -1,9 +1,3 @@
-# tmux自動起動
-if [ -z $TMUX ]; then
-      # tmuxのオプションに-2を付けないとubuntuのtmux上でvimがカラーにならない
-        tmux -2
-fi
-
 # -------------------------------------
 # 環境変数
 # -------------------------------------
@@ -314,3 +308,7 @@ alias -g tl="find --notebooks"
 # ios-deploy
 # -------------------------------------
 export PATH=/usr/local/Cellar/node/0.12.7/libexec/npm/lib/node_modules/ios-deploy:$PATH
+
+export PATH=$PATH:~/Library/Python/2.7/bin
+powerline-daemon -q
+. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh

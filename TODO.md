@@ -11,8 +11,9 @@ http://3100.github.io/blog/2014/11/03/swift-with-vim.html
 
 # MUST
 
-* [ ] oh-my-zshをいれてzsh-powerlineをいれる
-* [ ] tmux-poweline
+* [ ] tmux,zshのpowerLineの表示項目をいじる
+* [x] oh-my-zshをいれてzsh-powerlineをいれる [2015/11/03 (Tue) 10:40]
+* [x] tmux-poweline [2015/11/03 (Tue) 10:40]
 * [x] tmuxでdot、mochi,monoをつくる [2015/11/01 (Sun) 19:47]
 
 # SHOULD
