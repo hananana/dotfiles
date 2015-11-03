@@ -57,6 +57,12 @@ if [ -d ~/.tmuxinator ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.tmuxinator ~/.tmuxinator
 
+# powerline
+if [ -d ~/.config/powerline ]; then
+    rm -rf ~/.confg/powerline
+fi
+ln -s ~/$DOTFILES_DIR/powerline ~/.config/powerline
+
 # neobundle
 mkdir ~/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim

@@ -43,54 +43,6 @@ setopt hist_ignore_dups
 unsetopt auto_menu
 
 # -------------------------------------
-# プロンプト
-# -------------------------------------
-
-autoload -U promptinit; promptinit
-autoload -Uz colors; colors
-autoload -Uz vcs_info
-autoload -Uz is-at-least
-
-# begin VCS
-zstyle ":vcs_info:*" enable git svn hg bzr
-zstyle ":vcs_info:*" formats "(%s)-[%b]"
-zstyle ":vcs_info:*" actionformats "(%s)-[%b|%a]"
-zstyle ":vcs_info:(svn|bzr):*" branchformat "%b:r%r"
-zstyle ":vcs_info:bzr:*" use-simple true
-
-zstyle ":vcs_info:*" max-exports 6
-
-if is-at-least 4.3.10; then
-    zstyle ":vcs_info:git:*" check-for-changes true # commitしていないのをチェック
-    zstyle ":vcs_info:git:*" stagedstr "<S>"
-    zstyle ":vcs_info:git:*" unstagedstr "<U>"
-    zstyle ":vcs_info:git:*" formats "(%b) %c%u"
-    zstyle ":vcs_info:git:*" actionformats "(%s)-[%b|%a] %c%u"
-fi
-
-function vcs_prompt_info() {
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && echo -n " %{$fg[yellow]%}$vcs_info_msg_0_%f"
-}
-# end VCS
-
-setopt correct
-# もしかして時のプロンプト指定
-SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
-
-PROMPT=""
-#PROMPT+="%(?.%F{green}$OK%f.%F{red}$OK%f) "
-PROMPT+="
-%(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
-PROMPT+="%F{blue}%~%f"
-PROMPT+="\$(vcs_prompt_info)"
-PROMPT+="
-"
-PROMPT+="%% "
-
-RPROMPT="[%*]"
-
-# -------------------------------------
 # エイリアス
 # -------------------------------------
 
@@ -309,6 +261,9 @@ alias -g tl="find --notebooks"
 # -------------------------------------
 export PATH=/usr/local/Cellar/node/0.12.7/libexec/npm/lib/node_modules/ios-deploy:$PATH
 
+# -------------------------------------
+# powerline
+# -------------------------------------
 export PATH=$PATH:~/Library/Python/2.7/bin
 powerline-daemon -q
 . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
