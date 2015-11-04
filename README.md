@@ -54,6 +54,8 @@ iTermでの設定はRegularは12pt、NON-ASCIIは14pt
 ```sh
 $ easy_install pip
 $ pip install git+git://github.com/Lokaltog/powerline
+$ mv ~/Library/Python/2.7/lib/python/site-packages/powerline/config_files ~/Library/Python/2.7/lib/python/site-packages/powerline/backup_config_files
+$ ln -s ~/.dotfiles/config_files ~/Library/Python/2.7/lib/python/site-packages/powerline/config_files
 ```
 
 - iTerm2のFont設定
