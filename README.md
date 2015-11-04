@@ -1,9 +1,12 @@
-## 概要
-vim初心者が最終的に全部をvimで開発するためのvim設定のrepository。
-C#、ruby,markdownに対応済み。
-参考のakinama氏の[dotfiles](https://github.com/akinama/dotfiles)
+## これはなに
+vim初心者が最終的に全部をvimで開発するためのrepository  
+C++,C#,ruby,markdown,json,swift,go,pythonに対応済み   
+
+参考のakinama氏の[dotfiles](https://github.com/akinama/dotfiles)  
 
 ## 手順
+
+setting.shで自動化したいけどまだできてないっ
 
 - vimをいれる
 
@@ -48,8 +51,13 @@ $ gem install tmuxinator
 
 - powerline
 
-git@github.com:powerline/fonts.gitからHackのフォントを落としてインストールすること
-iTermでの設定はRegularは12pt、NON-ASCIIは14pt
+https://github.com/powerline/fonts
+Hackのフォントを落としてインストールすること
+
+http://mix-mplus-ipa.osdn.jp/migu/
+Migu 1Mのフォントを落とそう
+
+iTermでの設定はRegularはMigu1Mで16pt、NON-ASCIIはHackで18pt
 
 ```sh
 $ easy_install pip
@@ -57,14 +65,6 @@ $ pip install git+git://github.com/Lokaltog/powerline
 $ mv ~/Library/Python/2.7/lib/python/site-packages/powerline/config_files ~/Library/Python/2.7/lib/python/site-packages/powerline/backup_config_files
 $ ln -s ~/.dotfiles/config_files ~/Library/Python/2.7/lib/python/site-packages/powerline/config_files
 ```
-
-- iTerm2のFont設定
-
-https://github.com/powerline/fontsをcloneして…HackのFontをインストール
-http://mix-mplus-ipa.osdn.jp/migu/からmigu1Mをインストール
-
-Regular migu-1M Regular 16pt  
-NON-ASCII Hack 18pt
 
 ## MEMO
 
