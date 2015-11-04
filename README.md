@@ -56,6 +56,14 @@ $ easy_install pip
 $ pip install git+git://github.com/Lokaltog/powerline
 ```
 
+- iTerm2のFont設定
+
+https://github.com/powerline/fontsをcloneして…HackのFontをインストール
+http://mix-mplus-ipa.osdn.jp/migu/からmigu1Mをインストール
+
+Regular migu-1M Regular 16pt  
+NON-ASCII Hack 18pt
+
 ## MEMO
 
 - cocosを書く時は.ycm以下略のシンボリックリンクをcocosプロジェクトのトップに作ること
