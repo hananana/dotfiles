@@ -5,8 +5,7 @@ root: ~/Cocos2d-x/Project/monolink-ios
 
 windows:
   - mochi:
-      layout: 1828,204x55,0,0{102x55,0,0,3,101x55,103,0[101x27,103,0,21,101x27,103,28,22]}
+      layout: 3759,178x46,0,0{89x46,0,0,3,88x46,90,0,4}
       panes:
         - vim
-        - 
         - 
