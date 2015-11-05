@@ -1,11 +1,11 @@
 # ~/.tmuxinator/zatsu.yml
 
 name: zatsu
-root: ~/
+root: ~/Dropbox/
 
 windows:
   - zatsu:
-      layout: 3759,178x46,0,0{89x46,0,0,3,88x46,90,0,4}
+      layout: 5958,178x48,0,0{89x48,0,0,1,88x48,90,0,2}
       panes:
         - 
-        - 
+        - vim TODO.md
