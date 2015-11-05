@@ -4,8 +4,11 @@ name: mochi
 root: ~/Cocos2d-x/Project/mochi
 
 windows:
-  - mochi:
-      layout: 3759,178x46,0,0{89x46,0,0,3,88x46,90,0,4}
+  - mono:
+      layout: main-vertical
       panes:
         - vim
-        - 
+  - git:
+      layout: main-vertical
+      panes:
+        -
