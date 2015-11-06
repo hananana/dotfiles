@@ -249,8 +249,10 @@ nnoremap sc :<C-u>tabclose<CR>
 nnoremap <Leader>w :w<CR>
 "easymotion
 nmap <Leader>e <Plug>(easymotion-s2)
+
+" unite呼び出し
+nnoremap <Leader>uu :Unite<CR>
 "ファイル検索
-"会社PCで何故か激重なのでやめとく
 nnoremap <Leader>uf :Unite file_rec/async<CR>
 " バッファ一覧表示
 noremap <Leader>ub :Unite buffer<CR>
