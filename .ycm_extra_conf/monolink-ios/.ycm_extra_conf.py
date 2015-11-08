@@ -163,6 +163,7 @@ flags = [
 # 
 # need to set every project
 '-I', 'MONOLink/Classes',
+'-I', 'MONOLink/Classes/utils',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
