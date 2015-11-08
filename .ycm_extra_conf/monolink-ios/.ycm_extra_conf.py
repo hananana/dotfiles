@@ -162,8 +162,8 @@ flags = [
 # to obtain all the paths containing your headers
 # 
 # need to set every project
-'-I', 'MONOLink/Classes',
-'-I', 'MONOLink/Classes/utils',
+'-I', 'MONOLinkCocos/Classes',
+'-I', 'MONOLinkCocos/Classes/utils',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
