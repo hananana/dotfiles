@@ -15,8 +15,8 @@
 			},
 			{
 				"function": "powerline.segments.common.vcs.branch",
-                "args":{ "status_colors": true,
-                         "ignore_statuses": ["U"] },
+                "args":{ "status_colors": True,
+                         "ignore_statuses": ["u"] },
 				"priority": 40
 			},
 			{
