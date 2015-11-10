@@ -259,7 +259,7 @@ nmap <Leader>e <Plug>(easymotion-s2)
 " unite呼び出し
 nnoremap <Leader>uu :Unite<CR>
 "ファイル検索
-nnoremap <Leader>uf :Unite file_rec/async<CR>
+nnoremap <Leader><Leader> :Unite file_rec/async<CR>
 " バッファ一覧表示
 noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
