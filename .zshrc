@@ -291,6 +291,6 @@ antigen-bundle b4b4r07/enhancd
 # -------------------------------------
 # powerline
 # -------------------------------------
-# export PATH=$PATH:~/Library/Python/2.7/bin
-# powerline-daemon -q
-# . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+ export PATH=$PATH:~/Library/Python/2.7/bin
+ powerline-daemon -q
+ . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
