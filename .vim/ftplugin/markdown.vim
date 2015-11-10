@@ -2,8 +2,8 @@ abbreviate tl * [ ]
 
 setlocal foldmethod=indent
 
-nnoremap <buffer> <Leader><Leader> :call ToggleCheckbox()<CR>
-vnoremap <buffer> <Leader><Leader> :call ToggleCheckbox()<CR>
+nnoremap <buffer> <Leader>t :call ToggleCheckbox()<CR>
+vnoremap <buffer> <Leader>t :call ToggleCheckbox()<CR>
     
 function! ToggleCheckbox()
     let l:line = getline('.')
