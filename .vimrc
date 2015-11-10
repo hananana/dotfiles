@@ -223,6 +223,12 @@ augroup END
 " -------------------------------
 " keymap
 " -------------------------------
+"矢印キー無効
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
 "検索結果を画面中央にもってくる
