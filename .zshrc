@@ -288,28 +288,9 @@ eval "$(rbenv init -)"
 source ~/antigen/antigen.zsh
 antigen-bundle b4b4r07/enhancd
 
-# directory-bookmark
-antigen-bundle mollifier/cd-bookmark
-fpath=($HOME/cd-bookmark(N-/) $fpath)
-autoload -Uz cd-bookmark
-alias cdb='cd-bookmark'
-
-# -------------------------------------
-# geeknote
-# -------------------------------------
-
-alias gn="python ~/utils/geeknote/build/lib/geeknote/geeknote.py"
-alias -g nl="notebook-list"
-alias -g tl="find --notebooks"
-
-# -------------------------------------
-# ios-deploy
-# -------------------------------------
-export PATH=/usr/local/Cellar/node/0.12.7/libexec/npm/lib/node_modules/ios-deploy:$PATH
-
 # -------------------------------------
 # powerline
 # -------------------------------------
-export PATH=$PATH:~/Library/Python/2.7/bin
-powerline-daemon -q
-. ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+# export PATH=$PATH:~/Library/Python/2.7/bin
+# powerline-daemon -q
+# . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
