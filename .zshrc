@@ -104,6 +104,21 @@ alias g='git'
 alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 
+# 履歴ファイルの保存先
+export HISTFILE=${HOME}/.zsh_history
+
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+
+# 重複を記録しない
+setopt hist_ignore_dups
+
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+
 # -------------------------------------
 # keybind
 # -------------------------------------
@@ -130,25 +145,25 @@ if [ -x "`which peco 2> /dev/null`" ]; then
 fi
 
 # ctrl-rで過去コマンド検索
-#bindkey "^R" history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
 
 # うごいてない…
 #ヒストリ検索
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+# function peco-select-history() {
+#     local tac
+#     if which tac > /dev/null; then
+#         tac="tac"
+#     else
+#         tac="tail -r"
+#     fi
+#     BUFFER=$(history -n 1 | \
+#         eval $tac | \
+#         peco --query "$LBUFFER")
+#     CURSOR=$#BUFFER
+#     zle clear-screen
+# }
+# zle -N peco-select-history
+# bindkey '^R' peco-select-history
 
 #アプリを終了させる
 function peco-kill-process () {
