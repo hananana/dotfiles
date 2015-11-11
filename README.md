@@ -60,10 +60,9 @@ Migu 1Mのフォントを落とそう
 iTermでの設定はRegularはMigu1Mで16pt、NON-ASCIIはHackで18pt
 
 ```sh
-$ easy_install pip
-$ pip install git+git://github.com/Lokaltog/powerline
-$ mv ~/Library/Python/2.7/lib/python/site-packages/powerline/config_files ~/Library/Python/2.7/lib/python/site-packages/powerline/backup_config_files
-$ ln -s ~/.dotfiles/config_files ~/Library/Python/2.7/lib/python/site-packages/powerline/config_files
+$ git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
+$ cd oh-my-zsh-powerline-theme
+$ ./install_in_omz.sh
 ```
 
 ## MEMO
