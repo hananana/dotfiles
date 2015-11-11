@@ -1,170 +1,114 @@
-# -------------------------------------
-# 環境変数
-# -------------------------------------
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-# SSHで接続した先で日本語が使えるようにする
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export SHELL='zsh'
-export EDITOR='vim'
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
 
-# つかわんけどpowerlineが失敗するかもなので
-# prompt
-autoload -U promptinit; promptinit
-autoload -Uz colors; colors
-autoload -Uz vcs_info
-autoload -Uz is-at-least
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# begin VCS
-zstyle ":vcs_info:*" enable git svn hg bzr
-zstyle ":vcs_info:*" formats "(%s)-[%b]"
-zstyle ":vcs_info:*" actionformats "(%s)-[%b|%a]"
-zstyle ":vcs_info:(svn|bzr):*" branchformat "%b:r%r"
-zstyle ":vcs_info:bzr:*" use-simple true
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-zstyle ":vcs_info:*" max-exports 6
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-if is-at-least 4.3.10; then
-    zstyle ":vcs_info:git:*" check-for-changes true # commitしていないのをチェック
-    zstyle ":vcs_info:git:*" stagedstr "<S>"
-    zstyle ":vcs_info:git:*" unstagedstr "<U>"
-    zstyle ":vcs_info:git:*" formats "(%b) %c%u"
-    zstyle ":vcs_info:git:*" actionformats "(%s)-[%b|%a] %c%u"
-fi
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-function vcs_prompt_info() {
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && echo -n " %{$fg[yellow]%}$vcs_info_msg_0_%f"
-}
-# end VCS
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-setopt correct
-# もしかして時のプロンプト指定
-SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-PROMPT=""
-#PROMPT+="%(?.%F{green}$OK%f.%F{red}$OK%f) "
-PROMPT+="
-%(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
-PROMPT+="%F{blue}%~%f"
-PROMPT+="\$(vcs_prompt_info)"
-PROMPT+="
-"
-PROMPT+="%% "
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-RPROMPT="[%*]"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-# -------------------------------------
-# zshのオプション
-# -------------------------------------
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-## 補完機能の強化
-autoload -U compinit
-compinit
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-# ビープを鳴らさない
-setopt nobeep
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-## 色を使う
-setopt prompt_subst
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
-## lsの色変更
-## export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export LSCOLORS=gxfxcxdxbxegedabagacad
-export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*' list-colors \
-'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+# User configuration
 
-## ^Dでログアウトしない。
-setopt ignoreeof
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
 
-## バックグラウンドジョブが終了したらすぐに知らせる。
-setopt no_tify
+source $ZSH/oh-my-zsh.sh
 
-## 直前と同じコマンドをヒストリに追加しない
-setopt hist_ignore_dups
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# 補完
-## タブによるファイルの順番切り替えをしない
-unsetopt auto_menu
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # -------------------------------------
-# エイリアス
+# alias
 # -------------------------------------
-
-# -n 行数表示, -I バイナリファイル無視, svn関係のファイルを無視
-alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
-
-# ls
-alias ls="ls -G" # color for darwin
-alias l="ls -a"
-alias la="ls -la"
-alias l1="ls -1"
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
-
-# ctags
-alias ctags="`brew --prefix`/bin/ctags"
-
 # vim
 alias vi="vim"
-
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# -------------------------------------
-# キーバインド
-# -------------------------------------
-
-bindkey "^R" history-incremental-search-backward
-
-# -------------------------------------
-# その他
-# -------------------------------------
-
-# cdしたあとで、自動的に ls する
-function chpwd() { ls -1 }
-
-# iTerm2のタブ名を変更する
-function title {
-   echo -ne "\033]0;"$*"\007"
-}
-
+# ここからgit系
+# g = git
+# o = checkout
+# p = pull
+# pu = push
+# puu = push -u
+alias g='git'
+alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 
 # -------------------------------------
-# ヒストリー
-# -------------------------------------
-# 履歴ファイルの保存先
-export HISTFILE=${HOME}/.zsh_history
-
-# メモリに保存される履歴の件数
-export HISTSIZE=1000
-
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=100000
-
-# 重複を記録しない
-setopt hist_ignore_dups
-
-# 開始と終了を記録
-setopt EXTENDED_HISTORY
-
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-
-# -------------------------------------
-# curl
-# -------------------------------------
-setopt nonomatch
-
-# -------------------------------------
-# peco
+# keybind
 # -------------------------------------
 
+# ctrl-fでパス検索
 function peco-select-path {
 	local filepath="$(ls -a | peco)"
   if [ "$LBUFFER" -eq "" ]; then
@@ -185,6 +129,10 @@ if [ -x "`which peco 2> /dev/null`" ]; then
   bindkey '^f' peco-select-path # Ctrl+f で起動
 fi
 
+# ctrl-rで過去コマンド検索
+#bindkey "^R" history-incremental-search-backward
+
+# うごいてない…
 #ヒストリ検索
 function peco-select-history() {
     local tac
@@ -210,14 +158,6 @@ function peco-kill-process () {
 zle -N peco-kill-process
 bindkey '^k' peco-kill-process   # C-x k
 
-# ここからgit系
-#
-# g = git
-# o = checkout
-# p = pull
-# pu = push
-# puu = push -u
-#
 
 #ローカルブランチ削除
 function pdlb {
@@ -234,11 +174,6 @@ function pdrb {
 function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 }
-
-alias g='git'
-alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
-alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
-
 
 # -------------------------------------
 # cocos
@@ -267,19 +202,8 @@ export PATH=$ANDROID_SDK_ROOT:$PATH
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # -------------------------------------
-# パス
-# -------------------------------------
-
-# 重複する要素を自動的に削除
-typeset -U path cdpath fpath manpath
-
-# PATHの設定がぶっこわれーたのでなおし
-export PATH=/User/Hanazawa/.rbenv/shims:/usr/local/bin:bin:/sbin:/usr/bin:/usr/sbin:$PATH
-
-# -------------------------------------
 # ruby
 # -------------------------------------
-
 eval "$(rbenv init -)"
 
 # -------------------------------------
@@ -287,10 +211,3 @@ eval "$(rbenv init -)"
 # -------------------------------------
 source ~/antigen/antigen.zsh
 antigen-bundle b4b4r07/enhancd
-
-# -------------------------------------
-# powerline
-# -------------------------------------
- export PATH=$PATH:~/Library/Python/2.7/bin
- powerline-daemon -q
- . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
