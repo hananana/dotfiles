@@ -181,7 +181,7 @@ flags = [
 '-I', 'Classes/scene/tmp',
 '-I', 'Classes/utils',
 '-I', 'Classes/utils/debug',
-'-I', 'Classes/utils/liquidfun',
+'-I', 'Classes/physics',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
