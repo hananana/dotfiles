@@ -21,14 +21,6 @@ $ brew install the_silver_searcher
 $ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 ```
 
-- antigenからzshのpluginを導入
-
-```sh
-$ cd
-$ git clone https://github.com/zsh-users/antigen
-$ source ~/.zshrc
-```
-
 - karabiner
 
 ```sh
