@@ -60,9 +60,7 @@ Migu 1Mのフォントを落とそう
 iTermでの設定はRegularはMigu1Mで16pt、NON-ASCIIはHackで18pt
 
 ```sh
-$ git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
-$ cd oh-my-zsh-powerline-theme
-$ ./install_in_omz.sh
+$ ln -s ~/.dotfiles/oh-my-zsh-powerline-theme/powerline.zsh-theme ~/.dotfiles/oh-my-zsh/custom/themes/powerline.zsh-theme
 ```
 
 ## MEMO
