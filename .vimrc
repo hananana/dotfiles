@@ -17,7 +17,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'https://github.com/easymotion/vim-easymotion'
 NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Shougo/unite.vim'
@@ -26,7 +25,6 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplete.vim' 
-NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'majutsushi/tagbar'
@@ -253,8 +251,6 @@ nnoremap st :<C-u>tabnew<CR>
 nnoremap sc :<C-u>tabclose<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
-"easymotion
-nmap <Leader>e <Plug>(easymotion-s2)
 
 " unite呼び出し
 nnoremap <Leader>uu :Unite<CR>
@@ -283,8 +279,6 @@ inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " ヘッダーとの移動
 au FileType cpp,objc,objcpp,cs nmap <Leader>h <Plug>(altr-forward)
-" alignそろえる 
-vmap <Enter> <Plug>(EasyAlign)
 " コメントテンプレ展開
 au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 "コメントアウト
@@ -352,11 +346,6 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ }
       \ }
-
-" -------------------------------
-" easymotion
-" -------------------------------
-let g:EasyMotion_do_mapping = 0
 
 " -------------------------------
 " syntax
