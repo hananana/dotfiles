@@ -224,5 +224,5 @@ eval "$(rbenv init -)"
 # -------------------------------------
 # antigen
 # -------------------------------------
-source ~/antigen/antigen.zsh
+source ~/.dotfiles/antigen/antigen.zsh
 antigen-bundle b4b4r07/enhancd
