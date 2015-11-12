@@ -11,7 +11,6 @@ ln -s ~/$DOTFILES_DIR/.gitconfig ~/.gitconfig
 if [ -e ~/.gitignore_global ]; then
     rm -f ~/.gitignore_global
 fi
-git config --global --add core.excludesfile "$HOME/.gitignore_global"
 ln -s ~/$DOTFILES_DIR/.gitignore_global ~/.gitignore_global
 
 # zshrc
@@ -33,30 +32,41 @@ fi
 ln -s ~/$DOTFILES_DIR/.xvimrc ~/.xvimrc
 
 # vim directory
-if [ -d ~/.vim ]; then
+if [ -e ~/.vim ]; then
     rm -rf ~/.vim
 fi
 ln -s ~/$DOTFILES_DIR/.vim ~/.vim
-git submodule update --init
 
 #schema
-if [ -d ~/schema ]; then
+if [ -e ~/schema ]; then
     rm -rf ~/schema
 fi
 ln -s ~/$DOTFILES_DIR/schema ~/schema
 
 # tmux
-if [ -d ~/.tmux.conf ]; then
+if [ -e ~/.tmux.conf ]; then
     rm -rf ~/.tmux.conf
 fi
 ln -s ~/$DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 
 # tmuxinator
-if [ -d ~/.tmuxinator ]; then
+if [ -e ~/.tmuxinator ]; then
     rm -rf ~/.tmuxinator
 fi
 ln -s ~/$DOTFILES_DIR/.tmuxinator ~/.tmuxinator
 
+# powerline
+if [ ! -e ~/$DOTFILES_DIR/oh-my-zsh/custom/themes ]; then
+    mkdir ~/$DOTFILES_DIR/oh-my-zsh/custom/themes
+fi
+
+ln -s ~/.dotfiles/oh-my-zsh-powerline-theme/powerline.zsh-theme ~/.dotfiles/oh-my-zsh/custom/themes/powerline.zsh-theme
+
 # neobundle
-mkdir ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if [ ! -e ~/.vim/bundle ]; then
+    mkdir ~/.vim/bundle
+fi
+
+if [ ! -e ~/.vim/bundle/neobundle.vim ]; then
+    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+fi
