@@ -16,12 +16,6 @@
 [credential]
 	helper = osxkeychain
 [alias]
-    c = commit -v
-    o = checkout
-    p = pull
-    pu = push
-    puu = push -u
-    f = fetch -p
 [push]
 	default = simple
 [filter "hawser"]

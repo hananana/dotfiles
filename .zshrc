@@ -94,16 +94,6 @@ alias vi="vim"
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# ここからgit系
-# g = git
-# o = checkout
-# p = pull
-# pu = push
-# puu = push -u
-alias g='git'
-alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
-alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
-
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 
