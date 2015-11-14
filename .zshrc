@@ -137,23 +137,22 @@ fi
 # ctrl-rで過去コマンド検索
 bindkey "^R" history-incremental-search-backward
 
-# うごいてない…
 #ヒストリ検索
-# function peco-select-history() {
-#     local tac
-#     if which tac > /dev/null; then
-#         tac="tac"
-#     else
-#         tac="tail -r"
-#     fi
-#     BUFFER=$(history -n 1 | \
-#         eval $tac | \
-#         peco --query "$LBUFFER")
-#     CURSOR=$#BUFFER
-#     zle clear-screen
-# }
-# zle -N peco-select-history
-# bindkey '^R' peco-select-history
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^R' peco-select-history
 
 #アプリを終了させる
 function peco-kill-process () {
