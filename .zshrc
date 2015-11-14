@@ -97,6 +97,8 @@ alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias vi="vim"
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
+# grep
+alias -g G='| grep'
 
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
