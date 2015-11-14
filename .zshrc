@@ -7,6 +7,10 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerline"
 
+# oh-my-zsh-powerline-theme
+POWERLINE_RIGHT_A="exit-status-on-fail"
+POWERLINE_HIDE_USER_NAME="true"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
