@@ -9,7 +9,8 @@ ZSH_THEME="powerline"
 
 # oh-my-zsh-powerline-theme
 POWERLINE_RIGHT_A="exit-status-on-fail"
-POWERLINE_HIDE_USER_NAME="true"
+POWERLINE_HIDE_HOST_NAME="true"
+POWERLINE_FULL_CURRENT_PATH="true"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

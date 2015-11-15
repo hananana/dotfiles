@@ -4,10 +4,14 @@ name: mono
 root: ~/Cocos2d-x/Project/monolink-ios
 
 windows:
-  - mono:
+  - objcpp:
       layout: main-vertical
       panes:
         - vim
+  - swift:
+      layout: main-vertical
+      panes:
+        -vim
   - git:
       layout: main-vertical
       panes:
