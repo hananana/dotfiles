@@ -40,12 +40,13 @@ NeoBundle 'Shougo/vimproc.vim', {
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
             \ 'build'      : {
-            \ 'mac'     : './install.py --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
-            \ 'unix'    : './install.py --clang-completer --system-libclang --omnisharp-completer',
-            \ 'windows' : './install.py --clang-completer --system-libclang --omnisharp-completer',
-            \ 'cygwin'  : './install.py --clang-completer --system-libclang --omnisharp-completer'
+            \ 'mac'     : './install.py --clang-completer --omnisharp-completer --gocode-completer',
+            \ 'unix'    : './install.py --clang-completer --omnisharp-completer',
+            \ 'windows' : './install.py --clang-completer --omnisharp-completer',
+            \ 'cygwin'  : './install.py --clang-completer --omnisharp-completer'
             \ }
             \ }
+
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
