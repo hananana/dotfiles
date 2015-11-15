@@ -7,6 +7,3 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen
-[submodule "tmux-colors-solarized"]
-	path = tmux-colors-solarized
-	url = https://github.com/seebi/tmux-colors-solarized
