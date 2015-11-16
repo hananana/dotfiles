@@ -9,4 +9,4 @@
 	url = https://github.com/zsh-users/antigen
 [submodule "tmux-powerline"]
 	path = tmux-powerline
-	url = https://github.com/erikw/tmux-powerline
+	url = git@github.com:hananana/tmux-powerline.git
