@@ -50,6 +50,7 @@ NeoBundle 'Valloric/YouCompleteMe', {
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " swift
 NeoBundle 'keith/swift.vim'
