@@ -1,0 +1,24 @@
+snippet header_normal "普通のヘッダー"
+//
+//  $1.h
+//  MONOLinkCocos
+//
+//  Created by Takeyuki Hanazawa on 2015/10/25.
+//
+//
+
+#ifndef __$1__
+#define __$1__
+
+#include "cocos2d.h"
+
+class $1 : public $2
+{
+public:
+    static MakeScene* create();
+protected:
+    virtual bool init() override;
+};
+
+#endif /* defined(__$1__) */
+endsnippet
