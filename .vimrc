@@ -257,6 +257,8 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>uu :Unite<CR>
 "ファイル検索
 nnoremap <Leader><Leader> :Unite file_rec/async<CR>
+" タブ一覧
+nnoremap <Leader>ut :Unite tab<CR>
 " バッファ一覧表示
 noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
