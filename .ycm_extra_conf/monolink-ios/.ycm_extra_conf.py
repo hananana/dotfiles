@@ -164,6 +164,9 @@ flags = [
 # need to set every project
 '-I', 'MONOLinkCocos/Classes',
 '-I', 'MONOLinkCocos/Classes/utils',
+'-I', 'MONOLinkCocos/proj.ios_mac/libMONOLinkCocos',
+'-I', 'MONOLinkCocos/proj.ios_mac/ios',
+'-I', 'MONOLinkMakeCanvas/Cocos2dx Bridge'
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
