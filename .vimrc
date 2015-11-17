@@ -289,14 +289,17 @@ au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
 "uniteによるタグジャンプと戻る
-autocmd BufEnter *
-            \   if empty(&buftype)
-            \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-            \|  endif
-autocmd BufEnter *
-            \   if empty(&buftype)
-            \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
-            \|  endif
+augroup TagJump
+    autocmd!
+    autocmd BufEnter *
+                \   if empty(&buftype)
+                \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+                \|  endif
+    autocmd BufEnter *
+                \   if empty(&buftype)
+                \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+                \|  endif
+augroup END
 " fugitive
 nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
