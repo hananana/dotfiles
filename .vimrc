@@ -277,6 +277,10 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 au FileType unite nnoremap <silent> <buffer> <C-J><C-J> :q<CR>
 au FileType unite inoremap <silent> <buffer> <C-J><C-J> <ESC>:q<CR>
+" uniteでhelp
+nnoremap <Leader>uh :Unite help<CR>
+" uniteでインクリメンタル検索
+nnoremap <Leader>uf :Unite line<CR>
 "ファイルツリー表示
 nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
 vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
