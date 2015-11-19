@@ -1,10 +1,8 @@
 snippet header_normal "普通のヘッダー"
 //
 //  $1.h
-//  MONOLinkCocos
 //
-//  Created by Takeyuki Hanazawa on 2015/10/25.
-//
+//  Created by Takeyuki Hanazawa
 //
 
 #ifndef __$1__
@@ -21,4 +19,35 @@ protected:
 };
 
 #endif /* defined(__$1__) */
+endsnippet
+
+snippet imp_normal "普通のcppファイル"
+//
+//  $1.h
+//
+//  Created by Takeyuki Hanazawa
+//
+
+#include "$1.h"
+
+USING_NS_CC;
+
+$1 *$1::create() {
+    auto instance = new $1();
+    if (instance && instance->init()) {
+        instance->autorelease();
+        return instance;
+    } else {
+        CC_SAFE_DELETE(instance);
+        return nullptr;
+    }
+}
+
+bool $1::init() {
+    if (!$2::init()) {
+        return false;
+    }
+
+    return true;
+}
 endsnippet
