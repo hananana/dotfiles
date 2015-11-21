@@ -2,7 +2,7 @@ snippet header_normal "普通のヘッダー"
 //
 //  $1.h
 //
-//  Created by Takeyuki Hanazawa
+//  Created by hananana
 //
 
 #ifndef __$1__
@@ -13,7 +13,7 @@ snippet header_normal "普通のヘッダー"
 class $1 : public $2
 {
 public:
-    static MakeScene* create();
+    static $1* create();
 protected:
     virtual bool init() override;
 };
@@ -25,7 +25,7 @@ snippet imp_normal "普通のcppファイル"
 //
 //  $1.h
 //
-//  Created by Takeyuki Hanazawa
+//  Created by hananana
 //
 
 #include "$1.h"
@@ -49,5 +49,52 @@ bool $1::init() {
     }
 
     return true;
+}
+endsnippet
+
+snippet header_singleton "シングルトンのヘッダー"
+//
+//  $1.h
+//
+//  Created by hananana
+//
+
+#ifndef __$1__
+#define __$1__
+
+#include "cocos2d.h"
+
+class $1 
+{
+public:
+    static $1* getInstance();
+    $1(const $1 &r) = delete;
+    $1& operator=(const $1 &r) = delete;
+
+private:
+    $1();
+    ~$1();
+};
+
+#endif /* defined(__$1__) */
+endsnippet
+
+snippet imp_singleton "シングルトンのcpp"
+//
+//  $1.cpp
+//
+//  Created by hananana
+//
+
+#include "$1.h"
+USING_NS_CC;
+
+$1::$1(){}
+$1::~$1(){}
+
+$1* $1::getInstance()
+{
+    static $1 instance;
+    return &instance;
 }
 endsnippet

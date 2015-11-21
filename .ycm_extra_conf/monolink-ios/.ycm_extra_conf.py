@@ -141,31 +141,31 @@ flags = [
 # Cocos2d-x headers
 # run `find cocos2d -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
 # to obtain all the header paths of cocos2d-x lib
-'-I', 'MONOLinkCocos/cocos2d',
-'-I', 'MONOLinkCocos/cocos2d/cocos',
-'-I', 'MONOLinkCocos/cocos2d/cocos/base',
-'-I', 'MONOLinkCocos/cocos2d/cocos/physics',
-'-I', 'MONOLinkCocos/cocos2d/cocos/math',
-'-I', 'MONOLinkCocos/cocos2d/cocos/2d',
-'-I', 'MONOLinkCocos/cocos2d/cocos/ui',
-'-I', 'MONOLinkCocos/cocos2d/cocos/network',
-'-I', 'MONOLinkCocos/cocos2d/cocos/audio/include',
-'-I', 'MONOLinkCocos/cocos2d/cocos/editor-support',
-'-I', 'MONOLinkCocos/cocos2d/extensions',
-'-I', 'MONOLinkCocos/cocos2d/external',
-'-I', 'MONOLinkCocos/cocos2d/external/chipmunk/include/chipmunk',
-'-I', 'MONOLinkCocos/cocos2d/external/curl/include/ios',
-'-I', 'MONOLinkCocos/cocos2d/cocos/platform/mac',
-'-I', 'MONOLinkCocos/cocos2d/cocos/platform/ios',
+'-I', 'CocosCanvas/cocos2d',
+'-I', 'CocosCanvas/cocos2d/cocos',
+'-I', 'CocosCanvas/cocos2d/cocos/base',
+'-I', 'CocosCanvas/cocos2d/cocos/physics',
+'-I', 'CocosCanvas/cocos2d/cocos/math',
+'-I', 'CocosCanvas/cocos2d/cocos/2d',
+'-I', 'CocosCanvas/cocos2d/cocos/ui',
+'-I', 'CocosCanvas/cocos2d/cocos/network',
+'-I', 'CocosCanvas/cocos2d/cocos/audio/include',
+'-I', 'CocosCanvas/cocos2d/cocos/editor-support',
+'-I', 'CocosCanvas/cocos2d/extensions',
+'-I', 'CocosCanvas/cocos2d/external',
+'-I', 'CocosCanvas/cocos2d/external/chipmunk/include/chipmunk',
+'-I', 'CocosCanvas/cocos2d/external/curl/include/ios',
+'-I', 'CocosCanvas/cocos2d/cocos/platform/mac',
+'-I', 'CocosCanvas/cocos2d/cocos/platform/ios',
 # Headers of your cocos2d-x project
 # run `find Classses -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
 # to obtain all the paths containing your headers
 # 
 # need to set every project
-'-I', 'MONOLinkCocos/Classes',
-'-I', 'MONOLinkCocos/Classes/utils',
-'-I', 'MONOLinkCocos/proj.ios_mac/libMONOLinkCocos',
-'-I', 'MONOLinkCocos/proj.ios_mac/ios',
+'-I', 'CocosCanvas/Classes',
+'-I', 'CocosCanvas/Classes/utils',
+'-I', 'CocosCanvas/proj.ios_mac/CocosCanvas',
+'-I', 'CocosCanvas/proj.ios_mac/ios',
 '-I', 'MONOLinkMakeCanvas/Cocos2dx Bridge'
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
