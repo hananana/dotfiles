@@ -75,7 +75,6 @@ NeoBundle 'elzr/vim-json'
 
 " markdown
 NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-NeoBundle 'mattn/qiita-vim'
 
 " yaml
 NeoBundleLazy 'stephpy/vim-yaml', { 'autoload' : { 'filetypes' : ['yaml'] } }
