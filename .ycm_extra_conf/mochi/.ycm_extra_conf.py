@@ -137,6 +137,8 @@ flags = [
 '/System/Library/Frameworks',
 '-isystem',
 '/Library/Frameworks',
+'-isystem',
+'/usr/include/c++/4.2.1/',
 # Cocos2d-x headers
 # run `find cocos2d -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
 # to obtain all the header paths of cocos2d-x lib
