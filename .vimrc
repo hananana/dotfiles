@@ -233,11 +233,11 @@ nnoremap sc :<C-u>tabclose<CR>
 nnoremap <Leader>w :w<CR>
 
 " unite呼び出し
-nnoremap <Leader>uu :Unite<CR>
+nnoremap <Leader>u :Unite<CR>
 "ファイル検索
 nnoremap <Leader><Leader> :Unite file_rec/async<CR>
 " バッファ一覧表示
-noremap <Leader>b :Unite buffer<CR>
+noremap <Leader>e :Unite buffer<CR>
 " レジスタ一覧
 noremap <Leader>r :Unite -buffer-name=register register<CR>
 " grep検索
