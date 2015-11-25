@@ -236,18 +236,16 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>uu :Unite<CR>
 "ファイル検索
 nnoremap <Leader><Leader> :Unite file_rec/async<CR>
-" タブ一覧
-nnoremap <Leader>ut :Unite tab<CR>
 " バッファ一覧表示
-noremap <Leader>ub :Unite buffer<CR>
+noremap <Leader>b :Unite buffer<CR>
 " レジスタ一覧
-noremap <Leader>ur :Unite -buffer-name=register register<CR>
+noremap <Leader>r :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
+noremap <Leader>g :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
-nnoremap <Leader>ua :UniteResume search-buffer<CR>
+nnoremap <Leader>a :UniteResume search-buffer<CR>
 " outline表示
-nnoremap <Leader>uo :Unite outline<CR>
+nnoremap <Leader>o :Unite outline<CR>
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
