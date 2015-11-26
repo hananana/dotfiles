@@ -5,7 +5,10 @@ root: ~/Dropbox/
 
 windows:
   - zatsu:
-      layout: 5958,178x48,0,0{89x48,0,0,1,88x48,90,0,2}
+      layout: main-verticle
       panes:
         - vim TODO.md
-        -
+  - zsh:
+      layout: main-vertical
+      panes:
+        - 
