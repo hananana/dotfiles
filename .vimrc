@@ -37,6 +37,7 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 NeoBundle 'Shougo/unite-help'
+NeoBundle 'rhysd/clever-f.vim'
 
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -348,6 +349,12 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_theme = 'molokai'
 let g:airline#extension#tabline#enabled = 1
+
+" --------------------------------
+" clever-f.vim
+" --------------------------------
+let g:clever_f_ignore_case = 1
+let g:clever_f_smart_case = 1
 
 " --------------------------------
 " neocomplete.vim
