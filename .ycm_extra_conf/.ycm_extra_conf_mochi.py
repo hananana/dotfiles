@@ -190,6 +190,7 @@ flags = [
 '-I', 'Classes/utils',
 '-I', 'Classes/utils/debug',
 '-I', 'Classes/physics',
+'-I', 'Classes/model',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
