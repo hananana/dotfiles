@@ -242,7 +242,7 @@ noremap <Leader>e :Unite buffer<CR>
 " レジスタ一覧
 noremap <Leader>r :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <Leader>g :Unite grep:. -buffer-name=search-buffer<CR>
+noremap <Leader>gr :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
 nnoremap <Leader>a :UniteResume search-buffer<CR>
 " outline表示
@@ -282,8 +282,7 @@ augroup TagJump
                 \|  endif
 augroup END
 " fugitive
-nnoremap <Leader>gt :Git<space>
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>st :Gstatus<CR>
 " neocompleteのonoff
 nnoremap <Leader>n :NeoCompleteToggle<CR>
 " sneak
