@@ -1,0 +1,10 @@
+# ~/.tmuxinator/test.yml
+
+name: test
+root: ~/
+
+windows:
+  - zsh:
+      layout: main-vertical
+      panes:
+        - 
