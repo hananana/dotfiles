@@ -37,8 +37,6 @@ import ycm_core
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
-
-# objc
 '-fmessage-length=0',
 '-fobjc-arc',
 '-Wno-trigraphs',
@@ -99,14 +97,11 @@ flags = [
 '-MT',
 '-MF',
 
-# cpp
 '-Wall',
 '-Wextra',
-'-Werror',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-Wno-ignored-qualifiers',
-'-DNDEBUG',
 # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
 # source code needs it.
 '-DUSE_CLANG_COMPLETER',
@@ -130,7 +125,7 @@ flags = [
 # System library on Mac
 # run `echo | clang -std=c++11 -stdlib=libc++ -v -E -x c++ -` to obtain system lib paths
 '-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1',
+'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
 '-isystem', '/usr/local/include',
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1/include',
@@ -173,29 +168,6 @@ flags = [
 # 
 # need to set every project
 '-I', 'Classes',
-'-I', 'Classes/libs',
-'-I', 'Classes/libs/SS5Player',
-'-I', 'Classes/connector',
-'-I', 'Classes/connector/render',
-'-I', 'Classes/connector/vertexinfo',
-'-I', 'Classes/manager',
-'-I', 'Classes/mochi',
-'-I', 'Classes/mochi/skin',
-'-I', 'Classes/mochi/skin/animation',
-'-I', 'Classes/mochi/skin/physics',
-'-I', 'Classes/mochi/skin/physics/parts',
-'-I', 'Classes/scene',
-'-I', 'Classes/scene/album',
-'-I', 'Classes/scene/debug',
-'-I', 'Classes/scene/_home',
-'-I', 'Classes/scene/main',
-'-I', 'Classes/scene/setting',
-'-I', 'Classes/scene/shop',
-'-I', 'Classes/scene/tmp',
-'-I', 'Classes/utils',
-'-I', 'Classes/utils/debug',
-'-I', 'Classes/physics',
-'-I', 'Classes/model',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
 '-D', 'CC_TARGET_OS_MAC',
