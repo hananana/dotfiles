@@ -103,6 +103,7 @@ flags = [
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-Wno-ignored-qualifiers',
+'-DNDEBUG',
 # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
 # source code needs it.
 '-DUSE_CLANG_COMPLETER',
@@ -126,7 +127,7 @@ flags = [
 # System library on Mac
 # run `echo | clang -std=c++11 -stdlib=libc++ -v -E -x c++ -` to obtain system lib paths
 '-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
+'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1',
 '-isystem', '/usr/local/include',
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1/include',
