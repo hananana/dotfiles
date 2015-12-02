@@ -37,7 +37,7 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 NeoBundle 'Shougo/unite-help'
-NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'justinmk/vim-sneak'
 
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -286,6 +286,13 @@ nnoremap <Leader>gt :Git<space>
 nnoremap <Leader>gs :Gstatus<CR>
 " neocompleteのonoff
 nnoremap <Leader>n :NeoCompleteToggle<CR>
+" sneak
+nmap f <Plug>Sneak_s
+nmap F <Plug>Sneak_S
+xmap f <Plug>Sneak_s
+xmap F <Plug>Sneak_S
+omap f <Plug>Sneak_s
+omap F <Plug>Sneak_S
 
 " -----------------------------------------------------------------------------
 " unite.vim
