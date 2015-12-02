@@ -153,6 +153,7 @@ flags = [
 '-I', 'cocos2d',
 '-I', 'cocos2d/cocos',
 '-I', 'cocos2d/cocos/base',
+'-I', 'cocos2d/renderer',
 '-I', 'cocos2d/cocos/physics',
 '-I', 'cocos2d/cocos/math',
 '-I', 'cocos2d/cocos/2d',
