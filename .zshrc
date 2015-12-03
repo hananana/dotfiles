@@ -101,6 +101,23 @@ alias tmux="TERM=screen-256color-bce tmux"
 # grep
 alias -g G='| grep'
 
+# Hでコミットのハッシュ絞り込み
+function git-hash(){                                    
+    git log --oneline --branches | peco | awk '{print $1}'
+}   
+
+alias -g H='$(git-hash)'
+
+function git-changed-files(){                 
+    git status --short | peco | awk '{print $2}'
+}
+
+alias -g F='$(git-changed-files)'
+
+# -------------------------------------
+# history
+# -------------------------------------
+
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 
