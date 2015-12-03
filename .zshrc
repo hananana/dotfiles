@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 
+# cool-peco
+source $HOME/.dotfiles/cool-peco/cool-peco
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -137,46 +140,25 @@ setopt EXTENDED_HISTORY
 # keybind
 # -------------------------------------
 
-# ctrl-fでパス検索
-function peco-select-path {
-	local filepath="$(ls -a | peco)"
-  if [ "$LBUFFER" -eq "" ]; then
-    if [ -d "$filepath" ]; then
-      BUFFER="cd $filepath"
-    elif [ -f "$filepath" ]; then
-      BUFFER="open $filepath"
-    fi
-  else
-    BUFFER="$LBUFFER$filepath"
-  fi
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
+### cool-peco-filename-search
+alias cpf=cool-peco-filename-search
+zle -N cool-peco-filename-search
+bindkey '^f' cool-peco-filename-search
 
-if [ -x "`which peco 2> /dev/null`" ]; then
-  zle -N peco-select-path
-  bindkey '^f' peco-select-path # Ctrl+f で起動
-fi
+### cool-peco-git-checkout
+alias cpg=cool-peco-git-checkout
+zle -N cool-peco-git-checkout
+bindkey '^g' cool-peco-git-checkout
 
-# ctrl-rで過去コマンド検索
-bindkey "^R" history-incremental-search-backward
+### cool-peco-git-log
+alias cpg=cool-peco-git-log
+zle -N cool-peco-git-log
+bindkey '^l' cool-peco-git-log
 
-#ヒストリ検索
-function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^R' peco-select-history
+### cool-peco-history
+alias cph=cool-peco-history
+zle -N cool-peco-history
+bindkey '^h' cool-peco-history
 
 #アプリを終了させる
 function peco-kill-process () {
@@ -185,7 +167,6 @@ function peco-kill-process () {
 }
 zle -N peco-kill-process
 bindkey '^k' peco-kill-process   # C-x k
-
 
 #ローカルブランチ削除
 function pdlb {
