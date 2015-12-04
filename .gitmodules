@@ -10,6 +10,3 @@
 [submodule "tmux-powerline"]
 	path = tmux-powerline
 	url = git@github.com:hananana/tmux-powerline.git
-[submodule "cool-peco"]
-	path = cool-peco
-	url = https://github.com/ryoppy/cool-peco.git
