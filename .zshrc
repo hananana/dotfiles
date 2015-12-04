@@ -140,25 +140,57 @@ setopt EXTENDED_HISTORY
 # keybind
 # -------------------------------------
 
-### cool-peco-filename-search
-alias cpf=cool-peco-filename-search
-zle -N cool-peco-filename-search
-bindkey '^f' cool-peco-filename-search
+# フォルダ履歴から絞り込む
+function peco-cdr () {
+    local selected_dir=$(cd | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey '^f' peco-cdr
 
-### cool-peco-git-checkout
-alias cpg=cool-peco-git-checkout
-zle -N cool-peco-git-checkout
-bindkey '^g' cool-peco-git-checkout
+# ブランチを絞り込む
+function git-branch(){
+    local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
+    if [ -n "$branch" ]; then
+        if [ -n "$LBUFFER" ]; then
+            local new_left="${LBUFFER%\ } $branch"
+        else
+            local new_left="$branch"
+        fi
+        BUFFER=${new_left}${RBUFFER}
+        CURSOR=${#new_left}
+    fi
+}
+zle -N git-branch
+bindkey '^g' git-branch
 
-### cool-peco-git-log
-alias cpg=cool-peco-git-log
-zle -N cool-peco-git-log
-bindkey '^l' cool-peco-git-log
+# ハッシュを絞り込む
+function git-hash(){                                    
+    git log --oneline --branches | peco | awk '{print $1}'
+}  
+zle -N git-hash
+bindkey '^h' git-hash
 
-### cool-peco-history
-alias cph=cool-peco-history
-zle -N cool-peco-history
-bindkey '^h' cool-peco-history
+# ヒストリを絞り込む
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history 
 
 #アプリを終了させる
 function peco-kill-process () {
@@ -169,15 +201,15 @@ zle -N peco-kill-process
 bindkey '^k' peco-kill-process   # C-x k
 
 #ローカルブランチ削除
-function pdlb {
-     git branch -d $(git branch | sed -e "s/^\*\s*//g" | peco)
-}
+# function pdlb {
+#      git branch -d $(git branch | sed -e "s/^\*\s*//g" | peco)
+# }
 
 #リモートブランチ削除
-function pdrb {
- 	someBranch=$(git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g")
- 	git push --delete origin ${someBranch##*/}
-}
+# function pdrb {
+#  	someBranch=$(git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g")
+#  	git push --delete origin ${someBranch##*/}
+# }
 
 #グラフ描画
 function graph {
