@@ -176,6 +176,7 @@ flags = [
 '-I', 'Classes',
 '-I', 'Classes/libs',
 '-I', 'Classes/libs/SS5Player',
+'-I', 'Classes/libs/picojson',
 '-I', 'Classes/connector',
 '-I', 'Classes/connector/render',
 '-I', 'Classes/connector/vertexinfo',
