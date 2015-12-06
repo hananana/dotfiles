@@ -219,17 +219,12 @@ nmap # #zz
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
 " タブとウィンドウ分割"
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap sn gt
-nnoremap sp gT
-nnoremap st :<C-u>tabnew<CR>
-nnoremap sc :<C-u>tabclose<CR>
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>s :<C-u>sp<CR>
+nnoremap <Leader>v :<C-u>vs<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
 
@@ -242,7 +237,7 @@ noremap <Leader>e :Unite buffer<CR>
 " レジスタ一覧
 noremap <Leader>r :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <Leader>gr :Unite grep:. -buffer-name=search-buffer<CR>
+noremap <Leader>g :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
 nnoremap <Leader>a :UniteResume search-buffer<CR>
 " outline表示
@@ -285,13 +280,6 @@ augroup END
 nnoremap <Leader>st :Gstatus<CR>
 " neocompleteのonoff
 nnoremap <Leader>n :NeoCompleteToggle<CR>
-" sneak
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
 
 " -----------------------------------------------------------------------------
 " unite.vim
