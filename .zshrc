@@ -249,3 +249,14 @@ eval "$(rbenv init -)"
 # -------------------------------------
 source ~/.dotfiles/antigen/antigen.zsh
 antigen-bundle b4b4r07/enhancd
+
+# -------------------------------------
+# niconicoをplay
+# -------------------------------------
+function nico() {
+    TAG=`echo "$*" | nkf -WwMQ | tr -d '\n' | tr = % | sed -e 's/%%/%/g'`
+    ruby -r rss -e "RSS::Parser.parse(\"http://www.nicovideo.jp/tag/$TAG?rss=2.0\").channel.items.each {|item| puts item.link + \"\t\" + item.title}" | peco | while read line; do
+    echo $line
+    echo $line | awk '{print $1}' | nicovideo-dump | mplayer - -novideo
+    done
+}
