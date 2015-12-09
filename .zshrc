@@ -5,7 +5,7 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sunrise"
+ZSH_THEME="muse"
 
 # oh-my-zsh-powerline-theme
 POWERLINE_RIGHT_A="exit-status-on-fail"
