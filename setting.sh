@@ -37,12 +37,6 @@ if [ -e ~/.vim ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.vim ~/.vim
 
-#schema
-if [ -e ~/schema ]; then
-    rm -rf ~/schema
-fi
-ln -s ~/$DOTFILES_DIR/schema ~/schema
-
 # tmux
 if [ -e ~/.tmux.conf ]; then
     rm -rf ~/.tmux.conf
