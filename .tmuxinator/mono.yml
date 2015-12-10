@@ -8,10 +8,6 @@ windows:
       layout: main-vertical
       panes:
         - vim
-  - swift:
-      layout: main-vertical
-      panes:
-        -vim
   - git:
       layout: main-vertical
       panes:
