@@ -197,17 +197,6 @@ function peco-kill-process () {
 zle -N peco-kill-process
 bindkey '^k' peco-kill-process   # C-x k
 
-#ローカルブランチ削除
-# function pdlb {
-#      git branch -d $(git branch | sed -e "s/^\*\s*//g" | peco)
-# }
-
-#リモートブランチ削除
-# function pdrb {
-#  	someBranch=$(git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g")
-#  	git push --delete origin ${someBranch##*/}
-# }
-
 #グラフ描画
 function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
