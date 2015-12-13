@@ -258,7 +258,7 @@ onoremap <silent> <C-e>      :NERDTreeToggle<CR>
 inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " ヘッダーとの移動
-au FileType cpp,objc,objcpp,cs nmap <Leader>h <Plug>(altr-forward)
+au FileType cpp,objc,objcpp,cs nmap <Leader>i <Plug>(altr-forward)
 " コメントテンプレ展開
 au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 "コメントアウト
