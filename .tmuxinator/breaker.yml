@@ -1,0 +1,18 @@
+# ~/.tmuxinator/breaker.yml
+
+name: breaker
+root: ~/Cocos2d-x/Project/BreakOut_cocos
+
+windows:
+  - vim:
+      layout: main-vertical
+      panes:
+        - vim
+  - git: 
+      layout: main-vertical
+      panes:
+        -
+  - w3m: 
+      layout: main-vertical
+      panes:
+        -
