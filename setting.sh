@@ -49,6 +49,13 @@ if [ -e ~/.tmuxinator ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.tmuxinator ~/.tmuxinator
 
+# iterm
+if [ -e ~/iTerm2-Color-Schemes ]; then
+    rm -rf ~/iTerm2-Color-Schemes
+fi
+
+ln -s ~/$DOTFILES_DIR/iTerm2-Color-Schemes ~/iTerm2-Color-Schemes
+
 # ctags
 if [ -e ~/.ctags ]; then
     rm -rf ~/.ctags
