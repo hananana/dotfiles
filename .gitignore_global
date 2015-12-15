@@ -6,3 +6,4 @@ libcocos2d iOS.a
 .ycm_extra_conf.pyc
 tags
 tags.lock
+*.session.vim
