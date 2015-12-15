@@ -49,12 +49,11 @@ if [ -e ~/.tmuxinator ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.tmuxinator ~/.tmuxinator
 
-# powerline
-if [ ! -e ~/$DOTFILES_DIR/oh-my-zsh/custom/themes ]; then
-    mkdir ~/$DOTFILES_DIR/oh-my-zsh/custom/themes
+# ctags
+if [ -e ~/.ctags ]; then
+    rm -rf ~/.ctags
 fi
-
-ln -s ~/.dotfiles/oh-my-zsh-powerline-theme/powerline.zsh-theme ~/.dotfiles/oh-my-zsh/custom/themes/powerline.zsh-theme
+ln -s ~/$DOTFILES_DIR/.ctags ~/.ctags
 
 # neobundle
 if [ ! -e ~/.vim/bundle ]; then

@@ -1,0 +1,15 @@
+--langdef=objc
+--langmap=objc:.m.h
+--regex-objc=/^[[:space:]]*[-+][[:space:]]*\([[:alpha:]]+[[:space:]]*\*?\)[[:space:]]*([[:alnum:]]+):[[:space:]]*\(/\1/m,method/
+--regex-objc=/^[[:space:]]*[-+][[:space:]]*\([[:alpha:]]+[[:space:]]*\*?\)[[:space:]]*([[:alnum:]]+)[[:space:]]*\{/\1/m,method/
+--regex-objc=/^[[:space:]]*[-+][[:space:]]*\([[:alpha:]]+[[:space:]]*\*?\)[[:space:]]*([[:alnum:]]+)[[:space:]]*\;/\1/m,method/
+--regex-objc=/^[[:space:]]*\@property[[:space:]]+.*[[:space:]]+\*?(.*);$/\1/p,property/
+--regex-objc=/^[[:space:]]*\@implementation[[:space:]]+(.*)$/\1/c,class/
+--regex-objc=/^[[:space:]]*\@interface[[:space:]]+(.*)[[:space:]]+:.*{/\1/i,interface/
+
+--langdef=Swift 
+--langmap=Swift:+.swift 
+--regex-swift=/(var|let)[ \t]+([^:=]+).*$/\2/,variable/ 
+--regex-swift=/func[ \t]+([^\(\)]+)\([^\(\)]*\)/\1/,function/ 
+--regex-swift=/class[ \t]+([^:\{]+).*$/\1/,class/ 
+--regex-swift=/protocol[ \t]+([^:\{]+).*$/\1/,protocol/
