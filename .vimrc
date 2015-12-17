@@ -48,6 +48,7 @@ NeoBundle 'vim-scripts/darktango.vim'
 NeoBundle 'sjl/badwolf'
 NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'djjcast/mirodark'
+NeoBundle 'gosukiwi/vim-atom-dark'
 
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -117,6 +118,7 @@ NeoBundleCheck
 " plugin on!!!!!!!!!!!!!!!
 " --------------------------------
 filetype plugin indent on
+
 " --------------------------------
 " 基本設定
 " --------------------------------
@@ -341,8 +343,7 @@ let g:lightline = {
 " syntax
 " -------------------------------
 syntax on
-" let g:moleokai_original=1
-colorscheme badwolf
+colorscheme atom-dark-256
 
 " -------------------------------
 " vim-airline
