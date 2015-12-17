@@ -40,7 +40,6 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 NeoBundle 'Shougo/unite-help'
-NeoBundle 'justinmk/vim-sneak'
 
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
