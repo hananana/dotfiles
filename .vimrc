@@ -50,7 +50,7 @@ NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'djjcast/mirodark'
 NeoBundle 'gosukiwi/vim-atom-dark'
 
-"C系補完の神
+"補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
             \ 'build'      : {
             \ 'mac'     : './install.py --clang-completer --omnisharp-completer --gocode-completer',
@@ -60,15 +60,15 @@ NeoBundle 'Valloric/YouCompleteMe', {
             \ }
             \ }
 
+"syntax
 NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
-NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
-NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'b4winckler/vim-objc'
-
-" swift
 NeoBundle 'keith/swift.vim'
-NeoBundle 'tokorom/neocomplete-swift-dictionary'
+"comment
+NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
+"switch header and imp
+NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
 " ruby
 NeoBundle 'NigoroJr/rsense'
@@ -393,8 +393,6 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " --------------------------------
 " YouCompleteMe
 " --------------------------------
-let g:ycm_filetype_whitelist = { 'cpp' : 1, 'objc' : 1, 'objcpp' : 1, 'cs' : 1 , 'go' : 1, 'python' : 1 }
-let g:ycm_filetype_blacklist = { 'swift' : 1 }
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 
