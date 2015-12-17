@@ -212,7 +212,7 @@ export COCOS_TEMPLATES_ROOT=$HOME/Cocos2d-x/cocos2d-x/templates
 export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 
 # Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=$HOME/Android/android-ndk-r10c
+export NDK_ROOT=$HOME/Android/android-ndk-r10d
 export PATH=$NDK_ROOT:$PATH
 
 # Add environment variable ANT_ROOT for cocos2d-x

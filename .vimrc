@@ -17,7 +17,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 "必須系
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
@@ -40,6 +39,15 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 NeoBundle 'Shougo/unite-help'
+
+" scheme
+NeoBundle 'mopp/mopkai.vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'vim-scripts/darktango.vim'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'djjcast/mirodark'
 
 "C系補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -333,8 +341,8 @@ let g:lightline = {
 " syntax
 " -------------------------------
 syntax on
-let g:moleokai_original=1
-colorscheme mopkai
+" let g:moleokai_original=1
+colorscheme badwolf
 
 " -------------------------------
 " vim-airline
@@ -343,12 +351,6 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_theme = 'molokai'
 let g:airline#extension#tabline#enabled = 1
-
-" --------------------------------
-" clever-f.vim
-" --------------------------------
-let g:clever_f_ignore_case = 1
-let g:clever_f_smart_case = 1
 
 " --------------------------------
 " neocomplete.vim
