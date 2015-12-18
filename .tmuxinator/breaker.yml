@@ -12,7 +12,3 @@ windows:
       layout: main-vertical
       panes:
         -
-  - w3m: 
-      layout: main-vertical
-      panes:
-        -
