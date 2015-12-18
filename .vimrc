@@ -429,51 +429,20 @@ augroup PrevimSettings
 augroup END
 
 " --------------------------------
-" fugitive and session
+" session
 " --------------------------------
-"session保存ファイル名
-let g:session_default_name = '.default.session'
-" session保持ファイルの拡張子
-let g:session_extension = '.vim'
-" session保存ディレクトリを現在のディレクトリにする
-let g:session_directory = getcwd()
-" vim終了時に自動保存しない
-let g:session_autosave = 'no'
-" 引数なしでvimを起動した時にセッションを復元しない
-let g:session_autoload = 'no'
-" 1分間に1回自動保存をしない(する場合は1)
-let g:session_autosave_periodic = 0
-
-function! s:save_session(...)
-    if a:0
-        let session_name = a:1
-    else
-        " fugitive.vimの機能を使っているのはブランチ名を取得する部分のみ
-        " substitute(system('git rev-parse --abbrev-ref HEAD'),
-        '\n', '', 'g')などで代替可能
-        let session_name = fugitive#head()
-    end
-
-    if strlen(session_name)
-        execute 'SaveSession .'.session_name.'.session'
-    else
-        SaveSession
-    endif
-endfunction
-
-function! s:load_session(...)
-    if a:0
-        let session_name = a:1
-    else
-        let session_name = fugitive#head()
-    end
-
-    if strlen(session_name)
-        execute 'OpenSession .'.session_name.'.session'
-    else
-        execute 'OpenSession '.g:session_default_name
-    endif
-endfunction
-
-command! -nargs=? SaveS call s:save_session(<f-args>)
-command! -nargs=? LoadS call s:load_session(<f-args>)
+" 現在のディレクトリ直下の .vimsessions/ を取得 
+let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vimsessions')
+" 存在すれば
+if isdirectory(s:local_session_directory)
+    let g:session_directory = s:local_session_directory
+    let g:session_autosave = 'yes'
+    let g:session_autoload = 'yes'
+    let g:session_autosave_periodic = 1
+else
+    :!mkdir .vimsessions
+    let g:session_autosave = 'yes'
+    let g:session_autoload = 'yes'
+    let g:session_autosave_periodic = 1
+endif
+unlet s:local_session_directory
