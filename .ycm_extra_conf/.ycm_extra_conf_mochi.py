@@ -200,7 +200,7 @@ flags = [
 '-I', 'Classes/model',
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
-'-D', 'CC_TARGET_OS_MAC',
+'-D', 'CC_TARGET_OS_IPHONE',
 '-D', 'COCOS2D_DEBUG=1',
 '-D', 'CC_ENABLE_CHIPMUNK_INTEGRATION'
 ]
