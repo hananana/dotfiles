@@ -55,6 +55,11 @@ iTermでの設定はRegularはMigu1Mで16pt、NON-ASCIIはHackで18pt
 $ ln -s ~/.dotfiles/oh-my-zsh-powerline-theme/powerline.zsh-theme ~/.dotfiles/oh-my-zsh/custom/themes/powerline.zsh-theme
 ```
 
+- fuck
+```
+$ sudo pip install thefuck
+```
+
 ## MEMO
 
 - cocosを書く時は.ycm以下略のシンボリックリンクをcocosプロジェクトのトップに作ること
