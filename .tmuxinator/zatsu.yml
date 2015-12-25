@@ -8,7 +8,3 @@ windows:
       layout: main-verticle
       panes:
         - vim TODO.md
-  - zsh:
-      layout: main-vertical
-      panes:
-        - 
