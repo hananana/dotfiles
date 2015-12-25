@@ -84,32 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # -------------------------------------
-# alias
-# -------------------------------------
-
-# tree
-alias tree="tree -NC" # N: 文字化け対策, C:色をつける
-# vim
-alias vi="vim"
-# tmux
-alias tmux="TERM=screen-256color-bce tmux"
-# grep
-alias -g G='| grep'
-
-# Hでコミットのハッシュ絞り込み
-function git-hash(){                                    
-    git log --oneline --branches | peco | awk '{print $1}'
-}   
-
-alias -g H='$(git-hash)'
-
-function git-changed-files(){                 
-    git status --short | peco | awk '{print $2}'
-}
-
-alias -g F='$(git-changed-files)'
-
-# -------------------------------------
 # history
 # -------------------------------------
 
@@ -129,8 +103,19 @@ setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
 
 # -------------------------------------
-# keybind
+# keybind&alias
 # -------------------------------------
+
+# tree
+alias tree="tree -NC" # N: 文字化け対策, C:色をつける
+# vim
+alias vi="vim"
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
+# grep
+alias -g G='| grep'
+# ag
+alias agm='ag -S --hidden -g'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
