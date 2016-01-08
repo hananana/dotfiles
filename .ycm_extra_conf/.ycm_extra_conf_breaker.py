@@ -38,78 +38,9 @@ import ycm_core
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
 
-# objc
-'-fmessage-length=0',
-'-fobjc-arc',
-'-Wno-trigraphs',
-'-fpascal-strings',
-'-Os',
-'-Wno-missing-field-initializers',
-'-Wno-missing-prototypes',
-'-Wreturn-type',
-'-Wno-implicit-atomic-properties',
-'-Wno-receiver-is-weak',
-'-Wduplicate-method-match',
-'-Wformat',
-'-Wno-missing-braces',
-'-Wparentheses',
-'-Wswitch',
-'-Wno-unused-function',
-'-Wno-unused-label',
-'-Wno-unused-parameter',
-'-Wunused-variable',
-'-Wunused-value',
-'-Wempty-body',
-'-Wuninitialized',
-'-Wno-unknown-pragmas',
-'-Wno-shadow',
-'-Wno-four-char-constants',
-'-Wno-conversion',
-'-Wno-constant-conversion',
-'-Wno-int-conversion',
-'-Wno-enum-conversion',
-'-Wno-shorten-64-to-32',
-'-Wpointer-sign',
-'-Wno-newline-eof',
-'-Wno-selector',
-'-Wno-strict-selector-match',
-'-Wno-undeclared-selector',
-'-Wno-deprecated-implementations',
-'-isysroot',
-'/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator9.1.sdk',
-'-fexceptions',
-'-fasm-blocks',
-'-fstrict-aliasing',
-'-Wprotocol',
-'-Wdeprecated-declarations',
-'-g',
-'-fvisibility=hidden',
-'-Wno-sign-conversion',
-'-fobjc-abi-version=2',
-'-fobjc-legacy-dispatch',
-'-mios-simulator-version-min=6.0',
-'-iquote',
-'-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator9.1.sdk/System/Library/Frameworks/Foundation.framework/Headers',
-'-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
-#'-I/Users/user/another/random/folder/here',
-#'-I/Users/user/random/folder/here',
-#'-I/Users/random/folder/here',
-'-DNS_BLOCK_ASSERTIONS=1',
-'-MMD',
-'-MT',
-'-MF',
-
-# cpp
-'-Wall',
-'-Wextra',
-'-Werror',
-'-Wno-long-long',
-'-Wno-variadic-macros',
-'-Wno-ignored-qualifiers',
-'-DNDEBUG',
 # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
 # source code needs it.
-'-DUSE_CLANG_COMPLETER',
+# '-DUSE_CLANG_COMPLETER',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
@@ -121,31 +52,33 @@ flags = [
 # language that the files to be compiled are written in. This is mostly
 # relevant for c++ headers.
 # For a C project, you would set this to 'c' instead of 'c++'.
-#'-x', 'c++',
-'-isystem', '../BoostParts',
-'-isystem',
+# '-x', 'c++',
 # This path will only work on OS X, but extra paths that don't exist are not
 # harmful
-'/System/Library/Frameworks/Python.framework/Headers',
+# '-isystem',
+# '/System/Library/Frameworks/Python.framework/Headers',
 # System library on Mac
 # run `echo | clang -std=c++11 -stdlib=libc++ -v -E -x c++ -` to obtain system lib paths
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1',
-'-isystem', '/usr/local/include',
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.1/include',
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
-'-isystem',
-'/usr/include',
-'-isystem',
-'/System/Library/Frameworks',
-'-isystem',
-'/Library/Frameworks',
-'-v'
-'-E'
-'-x'
-'c++'
+# '-isystem',
+# '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1',
+# '-isystem',
+# '/usr/local/include',
+# '-isystem',
+# '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include',
+# '-isystem',
+# '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
+# '-isystem',
+# '/usr/include',
+# '-isystem',
+# '/System/Library/Frameworks',
+# '-isystem',
+# '/Library/Frameworks',
+
+# objc
+'-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator9.1.sdk/System/Library/Frameworks/Foundation.framework/Headers',
+'-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
+'-isysroot',
+'/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator9.1.sdk',
 
 # Cocos2d-x headers
 # run `find cocos2d -name '*.h' -o -name '*.hpp' | xargs -L1 dirname | uniq`
@@ -194,7 +127,6 @@ flags = [
 '-I', 'proj.ios_mac',
 '-I', 'proj.ios_mac/ios/',
 '-I', 'proj.ios_mac/ios/NendAd',
-
 
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
