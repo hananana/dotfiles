@@ -288,8 +288,11 @@ augroup TagJump
                 \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
                 \|  endif
 augroup END
-" neocompleteのonoff
-nnoremap <Leader>n :NeoCompleteToggle<CR>
+
+nnoremap <silent> <Leader>p :call RunXcode()<CR><CR>
+function RunXcode()
+    :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+endfunction
 
 " -----------------------------------------------------------------------------
 " unite.vim
