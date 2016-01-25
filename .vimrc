@@ -65,6 +65,17 @@ NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'b4winckler/vim-objc'
 NeoBundle 'keith/swift.vim'
+NeoBundle 'vim-scripts/glsl.vim'
+
+NeoBundleLazy 'glsl.vim'
+augroup NeoBundleLazyForShader
+	autocmd!
+	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
+		\ set filetype=glsl
+	autocmd FileType glsl NeoBundleSource
+		\ glsl.vim
+augroup END
+
 "comment
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
 "switch header and imp
