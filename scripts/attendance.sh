@@ -7,11 +7,15 @@ THIS_MONTH=`date "+%Y%m"`
 FILE_PATH=${DIR}/${THIS_MONTH}.csv
 
 saveAttendance(){
-    grep -E ${TODAY} ${FILE_PATH}
-    if [ $? -eq 0 ]; then
-    else
-    fi
-    echo 'complete'
+
+grep -E ${TODAY} ${FILE_PATH}
+if [ $? -eq 0 ]; then
+    echo 'hoge'
+else
+    echo 'fuga'
+fi
+echo 'complete'
+
 }
 
 echo 'fucking hello hananana!!'
