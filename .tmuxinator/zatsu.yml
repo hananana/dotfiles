@@ -4,7 +4,11 @@ name: zatsu
 root: ~/Dropbox/
 
 windows:
-  - zatsu:
+  - editor:
       layout: main-verticle
       panes:
         - vim TODO.md
+  - editor:
+      layout: main-verticle
+      panes:
+        - 
