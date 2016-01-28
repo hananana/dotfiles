@@ -116,6 +116,8 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias -g G='| grep'
 # ag
 alias agm='ag -S --hidden -g'
+# 通知
+alias notice='~/.dotfiles/scripts/notice.sh'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
@@ -184,6 +186,7 @@ function graph {
 
 #fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
+
 
 # -------------------------------------
 # cocos
