@@ -8,12 +8,20 @@ FILE_PATH=${DIR}/${THIS_MONTH}.csv
 
 saveAttendance(){
 
-grep -E ${TODAY} ${FILE_PATH}
-if [ $? -eq 0 ]; then
-    echo 'hoge'
-else
-    echo 'fuga'
-fi
+# grep -E ${TODAY} ${FILE_PATH}
+# if [ $? -eq 0 ]; then
+cat ${FILE_PATH} | while read line
+do
+    echo $numLine: $line 
+    numLine=$((numLine + 1)) # 行数を1増やす
+done
+# else
+#     cat ${FILE_PATH} | while read line
+#     do
+#         echo $numLine: $line # 出力
+#         numLine=$((numLine + 1)) # 行数を1増やす
+#     done
+# fi
 echo 'complete'
 
 }
@@ -25,6 +33,6 @@ if [ -e ${FILE_PATH} ]; then
     saveAttendance
 else
     touch ${FILE_PATH}
-    echo 'nai'
+    saveAttendance
 fi
 
