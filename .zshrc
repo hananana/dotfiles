@@ -118,6 +118,10 @@ alias -g G='| grep'
 alias agm='ag -S --hidden -g'
 # 通知
 alias notice='~/.dotfiles/scripts/notice.sh'
+# プロセスをkill
+alias killp='kill-process' 
+# history
+alias his='peco-select-history()'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
@@ -169,15 +173,15 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history 
+# bindkey '^r' peco-select-history 
 
 #アプリを終了させる
-function peco-kill-process () {
+function kill-process () {
     ps -ef | peco | awk '{ print $2 }' | xargs kill
     zle clear-screen
 }
-zle -N peco-kill-process
-bindkey '^k' peco-kill-process   # C-x k
+zle -N kill-process
+# bindkey '^k' kill-process   # C-x k
 
 #グラフ描画
 function graph {
