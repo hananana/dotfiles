@@ -120,8 +120,6 @@ alias agm='ag -S --hidden -g'
 alias notice='~/.dotfiles/scripts/notice.sh'
 # プロセスをkill
 alias kilp='kill-process' 
-# history
-alias his='peco-select-history'
 #fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
@@ -174,8 +172,8 @@ function peco-select-history() {
     CURSOR=$#BUFFER
     zle clear-screen
 }
-# zle -N peco-select-history
-# bindkey '^r' peco-select-history 
+zle -N peco-select-history
+bindkey '^r' peco-select-history 
 
 #アプリを終了させる
 function kill-process () {
