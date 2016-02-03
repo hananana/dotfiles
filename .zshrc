@@ -119,9 +119,11 @@ alias agm='ag -S --hidden -g'
 # 通知
 alias notice='~/.dotfiles/scripts/notice.sh'
 # プロセスをkill
-alias killp='kill-process' 
+alias kilp='kill-process' 
 # history
-alias his='peco-select-history()'
+alias his='peco-select-history'
+#fuck
+alias fuck='eval $(thefuck $(fc -ln -1))'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
@@ -172,7 +174,7 @@ function peco-select-history() {
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N peco-select-history
+# zle -N peco-select-history
 # bindkey '^r' peco-select-history 
 
 #アプリを終了させる
@@ -180,16 +182,13 @@ function kill-process () {
     ps -ef | peco | awk '{ print $2 }' | xargs kill
     zle clear-screen
 }
-zle -N kill-process
+# zle -N kill-process
 # bindkey '^k' kill-process   # C-x k
 
 #グラフ描画
 function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 }
-
-#fuck
-alias fuck='eval $(thefuck $(fc -ln -1))'
 
 
 # -------------------------------------
