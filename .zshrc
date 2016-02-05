@@ -27,6 +27,10 @@ setopt EXTENDED_HISTORY
 # keybind&alias
 # -------------------------------------
 
+# directory
+alias l='ls -lah'
+alias la='ls -lAh'
+
 # git
 alias g='git'
 alias ga='git add'
@@ -42,6 +46,8 @@ alias gl='git pull'
 alias gm='git merge'
 alias gp='git push'
 alias gst='git status'
+alias grh='git reset HEAD'
+alias grhh='git reset HEAD --hard'
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
