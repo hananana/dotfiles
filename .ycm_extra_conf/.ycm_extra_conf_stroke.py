@@ -117,6 +117,7 @@ flags = [
 '-I', 'Classes/WebViewScene',
 '-I', 'Classes/dialog',
 '-I', 'Classes/iMobile',
+'-I', 'Classes/adfurikun',
 '-I', 'proj.ios_mac',
 '-I', 'proj.ios_mac/ios/',
 
