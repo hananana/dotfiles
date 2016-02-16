@@ -1,0 +1,14 @@
+# ~/.tmuxinator/aruone.yml
+
+name: aruone
+root: ~/Unity/aruone
+
+windows:
+  - vim:
+      layout: main-vertical
+      panes:
+        - vim
+  - git: 
+      layout: main-vertical
+      panes:
+        -
