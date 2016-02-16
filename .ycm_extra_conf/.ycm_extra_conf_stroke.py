@@ -111,7 +111,7 @@ flags = [
 '-I', 'Classes/Common',
 '-I', 'Classes/Data',
 '-I', 'Classes/Movie',
-'-I', 'Classes/SS5Player',
+'-I', 'Classes/SSPlayer',
 '-I', 'Classes/Scene',
 '-I', 'Classes/Scene/SubView',
 '-I', 'Classes/WebViewScene',
