@@ -95,6 +95,7 @@ def logAttendance(path, flag)
 end
 
 dir = ENV['HOME'] + '/Dropbox/attendance/'
+now = Time.now
 file_name = now.year.to_s + sprintf("%02d", now.month) + '.csv'
 file_path = dir + file_name
 if !File.exist?(file_path) then
