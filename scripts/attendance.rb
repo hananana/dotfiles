@@ -18,12 +18,16 @@ def formattedNow()
   now.hour.to_s + ':' + now.min.to_s
 end
 
+def formattedGoHomeTime()
+  now = Time.now
+  goHomeHour = now.hour + 9
+  goHomeHour.to_s + ':' + now.min.to_s
+end
+
 def overwrite(path, csv)
   File.open(path, 'w') do |file|
     csv.each do |row|
-      file.write(row[0] + ',')
-      file.write(row[1] + ',')
-      file.write(row[2] + '\n')
+       file.puts row[0] + ',' + row[1] + ',' + row[2]
     end
   end
 end
@@ -57,7 +61,6 @@ def todayHelloTime(csv)
 end
 
 def printInfo(csv)
-  p '出勤日数: ' + csv.length.to_s
 
   totalHour = 0
   totalSec = 0
@@ -69,11 +72,12 @@ def printInfo(csv)
     totalSec += tempBye - tempHello - 60 * 60
     totalHour = totalSec/60/60
   end
-  p '働いてる時間: ' + totalHour.to_s
 
   baseTime = 60 * 60 * 8 * csv.length
   diff = (totalSec - baseTime) / 60 / 60
-  p '残業時間: ' + diff.to_s
+
+  back = csv[csv.length - 1]
+  print "今月働いてる時間: " + totalHour.to_s + "\n出勤日数: " + csv.length.to_s  + "\n残業時間: " + diff.to_s + "\n今日の出社時間" + back[1] + "\n今日の退社予定時間" + back[2]
 end
 
 def logAttendance(path, flag)
@@ -82,15 +86,16 @@ def logAttendance(path, flag)
     if existToday(csv) then
       csv.delete_at(csv.length - 1)
     end
-    csv.push([formattedToday() + ',', formattedNow() + ',', '20:00'])
-  else
+    csv.push([formattedToday(), formattedNow(), formattedGoHomeTime()])
+    overwrite(path, csv)
+  elsif flag == 'bye' then
     t = todayHelloTime(csv)
     if existToday(csv) then
       csv.delete_at(csv.length - 1)
     end
-    csv.push([formattedToday() + ',', t + ',', formattedNow()])
+    csv.push([formattedToday(), t, formattedNow()])
+    overwrite(path, csv)
   end
-  overwrite(path, csv)
   printInfo(csv)
 end
 
