@@ -65,6 +65,10 @@ alias notice='~/.dotfiles/scripts/notice.sh'
 alias kilp='kill-process' 
 #fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
+#attendance
+alias hello='ruby ~/.dotfiles/scripts/attendance.rb hello'
+alias confirm='ruby ~/.dotfiles/scripts/attendance.rb confirm'
+alias bye='ruby ~/.dotfiles/scripts/attendance.rb bye'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
