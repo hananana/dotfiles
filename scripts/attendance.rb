@@ -3,11 +3,6 @@
 require 'csv'
 require 'fileutils'
 
-dir = ENV['HOME'] + '/Dropbox/attendance/'
-now = Time.now
-file_name = now.year.to_s + sprintf("%02d", now.month) + '.csv'
-file_path = dir + file_name
-
 def formattedToday()
   now = Time.now
   now.year.to_s + '/' + now.month.to_s + '/' + now.day.to_s
@@ -99,7 +94,9 @@ def logAttendance(path, flag)
   printInfo(csv)
 end
 
-
+dir = ENV['HOME'] + '/Dropbox/attendance/'
+file_name = now.year.to_s + sprintf("%02d", now.month) + '.csv'
+file_path = dir + file_name
 if !File.exist?(file_path) then
   FileUtils.touch(file_path)
 end
