@@ -1,0 +1,14 @@
+wq# ~/.tmuxinator/attract.yml
+
+name: attract
+root: ~/Unity/AttractedBalls
+
+windows:
+  - vim:
+      layout: main-vertical
+      panes:
+        - vim
+  - git: 
+      layout: main-vertical
+      panes:
+        -
