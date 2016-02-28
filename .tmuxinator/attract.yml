@@ -1,4 +1,4 @@
-wq# ~/.tmuxinator/attract.yml
+# ~/.tmuxinator/attract.yml
 
 name: attract
 root: ~/Unity/AttractedBalls
