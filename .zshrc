@@ -69,6 +69,8 @@ alias fuck='eval $(thefuck $(fc -ln -1))'
 alias hello='ruby ~/.dotfiles/scripts/attendance.rb hello'
 alias confirm='ruby ~/.dotfiles/scripts/attendance.rb confirm'
 alias bye='ruby ~/.dotfiles/scripts/attendance.rb bye'
+#ag
+alias ag='ag -S'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
