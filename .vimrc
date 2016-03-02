@@ -302,7 +302,11 @@ augroup END
 
 nnoremap <silent> <Leader>p :call RunXcode()<CR><CR>
 function RunXcode()
-    :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+    if (&ft=='cs')
+        :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
+    else
+        :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+    endif
 endfunction
 
 " -----------------------------------------------------------------------------
