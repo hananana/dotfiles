@@ -120,6 +120,7 @@ flags = [
 '-I', 'Classes/adfurikun',
 '-I', 'proj.ios_mac',
 '-I', 'proj.ios_mac/ios/',
+'-I', 'proj.ios_mac/ios/MobileInsightCocos2dx_iOSSDK',
 
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
