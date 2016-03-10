@@ -163,6 +163,8 @@ set softtabstop=0
 set autoindent
 set cindent
 set smarttab
+" /検索でbottomからtopに戻らない
+set nowrapscan
 " ビープ音いらん
 set vb t_vb=
 "コマンド表示
