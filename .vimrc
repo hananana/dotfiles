@@ -83,7 +83,7 @@ NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', '
 
 " ruby
 NeoBundle 'NigoroJr/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
+" NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
