@@ -127,6 +127,7 @@ flags = [
 '-I', 'proj.ios_mac',
 '-I', 'proj.ios_mac/ios/',
 '-I', 'proj.ios_mac/ios/NendAd',
+'-I', 'proj.ios_mac/ios/MobileInsight',
 
 # Cocos2d-x macros
 '-D', 'USE_FILE32API',
