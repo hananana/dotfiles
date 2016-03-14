@@ -1,7 +1,7 @@
 # ~/.tmuxinator/breaker.yml
 
 name: breaker
-root: ~/Cocos2d-x/Project/BreakOut_cocos
+root: ~/Works/Projects/BreakOut_cocos
 
 windows:
   - vim:
