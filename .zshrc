@@ -5,6 +5,12 @@
 source ~/.zprezto/init.zsh
 
 # -------------------------------------
+# path
+# -------------------------------------
+
+PATH="$HOME/.rbenv/bin:$PATH"
+
+# -------------------------------------
 # history
 # -------------------------------------
 
@@ -186,4 +192,5 @@ function nico() {
     echo $line | awk '{print $1}' | nicovideo-dump | mplayer - -novideo
     done
 }
+
 
