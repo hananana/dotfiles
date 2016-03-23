@@ -1,7 +1,7 @@
 # ~/.tmuxinator/attract.yml
 
 name: attract
-root: ~/Works/Projects/AttractedBalls
+root: ~/Works/Projects/CubicDancers
 
 windows:
   - vim:
