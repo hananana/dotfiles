@@ -1,6 +1,6 @@
 # ~/.tmuxinator/attract.yml
 
-name: attract
+name: CubicDancers
 root: ~/Works/Projects/CubicDancers
 
 windows:
