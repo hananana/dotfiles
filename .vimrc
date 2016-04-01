@@ -209,7 +209,7 @@ set autoread
 " ウィンドウの自動調整停止
 set noequalalways
 " previewを表示しない
-set completeopt=menuone
+" set completeopt=menuone
 
 augroup vimrc-checktime
     autocmd!
@@ -407,6 +407,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 " --------------------------------
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " --------------------------------
 " ultysnips
