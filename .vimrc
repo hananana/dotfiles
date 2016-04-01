@@ -206,23 +206,15 @@ set synmaxcol=300
 set ttyfast
 " 他のエディタなどで変更があった場合チェックする
 set autoread
+" ウィンドウの自動調整停止
+set noequalalways
+" previewを表示しない
+set completeopt=menuone
+
 augroup vimrc-checktime
     autocmd!
     autocmd WinEnter * checktime
 augroup END
-"プレビューウィンドウ固定
-set previewheight=125
-
-augroup PreviewGroup
-    autocmd!
-    au BufEnter ?* call PreviewHeightWorkAround()
-augroup END
-
-func PreviewHeightWorkAround()
-    if &previewwindow
-        exec 'setlocal winheight='.&previewheight
-    endif
-endfunc
 
 " -------------------------------
 " keymap
