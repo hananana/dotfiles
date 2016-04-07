@@ -69,10 +69,10 @@ def printInfo(csv)
   end
 
   baseTime = 60 * 60 * 8 * csv.length
-  diff = (totalSec - baseTime) / 60 / 60
+  diff = (totalSec - baseTime) / 60 
 
   back = csv[csv.length - 1]
-  print "今月働いてる時間: " + totalHour.to_s + "\n出勤日数: " + csv.length.to_s  + "\n残業時間: " + diff.to_s + "\n今日の出社時間" + back[1] + "\n今日の退社予定時間" + back[2]
+  print "今月働いてる時間: " + totalHour.to_s + "\n出勤日数: " + csv.length.to_s  + "\n残業時間(分): " + diff.to_s + "\n今日の出社時間: " + back[1] + "\n今日の退社予定時間: " + back[2]
 end
 
 def logAttendance(path, flag)
