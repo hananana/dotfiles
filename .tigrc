@@ -5,6 +5,16 @@ bind generic G none
 bind generic g move-first-line
 bind generic G move-last-line
 
+# fetch
+bind generic F none
+bind generic F !git fetch -p
+
+# checkout
+bind branch n !git checkout -b %(prompt) %(branch)
+
 # push
-bind status P !git push origin
+bind branch P !git push origin %(branch)
+
+# pull
+bind branch L !git pull origin %(branch)
 
