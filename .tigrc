@@ -1,5 +1,10 @@
 # Gを無効
 bind generic G none
 
+# vimライクにg,Gで移動
 bind generic g move-first-line
 bind generic G move-last-line
+
+# push
+bind status P !git push origin
+
