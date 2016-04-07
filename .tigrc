@@ -18,3 +18,7 @@ bind branch P !git push origin %(branch)
 # pull
 bind branch L !git pull origin %(branch)
 
+# merge
+bind generic M none
+bind branch M none
+bind branch M !git merge %(branch)
