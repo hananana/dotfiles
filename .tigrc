@@ -1,0 +1,5 @@
+# Gを無効
+bind generic G none
+
+bind generic g move-first-line
+bind generic G move-last-line

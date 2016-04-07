@@ -62,6 +62,12 @@ if [ -e ~/.ctags ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.ctags ~/.ctags
 
+# tigrc
+if [ -e ~/.tigrc ]; then
+    rm -rf ~/.tigrc
+fi
+ln -s ~/$DOTFILES_DIR/.tigrc ~/.tigrc
+
 # neobundle
 if [ ! -e ~/.vim/bundle ]; then
     mkdir ~/.vim/bundle
