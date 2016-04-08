@@ -14,6 +14,8 @@ bind branch n !git checkout -b %(prompt) %(branch)
 
 # push
 bind branch p !git push origin %(branch)
+bind branch P none
+bind generic P none
 bind branch P !git push --set-upstream origin %(branch)
 
 # pull
