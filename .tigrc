@@ -13,7 +13,8 @@ bind generic F !git fetch -p
 bind branch n !git checkout -b %(prompt) %(branch)
 
 # push
-bind branch P !git push origin %(branch)
+bind branch p !git push origin %(branch)
+bind branch P !git push -u origin %(branch)
 
 # pull
 bind branch L !git pull origin %(branch)
