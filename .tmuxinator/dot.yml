@@ -5,11 +5,15 @@ root: ~/.dotfiles
 
 
 windows:
-  - dot:
+  - vim:
       layout: main-vertical
       panes:
         - vim 
-  - git:
+  - tig:
+      layout: main-vertical
+      panes:
+        - tig
+  - zsh:
       layout: main-vertical
       panes:
         - 
