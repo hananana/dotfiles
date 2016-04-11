@@ -42,7 +42,7 @@ NeoBundle 'Shougo/unite-help'
 
 " scheme
 NeoBundle 'mopp/mopkai.vim'
-NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'hananana/jellybeans.vim'
 NeoBundle 'vim-scripts/twilight'
 NeoBundle 'vim-scripts/darktango.vim'
 NeoBundle 'sjl/badwolf'
@@ -53,7 +53,7 @@ NeoBundle 'gosukiwi/vim-atom-dark'
 "補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
             \ 'build'      : {
-            \ 'mac'     : './install.py --clang-completer --omnisharp-completer --gocode-completer',
+            \ 'mac'     : './install.py --clang-completer --omnisharp-completer',
             \ 'unix'    : './install.py --clang-completer --omnisharp-completer',
             \ 'windows' : './install.py --clang-completer --omnisharp-completer',
             \ 'cygwin'  : './install.py --clang-completer --omnisharp-completer'
@@ -355,7 +355,7 @@ let g:lightline = {
 " syntax
 " -------------------------------
 syntax on
-colorscheme atom-dark-256
+colorscheme jellybeans
 
 " -------------------------------
 " vim-airline
