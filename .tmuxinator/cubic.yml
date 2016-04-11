@@ -4,7 +4,7 @@ name: CubicDancers
 root: ~/Works/Projects/CubicDancers
 
 windows:
-  - vim:
+  - editor:
       layout: main-vertical
       panes:
         - vim
