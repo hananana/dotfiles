@@ -58,7 +58,7 @@ setopt EXTENDED_HISTORY
 # keybind&alias
 # -------------------------------------
 
-# directory
+# ls
 alias ls="ls -GF"
 alias l='ls -lah'
 alias la='ls -lAh'
@@ -219,4 +219,4 @@ function nico() {
     done
 }
 
-
+tmux -2
