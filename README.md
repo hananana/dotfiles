@@ -46,6 +46,10 @@ Migu 1Mのフォントを落とそう
 
 設定はRegularはMigu1Mで14pt
 
+- scheme
+
+Grassで！
+
 - fuck
 ```
 $ sudo pip install thefuck
