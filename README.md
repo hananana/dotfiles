@@ -11,11 +11,9 @@ setting.shで自動化したいけどまだできてないっ
 - vimをいれる
 
 ```sh
-$ cd
 $ mkdir .dotfiles
-$ cd .dotfiles
-$ git clone git@github.com:hanana0501/dotfiles.git
-$ sh setting.sh
+$ git clone git@github.com:hanana0501/dotfiles.git ~/.dotfiles
+$ .dotfiles/setting.sh
 $ brew install vim --with-client-server --with-lua
 $ brew install the_silver_searcher
 $ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
@@ -41,19 +39,12 @@ $ git clone https://github.com/erikw/tmux-powerline.git
 $ gem install tmuxinator
 ```
 
-- powerline
-
-https://github.com/powerline/fonts
-Hackのフォントを落としてインストールすること
+- font
 
 http://mix-mplus-ipa.osdn.jp/migu/
 Migu 1Mのフォントを落とそう
 
-iTermでの設定はRegularはMigu1Mで16pt、NON-ASCIIはHackで18pt
-
-```sh
-$ ln -s ~/.dotfiles/oh-my-zsh-powerline-theme/powerline.zsh-theme ~/.dotfiles/oh-my-zsh/custom/themes/powerline.zsh-theme
-```
+設定はRegularはMigu1Mで14pt
 
 - fuck
 ```
@@ -63,4 +54,3 @@ $ sudo pip install thefuck
 ## MEMO
 
 - cocosを書く時は.ycm以下略のシンボリックリンクをcocosプロジェクトのトップに作ること
-
