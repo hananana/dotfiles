@@ -23,7 +23,7 @@ then
   echo "(WIFI off)"
 fi
 
-signal="( "
+signal=""
 for (( j = 0; j < 4; j++ ))
 do
   if [[ $j -eq 0 && $strength -gt -94 ]] || [[ $j -eq 1 && $strength -gt -92 ]] ||
@@ -34,6 +34,6 @@ do
     signal="${signal}  "
   fi
 done
-signal="${signal} )"
+signal="${signal}"
 
 echo "${name} ${bandwidth}Mbs ${signal}"
