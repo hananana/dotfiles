@@ -207,7 +207,8 @@ eval "$(rbenv init -)"
 # -------------------------------------
 
 source ~/.dotfiles/zplug/zplug
-zplug "b4b4r07/enhancd", as:plugin
+zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug load --verbose
 
 # -------------------------------------
 # niconicoをplay
