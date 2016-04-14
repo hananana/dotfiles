@@ -10,15 +10,16 @@ bind generic F none
 bind generic F !git fetch -p
 
 # checkout
-bind branch n !git checkout -b %(prompt) %(branch)
+bind branch n !?git checkout -b %(prompt) %(branch)
 
 # push
-bind branch P !git push -u origin %(branch)
+bind branch P !?git push -u origin %(branch)
 
 # pull
-bind branch L !git pull origin %(branch)
+bind branch L !?git pull origin %(branch)
 
 # merge
 bind generic M none
 bind branch M none
-bind branch M !git merge %(branch)
+bind branch M !?git merge %(branch)
+
