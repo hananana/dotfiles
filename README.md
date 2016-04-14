@@ -48,7 +48,7 @@ Migu 1Mのフォントを落とそう
 
 - scheme
 
-Grassで！
+Japonesqueで！
 
 - fuck
 ```
