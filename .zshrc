@@ -208,6 +208,7 @@ eval "$(rbenv init -)"
 
 source ~/.dotfiles/zplug/zplug
 zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 zplug load --verbose
 
 # -------------------------------------
