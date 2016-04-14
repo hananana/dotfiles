@@ -7,3 +7,6 @@
 [submodule "osx-terminal-themes"]
 	path = osx-terminal-themes
 	url = https://github.com/lysyi3m/osx-terminal-themes.git
+[submodule "zplug"]
+	path = zplug
+	url = https://github.com/b4b4r07/zplug.git

@@ -203,10 +203,11 @@ export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 eval "$(rbenv init -)"
 
 # -------------------------------------
-# antigen
+# zplug
 # -------------------------------------
-source ~/.dotfiles/antigen/antigen.zsh
-antigen-bundle b4b4r07/enhancd
+
+source ~/.dotfiles/zplug/zplug
+zplug "b4b4r07/enhancd", as:plugin
 
 # -------------------------------------
 # niconicoをplay
