@@ -205,10 +205,11 @@ eval "$(rbenv init -)"
 # -------------------------------------
 # zplug
 # -------------------------------------
-
 source ~/.dotfiles/zplug/zplug
 zplug "b4b4r07/enhancd", of:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
+zplug "zsh-users/zsh-completions", of:src
+
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
