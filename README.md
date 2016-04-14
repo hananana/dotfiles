@@ -43,8 +43,7 @@ $ gem install tmuxinator
 
 http://mix-mplus-ipa.osdn.jp/migu/
 Migu 1Mのフォントを落とそう
-
-設定はRegularはMigu1Mで14pt
+設定はRegularはMigu1Mで12pt
 
 - scheme
 
