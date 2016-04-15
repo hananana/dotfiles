@@ -120,6 +120,7 @@ if neobundle#tap('rockradio.vim')
                 \  } 
                 \ }) 
 endif
+NeoBundle 'supermomonga/shaberu.vim'
 
 call neobundle#end()
 
