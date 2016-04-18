@@ -30,6 +30,7 @@ NeoBundle 'xolox/vim-session', {
   \ 'depends': 'xolox/vim-misc'
   \ }
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
@@ -305,6 +306,13 @@ function RunXcode()
         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
     endif
 endfunction
+" tagbar 
+nmap <Leader>t :TagbarToggle<CR>
+
+augroup AutoTagBarOpen
+    autocmd!
+    autocmd FileType cs,cpp,mm nested :TagbarOpen
+augroup END
 
 " -----------------------------------------------------------------------------
 " unite.vim

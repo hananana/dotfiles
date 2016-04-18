@@ -104,6 +104,7 @@ alias bye='ruby ~/.dotfiles/scripts/attendance.rb bye'
 #ag
 alias ag='ag -S'
 
+# archive
 function extract() {
     case $1 in
         *.tar.gz|*.tgz) tar xzvf $1;;
@@ -120,6 +121,9 @@ function extract() {
     esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+# ctags
+alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 
 # フォルダ履歴から絞り込む
 function peco-cdr () {
