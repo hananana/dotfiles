@@ -78,6 +78,8 @@ augroup END
 
 "comment
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
+NeoBundle 'hananana/cscomment.vim'
+
 "switch header and imp
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
