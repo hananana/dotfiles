@@ -240,17 +240,6 @@ fi
 zplug load --verbose
 
 # -------------------------------------
-# niconicoをplay
-# -------------------------------------
-function nico() {
-    TAG=`echo "$*" | nkf -WwMQ | tr -d '\n' | tr = % | sed -e 's/%%/%/g'`
-    ruby -r rss -e "RSS::Parser.parse(\"http://www.nicovideo.jp/tag/$TAG?rss=2.0\").channel.items.each {|item| puts item.link + \"\t\" + item.title}" | peco | while read line; do
-    echo $line
-    echo $line | awk '{print $1}' | nicovideo-dump | mplayer - -novideo
-    done
-}
-
-# -------------------------------------
 # tmux自動起動
 # -------------------------------------
 if [ -z $TMUX ]; then
@@ -261,3 +250,9 @@ if [ -z $TMUX ]; then
     fi
 fi
 
+# -------------------------------------
+# others
+# -------------------------------------
+# 1: 補完の時にVimで言うsmartcaseにする
+# 2: 例えばs.vでs*.v*なファイルを補完出来るようにする （『zshの本』P.154）
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
