@@ -1,14 +1,18 @@
 # ~/.tmuxinator/aruone.yml
 
 name: aruone
-root: ~/Unity/aruone
+root: ~/Works/aruone
 
 windows:
-  - vim:
+  - editor:
       layout: main-vertical
       panes:
         - vim
-  - git: 
+  - tig: 
       layout: main-vertical
       panes:
-        -
+        - tig
+  - zsh: 
+      layout: main-vertical
+      panes:
+        - 
