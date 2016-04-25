@@ -1,0 +1,18 @@
+# ~/.tmuxinator/catch.yml
+
+name: catch
+root: ~/Works/Projects/catch
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - tig: 
+      layout: main-vertical
+      panes:
+        - tig
+  - zsh: 
+      layout: main-vertical
+      panes:
+        - 
