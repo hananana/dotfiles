@@ -1,7 +1,7 @@
-# ~/.tmuxinator/aruone.yml
+# ~/.tmuxinator/utils.yml
 
-name: aruone
-root: ~/Works/Projects/aruone
+name: utils
+root: ~/Works/Projects/Utils
 
 windows:
   - editor:
