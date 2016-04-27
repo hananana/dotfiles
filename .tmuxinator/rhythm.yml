@@ -1,7 +1,7 @@
-# ~/.tmuxinator/catch.yml
+# ~/.tmuxinator/rhythm.yml
 
-name: catch
-root: ~/Works/Projects/catch
+name: rhythm
+root: ~/Works/Projects/rhythm_jump
 
 windows:
   - editor:
