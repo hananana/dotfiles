@@ -5,6 +5,9 @@ bind generic G none
 bind generic g move-first-line
 bind generic G move-last-line
 
+# commitからbranchをきる
+bind main C !?git checkout %(commit)
+
 # fetch
 bind generic F none
 bind generic F !git fetch -p
