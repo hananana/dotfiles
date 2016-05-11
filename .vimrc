@@ -139,6 +139,7 @@ filetype plugin indent on
 " --------------------------------
 " leaderをspaceにする
 let mapleader = "\<Space>"
+
 " コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
 " ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
 augroup ForMatOptionsGroup
@@ -182,7 +183,7 @@ set noswapfile
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
 "クリップボードを連携する
-set clipboard+=unnamed,autoselect
+set clipboard=unnamed
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
 "インクリメンタルサーチを行う
@@ -206,8 +207,6 @@ set tags=./tags
 set lazyredraw
 " くそ長い行を値までで略しちゃう
 set synmaxcol=300
-" よくわからんけど早い設定
-set ttyfast
 " 他のエディタなどで変更があった場合チェックする
 set autoread
 " ウィンドウの自動調整停止
@@ -298,14 +297,15 @@ augroup TagJump
                 \|  endif
 augroup END
 
-nnoremap <silent> <Leader>p :call RunXcode()<CR><CR>
-function RunXcode()
+nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
+function RunIDE()
     if (&ft=='cs')
         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
     else
         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
     endif
 endfunction
+
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
 
@@ -313,7 +313,8 @@ augroup AutoTagBarOpen
     autocmd!
     autocmd FileType cs,cpp,mm nested :TagbarOpen
 augroup END
-
+" vmodeでCtrl+cでclicpboardへコピー
+vmap <C-c> :w !pbcopy<cr><cr>
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
@@ -419,9 +420,6 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
-
-" --------------------------------
-" ultysnips
 " --------------------------------
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
