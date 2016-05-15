@@ -1,0 +1,18 @@
+# ~/.tmuxinator/solitaire.yml
+
+name: solitaire
+root: ~/Works/Projects/solitaire
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - tig: 
+      layout: main-vertical
+      panes:
+        - tig
+  - zsh: 
+      layout: main-vertical
+      panes:
+        - 
