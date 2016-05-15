@@ -32,10 +32,7 @@ $ ln -s ~/.dotfiles/dotfiles/private.xml private.xml
 karabinerを起動してLeave Insert Mode（以下略をONに
 
 - tmux
-
 ```sh
-$ brew install tmux
-$ git clone https://github.com/erikw/tmux-powerline.git
 $ gem install tmuxinator
 ```
 
@@ -48,12 +45,3 @@ Migu 1Mのフォントを落とそう
 - scheme
 
 Japonesqueで！
-
-- fuck
-```
-$ sudo pip install thefuck
-```
-
-## MEMO
-
-- cocosを書く時は.ycm以下略のシンボリックリンクをcocosプロジェクトのトップに作ること

@@ -1,81 +1,83 @@
 #/bin/sh
 DOTFILES_DIR=".dotfiles"
 
-# gitconfig
+# brew
+## tmux 
+brew install tmux
+## tig 
+brew install tig
+## tree 
+brew install tree
+
+# symlink
+## gitconfig
 if [ -e ~/.gitconfig ]; then
     rm -f ~/.gitconfig
 fi
 ln -s ~/$DOTFILES_DIR/.gitconfig ~/.gitconfig
 
-# gitglobal
+## gitglobal
 if [ -e ~/.gitignore_global ]; then
     rm -f ~/.gitignore_global
 fi
 ln -s ~/$DOTFILES_DIR/.gitignore_global ~/.gitignore_global
 
-# zshrc
+## zshrc
 if [ -e ~/.zshrc ]; then
     rm -f ~/.zshrc
 fi
 ln -s ~/$DOTFILES_DIR/.zshrc ~/.zshrc
 
-# vimrc
+## vimrc
 if [ -e ~/.vimrc ]; then
     rm -f ~/.vimrc
 fi
 ln -s ~/$DOTFILES_DIR/.vimrc ~/.vimrc
 
-# xvimrc
+## xvimrc
 if [ -e ~/.xvimrc ]; then
     rm -f ~/.xvimrc
 fi
 ln -s ~/$DOTFILES_DIR/.xvimrc ~/.xvimrc
 
-# vim directory
+## vim directory
 if [ -e ~/.vim ]; then
     rm -rf ~/.vim
 fi
 ln -s ~/$DOTFILES_DIR/.vim ~/.vim
 
-# tmux
+## tmux
 if [ -e ~/.tmux.conf ]; then
     rm -rf ~/.tmux.conf
 fi
 ln -s ~/$DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 
-# tmuxinator
+## tmuxinator
 if [ -e ~/.tmuxinator ]; then
     rm -rf ~/.tmuxinator
 fi
 ln -s ~/$DOTFILES_DIR/.tmuxinator ~/.tmuxinator
 
-# iterm
-if [ -e ~/iTerm2-Color-Schemes ]; then
-    rm -rf ~/iTerm2-Color-Schemes
-fi
-
-ln -s ~/$DOTFILES_DIR/iTerm2-Color-Schemes ~/iTerm2-Color-Schemes
-
-# ctags
+## ctags
 if [ -e ~/.ctags ]; then
     rm -rf ~/.ctags
 fi
 ln -s ~/$DOTFILES_DIR/.ctags ~/.ctags
 
-# tigrc
+## tigrc
 if [ -e ~/.tigrc ]; then
     rm -rf ~/.tigrc
 fi
 ln -s ~/$DOTFILES_DIR/.tigrc ~/.tigrc
 
-# zplug
+## zplug
 if [ -e ~/.zplug ]; then
     echo "zplug already installed"
 else
     git clone https://github.com/b4b4r07/zplug ~/.zplug
 fi
 
-# neobundle
+## neobundle
 if [ ! -e ~/.vim/bundle ]; then
     mkdir ~/.vim/bundle
 fi
