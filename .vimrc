@@ -79,18 +79,17 @@ augroup END
 
 "comment
 NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
-NeoBundle 'hananana/cscomment.vim'
 
 "switch header and imp
 NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
 
 " ruby
-NeoBundle 'NigoroJr/rsense'
+" NeoBundle 'NigoroJr/rsense'
 " NeoBundle 'supermomonga/neocomplete-rsense.vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'tpope/vim-endwise'
+" NeoBundle 'thinca/vim-ref'
+" NeoBundle 'yuku-t/vim-ref-ri'
+" NeoBundle 'szw/vim-tags'
+" NeoBundle 'tpope/vim-endwise'
 
 " snippets 
 NeoBundle 'https://github.com/SirVer/ultisnips'
@@ -104,26 +103,6 @@ NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] }
 
 " yaml
 NeoBundleLazy 'stephpy/vim-yaml', { 'autoload' : { 'filetypes' : ['yaml'] } }
-
-" zatsu
-NeoBundleLazy 'git@github.com:hananana/rockradio.vim.git', { 'depends' : [ 'Shougo/unite.vim' ] }
-if neobundle#tap('rockradio.vim')
-    call neobundle#config({
-                \ 'autoload' : {
-                \   'unite_sources' : [ 'jazzradio' ], 
-                \   'commands' : [ 
-                \       'JazzradioUpdateChannels', 
-                \       'JazzradioStop', 
-                \       { 
-                \           'name' : 'JazzradioPlay', 
-                \           'complete' : 'customlist,jazzradio#channel_id_complete' 
-                \       } 
-                \   ], 
-                \   'function_prefix' : 'jazzradio' 
-                \  } 
-                \ }) 
-endif
-NeoBundle 'supermomonga/shaberu.vim'
 
 call neobundle#end()
 
@@ -308,7 +287,6 @@ endfunction
 
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
-
 augroup AutoTagBarOpen
     autocmd!
     autocmd FileType cs,cpp,mm nested :TagbarOpen
@@ -433,8 +411,8 @@ let g:UltiSnipsEditSplit="vertical"
 " -------------------------------
 " Rsense
 " -------------------------------
-let g:rsenseUseOmniFunc = 1
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+" let g:rsenseUseOmniFunc = 1
+" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
 
 " --------------------------------
 " vim-json
