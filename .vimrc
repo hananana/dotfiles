@@ -190,8 +190,6 @@ set synmaxcol=300
 set autoread
 " ウィンドウの自動調整停止
 set noequalalways
-" previewを表示しない
-" set completeopt=menuone
 
 augroup vimrc-checktime
     autocmd!
