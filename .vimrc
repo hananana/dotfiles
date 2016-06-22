@@ -291,6 +291,11 @@ augroup AutoTagBarOpen
 augroup END
 " vmodeでCtrl+cでclicpboardへコピー
 vmap <C-c> :w !pbcopy<cr><cr>
+
+" レジスタ汚染防止
+nnoremap x "_x
+nnoremap s "_s
+
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
