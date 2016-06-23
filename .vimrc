@@ -196,6 +196,12 @@ augroup vimrc-checktime
     autocmd WinEnter * checktime
 augroup END
 
+" 閉じる時ついでにnerdtreeも閉じる
+augroup close-nerdtree
+    autocmd!
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+
 " -------------------------------
 " keymap
 " -------------------------------
