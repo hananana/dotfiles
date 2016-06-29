@@ -39,17 +39,13 @@ NeoBundle 'Shougo/vimproc.vim', {
             \     'unix' : 'make -f make_unix.mak',
             \    },
             \ }
-NeoBundle 'Shougo/unite-help'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 " scheme
 NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'hananana/jellybeans.vim'
 NeoBundle 'vim-scripts/twilight'
-NeoBundle 'vim-scripts/darktango.vim'
 NeoBundle 'sjl/badwolf'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'djjcast/mirodark'
-NeoBundle 'gosukiwi/vim-atom-dark'
 
 "補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -118,13 +114,13 @@ filetype plugin indent on
 " --------------------------------
 " leaderをspaceにする
 let mapleader = "\<Space>"
-
 " コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
 " ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
-augroup ForMatOptionsGroup
-autocmd!
-au FileType * setlocal formatoptions=cq
-augroup END
+" augroup ForMatOptionsGroup
+" autocmd!
+" au FileType * setlocal formatoptions=cq
+" augroup END
+
 " vim内部で使われる文字エンコーディングをutf-8に設定する
 set encoding=utf-8
 " tmuxで色を有効にする
@@ -144,7 +140,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=0
-set autoindent
+set noautoindent
+set nosmartindent
 set cindent
 set smarttab
 " /検索でbottomからtopに戻らない
@@ -210,7 +207,6 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
 "検索結果を画面中央にもってくる
@@ -221,6 +217,8 @@ nmap # #zz
 " escをctrl+jで代替する
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+
+" こっから<Leader>関連いくぜ！
 " タブとウィンドウ分割"
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
@@ -230,13 +228,12 @@ nnoremap <Leader>s :<C-u>sp<CR>
 nnoremap <Leader>v :<C-u>vs<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
-
 " unite呼び出し
 nnoremap <Leader>u :Unite<CR>
 "ファイル検索
 nnoremap <Leader><Leader> :Unite file_rec/async<CR>
 " バッファ一覧表示
-noremap <Leader>e :Unite buffer<CR>
+noremap <Leader>b :Unite buffer<CR>
 " レジスタ一覧
 noremap <Leader>r :Unite -buffer-name=register register<CR>
 " grep検索
@@ -245,15 +242,15 @@ noremap <Leader>g :Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <Leader>a :UniteResume search-buffer<CR>
 " outline表示
 nnoremap <Leader>o :Unite outline<CR>
+" easymotion
+nmap <Leader>e <Plug>(easymotion-s2)
 " Cキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 au FileType unite nnoremap <silent> <buffer> <C-J><C-J> :q<CR>
 au FileType unite inoremap <silent> <buffer> <C-J><C-J> <ESC>:q<CR>
-" uniteでhelp
-nnoremap <Leader>uh :Unite help<CR>
 " uniteでインクリメンタル検索
-nnoremap <Leader>uf :Unite line<CR>
+nnoremap <Leader>f :Unite line<CR>
 "ファイルツリー表示
 nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
 vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
@@ -261,7 +258,7 @@ onoremap <silent> <C-e>      :NERDTreeToggle<CR>
 inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
 cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
 " ヘッダーとの移動
-au FileType cpp,objc,objcpp,cs nmap <Leader>i <Plug>(altr-forward)
+au FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
 " コメントテンプレ展開
 au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 "コメントアウト
@@ -355,6 +352,8 @@ let g:lightline = {
 " -------------------------------
 syntax on
 colorscheme jellybeans
+" colorscheme twilight
+" colorscheme badwolf
 
 " -------------------------------
 " vim-airline
@@ -454,3 +453,9 @@ else
     let g:session_autosave_periodic = 0
 endif
 unlet s:local_session_directory
+
+" --------------------------------
+" easy-motion
+" --------------------------------
+" disable default mappings
+let g:EasyMotion_do_mapping = 0
