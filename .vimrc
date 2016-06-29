@@ -42,11 +42,14 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Lokaltog/vim-easymotion'
 
 " scheme
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'hananana/jellybeans.vim'
 NeoBundle 'vim-scripts/twilight'
 NeoBundle 'sjl/badwolf'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'aereal/vim-colors-japanesque'
 
 "補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -355,8 +358,9 @@ syntax on
 " colorscheme jellybeans
 " colorscheme twilight
 " colorscheme badwolf
-set background=dark
-colorscheme hybrid
+" set background=dark
+" colorscheme hybrid
+colorscheme hybrid_reverse
 
 " -------------------------------
 " vim-airline
