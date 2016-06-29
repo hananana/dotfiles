@@ -46,6 +46,7 @@ NeoBundle 'mopp/mopkai.vim'
 NeoBundle 'hananana/jellybeans.vim'
 NeoBundle 'vim-scripts/twilight'
 NeoBundle 'sjl/badwolf'
+NeoBundle 'w0ng/vim-hybrid'
 
 "補完の神
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -277,14 +278,14 @@ augroup TagJump
                 \|  endif
 augroup END
 
-nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
-function RunIDE()
-    if (&ft=='cs')
-        :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
-    else
-        :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
-    endif
-endfunction
+" nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
+" function RunIDE()
+"     if (&ft=='cs')
+"         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
+"     else
+"         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+"     endif
+" endfunction
 
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
@@ -351,9 +352,11 @@ let g:lightline = {
 " syntax
 " -------------------------------
 syntax on
-colorscheme jellybeans
+" colorscheme jellybeans
 " colorscheme twilight
 " colorscheme badwolf
+set background=dark
+colorscheme hybrid
 
 " -------------------------------
 " vim-airline
