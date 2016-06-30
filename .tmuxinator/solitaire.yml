@@ -11,6 +11,7 @@ windows:
   - tig: 
       layout: main-vertical
       panes:
+        -
         - tig
   - zsh: 
       layout: main-vertical

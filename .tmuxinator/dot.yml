@@ -9,9 +9,10 @@ windows:
       layout: main-vertical
       panes:
         - vim 
-  - tig:
+  - git:
       layout: main-vertical
       panes:
+        - 
         - tig
   - zsh:
       layout: main-vertical
