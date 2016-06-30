@@ -104,6 +104,9 @@ NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] }
 " yaml
 NeoBundleLazy 'stephpy/vim-yaml', { 'autoload' : { 'filetypes' : ['yaml'] } }
 
+" plantUML
+NeoBundle 'aklt/plantuml-syntax'
+
 call neobundle#end()
 
 NeoBundleCheck
@@ -466,3 +469,8 @@ unlet s:local_session_directory
 " --------------------------------
 " disable default mappings
 let g:EasyMotion_do_mapping = 0
+
+" --------------------------------
+" plantuml
+" --------------------------------
+let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
