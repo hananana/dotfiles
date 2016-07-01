@@ -363,8 +363,8 @@ syntax on
 " colorscheme badwolf
 " set background=dark
 " colorscheme hybrid
-colorscheme hybrid_reverse
-
+" colorscheme hybrid_reverse
+colorscheme gotham256
 " -------------------------------
 " vim-airline
 " -------------------------------
