@@ -8,12 +8,8 @@ windows:
       layout: main-vertical
       panes:
         - vim
-  - tig: 
+  - git: 
       layout: even-horizontal
       panes:
-        - 
+        - ls -l
         - tig
-  - zsh: 
-      layout: main-vertical
-      panes:
-        - 
