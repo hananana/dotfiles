@@ -305,6 +305,9 @@ vmap <C-c> :w !pbcopy<cr><cr>
 nnoremap x "_x
 nnoremap s "_s
 
+" csharp要のlambda代替（本当はindent/cs.vimでやりたい)
+inoremap <silent> <C-l> <CR><BS><BS>{}<Left><CR><CR><Up><Tab>
+
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
