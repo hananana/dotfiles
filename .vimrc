@@ -147,10 +147,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=0
-set noautoindent
-set nosmartindent
-set cindent
 set smarttab
+set cindent
+
 " /検索でbottomからtopに戻らない
 set nowrapscan
 " ビープ音いらん
