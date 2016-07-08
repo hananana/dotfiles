@@ -103,6 +103,8 @@ alias confirm='ruby ~/.dotfiles/scripts/attendance.rb confirm'
 alias bye='ruby ~/.dotfiles/scripts/attendance.rb bye'
 #ag
 alias ag='ag -S'
+#oepn
+alias o='open'
 
 # archive
 function extract() {
@@ -256,3 +258,11 @@ fi
 # 1: 補完の時にVimで言うsmartcaseにする
 # 2: 例えばs.vでs*.v*なファイルを補完出来るようにする （『zshの本』P.154）
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
+
+
+# -------------------------------------
+# Javaのswitch
+# brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
+# -------------------------------------
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
