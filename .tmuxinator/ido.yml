@@ -1,7 +1,7 @@
 # ~/.tmuxinator/ido.yml
 
 name: ido
-root: ~/Works/Projects/FindCat
+root: ~/Works/Projects/Ido
 
 windows:
   - editor:
