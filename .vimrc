@@ -235,19 +235,22 @@ nnoremap <Leader>v :<C-u>vs<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
 " unite呼び出し
-nnoremap <Leader>u :Unite<CR>
+nnoremap <Leader>uu :Unite<CR>
+nnoremap <Leader>uf :Unite file<CR>
 "ファイル検索
 nnoremap <Leader><Leader> :Unite file_rec/async<CR>
 " バッファ一覧表示
-noremap <Leader>b :Unite buffer<CR>
+noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
-noremap <Leader>r :Unite -buffer-name=register register<CR>
+noremap <Leader>ur :Unite -buffer-name=register register<CR>
 " grep検索
-noremap <Leader>g :Unite grep:. -buffer-name=search-buffer<CR>
+noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
-nnoremap <Leader>a :UniteResume search-buffer<CR>
+nnoremap <Leader>ua :UniteResume search-buffer<CR>
 " outline表示
-nnoremap <Leader>o :Unite outline<CR>
+nnoremap <Leader>uo :Unite outline<CR>
+" uniteでインクリメンタル検索
+nnoremap <Leader>ul :Unite line<CR>
 " easymotion
 nmap <Leader>e <Plug>(easymotion-s2)
 " Cキーを2回押すと終了する
@@ -255,8 +258,6 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 au FileType unite nnoremap <silent> <buffer> <C-J><C-J> :q<CR>
 au FileType unite inoremap <silent> <buffer> <C-J><C-J> <ESC>:q<CR>
-" uniteでインクリメンタル検索
-nnoremap <Leader>f :Unite line<CR>
 "ファイルツリー表示
 nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
 vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
