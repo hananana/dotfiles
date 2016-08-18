@@ -12,11 +12,23 @@ snippet cr
 /// <returns> $0
 endsnippet
 
+snippet p
+public $0 $1
+{
+	get{ return this.$2; }
+	set{ this.$2 = value; }
+}
+
+endsnippet
+
 snippet uclass
 using UnityEngine;
+using System.Linq
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
+using UniRx.Triggers;
+using Unity.Linq;
 
 public class $0
 {
