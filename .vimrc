@@ -309,6 +309,9 @@ nnoremap s "_s
 " csharp要のlambda代替（本当はindent/cs.vimでやりたい)
 inoremap <silent> <C-l> <CR><BS><BS>{}<Left><CR><CR><Up><Tab>
 
+" youcompletemeのgettype呼び出し
+nnoremap <Leader>yg :<C-u>YcmCompleter GetType<CR>
+
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
