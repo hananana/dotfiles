@@ -310,7 +310,7 @@ nnoremap s "_s
 inoremap <silent> <C-l> <CR><BS><BS>{}<Left><CR><CR><Up><Tab>
 
 " youcompletemeのgettype呼び出し
-nnoremap <Leader>yg :<C-u>YcmCompleter GetType<CR>
+nnoremap <Leader>yg :YcmCompleter GetType<CR>
 
 " -----------------------------------------------------------------------------
 " unite.vim
