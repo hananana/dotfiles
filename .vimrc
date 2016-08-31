@@ -40,6 +40,7 @@ NeoBundle 'Shougo/vimproc.vim', {
             \    },
             \ }
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'scrooloose/syntastic'
 
 " scheme
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -480,3 +481,15 @@ let g:EasyMotion_do_mapping = 0
 " plantuml
 " --------------------------------
 let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
+
+" --------------------------------
+" syntastic
+" --------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
