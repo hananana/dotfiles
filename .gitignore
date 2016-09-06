@@ -1,2 +1,5 @@
 .vim/bundle
 .vim/plugged
+.vim/eclim
+.vim/plugin/eclim.vim
+
