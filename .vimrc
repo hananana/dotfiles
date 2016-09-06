@@ -45,6 +45,7 @@ Plug 'aereal/vim-colors-japanesque'
 Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'ervandew/eclim', { 'for': [ 'java' ] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
