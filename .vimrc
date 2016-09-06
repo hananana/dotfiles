@@ -17,7 +17,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
 
-Plug 'itchyny/lightline.vim'
+" must
+Plug 'itchyny/lightline.vim' | Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'tsukkee/unite-tag'
@@ -25,12 +26,10 @@ Plug 'Shougo/neomru.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/neocomplete.vim' 
 Plug 'tyru/caw.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'flazz/vim-colorschemes'
 Plug 'mopp/mopkai.vim'
@@ -40,23 +39,25 @@ Plug 'sjl/badwolf'
 Plug 'w0ng/vim-hybrid'
 Plug 'aereal/vim-colors-japanesque'
 Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
-
-" Plug 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
+Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'b4winckler/vim-objc'
 Plug 'keith/swift.vim'
+
 Plug 'vim-scripts/glsl.vim'
 Plug 'glsl.vim'
-" Plug 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
-" Plug 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
+
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
+Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'elzr/vim-json'
-" Plug 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-" Plug 'stephpy/vim-yaml', { 'autoload' : { 'filetypes' : ['yaml'] } }
+Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
+Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'aklt/plantuml-syntax'
+" 動いてねぇぞ
+Plug 'soramugi/auto-ctags.vim'
 
-"NeoBundle 'soramugi/auto-ctags.vim'
 " ruby
 " NeoBundle 'NigoroJr/rsense'
 " NeoBundle 'supermomonga/neocomplete-rsense.vim'
@@ -65,13 +66,13 @@ Plug 'aklt/plantuml-syntax'
 " NeoBundle 'szw/vim-tags'
 " NeoBundle 'tpope/vim-endwise'
 
-augroup NeoBundleLazyForShader
-	autocmd!
-	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
-		\ set filetype=glsl
-	autocmd FileType glsl NeoBundleSource
-		\ glsl.vim
-augroup END
+" augroup NeoBundleLazyForShader
+" 	autocmd!
+" 	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
+" 		\ set filetype=glsl
+" 	autocmd FileType glsl NeoBundleSource
+" 		\ glsl.vim
+" augroup END
 
 call plug#end()
 
@@ -347,6 +348,8 @@ au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 "コメントアウト
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
+
+"FIXME: 動いてねぇぞ
 "uniteによるタグジャンプと戻る
 augroup TagJump
     autocmd!
@@ -437,8 +440,9 @@ let g:lightline = {
       \ }
 
 " -------------------------------
-" syntax
+" scheme
 " -------------------------------
+
 syntax on
 " colorscheme jellybeans
 " colorscheme twilight
@@ -447,13 +451,6 @@ syntax on
 " colorscheme hybrid
 " colorscheme hybrid_reverse
 colorscheme gotham256
-" -------------------------------
-" vim-airline
-" -------------------------------
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_theme = 'molokai'
-let g:airline#extension#tabline#enabled = 1
 
 " --------------------------------
 " neocomplete.vim
