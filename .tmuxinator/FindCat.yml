@@ -11,5 +11,5 @@ windows:
   - git: 
       layout: even-horizontal
       panes:
-        - tig
         - ls -l
+        - tig
