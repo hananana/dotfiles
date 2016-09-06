@@ -38,10 +38,46 @@ $ gem install tmuxinator
 
 - font
 
-http://mix-mplus-ipa.osdn.jp/migu/
-Migu 1Mのフォントを落とそう
-設定はRegularはMigu1Mで12pt
+inconsolata 12pt
 
 - scheme
 
 Japonesqueで！
+
+# tools
+## いつか自動化したいンゴ
+
+unity
+xcode
+f.lux
+caffeine
+alfred
+dropbox
+androidstudio
+dash
+sourcetree
+shiftit
+wallcat
+
+eclim
+brew cask install eclipse-java
+http://eclim.org/install.html
+java -jar /path/to/eclimhoge.jar
+
+# brew 
+tree
+tig
+plantuml
+graphviz
+peco
+rbenv
+ther_silver_searcher
+tmux
+mplayer
+pushbullet
+
+# brew cask
+karabiner
+eclipse-java
+appcleaner
+texturepacker
