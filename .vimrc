@@ -30,6 +30,8 @@ Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
+
+" scheme
 Plug 'ujihisa/unite-colorscheme'
 Plug 'flazz/vim-colorschemes'
 Plug 'mopp/mopkai.vim'
@@ -38,24 +40,27 @@ Plug 'vim-scripts/twilight'
 Plug 'sjl/badwolf'
 Plug 'w0ng/vim-hybrid'
 Plug 'aereal/vim-colors-japanesque'
+
+" complete
 Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'b4winckler/vim-objc'
 Plug 'keith/swift.vim'
-
 Plug 'vim-scripts/glsl.vim'
 Plug 'glsl.vim'
 
+" other
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
 Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
-Plug 'https://github.com/SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'elzr/vim-json'
 Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'aklt/plantuml-syntax'
-" 動いてねぇぞ
 Plug 'soramugi/auto-ctags.vim'
 
 " ruby
@@ -75,122 +80,6 @@ Plug 'soramugi/auto-ctags.vim'
 " augroup END
 
 call plug#end()
-
-" -------------------------------
-" NeoBundle
-" -------------------------------
-"YCMがinstallに時間がかかるので対策
-" let g:neobundle#install_process_timeout = 1500
-"
-" if has('vim_starting')
-"   if &compatible
-"     set nocompatible
-"   endif
-"   set runtimepath+=~/.vim/bundle/neobundle.vim/
-" endif
-"
-" call neobundle#begin(expand('~/.vim/bundle'))
-"
-" "必須系
-" NeoBundleFetch 'Shougo/neobundle.vim'
-" NeoBundle 'itchyny/lightline.vim'
-" NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/unite-outline'
-" NeoBundle 'tsukkee/unite-tag'
-" NeoBundle 'Shougo/neomru.vim'
-" NeoBundle 'scrooloose/nerdtree'
-" NeoBundle 'Shougo/neocomplete.vim' 
-" NeoBundle 'tyru/caw.vim'
-" NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'xolox/vim-session', {
-"   \ 'depends': 'xolox/vim-misc'
-"   \ }
-" NeoBundle 'majutsushi/tagbar'
-" NeoBundle 'soramugi/auto-ctags.vim'
-" NeoBundle 'Shougo/vimproc.vim', {
-"             \ 'build' : {
-"             \     'windows' : 'tools\\update-dll-mingw',
-"             \     'cygwin' : 'make -f make_cygwin.mak',
-"             \     'mac' : 'make -f make_mac.mak',
-"             \     'unix' : 'make -f make_unix.mak',
-"             \    },
-"             \ }
-" NeoBundle 'Lokaltog/vim-easymotion'
-" NeoBundle 'scrooloose/syntastic'
-"
-" " scheme
-" NeoBundle 'ujihisa/unite-colorscheme'
-" NeoBundle 'flazz/vim-colorschemes'
-" NeoBundle 'mopp/mopkai.vim'
-" NeoBundle 'hananana/jellybeans.vim'
-" NeoBundle 'vim-scripts/twilight'
-" NeoBundle 'sjl/badwolf'
-" NeoBundle 'w0ng/vim-hybrid'
-" NeoBundle 'aereal/vim-colors-japanesque'
-"
-" "補完の神
-" NeoBundle 'Valloric/YouCompleteMe', {
-"             \ 'build'      : {
-"             \ 'mac'     : './install.py --clang-completer --omnisharp-completer',
-"             \ 'unix'    : './install.py --clang-completer --omnisharp-completer',
-"             \ 'windows' : './install.py --clang-completer --omnisharp-completer',
-"             \ 'cygwin'  : './install.py --clang-completer --omnisharp-completer'
-"             \ }
-"             \ }
-"
-" "syntax
-" NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
-" NeoBundle 'octol/vim-cpp-enhanced-highlight'
-" NeoBundle 'b4winckler/vim-objc'
-" NeoBundle 'keith/swift.vim'
-" NeoBundle 'vim-scripts/glsl.vim'
-"
-" NeoBundleLazy 'glsl.vim'
-" augroup NeoBundleLazyForShader
-" 	autocmd!
-" 	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
-" 		\ set filetype=glsl
-" 	autocmd FileType glsl NeoBundleSource
-" 		\ glsl.vim
-" augroup END
-"
-" "comment
-" NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
-"
-" "switch header and imp
-" NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
-"
-" " ruby
-" " NeoBundle 'NigoroJr/rsense'
-" " NeoBundle 'supermomonga/neocomplete-rsense.vim'
-" " NeoBundle 'thinca/vim-ref'
-" " NeoBundle 'yuku-t/vim-ref-ri'
-" " NeoBundle 'szw/vim-tags'
-" " NeoBundle 'tpope/vim-endwise'
-"
-" " snippets 
-" NeoBundle 'https://github.com/SirVer/ultisnips'
-" NeoBundle 'honza/vim-snippets'
-"
-" " json
-" NeoBundle 'elzr/vim-json'
-"
-" " markdown
-" NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-"
-" " yaml
-" NeoBundleLazy 'stephpy/vim-yaml', { 'autoload' : { 'filetypes' : ['yaml'] } }
-"
-" " plantUML
-" NeoBundle 'aklt/plantuml-syntax'
-"
-" call neobundle#end()
-"
-" NeoBundleCheck
-
-" --------------------------------
-" plugin on!!!!!!!!!!!!!!!
-" --------------------------------
 filetype plugin indent on
 
 " --------------------------------
@@ -260,8 +149,6 @@ set number
 set backspace=indent,eol,start
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
-"tagファイルの場所
-set tags=./tags
 " マクロ実行中は再描画しない
 set lazyredraw
 " くそ長い行を値までで略しちゃう
@@ -348,8 +235,6 @@ au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 "コメントアウト
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
-
-"FIXME: 動いてねぇぞ
 "uniteによるタグジャンプと戻る
 augroup TagJump
     autocmd!
