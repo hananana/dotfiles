@@ -6,20 +6,12 @@ C++,C#,ruby,markdown,json,swift,go,pythonに対応済み
 
 ## 手順
 
-setting.shで自動化したいけどまだできてないっ
-
-- vimをいれる
-
 ```sh
-$ mkdir .dotfiles
 $ git clone git@github.com:hanana0501/dotfiles.git ~/.dotfiles
-$ .dotfiles/setting.sh
-$ brew install vim --with-client-server --with-lua
-$ brew install the_silver_searcher
-$ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+$ .dotfiles/scripts/setting.sh
 ```
 
-- karabiner
+### karabiner
 
 ```sh
 $ brew install caskroom/cask/brew-cask
@@ -31,53 +23,28 @@ $ ln -s ~/.dotfiles/dotfiles/private.xml private.xml
 
 karabinerを起動してLeave Insert Mode（以下略をONに
 
-- tmux
+### tmux
 ```sh
 $ gem install tmuxinator
 ```
 
-- font
+### terminal setting
 
-inconsolata 12pt
+- inconsolata 12pt
+- Japonesque
 
-- scheme
-
-Japonesqueで！
-
-# tools
-## いつか自動化したいンゴ
+## tools(いつか自動化したいンゴ)
 
 unity
 xcode
 f.lux
-caffeine
-alfred
 dropbox
 androidstudio
-dash
 sourcetree
-shiftit
 wallcat
+pushbullet
 
 eclim
 brew cask install eclipse-java
 http://eclim.org/install.html
 java -jar /path/to/eclimhoge.jar
-
-# brew 
-tree
-tig
-plantuml
-graphviz
-peco
-rbenv
-ther_silver_searcher
-tmux
-mplayer
-pushbullet
-
-# brew cask
-karabiner
-eclipse-java
-appcleaner
-texturepacker
