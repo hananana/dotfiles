@@ -30,6 +30,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
+Plug 'rizzatti/dash.vim'
 
 " scheme
 Plug 'ujihisa/unite-colorscheme'
@@ -275,8 +276,12 @@ nnoremap s "_s
 " csharp要のlambda代替（本当はindent/cs.vimでやりたい)
 inoremap <silent> <C-l> <CR><BS><BS>{}<Left><CR><CR><Up><Tab>
 
-" youcompletemeのgettype呼び出し
+" ycm
 nnoremap <Leader>yg :YcmCompleter GetType<CR>
+nnoremap <Leader>yd :YcmShowDetailedDiagnostic<CR>
+
+" dash
+nmap <silent> <Leader>d <Plug>DashSearch
 
 " -----------------------------------------------------------------------------
 " unite.vim
