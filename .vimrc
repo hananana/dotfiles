@@ -45,7 +45,8 @@ Plug 'aereal/vim-colors-japanesque'
 Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/eclim', { 'for': [ 'java' ] }
+Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
+Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
@@ -452,3 +453,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" --------------------------------
+" javacomplete2
+" --------------------------------
+augroup JavaComplete
+    autocmd!
+    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+augroup END
