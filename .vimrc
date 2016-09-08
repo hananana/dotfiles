@@ -336,13 +336,7 @@ let g:lightline = {
 " -------------------------------
 
 syntax on
-" colorscheme jellybeans
-" colorscheme twilight
-" colorscheme badwolf
-" set background=dark
-" colorscheme hybrid
-" colorscheme hybrid_reverse
-colorscheme gotham256
+colorscheme molokai
 
 " --------------------------------
 " neocomplete.vim
