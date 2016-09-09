@@ -54,8 +54,7 @@ Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'b4winckler/vim-objc'
 Plug 'keith/swift.vim'
-Plug 'vim-scripts/glsl.vim'
-Plug 'glsl.vim'
+Plug 'vim-scripts/ShaderHighLight'
 
 " other
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
