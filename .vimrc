@@ -1,120 +1,85 @@
 filetype plugin indent off
 
 " -------------------------------
-" NeoBundle
+" vim-plug
 " -------------------------------
-"YCMがinstallに時間がかかるので対策
-let g:neobundle#install_process_timeout = 1500
-
 if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set rtp+=~/.vim/plugged/vim-plug
+    if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+        echo 'install vim-plug...'
+        call system('mkdir -p ~/.vim/plugged/vim-plug')
+        call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+    end
 endif
 
-call neobundle#begin(expand('~/.vim/bundle'))
+call plug#begin('~/.vim/plugged')
 
-"必須系
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/neocomplete.vim' 
-NeoBundle 'tyru/caw.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'xolox/vim-session', {
-  \ 'depends': 'xolox/vim-misc'
-  \ }
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'soramugi/auto-ctags.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build' : {
-            \     'windows' : 'tools\\update-dll-mingw',
-            \     'cygwin' : 'make -f make_cygwin.mak',
-            \     'mac' : 'make -f make_mac.mak',
-            \     'unix' : 'make -f make_unix.mak',
-            \    },
-            \ }
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'scrooloose/syntastic'
+Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
+
+" must
+Plug 'itchyny/lightline.vim' | Plug 'tpope/vim-fugitive'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'tsukkee/unite-tag'
+Plug 'Shougo/neomru.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Shougo/neocomplete.vim' 
+Plug 'tyru/caw.vim'
+Plug 'majutsushi/tagbar'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'scrooloose/syntastic'
+Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
+Plug 'rizzatti/dash.vim'
 
 " scheme
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'mopp/mopkai.vim'
-NeoBundle 'hananana/jellybeans.vim'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'sjl/badwolf'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'aereal/vim-colors-japanesque'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'flazz/vim-colorschemes'
+Plug 'mopp/mopkai.vim'
+Plug 'hananana/jellybeans.vim'
+Plug 'vim-scripts/twilight'
+Plug 'sjl/badwolf'
+Plug 'w0ng/vim-hybrid'
+Plug 'aereal/vim-colors-japanesque'
 
-"補完の神
-NeoBundle 'Valloric/YouCompleteMe', {
-            \ 'build'      : {
-            \ 'mac'     : './install.py --clang-completer --omnisharp-completer',
-            \ 'unix'    : './install.py --clang-completer --omnisharp-completer',
-            \ 'windows' : './install.py --clang-completer --omnisharp-completer',
-            \ 'cygwin'  : './install.py --clang-completer --omnisharp-completer'
-            \ }
-            \ }
+" complete
+Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
+Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
 
-"syntax
-NeoBundleLazy 'OrangeT/vim-csharp', { 'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] } }
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-NeoBundle 'b4winckler/vim-objc'
-NeoBundle 'keith/swift.vim'
-NeoBundle 'vim-scripts/glsl.vim'
+" syntax
+Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'b4winckler/vim-objc'
+Plug 'keith/swift.vim'
+Plug 'vim-scripts/ShaderHighLight'
 
-NeoBundleLazy 'glsl.vim'
-augroup NeoBundleLazyForShader
-	autocmd!
-	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
-		\ set filetype=glsl
-	autocmd FileType glsl NeoBundleSource
-		\ glsl.vim
-augroup END
-
-"comment
-NeoBundleLazy 'vim-scripts/DoxygenToolkit.vim', { 'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc'] } }
-
-"switch header and imp
-NeoBundleLazy 'kana/vim-altr', {'autoload' : { 'filetypes' : ['cpp', 'objcpp', 'objc']}}
+" other
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
+Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
+Plug 'elzr/vim-json'
+Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
+Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
+Plug 'aklt/plantuml-syntax'
+Plug 'soramugi/auto-ctags.vim'
 
 " ruby
-" NeoBundle 'NigoroJr/rsense'
-" NeoBundle 'supermomonga/neocomplete-rsense.vim'
 " NeoBundle 'thinca/vim-ref'
 " NeoBundle 'yuku-t/vim-ref-ri'
 " NeoBundle 'szw/vim-tags'
 " NeoBundle 'tpope/vim-endwise'
 
-" snippets 
-NeoBundle 'https://github.com/SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+" augroup NeoBundleLazyForShader
+" 	autocmd!
+" 	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
+" 		\ set filetype=glsl
+" 	autocmd FileType glsl NeoBundleSource
+" 		\ glsl.vim
+" augroup END
 
-" json
-NeoBundle 'elzr/vim-json'
-
-" markdown
-NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetypes' : ['markdown'] } }
-
-" yaml
-NeoBundleLazy 'stephpy/vim-yaml', { 'autoload' : { 'filetypes' : ['yaml'] } }
-
-" plantUML
-NeoBundle 'aklt/plantuml-syntax'
-
-call neobundle#end()
-
-NeoBundleCheck
-
-" --------------------------------
-" plugin on!!!!!!!!!!!!!!!
-" --------------------------------
+call plug#end()
 filetype plugin indent on
 
 " --------------------------------
@@ -184,8 +149,6 @@ set number
 set backspace=indent,eol,start
 "閉括弧が入力された時、対応する括弧を強調する
 set showmatch
-"tagファイルの場所
-set tags=./tags
 " マクロ実行中は再描画しない
 set lazyredraw
 " くそ長い行を値までで略しちゃう
@@ -310,8 +273,12 @@ nnoremap s "_s
 " csharp要のlambda代替（本当はindent/cs.vimでやりたい)
 inoremap <silent> <C-l> <CR><BS><BS>{}<Left><CR><CR><Up><Tab>
 
-" youcompletemeのgettype呼び出し
+" ycm
 nnoremap <Leader>yg :YcmCompleter GetType<CR>
+nnoremap <Leader>yd :YcmShowDetailedDiagnostic<CR>
+
+" dash
+nmap <silent> <Leader>d <Plug>DashSearch
 
 " -----------------------------------------------------------------------------
 " unite.vim
@@ -362,23 +329,11 @@ let g:lightline = {
       \ }
 
 " -------------------------------
-" syntax
+" scheme
 " -------------------------------
+
 syntax on
-" colorscheme jellybeans
-" colorscheme twilight
-" colorscheme badwolf
-" set background=dark
-" colorscheme hybrid
-" colorscheme hybrid_reverse
-colorscheme gotham256
-" -------------------------------
-" vim-airline
-" -------------------------------
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_theme = 'molokai'
-let g:airline#extension#tabline#enabled = 1
+colorscheme molokai
 
 " --------------------------------
 " neocomplete.vim
@@ -423,13 +378,14 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:EclimCompletionMethod = 'omnifunc'
+
 " --------------------------------
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
@@ -493,3 +449,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" --------------------------------
+" javacomplete2
+" --------------------------------
+augroup JavaComplete
+    autocmd!
+    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+augroup END

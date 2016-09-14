@@ -1,13 +1,33 @@
-#/bin/sh
+#!/bin/zsh
+#!/bin/brew
+
 DOTFILES_DIR=".dotfiles"
 
-# brew
-## tmux 
-brew install tmux
-## tig 
-brew install tig
-## tree 
-brew install tree
+confirm_brew() 
+{
+    beers=`brew list`
+    needBeers=(tmux tig tree the_silver_searcher plantuml graphviz peco rbenv pushbullet vim cmake ctags gradle reattach-to-user-namespace)
+    for i in $needBeers; do
+        if (( ${beers[(I)$i]} )); then
+        else
+            if [ $i = 'vim' ]; then
+                brew install vim --with-client-server --with-lua
+            else
+                brew install $i
+            fi
+        fi
+    done
+
+    neadCasks=(karabiner eclipse-java appcleaner texturepacker alfred2 dash shiftit caffeine)
+    for i in $needCasks; do
+        if (( ${beers[(I)$i]} )); then
+        else
+            brew cask install $i
+        fi
+    done
+}
+
+confirm_brew
 
 # symlink
 ## gitconfig
@@ -75,13 +95,4 @@ if [ -e ~/.zplug ]; then
     echo "zplug already installed"
 else
     git clone https://github.com/b4b4r07/zplug ~/.zplug
-fi
-
-## neobundle
-if [ ! -e ~/.vim/bundle ]; then
-    mkdir ~/.vim/bundle
-fi
-
-if [ ! -e ~/.vim/bundle/neobundle.vim ]; then
-    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi

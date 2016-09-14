@@ -33,7 +33,13 @@ export LS_COLORS='di=36;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43
 # path
 # -------------------------------------
 
+# rbenv
 PATH="$HOME/.rbenv/bin:$PATH"
+
+# android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
 
 # -------------------------------------
 # history

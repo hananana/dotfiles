@@ -1,7 +1,7 @@
-# ~/.tmuxinator/dot.yml
+# ~/.tmuxinator/ActionTest.yml
 
-name: dotfiles
-root: ~/.dotfiles
+name: ActionTest
+root: ~/Works/Projects/ActionTest
 
 windows:
   - editor:

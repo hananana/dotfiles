@@ -9,20 +9,12 @@ monoのverは4.0.1じゃないとyoucompletemeが動かない
 
 ## 手順
 
-setting.shで自動化したいけどまだできてないっ
-
-- vimをいれる
-
 ```sh
-$ mkdir .dotfiles
 $ git clone git@github.com:hanana0501/dotfiles.git ~/.dotfiles
-$ .dotfiles/setting.sh
-$ brew install vim --with-client-server --with-lua
-$ brew install the_silver_searcher
-$ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+$ .dotfiles/scripts/setting.sh
 ```
 
-- karabiner
+### karabiner
 
 ```sh
 $ brew install caskroom/cask/brew-cask
@@ -34,17 +26,28 @@ $ ln -s ~/.dotfiles/dotfiles/private.xml private.xml
 
 karabinerを起動してLeave Insert Mode（以下略をONに
 
-- tmux
+### tmux
 ```sh
 $ gem install tmuxinator
 ```
 
-- font
+### terminal setting
 
-http://mix-mplus-ipa.osdn.jp/migu/
-Migu 1Mのフォントを落とそう
-設定はRegularはMigu1Mで12pt
+- inconsolata 12pt
+- Japonesque
 
-- scheme
+## tools(いつか自動化したいンゴ)
 
-Japonesqueで！
+unity
+xcode
+f.lux
+dropbox
+androidstudio
+sourcetree
+wallcat
+pushbullet
+
+eclim
+brew cask install eclipse-java
+http://eclim.org/install.html
+java -jar /path/to/eclimhoge.jar

@@ -1,7 +1,7 @@
-# ~/.tmuxinator/dot.yml
+# ~/.tmuxinator/ShaderTest.yml
 
-name: dotfiles
-root: ~/.dotfiles
+name: ShaderTest
+root: ~/Works/Projects/ShaderTest
 
 windows:
   - editor:
