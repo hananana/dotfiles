@@ -5,7 +5,7 @@ C++,C#,ruby,markdown,json,swift,go,pythonに対応済み
 参考のakinama氏の[dotfiles](https://github.com/akinama/dotfiles)  
 
 ## 注意
-monoのverは4.0.1じゃないとyoucompletemeが動かない
+monoのverは4.0.1じゃないとyoucompletemeが動かない罠
 
 ## 手順
 
