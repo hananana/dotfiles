@@ -1,0 +1,15 @@
+# ~/.tmuxinator/MochiPlus.yml
+
+name: MochiPlus
+root: ~/Works/Projects/MochiPlus
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - git: 
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig
