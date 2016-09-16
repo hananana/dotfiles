@@ -31,6 +31,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'rizzatti/dash.vim'
+Plug 'lambdalisue/vim-gita'
 
 " scheme
 Plug 'ujihisa/unite-colorscheme'
@@ -333,7 +334,7 @@ let g:lightline = {
 " -------------------------------
 
 syntax on
-colorscheme molokai
+colorscheme gotham256
 
 " --------------------------------
 " neocomplete.vim
