@@ -32,6 +32,7 @@ Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'rizzatti/dash.vim'
 Plug 'lambdalisue/vim-gita'
+Plug 'kana/vim-smartchr'
 
 " scheme
 Plug 'ujihisa/unite-colorscheme'
@@ -279,6 +280,14 @@ nnoremap <Leader>yd :YcmShowDetailedDiagnostic<CR>
 " dash
 nmap <silent> <Leader>d <Plug>DashSearch
 
+" smartchr
+inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+inoremap <buffer> <expr> + smartchr#loop('+', ' + ', '++')
+inoremap <buffer> <expr> - smartchr#loop('-', ' -  ', '--')
+inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
+inoremap <buffer> <expr> / smartchr#loop('/', ' / ')
+
+
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
@@ -456,3 +465,4 @@ augroup JavaComplete
     autocmd!
     autocmd FileType java setlocal omnifunc=javacomplete#Complete
 augroup END
+
