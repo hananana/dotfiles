@@ -99,8 +99,6 @@ let mapleader = "\<Space>"
 set encoding=utf-8
 " tmuxで色を有効にする
 set t_Co=256
-" ヘルプの検索順
-set helplang=ja,en
 " airlineを常時表示するよ
 set laststatus=2
 "キーのリマップ
