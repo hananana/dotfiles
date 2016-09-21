@@ -34,6 +34,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'lambdalisue/vim-gita'
 Plug 'kana/vim-smartchr'
 Plug 'Shougo/vimfiler.vim'
+Plug 'Chiel92/vim-autoformat'
 
 " scheme
 Plug 'ujihisa/unite-colorscheme'
@@ -467,3 +468,12 @@ augroup JavaComplete
     autocmd FileType java setlocal omnifunc=javacomplete#Complete
 augroup END
 
+" --------------------------------
+" vim-autoformat
+" --------------------------------
+let g:formatdef_my_custom_cs = '"astyle --style=allman"'
+let g:formatters_cs = ['my_custom_cs']
+augroup AutoFormat
+    autocmd!
+    autocmd BufWrite *.cs :Autoformat
+augroup END
