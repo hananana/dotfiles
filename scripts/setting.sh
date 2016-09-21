@@ -18,7 +18,7 @@ confirm_brew()
         fi
     done
 
-    neadCasks=(karabiner eclipse-java appcleaner texturepacker alfred2 dash shiftit caffeine)
+    neadCasks=(karabiner eclipse-java appcleaner texturepacker alfred2 dash shiftit caffeine netbeans)
     for i in $needCasks; do
         if (( ${beers[(I)$i]} )); then
         else
