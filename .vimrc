@@ -133,7 +133,7 @@ set noswapfile
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
 "クリップボードを連携する
-set clipboard=unnamed
+set clipboard=unnamed,autoselect
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
 "インクリメンタルサーチを行う
@@ -343,7 +343,7 @@ let g:lightline = {
 " -------------------------------
 
 syntax on
-colorscheme gotham256
+colorscheme mopkai
 
 " --------------------------------
 " neocomplete.vim
@@ -477,3 +477,26 @@ augroup AutoFormat
     autocmd!
     autocmd BufWrite *.cs :Autoformat
 augroup END
+
+
+" insert comment
+function! InsertComment()
+    let l:currentRow = line(".")
+    let l:splited = split(getline('.'), ' ')
+
+    if index(l:splited, 'class') == 1
+        echo 'this row is class definition'
+        call append(l:currentRow - 1, "/// </summary>")
+        call append(l:currentRow - 1, "/// ")
+        call append(l:currentRow - 1, "/// <summary>")
+        return
+    endif
+
+    let l:current = getline('.')
+    if stridx(l:current, '(') >= 0 && stridx(l:current, ')') >= 0
+        echo 'this row is method definition'
+        return
+    endif
+
+    echo 'this row is NOT difinition'
+endfunction
