@@ -54,6 +54,12 @@ if [ -e ~/.vimrc ]; then
 fi
 ln -s ~/$DOTFILES_DIR/.vimrc ~/.vimrc
 
+## gvimrc
+if [ -e ~/.gvimrc ]; then
+    rm -f ~/.gvimrc
+fi
+ln -s ~/$DOTFILES_DIR/.gvimrc ~/.gvimrc
+
 ## xvimrc
 if [ -e ~/.xvimrc ]; then
     rm -f ~/.xvimrc

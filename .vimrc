@@ -1,5 +1,9 @@
 filetype plugin indent off
 
+augroup vimrc
+    autocmd!
+augroup END
+
 " -------------------------------
 " vim-plug
 " -------------------------------
@@ -164,16 +168,10 @@ set autoread
 " ウィンドウの自動調整停止
 set noequalalways
 
-augroup vimrc-checktime
-    autocmd!
-    autocmd WinEnter * checktime
-augroup END
+autocmd vimrc WinEnter * checktime
 
 " 閉じる時ついでにnerdtreeも閉じる
-augroup close-nerdtree
-    autocmd!
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-augroup END
+autocmd vimrc bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " -------------------------------
 " keymap
@@ -242,17 +240,14 @@ au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
 "uniteによるタグジャンプと戻る
-augroup TagJump
-    autocmd!
-    autocmd BufEnter *
-                \   if empty(&buftype)
-                \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-                \|  endif
-    autocmd BufEnter *
-                \   if empty(&buftype)
-                \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
-                \|  endif
-augroup END
+autocmd vimrc BufEnter *
+            \   if empty(&buftype)
+            \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+            \|  endif
+autocmd vimrc BufEnter *
+            \   if empty(&buftype)
+            \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
+            \|  endif
 
 " nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
 " function RunIDE()
@@ -265,10 +260,8 @@ augroup END
 
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
-augroup AutoTagBarOpen
-    autocmd!
-    autocmd FileType cs,cpp,mm nested :TagbarOpen
-augroup END
+autocmd vimrc FileType cs,cpp,mm nested :TagbarOpen
+
 " vmodeでCtrl+cでclicpboardへコピー
 vmap <C-c> :w !pbcopy<cr><cr>
 
@@ -350,43 +343,6 @@ syntax on
 colorscheme mopkai
 
 " --------------------------------
-" neocomplete.vim
-" --------------------------------
-" neocompleteは自動では始めない
-let g:neocomplete#enable_at_startup = 0
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" 大文字小文字無視
-let g:neocomplete#enable_ignore_case = 1
-" Use Underbar Completion
-let g:neocomplete#enable_underbar_completion = 1
-" 2文字目から全力で補完します
-let g:neocomplete#auto_completion_start_length = 2
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-" Use Vimproc
-let g:neocomplete#use_vimproc = 1
-" Lock Buffer Name Pattern
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" よくわからんが公式推奨設定
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Enable omni completion.
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
-" --------------------------------
 " YouCompleteMe
 " --------------------------------
 let g:ycm_enable_diagnostic_signs = 0
@@ -418,10 +374,7 @@ let g:vim_json_syntax_conceal = 0
 " markdown
 " --------------------------------
 let g:previm_open_cmd = 'open -a Google\ Chrome'
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
+autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " --------------------------------
 " session
@@ -467,17 +420,11 @@ let g:syntastic_check_on_wq = 0
 " --------------------------------
 " javacomplete2
 " --------------------------------
-augroup JavaComplete
-    autocmd!
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
-augroup END
+autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
 
 " --------------------------------
 " vim-autoformat
 " --------------------------------
 let g:formatdef_my_custom_cs = '"astyle --style=allman"'
 let g:formatters_cs = ['my_custom_cs']
-augroup AutoFormat
-    autocmd!
-    autocmd BufWrite *.cs :Autoformat
-augroup END
+autocmd vimrc BufWrite *.cs :Autoformat
