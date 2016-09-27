@@ -280,7 +280,7 @@ nnoremap <Leader>yd :YcmShowDetailedDiagnostic<CR>
 nmap <silent> <Leader>d <Plug>DashSearch
 
 " smartchr
-inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ')
 inoremap <buffer> <expr> + smartchr#loop('+', ' + ', '++')
 inoremap <buffer> <expr> - smartchr#loop('-', ' -  ', '--')
 inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
