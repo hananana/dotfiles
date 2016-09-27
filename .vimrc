@@ -83,13 +83,6 @@ Plug 'soramugi/auto-ctags.vim'
 " NeoBundle 'szw/vim-tags'
 " NeoBundle 'tpope/vim-endwise'
 
-" augroup NeoBundleLazyForShader
-" 	autocmd!
-" 	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
-" 		\ set filetype=glsl
-" 	autocmd FileType glsl NeoBundleSource
-" 		\ glsl.vim
-" augroup END
 
 call plug#end()
 filetype plugin indent on
@@ -308,6 +301,12 @@ let g:unite_source_grep_default_opts =
             \ '-i --vimgrep --hidden --ignore ' .
             \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
+
+" --------------------------------
+" vimfiler
+" --------------------------------
+
+nnoremap <silent> <Leader>uv :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 
 " --------------------------------
 " nerdtree
