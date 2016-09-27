@@ -42,7 +42,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'mopp/layoutplugin.vim'
 
 " self
-Plug 'hananana/lilycomment.vim'
+" Plug 'hananana/lilycomment.vim'
 
 " scheme
 Plug 'ujihisa/unite-colorscheme'
