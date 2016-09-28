@@ -83,14 +83,6 @@ Plug 'soramugi/auto-ctags.vim'
 " NeoBundle 'szw/vim-tags'
 " NeoBundle 'tpope/vim-endwise'
 
-" augroup NeoBundleLazyForShader
-" 	autocmd!
-" 	autocmd BufNewFile,BufRead *.fsh,*.vsh,*.frag,*.vert,*.fp,*.vp,*.glsl
-" 		\ set filetype=glsl
-" 	autocmd FileType glsl NeoBundleSource
-" 		\ glsl.vim
-" augroup END
-
 call plug#end()
 filetype plugin indent on
 
@@ -287,6 +279,9 @@ inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
 inoremap <buffer> <expr> / smartchr#loop('/', ' / ')
 
 
+" -------------------------------
+" pluginごとの設定
+" -------------------------------
 " -----------------------------------------------------------------------------
 " unite.vim
 " <C-l>でキャッシュを更新しようぜ！
