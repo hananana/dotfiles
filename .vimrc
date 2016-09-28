@@ -45,14 +45,15 @@ Plug 'mopp/layoutplugin.vim'
 " Plug 'hananana/lilycomment.vim'
 
 " scheme
-Plug 'ujihisa/unite-colorscheme'
-Plug 'flazz/vim-colorschemes'
-Plug 'mopp/mopkai.vim'
-Plug 'hananana/jellybeans.vim'
-Plug 'vim-scripts/twilight'
-Plug 'sjl/badwolf'
-Plug 'w0ng/vim-hybrid'
-Plug 'aereal/vim-colors-japanesque'
+" Plug 'ujihisa/unite-colorscheme'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'mopp/mopkai.vim'
+" Plug 'hananana/jellybeans.vim'
+" Plug 'vim-scripts/twilight'
+" Plug 'sjl/badwolf'
+" Plug 'w0ng/vim-hybrid'
+" Plug 'aereal/vim-colors-japanesque'
+Plug 'altercation/vim-colors-solarized'
 
 " complete
 Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
@@ -340,10 +341,11 @@ let g:lightline = {
 " scheme
 " -------------------------------
 
-syntax on
-colorscheme solarized
-set background=dark
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+syntax enable
+set background=dark
+colorscheme solarized
 
 " --------------------------------
 " YouCompleteMe
