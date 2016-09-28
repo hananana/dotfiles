@@ -340,7 +340,9 @@ let g:lightline = {
 " -------------------------------
 
 syntax on
-colorscheme mopkai
+colorscheme solarized
+set background=light
+let g:solarized_termcolors=256
 
 " --------------------------------
 " YouCompleteMe
