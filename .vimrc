@@ -305,6 +305,12 @@ let g:unite_source_grep_default_opts =
 let g:unite_source_grep_recursive_opt = ''
 
 " --------------------------------
+" vimfiler
+" --------------------------------
+
+nnoremap <silent> <Leader>uv :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+
+" --------------------------------
 " nerdtree
 " --------------------------------
 "デフォで隠しファイルを表示する
