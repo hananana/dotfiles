@@ -56,11 +56,15 @@ Plug 'hananana/lilycomment.vim'
 Plug 'altercation/vim-colors-solarized'
 
 " complete
-Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
+" Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
+
+Plug 'Shougo/neocomplete.vim'
+Plug 'OmniSharp/omnisharp-vim', {'dir': '~/.vim/plugged/omnisharp-vim/', 'do' : 'xbuild server/OmniSharp.sln'}
+Plug 'tpope/vim-dispatch'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
