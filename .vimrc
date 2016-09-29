@@ -45,14 +45,6 @@ Plug 'mopp/layoutplugin.vim'
 Plug 'hananana/lilycomment.vim'
 
 " scheme
-" Plug 'ujihisa/unite-colorscheme'
-" Plug 'flazz/vim-colorschemes'
-" Plug 'mopp/mopkai.vim'
-" Plug 'hananana/jellybeans.vim'
-" Plug 'vim-scripts/twilight'
-" Plug 'sjl/badwolf'
-" Plug 'w0ng/vim-hybrid'
-" Plug 'aereal/vim-colors-japanesque'
 Plug 'altercation/vim-colors-solarized'
 
 " complete
@@ -91,84 +83,8 @@ Plug 'soramugi/auto-ctags.vim'
 call plug#end()
 filetype plugin indent on
 
-" --------------------------------
-" 基本設定
-" --------------------------------
-" leaderをspaceにする
-let mapleader = "\<Space>"
-" コメント付きコピペを正常に行う＆コメントの改行時に自動挿入をやめる
-" ただし、csでは効いてない。。。なぜだC-Uでとりあえず対処すべし
-" augroup ForMatOptionsGroup
-" autocmd!
-" au FileType * setlocal formatoptions=cq
-" augroup END
+source ~/.vim/basic.vim
 
-" vim内部で使われる文字エンコーディングをutf-8に設定する
-set encoding=utf-8
-" tmuxで色を有効にする
-set t_Co=256
-" airlineを常時表示するよ
-set laststatus=2
-"キーのリマップ
-nnoremap [ %
-" 日本語のずれをなくす
-set ambiwidth=double
-" 想定される改行コードの指定する
-set fileformats=unix,dos,mac
-" インデントまわり
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=0
-set smarttab
-set cindent
-
-" /検索でbottomからtopに戻らない
-set nowrapscan
-" ビープ音いらん
-set vb t_vb=
-"コマンド表示
-set showcmd
-"バックアップファイルをとらない
-set nobackup
-" チルダファイル作成を完全無効化
-set noundofile
-"スワップファイル用のディレクトリを指定する
-set noswapfile
-" コマンドライン補完をshellと同一にする
-set wildmode=list:longest
-"クリップボードを連携する
-set clipboard=unnamed,autoselect
-"変更中のファイルでも、保存しないで他のファイルを表示する
-set hidden
-"インクリメンタルサーチを行う
-set incsearch
-"検索したらハイライト
-set hlsearch
-" 大文字小文字を区別しないで検索する
-set ignorecase
-set smartcase
-" escした時日本語入力をやめる
-inoremap <ESC> <ESC>:set iminsert=0<CR>
-"行番号を表示する
-set number
-" バックスペースでインデント削除
-set backspace=indent,eol,start
-"閉括弧が入力された時、対応する括弧を強調する
-set showmatch
-" マクロ実行中は再描画しない
-set lazyredraw
-" くそ長い行を値までで略しちゃう
-set synmaxcol=300
-" 他のエディタなどで変更があった場合チェックする
-set autoread
-" ウィンドウの自動調整停止
-set noequalalways
-
-autocmd vimrc WinEnter * checktime
-
-" 閉じる時ついでにnerdtreeも閉じる
-autocmd vimrc bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " -------------------------------
 " keymap
