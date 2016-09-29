@@ -27,7 +27,6 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'tsukkee/unite-tag'
 Plug 'Shougo/neomru.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'Shougo/neocomplete.vim' 
 Plug 'tyru/caw.vim'
 Plug 'majutsushi/tagbar'
@@ -37,7 +36,6 @@ Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'rizzatti/dash.vim'
 Plug 'lambdalisue/vim-gita'
 Plug 'kana/vim-smartchr'
-Plug 'Shougo/vimfiler.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'mopp/layoutplugin.vim'
 
@@ -83,181 +81,10 @@ Plug 'soramugi/auto-ctags.vim'
 call plug#end()
 filetype plugin indent on
 
-source ~/.vim/basic.vim
-
-
-" -------------------------------
-" keymap
-" -------------------------------
-"矢印キー無効
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-" 検索結果のハイライトをEsc連打でクリアする
-nnoremap <ESC><ESC> :nohlsearch<CR>
-"検索結果を画面中央にもってくる
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-" escをctrl+jで代替する
-noremap <C-j> <esc>
-noremap! <C-j> <esc>
-
-" こっから<Leader>関連いくぜ！
-" タブとウィンドウ分割"
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>s :<C-u>sp<CR>
-nnoremap <Leader>v :<C-u>vs<CR>
-"簡単な保存
-nnoremap <Leader>w :w<CR>
-" unite呼び出し
-nnoremap <Leader>uu :Unite<CR>
-nnoremap <Leader>uf :Unite file<CR>
-"ファイル検索
-nnoremap <Leader><Leader> :Unite file_rec/async<CR>
-" バッファ一覧表示
-noremap <Leader>ub :Unite buffer<CR>
-" レジスタ一覧
-noremap <Leader>ur :Unite -buffer-name=register register<CR>
-" grep検索
-noremap <Leader>ug :Unite grep:. -buffer-name=search-buffer<CR>
-" grep検索結果の再呼出
-nnoremap <Leader>ua :UniteResume search-buffer<CR>
-" outline表示
-nnoremap <Leader>uo :Unite outline<CR>
-" uniteでインクリメンタル検索
-nnoremap <Leader>ul :Unite line<CR>
-" easymotion
-nmap <Leader>e <Plug>(easymotion-s2)
-" Cキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-au FileType unite nnoremap <silent> <buffer> <C-J><C-J> :q<CR>
-au FileType unite inoremap <silent> <buffer> <C-J><C-J> <ESC>:q<CR>
-"ファイルツリー表示
-nnoremap <silent> <C-e>      :NERDTreeToggle<CR>
-vnoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-onoremap <silent> <C-e>      :NERDTreeToggle<CR>
-inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
-cnoremap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
-" ヘッダーとの移動
-au FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
-" コメントテンプレ展開
-au FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
-"コメントアウト
-nmap <Leader>c <Plug>(caw:I:toggle)
-vmap <Leader>c <Plug>(caw:I:toggle)
-"uniteによるタグジャンプと戻る
-autocmd vimrc BufEnter *
-            \   if empty(&buftype)
-            \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-            \|  endif
-autocmd vimrc BufEnter *
-            \   if empty(&buftype)
-            \|      nnoremap <buffer> <C-t> :<C-u>Unite jump<CR>
-            \|  endif
-
-" nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
-" function RunIDE()
-"     if (&ft=='cs')
-"         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
-"     else
-"         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
-"     endif
-" endfunction
-
-" tagbar 
-nmap <Leader>t :TagbarToggle<CR>
-autocmd vimrc FileType cs,cpp,mm nested :TagbarOpen
-
-" vmodeでCtrl+cでclicpboardへコピー
-vmap <C-c> :w !pbcopy<cr><cr>
-
-" レジスタ汚染防止
-nnoremap x "_x
-nnoremap s "_s
-
-" csharp要のlambda代替（本当はindent/cs.vimでやりたい)
-inoremap <silent> <C-l> <CR><BS><BS>{}<Left><CR><CR><Up><Tab>
-
-" ycm
-nnoremap <Leader>yg :YcmCompleter GetType<CR>
-nnoremap <Leader>yd :YcmShowDetailedDiagnostic<CR>
-
-" dash
-nmap <silent> <Leader>d <Plug>DashSearch
-
-" smartchr
-inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ')
-inoremap <buffer> <expr> + smartchr#loop('+', ' + ', '++')
-inoremap <buffer> <expr> - smartchr#loop('-', ' -  ', '--')
-inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
-inoremap <buffer> <expr> / smartchr#loop('/', ' / ')
-
-nnoremap <Leader>a :Autoformat<CR>
-
-
-" -------------------------------
-" pluginごとの設定
-" -------------------------------
-" -----------------------------------------------------------------------------
-" unite.vim
-" <C-l>でキャッシュを更新しようぜ！
-" -----------------------------------------------------------------------------
-"insert modeで開始
-let g:unite_enable_start_insert = 1
-
-"大文字小文字を区別しない
-call unite#custom#profile('default', 'context',{
-        \ 'ignorecase' : 1,
-        \ 'smartcase' : 1,
-        \})
-
-let g:unite_source_rec_async_command =
-            \ ['ag', '--follow', '--nocolor', '--nogroup',
-            \  '--hidden', '-g', '']
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-            \ '-i --vimgrep --hidden --ignore ' .
-            \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-
-" --------------------------------
-" vimfiler
-" --------------------------------
-
-nnoremap <silent> <Leader>uv :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
-
-" --------------------------------
-" nerdtree
-" --------------------------------
-"デフォで隠しファイルを表示する
-let NERDTreeShowHidden = 1
-
-" --------------------------------
-" lightline
-" --------------------------------
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ }
-      \ }
+source ~/.vim/settings/basic.vim
+source ~/.vim/settings/keymap.vim
+set rtp+=~/.vim/settings/
+runtime! plugins/*.vim
 
 " -------------------------------
 " scheme
@@ -286,12 +113,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" -------------------------------
-" Rsense
-" -------------------------------
-" let g:rsenseUseOmniFunc = 1
-" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-
 " --------------------------------
 " vim-json
 " --------------------------------
@@ -304,45 +125,9 @@ let g:previm_open_cmd = 'open -a Google\ Chrome'
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " --------------------------------
-" session
-" --------------------------------
-" 現在のディレクトリ直下の .vimsessions/ を取得 
-let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vimsessions')
-" 存在すれば
-if isdirectory(s:local_session_directory)
-    let g:session_directory = s:local_session_directory
-    let g:session_autosave = 'yes'
-    let g:session_autoload = 'yes'
-    let g:session_autosave_periodic = 1
-else
-    let g:session_autosave = 'no'
-    let g:session_autoload = 'no'
-    let g:session_autosave_periodic = 0
-endif
-unlet s:local_session_directory
-
-" --------------------------------
-" easy-motion
-" --------------------------------
-" disable default mappings
-let g:EasyMotion_do_mapping = 0
-
-" --------------------------------
 " plantuml
 " --------------------------------
 let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
-
-" --------------------------------
-" syntastic
-" --------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " --------------------------------
 " javacomplete2
