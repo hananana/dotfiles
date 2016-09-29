@@ -42,7 +42,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'mopp/layoutplugin.vim'
 
 " self
-" Plug 'hananana/lilycomment.vim'
+Plug 'hananana/lilycomment.vim'
 
 " scheme
 " Plug 'ujihisa/unite-colorscheme'
@@ -279,6 +279,8 @@ inoremap <buffer> <expr> - smartchr#loop('-', ' -  ', '--')
 inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
 inoremap <buffer> <expr> / smartchr#loop('/', ' / ')
 
+nnoremap <Leader>a :Autoformat<CR>
+
 
 " -------------------------------
 " pluginごとの設定
@@ -432,4 +434,4 @@ autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
 " --------------------------------
 let g:formatdef_my_custom_cs = '"astyle --style=allman"'
 let g:formatters_cs = ['my_custom_cs']
-autocmd vimrc BufWrite *.cs :Autoformat
+" autocmd vimrc BufWrite *.cs :Autoformat
