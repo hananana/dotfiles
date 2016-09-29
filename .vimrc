@@ -37,7 +37,6 @@ Plug 'rizzatti/dash.vim'
 Plug 'lambdalisue/vim-gita'
 Plug 'kana/vim-smartchr'
 Plug 'Chiel92/vim-autoformat'
-Plug 'mopp/layoutplugin.vim'
 
 " self
 Plug 'hananana/lilycomment.vim'
@@ -45,15 +44,15 @@ Plug 'hananana/lilycomment.vim'
 " scheme
 Plug 'altercation/vim-colors-solarized'
 
-" complete
-" Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/plugged/YouCompleteMe', 'do' : './install.py --clang-completer --omnisharp-completer'}
+" completion
+Plug 'Shougo/neocomplete.vim'
+Plug 'OmniSharp/omnisharp-vim',
+            \{'dir': '~/.vim/plugged/omnisharp-vim/',
+            \'do' : 'xbuild server/OmniSharp.sln'}
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
-
-Plug 'Shougo/neocomplete.vim'
-Plug 'OmniSharp/omnisharp-vim', {'dir': '~/.vim/plugged/omnisharp-vim/', 'do' : 'xbuild server/OmniSharp.sln'}
 Plug 'tpope/vim-dispatch'
 
 " syntax
@@ -95,23 +94,6 @@ let g:solarized_termtrans=1
 syntax enable
 set background=dark
 colorscheme solarized
-
-" --------------------------------
-" YouCompleteMe
-" --------------------------------
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:EclimCompletionMethod = 'omnifunc'
-
-" --------------------------------
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " --------------------------------
 " vim-json

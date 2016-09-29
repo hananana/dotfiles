@@ -26,8 +26,6 @@ nnoremap <Leader>s :<C-u>sp<CR>
 nnoremap <Leader>v :<C-u>vs<CR>
 "簡単な保存
 nnoremap <Leader>w :w<CR>
-" easymotion
-nmap <Leader>e <Plug>(easymotion-s2)
 " ヘッダーとの移動
 au FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
 " コメントテンプレ展開
@@ -52,10 +50,6 @@ vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
-
-" ycm
-nnoremap <Leader>yg :YcmCompleter GetType<CR>
-nnoremap <Leader>yd :YcmShowDetailedDiagnostic<CR>
 
 " dash
 nmap <silent> <Leader>d <Plug>DashSearch
