@@ -62,3 +62,5 @@ inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
 inoremap <buffer> <expr> / smartchr#loop('/', ' / ')
 
 nnoremap <Leader>a :Autoformat<CR>
+
+imap <C-o> <C-x><C-o>
