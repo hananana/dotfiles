@@ -35,7 +35,6 @@ Plug 'scrooloose/syntastic'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'rizzatti/dash.vim'
 Plug 'lambdalisue/vim-gita'
-Plug 'kana/vim-smartchr'
 Plug 'Chiel92/vim-autoformat'
 
 " self

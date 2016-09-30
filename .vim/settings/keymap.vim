@@ -54,13 +54,6 @@ nnoremap s "_s
 " dash
 nmap <silent> <Leader>d <Plug>DashSearch
 
-" smartchr
-inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ')
-inoremap <buffer> <expr> + smartchr#loop('+', ' + ', '++')
-inoremap <buffer> <expr> - smartchr#loop('-', ' -  ', '--')
-inoremap <buffer> <expr> * smartchr#loop('*', ' * ')
-inoremap <buffer> <expr> / smartchr#loop('/', ' / ')
-
 nnoremap <Leader>a :Autoformat<CR>
 
 imap <C-o> <C-x><C-o>
