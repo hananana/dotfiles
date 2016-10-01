@@ -10,6 +10,7 @@ call unite#custom#profile('default', 'context',{
         \ 'ignorecase' : 1,
         \ 'smartcase' : 1,
         \})
+call unite#custom#source('file', 'matchers',"matcher_default")
 
 let g:unite_source_rec_async_command =
             \ ['ag', '--follow', '--nocolor', '--nogroup',
