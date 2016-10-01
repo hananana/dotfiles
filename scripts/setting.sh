@@ -6,7 +6,7 @@ DOTFILES_DIR=".dotfiles"
 confirm_brew() 
 {
     beers=`brew list`
-    needBeers=(tmux tig tree the_silver_searcher plantuml graphviz peco rbenv pushbullet vim cmake ctags gradle reattach-to-user-namespace astyle)
+    needBeers=(tmux tig tree the_silver_searcher plantuml graphviz peco rbenv vim cmake ctags gradle reattach-to-user-namespace astyle)
     for i in $needBeers; do
         if (( ${beers[(I)$i]} )); then
         else
