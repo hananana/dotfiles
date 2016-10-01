@@ -45,14 +45,19 @@ Plug 'altercation/vim-colors-solarized'
 
 " completion
 Plug 'Shougo/neocomplete.vim'
-Plug 'OmniSharp/omnisharp-vim',
-            \{'dir': '~/.vim/plugged/omnisharp-vim/',
+Plug 'OmniSharp/omnisharp-vim',{
+            \'dir': '~/.vim/plugged/omnisharp-vim/',
             \'do' : 'xbuild server/OmniSharp.sln'}
+Plug 'tpope/vim-dispatch'
+Plug 'Rip-Rip/clang_complete', {
+            \'dir': '~/.vim/plugged/clang_complete/',
+            \'do' : 'make'}
+
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
-Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
-Plug 'tpope/vim-dispatch'
+" Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
