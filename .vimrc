@@ -52,10 +52,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'Rip-Rip/clang_complete', {
             \'dir': '~/.vim/plugged/clang_complete/',
             \'do' : 'make'}
-
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 " Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
 
@@ -115,10 +113,6 @@ autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdow
 " --------------------------------
 let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
 
-" --------------------------------
-" javacomplete2
-" --------------------------------
-autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
 
 " --------------------------------
 " vim-autoformat
