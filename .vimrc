@@ -36,7 +36,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'lambdalisue/vim-gita'
 Plug 'Chiel92/vim-autoformat'
 
-" self
+" my plugin
 Plug 'hananana/lilycomment.vim'
 
 " scheme
@@ -45,10 +45,12 @@ Plug 'altercation/vim-colors-solarized'
 " completion
 Plug 'Shougo/neocomplete.vim'
 Plug 'OmniSharp/omnisharp-vim',{
+            \'for': ['cs'],
             \'dir': '~/.vim/plugged/omnisharp-vim/',
             \'do' : 'xbuild server/OmniSharp.sln'}
 Plug 'tpope/vim-dispatch'
 Plug 'Rip-Rip/clang_complete', {
+            \'for': ['cpp', 'objc', 'objcpp'],
             \'dir': '~/.vim/plugged/clang_complete/',
             \'do' : 'make'}
 Plug 'https://github.com/SirVer/ultisnips'
