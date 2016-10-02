@@ -19,6 +19,7 @@ let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 let g:neocomplete#sources#omni#input_patterns.objc = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 " --------------------------------
 " clang_complete
@@ -33,3 +34,8 @@ let g:clang_make_default_keymappings = 0
 " javacomplete2
 " --------------------------------
 autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
+
+" --------------------------------
+" vim-monster
+" --------------------------------
+let g:monster#completion#rcodetools#backend = "async_rct_complete"

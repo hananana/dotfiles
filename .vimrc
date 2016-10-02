@@ -56,7 +56,7 @@ Plug 'Rip-Rip/clang_complete', {
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
-" Plug 'ervandew/eclim', { 'for': [ 'ruby' ] }
+Plug 'osyo-manga/vim-monster'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
