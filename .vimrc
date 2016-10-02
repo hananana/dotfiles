@@ -56,7 +56,7 @@ Plug 'Rip-Rip/clang_complete', {
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
-Plug 'osyo-manga/vim-monster'
+Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
@@ -74,11 +74,10 @@ Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'aklt/plantuml-syntax'
 Plug 'soramugi/auto-ctags.vim'
 
-" ruby
-" NeoBundle 'thinca/vim-ref'
-" NeoBundle 'yuku-t/vim-ref-ri'
-" NeoBundle 'szw/vim-tags'
-" NeoBundle 'tpope/vim-endwise'
+" only ruby
+Plug 'tpope/vim-endwise'
+Plug 'thinca/vim-ref'
+Plug 'yuku-t/vim-ref-ri'
 
 call plug#end()
 filetype plugin indent on
