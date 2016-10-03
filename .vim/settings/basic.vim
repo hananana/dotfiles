@@ -68,3 +68,5 @@ set autoread
 set noequalalways
 " focusした時に外部から更新があったかチェック
 autocmd basic WinEnter * checktime
+
+set diffopt=vertical
