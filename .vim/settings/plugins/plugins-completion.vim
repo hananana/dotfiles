@@ -1,3 +1,6 @@
+augroup completion
+    autocmd!
+augroup END
 " --------------------------------
 " neocomplete
 " --------------------------------
@@ -5,10 +8,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
-augroup neocomplete
-    autocmd!
-augroup END
-autocmd neocomplete FileType cs setlocal omnifunc=OmniSharp#Complete
+autocmd completion FileType cs setlocal omnifunc=OmniSharp#Complete
 
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
@@ -33,7 +33,7 @@ let g:clang_make_default_keymappings = 0
 " --------------------------------
 " javacomplete2
 " --------------------------------
-autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
+autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
 
 " --------------------------------
 " vim-monster
