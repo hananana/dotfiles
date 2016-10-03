@@ -26,3 +26,5 @@ bind branch L !?git pull origin %(branch)
 bind generic M none
 bind branch M none
 bind branch M !?git merge %(branch)
+
+set main-view-id = yes
