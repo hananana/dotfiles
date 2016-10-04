@@ -46,11 +46,11 @@ nnoremap <Leader>w :w<CR>
 " ヘッダーとの移動
 au keymap FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
 " コメントテンプレ展開
-au keymap FileType cpp,objc,objcpp nnoremap <Leader>c :Dox<CR>
-au keymap FileType cs nnoremap <Leader>c :LilyComment<CR>
+au keymap FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
+au keymap FileType cs nnoremap <Leader>d :LilyComment<CR>
 "コメントアウト
-nmap <Leader>c <Plug>(caw:I:toggle)
-vmap <Leader>c <Plug>(caw:I:toggle)
+nmap <Leader>/ <Plug>(caw:I:toggle)
+vmap <Leader>/ <Plug>(caw:I:toggle)
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
 autocmd keymap FileType cs,cpp,mm nested :TagbarOpen
