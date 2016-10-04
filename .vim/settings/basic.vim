@@ -68,5 +68,5 @@ set autoread
 set noequalalways
 " focusした時に外部から更新があったかチェック
 autocmd basic WinEnter * checktime
-
+" vimdiffを縦で割る
 set diffopt=vertical
