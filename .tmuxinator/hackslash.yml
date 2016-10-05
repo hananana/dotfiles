@@ -1,0 +1,15 @@
+# ~/.tmuxinator/hackslash.yml
+
+name: hackslash
+root: ~/Works/Projects/hackslash
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - git: 
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig
