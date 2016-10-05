@@ -71,6 +71,7 @@ alias la='ls -lAh'
 
 # git
 alias g='git'
+alias gf='git fetch -p'
 alias ga='git add'
 alias gaa='git add --all'
 alias gb='git branch'
@@ -86,6 +87,7 @@ alias gp='git push'
 alias gst='git status'
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
+
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
