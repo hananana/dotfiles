@@ -70,3 +70,8 @@ set noequalalways
 autocmd basic WinEnter * checktime
 " vimdiffを縦で割る
 set diffopt=vertical
+
+" --------------------------------
+" command
+" --------------------------------
+command! ReloadVimrc :so ~/.vimrc
