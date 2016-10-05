@@ -54,8 +54,8 @@ Plug 'Rip-Rip/clang_complete', {
             \'for': ['cpp', 'objc', 'objcpp'],
             \'dir': '~/.vim/plugged/clang_complete/',
             \'do' : 'make'}
-Plug 'https://github.com/SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 
