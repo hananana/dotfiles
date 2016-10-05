@@ -29,6 +29,10 @@ let g:neocomplete#sources#omni#input_patterns.objcpp = '\[\h\w*\s\h\?\|\h\w*\%(\
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 " --------------------------------
+" snippet
+" --------------------------------
+let g:neosnippet#snippets_directory="~/.vim/settings/snippets"
+" --------------------------------
 " clang_complete
 " --------------------------------
 let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
@@ -46,3 +50,5 @@ autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
 " vim-monster
 " --------------------------------
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
+
