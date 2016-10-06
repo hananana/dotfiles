@@ -76,8 +76,6 @@ Plug 'soramugi/auto-ctags.vim'
 
 " only ruby
 Plug 'tpope/vim-endwise'
-Plug 'thinca/vim-ref'
-Plug 'yuku-t/vim-ref-ri'
 
 call plug#end()
 filetype plugin indent on
@@ -119,9 +117,4 @@ let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
 let g:formatdef_my_custom_cs = '"astyle --style=allman --keep-one-line-blocks"'
 let g:formatters_cs = ['my_custom_cs']
 " autocmd vimrc BufWrite *.cs :Autoformat
-
-" --------------------------------
-" vim-ref
-" --------------------------------
-let g:ref_no_default_key_mappings = 1
 
