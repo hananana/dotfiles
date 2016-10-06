@@ -127,6 +127,11 @@ alias -g D='git diff'
 alias -g P='git push'
 alias -g L='git pull'
 
+function git_current_branch_name()
+{
+    git branch | grep '^\*' | sed 's/^\* *//'
+}
+
 # archive
 function extract() {
     case $1 in
