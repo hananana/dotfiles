@@ -119,7 +119,7 @@ alias -g K='kill-process'
 
 alias -g F='git fetch --prune'
 alias -g B='"$(git_current_branch_name)"'
-alias -g M='F && git checkout master && git pull origin B && git delete-merged-branches'
+# alias -g M='F && git checkout master && git pull origin B && git "$(delete_merged_branches)"'
 alias -g S='git status'
 alias -g C='git checkout'
 alias -g N='git checkout -b'
@@ -131,6 +131,11 @@ function git_current_branch_name()
 {
     git branch | grep '^\*' | sed 's/^\* *//'
 }
+
+# function delete_merged_branches()
+# {
+#     git branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
+# }
 
 # archive
 function extract() {
