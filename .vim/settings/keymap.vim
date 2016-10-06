@@ -63,9 +63,6 @@ nnoremap s "_s
 nmap <silent> <Leader>d <Plug>DashSearch
 " formap 
 nnoremap <Leader>a :Autoformat<CR>
-" Gita
-nnoremap <Leader>gs :Gita status<CR>
-nnoremap <Leader>gc :Gita commit<CR>
 
 " nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
 " function RunIDE()

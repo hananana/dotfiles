@@ -33,7 +33,6 @@ Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
-Plug 'lambdalisue/vim-gita'
 Plug 'Chiel92/vim-autoformat'
 
 " my plugin
