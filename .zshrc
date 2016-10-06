@@ -60,6 +60,9 @@ setopt hist_ignore_dups
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 
+# tmuxのwindow,pane,session間で履歴を共有
+setopt share_history
+
 # -------------------------------------
 # keybind&alias
 # -------------------------------------
