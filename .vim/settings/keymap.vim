@@ -34,23 +34,25 @@ nnoremap <Leader>s :<C-u>sp<CR>
 nnoremap <Leader>v :<C-u>vs<CR>
 " ウィンドウ移動
 " width増やす
-nnoremap <Leader>L <C-w>>
+nnoremap <Leader>> <C-w>>
 " width減らす
-nnoremap <Leader>H <C-w><
+nnoremap <Leader>< <C-w><
 " height増やす
-nnoremap <Leader>K <C-w>+
+nnoremap <Leader>+ <C-w>+
 " height減らす
-nnoremap <Leader>J <C-w>-
+nnoremap <Leader>- <C-w>-
 "簡単な保存
 nnoremap <Leader>w :w<CR>
 " ヘッダーとの移動
 au keymap FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
+" ドキュメント検索
+au keymap FileType cs,cpp,objc,objcpp,vim nmap <silent> <Leader>d <Plug>DashSearch
 " コメントテンプレ展開
-au keymap FileType cpp,objc,objcpp nnoremap <Leader>d :Dox<CR>
-au keymap FileType cs nnoremap <Leader>d :LilyComment<CR>
+au keymap FileType cs nnoremap <Leader>/ :LilyComment<CR>
+au keymap FileType cpp,objc,objcpp nnoremap <Leader>/ :Dox<CR>
 "コメントアウト
-nmap <Leader>/ <Plug>(caw:I:toggle)
-vmap <Leader>/ <Plug>(caw:I:toggle)
+nmap <Leader>c <Plug>(caw:I:toggle)
+vmap <Leader>c <Plug>(caw:I:toggle)
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
 autocmd keymap FileType cs,cpp,mm nested :TagbarOpen
@@ -59,8 +61,6 @@ vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
-" dash
-nmap <silent> <Leader>d <Plug>DashSearch
 " formap 
 nnoremap <Leader>a :Autoformat<CR>
 
