@@ -91,21 +91,16 @@ alias gst='git status'
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
 
-
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 # vim
 alias vi="vim"
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
-# grep
-alias -g G='| grep'
 # ag
 alias agm='ag -S --hidden -g'
 # 通知
 alias notice='~/.dotfiles/scripts/notice.sh'
-# プロセスをkill
-alias kilp='kill-process' 
 #fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
 #attendance
@@ -116,6 +111,21 @@ alias bye='ruby ~/.dotfiles/scripts/attendance.rb bye'
 alias ag='ag -S'
 #oepn
 alias o='open'
+
+# 一文字alias
+alias -g G='| grep'
+
+alias -g K='kill-process'
+
+alias -g F='git fetch --prune'
+alias -g B='"$(git_current_branch_name)"'
+alias -g M='F && git checkout master && git pull origin B && git delete-merged-branches'
+alias -g S='git status'
+alias -g C='git checkout'
+alias -g N='git checkout -b'
+alias -g D='git diff'
+alias -g P='git push'
+alias -g L='git pull'
 
 # archive
 function extract() {
