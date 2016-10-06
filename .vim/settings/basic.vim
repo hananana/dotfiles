@@ -70,6 +70,8 @@ set noequalalways
 autocmd basic WinEnter * checktime
 " vimdiffを縦で割る
 set diffopt=vertical
+" preview非表示
+set completeopt-=preview
 
 " --------------------------------
 " command
