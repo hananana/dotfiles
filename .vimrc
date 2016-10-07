@@ -114,7 +114,7 @@ let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
 " --------------------------------
 " vim-autoformat
 " --------------------------------
-let g:formatdef_my_custom_cs = '"astyle --style=allman --keep-one-line-blocks"'
+let g:formatdef_my_custom_cs = '"astyle --style=allman --keep-one-line-blocks --indent-namespaces"'
 let g:formatters_cs = ['my_custom_cs']
 " autocmd vimrc BufWrite *.cs :Autoformat
 
