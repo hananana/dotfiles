@@ -158,21 +158,98 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 # ctags
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 
-bindkey '^r' anyframe-widget-execute-history
-bindkey '^k' anyframe-widget-kill
-bindkey '^i' anyframe-widget-insert-git-branch
-bindkey '^h' git-hash
+# フォルダ履歴から絞り込む
+function peco-cdr () {
+    local selected_dir=$(cd | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey '^f' peco-cdr
+
+# ブランチを絞り込む
+function git-branch(){
+    local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
+    if [ -n "$branch" ]; then
+        if [ -n "$LBUFFER" ]; then
+            local new_left="${LBUFFER%\ } $branch"
+        else
+            local new_left="$branch"
+        fi
+        BUFFER=${new_left}${RBUFFER}
+        CURSOR=${#new_left}
+    fi
+}
+zle -N git-branch
+bindkey '^g' git-branch
 
 # ハッシュを絞り込む
 function git-hash(){                                    
     git log --oneline --branches | peco | awk '{print $1}'
 }  
 zle -N git-hash
+bindkey '^h' git-hash
+
+# ヒストリを絞り込む
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history 
+
+#アプリを終了させる
+function kill-process () {
+    ps -ef | peco | awk '{ print $2 }' | xargs kill
+    zle clear-screen
+}
+# zle -N kill-process
+# bindkey '^k' kill-process   # C-x k
 
 #グラフ描画
 function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 }
+
+
+# -------------------------------------
+# cocos
+# macを切り替えると通らんので注意！！
+# こんなとこに環境まわりを書くんじゃねぇチョッコンめ…
+# -------------------------------------
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=$HOME/Works/Libraries/cocos2d-x/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=$HOME/Works/Libraries/cocos2d-x/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT=$HOME/Works/Libraries/android-ndk-r10d
+export PATH=$NDK_ROOT:$PATH
+
+# Add environment variable ANT_ROOT for cocos2d-x
+export ANT_ROOT=/usr/local/Cellar/ant/1.9.6/bin
+export PATH=$ANT_ROOT:$PATH
+
+# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # -------------------------------------
 # ruby
@@ -186,7 +263,6 @@ source ~/.zplug/zplug
 zplug "b4b4r07/enhancd", of:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-completions", of:src
-zplug "mollifier/anyframe"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
