@@ -155,7 +155,7 @@ function extract() {
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
-ファイルを一括リネーム 
+# ファイルを一括リネーム 
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
