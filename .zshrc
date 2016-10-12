@@ -20,50 +20,6 @@ precmd () { vcs_info }
 PROMPT='%~ ${vcs_info_msg_0_} %F{white}>>>%f '
 
 # -------------------------------------
-# ls
-# -------------------------------------
-
-autoload colors
-colors
-
-export LSCOLORS=gxfxcxdxbxegedabagacag
-export LS_COLORS='di=36;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;46'
-
-# -------------------------------------
-# path
-# -------------------------------------
-
-# rbenv
-PATH="$HOME/.rbenv/bin:$PATH"
-
-# android
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-
-# -------------------------------------
-# history
-# -------------------------------------
-
-# 履歴ファイルの保存先
-export HISTFILE=${HOME}/.zsh_history
-
-# メモリに保存される履歴の件数
-export HISTSIZE=1000
-
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=100000
-
-# 重複を記録しない
-setopt hist_ignore_dups
-
-# 開始と終了を記録
-setopt EXTENDED_HISTORY
-
-# tmuxのwindow,pane,session間で履歴を共有
-setopt share_history
-
-# -------------------------------------
 # keybind&alias
 # -------------------------------------
 
@@ -227,34 +183,6 @@ function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 }
 
-
-# -------------------------------------
-# cocos
-# macを切り替えると通らんので注意！！
-# こんなとこに環境まわりを書くんじゃねぇチョッコンめ…
-# -------------------------------------
-
-# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=$HOME/Works/Libraries/cocos2d-x/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
-
-# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
-export COCOS_TEMPLATES_ROOT=$HOME/Works/Libraries/cocos2d-x/templates
-export PATH=$COCOS_TEMPLATES_ROOT:$PATH
-
-# Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=$HOME/Works/Libraries/android-ndk-r10d
-export PATH=$NDK_ROOT:$PATH
-
-# Add environment variable ANT_ROOT for cocos2d-x
-export ANT_ROOT=/usr/local/Cellar/ant/1.9.6/bin
-export PATH=$ANT_ROOT:$PATH
-
-# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$ANDROID_SDK_ROOT:$PATH
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
-
 # -------------------------------------
 # ruby
 # -------------------------------------
@@ -293,11 +221,3 @@ fi
 # 1: 補完の時にVimで言うsmartcaseにする
 # 2: 例えばs.vでs*.v*なファイルを補完出来るようにする （『zshの本』P.154）
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
-
-
-# -------------------------------------
-# Javaのswitch
-# brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
-# -------------------------------------
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
