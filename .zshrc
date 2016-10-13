@@ -39,6 +39,7 @@ alias gc='git commit -v'
 alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gd='git diff'
+alias gf='git fetch --prune'
 alias gfp0'git fetch -p'
 alias gl='git pull'
 alias gm='git merge'
@@ -70,18 +71,9 @@ alias o='open'
 
 # 一文字alias
 alias -g G='| grep'
-
 alias -g K='kill-process'
-
-alias -g F='git fetch --prune'
 alias -g B='"$(git_current_branch_name)"'
 # alias -g M='F && git checkout master && git pull origin B && git "$(delete_merged_branches)"'
-alias -g S='git status'
-alias -g C='git checkout'
-alias -g N='git checkout -b'
-alias -g D='git diff'
-alias -g P='git push'
-alias -g L='git pull'
 
 function git_current_branch_name()
 {
