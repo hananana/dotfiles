@@ -51,4 +51,8 @@ autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
 " --------------------------------
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
 
-
+" --------------------------------
+" omnisharp
+" --------------------------------
+autocmd completion FileType cs nnoremap <Leader>or :OmniSharpReloadSolution<CR>
+autocmd completion FileType cs nnoremap <Leader>ot :OmniSharpTypeLookup<CR>
