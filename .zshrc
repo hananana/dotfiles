@@ -187,6 +187,7 @@ source ~/.zplug/zplug
 zplug "b4b4r07/enhancd", of:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-completions", of:src
+zplug "zsh-users/zsh-autosuggestions"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
