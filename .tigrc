@@ -1,6 +1,9 @@
 # Gを無効
 bind generic G none
 
+# status
+bind status C !git commit -v
+
 # vimライクにg,Gで移動
 bind generic g move-first-line
 bind generic G move-last-line
