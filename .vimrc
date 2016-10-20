@@ -41,6 +41,7 @@ Plug 'hananana/lilycomment.vim'
 " scheme
 Plug 'altercation/vim-colors-solarized'
 Plug 'w0ng/vim-hybrid'
+Plug 'raphamorim/lucario'
 
 " completion
 Plug 'Shougo/neocomplete.vim'
@@ -92,7 +93,7 @@ runtime! plugins/*.vim
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme hybrid
+colorscheme lucario
 
 " --------------------------------
 " vim-json
