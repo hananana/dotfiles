@@ -1,0 +1,15 @@
+# ~/.tmuxinator/HorsetailTerminalChanger.yml
+
+name: HorsetailTerminalChanger
+root: ~/Works/Projects/HorsetailTerminalChanger
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig

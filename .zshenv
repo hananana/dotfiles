@@ -12,7 +12,7 @@ export PATH=$ANDROID_HOME/tools:$PATH
 
 # 開発中
 export PROJECT_ROOT=$HOME/Works/Projects
-export PATH=$PROJECT_ROOT/schemes-selector:$PATH
+export PATH=$PROJECT_ROOT/HorsetailTerminalChanger:$PATH
 
 # -------------------------------------
 # Javaのswitch
