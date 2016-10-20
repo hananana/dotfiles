@@ -33,7 +33,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
@@ -119,3 +119,14 @@ let g:formatdef_my_custom_cs = '"astyle --style=allman --keep-one-line-blocks --
 let g:formatters_cs = ['my_custom_cs']
 " autocmd vimrc BufWrite *.cs :Autoformat
 
+function! AnemoneFormat() abort
+    let l = line(".")
+    let c = col(".")
+    let path = expand("%:p")
+    execute ":normal ggvGdd"
+    execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . path)
+    call cursor(l, c)
+    0delete
+endfunction
+
+nnoremap <Leader>a :call AnemoneFormat()<CR>

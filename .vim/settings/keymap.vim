@@ -62,7 +62,7 @@ vmap <C-c> :w !pbcopy<cr><cr>
 nnoremap x "_x
 nnoremap s "_s
 " formap 
-nnoremap <Leader>a :Autoformat<CR>
+" nnoremap <Leader>a :Autoformat<CR>
 
 " nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
 " function RunIDE()
