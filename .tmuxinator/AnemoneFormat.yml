@@ -1,0 +1,15 @@
+# ~/.tmuxinator/AnemoneFormat.yml
+
+name: AnemoneFormat
+root: ~/Works/Projects/AnemoneFormat
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig
