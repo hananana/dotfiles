@@ -118,14 +118,20 @@ let g:formatdef_my_custom_cs = '"astyle --style=allman --keep-one-line-blocks --
 let g:formatters_cs = ['my_custom_cs']
 " autocmd vimrc BufWrite *.cs :Autoformat
 
+" --------------------------------
+" develop
+" --------------------------------
 function! AnemoneFormat() abort
     let l = line(".")
     let c = col(".")
-    let path = expand("%:p")
-    execute ":normal ggvGdd"
-    execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . path)
-    call cursor(l, c)
+    let tempFilePath = "$HOME/AnemoneTemp.cs"
+    execute ":write! " . tempFilePath
+    0,$delete
+    execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . tempFilePath)
     0delete
+    $delete
+    call cursor(l, c)
+    call delete(tempFilePath)
 endfunction
 
-nnoremap <Leader>a :call AnemoneFormat()<CR>
+autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
