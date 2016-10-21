@@ -40,7 +40,7 @@ alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch --prune'
-alias gfp0'git fetch -p'
+alias gfp='git fetch -p'
 alias gl='git pull'
 alias gm='git merge'
 alias gp='git push'
@@ -71,19 +71,20 @@ alias o='open'
 
 # 一文字alias
 alias -g G='| grep'
+alias -g P='| peco'
 alias -g K='kill-process'
 alias -g B='"$(git_current_branch_name)"'
-# alias -g M='F && git checkout master && git pull origin B && git "$(delete_merged_branches)"'
+alias -g M='git fetch --prune && git checkout master && git pull origin B && git "$(delete_merged_branches)"'
 
 function git_current_branch_name()
 {
     git branch | grep '^\*' | sed 's/^\* *//'
 }
 
-# function delete_merged_branches()
-# {
-#     git branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
-# }
+function delete_merged_branches()
+{
+    git branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
+}
 
 # archive
 function extract() {
