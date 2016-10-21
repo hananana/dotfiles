@@ -1,6 +1,6 @@
 [user]
 	name = hananana
-	email = hnzw.tkyk@gmail.com
+	email = hananana.vimmer@gmail.com
 [core]
 	editor = /usr/local/bin/vim
     excludesfile = ~/.gitignore_global
@@ -15,10 +15,11 @@
 	smudge = git-media-smudge %f
 [credential]
 	helper = osxkeychain
-[alias]
 [push]
 	default = simple
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+[commit]
+    template = ~/.commit_template.txt

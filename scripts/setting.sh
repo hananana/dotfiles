@@ -95,6 +95,12 @@ set_symlink()
         rm -rf ~/.tigrc
     fi
     ln -s ~/$DOTFILES_DIR/.tigrc ~/.tigrc
+
+    ## commit_template
+    if [ -e ~/.commit_template.txt ]; then
+        rm -rf ~/.commit_template.txt
+    fi
+    ln -s ~/$DOTFILES_DIR/.commit_template.txt ~/.commit_template.txt
 }
 
 confirm_brew
