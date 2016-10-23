@@ -10,10 +10,6 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 
-# 開発中
-export PROJECT_ROOT=$HOME/Works/Projects
-export PATH=$PROJECT_ROOT/HorsetailTerminalChanger:$PATH
-
 # -------------------------------------
 # Javaのswitch
 # brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
