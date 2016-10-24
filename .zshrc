@@ -201,6 +201,8 @@ ENHANCD_HOOK_AFTER_CD=l
 zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-completions", of:src
 zplug "zsh-users/zsh-autosuggestions"
+# myplugin
+zplug "hananana/horsetail", as:command
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -227,6 +229,3 @@ fi
 # 1: 補完の時にVimで言うsmartcaseにする
 # 2: 例えばs.vでs*.v*なファイルを補完出来るようにする （『zshの本』P.154）
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
-
-# testing
-source ~/Works/Projects/horsetail/src/horsetail
