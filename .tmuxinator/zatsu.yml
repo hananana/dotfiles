@@ -7,8 +7,4 @@ windows:
   - editor:
       layout: main-verticle
       panes:
-        - vim
-#   - zsh:
-#       layout: main-verticle
-#       panes:
-#         - 
+        - vim todo/201610.md 
