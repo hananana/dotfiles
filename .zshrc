@@ -201,6 +201,7 @@ ENHANCD_HOOK_AFTER_CD=l
 zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-completions", of:src
 zplug "zsh-users/zsh-autosuggestions"
+zplug "mollifier/cd-gitroot"
 # myplugin
 zplug "hananana/horsetail", as:command
 
