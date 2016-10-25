@@ -34,6 +34,8 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
@@ -94,16 +96,6 @@ let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme lucario
-
-" --------------------------------
-" nerdtree
-" --------------------------------
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrows = 1
-" let g:NERDTreeDirArrowExpandable  = '▶'
-" let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeShowHidden = 1
-
 " --------------------------------
 " vim-json
 " --------------------------------
