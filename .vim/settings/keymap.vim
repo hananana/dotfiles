@@ -51,8 +51,8 @@ au keymap FileType cs,cpp,objc,objcpp,vim nmap <silent> <Leader>d <Plug>DashSear
 au keymap FileType cs nnoremap <Leader>/ :LilyComment<CR>
 au keymap FileType cpp,objc,objcpp nnoremap <Leader>/ :Dox<CR>
 "コメントアウト
-nmap <Leader>c <Plug>(caw:I:toggle)
-vmap <Leader>c <Plug>(caw:I:toggle)
+nmap <Leader>c <Plug>(caw:zeropos:toggle)
+vmap <Leader>c <Plug>(caw:zeropos:toggle)
 " tagbar 
 nmap <Leader>t :TagbarToggle<CR>
 autocmd keymap FileType cs,cpp,mm nested :TagbarOpen
