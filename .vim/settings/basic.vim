@@ -72,6 +72,8 @@ autocmd basic WinEnter * checktime
 set diffopt=vertical
 " preview非表示
 set completeopt-=preview
+" コメント行からの改行でコメントアウトを継続しない
+set formatoptions-=ro
 
 " --------------------------------
 " command
