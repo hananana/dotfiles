@@ -14,8 +14,6 @@ set t_Co=256
 set laststatus=2
 "キーのリマップ
 nnoremap [ %
-" 日本語のずれをなくす
-set ambiwidth=double
 " 想定される改行コードの指定する
 set fileformats=unix,dos,mac
 " インデントまわり

@@ -22,7 +22,9 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
-Plug 'itchyny/lightline.vim' | Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'tsukkee/unite-tag'
@@ -111,14 +113,6 @@ autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdow
 " plantuml
 " --------------------------------
 let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
-
-
-" --------------------------------
-" vim-autoformat
-" --------------------------------
-let g:formatdef_my_custom_cs = '"astyle --style=allman --keep-one-line-blocks --indent-namespaces"'
-let g:formatters_cs = ['my_custom_cs']
-" autocmd vimrc BufWrite *.cs :Autoformat
 
 " --------------------------------
 " develop
