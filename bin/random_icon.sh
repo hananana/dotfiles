@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo ' '
+glyphs=(' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ')
+count=${#glyphs[@]}
+echo ${glyphs[$1]}
