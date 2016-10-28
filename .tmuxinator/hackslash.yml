@@ -13,3 +13,11 @@ windows:
       panes:
         - ls -l
         - tig
+  - wiki:
+      layout:
+      panes:
+        - cd ../hackslash.wiki; vim
+  - wikigit:
+      layout: even-horizontal
+      panes:
+        - cd ../hackslash.wiki
