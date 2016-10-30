@@ -4,6 +4,13 @@ augroup END
 " -------------------------------
 " keymap
 " -------------------------------
+" uskeyboards
+" temp setting... wait karabiner
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
 "矢印キー無効
 noremap <Up> <Nop>
 noremap <Down> <Nop>
