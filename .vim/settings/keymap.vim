@@ -60,9 +60,6 @@ au keymap FileType cpp,objc,objcpp nnoremap <Leader>/ :Dox<CR>
 "コメントアウト
 nmap <Leader>c <Plug>(caw:zeropos:toggle)
 vmap <Leader>c <Plug>(caw:zeropos:toggle)
-" tagbar 
-nmap <Leader>t :TagbarToggle<CR>
-autocmd keymap FileType cs,cpp,mm nested :TagbarOpen
 " vmodeでCtrl+cでclicpboardへコピー
 vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
