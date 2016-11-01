@@ -129,3 +129,9 @@ function! AnemoneFormat() abort
 endfunction
 
 autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
+
+function! AddUniteCustonSource() abort
+    let ignoreList = ['.git/**', '.vim/plugged/**']
+    call unite#custom#source('file_rec, file_rec/async', 'ignore_globs', ignoreList)
+endfunction
+call AddUniteCustonSource()
