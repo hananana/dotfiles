@@ -131,7 +131,30 @@ endfunction
 autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
 
 function! AddUniteCustonSource() abort
-    let ignoreList = ['.git/**', '.vim/plugged/**']
-    call unite#custom#source('file_rec, file_rec/async', 'ignore_globs', ignoreList)
+"     let ignoreList = ['.git/**']
+"
+    if filereadable('.gitignore')
+        for file in readfile('.gitignore')
+            echo file
+"             if file !~ "^#\\|^\s\*$"
+"                 call add(ignoreList, file)
+"             endif
+        endfor
+    endif
+"     echo ignoreList
+
+"     call unite#custom#source('file_rec, file_rec/async', 'ignore_pattern', '.vim/plugged')
+
+"     let ignoreList = ['.git/**']
+"
+"     if filereadable('.gitignore')
+"         for file in readfile('.gitignore')
+"             if file !~ "^#\\|^\s\*$"
+"                 call add(ignoreList, file)
+"             endif
+"         endfor
+"     endif
+"
+"     call unite#custom#source('file_rec, file_rec/async', 'ignore_globs', ignoreList)
 endfunction
 call AddUniteCustonSource()
