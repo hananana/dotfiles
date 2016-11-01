@@ -2,23 +2,17 @@
 " lightline
 " --------------------------------
 
-" vim-gitgutter
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '➜'
-let g:gitgutter_sign_removed = '✘'
-
 let g:lightline = {
             \ 'colorscheme' : 'PaperColor',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'gitgutter', 'filename' ] ]
+            \             [ 'fugitive', 'filename' ] ]
             \ },
             \ 'component_function': {
             \   'readonly': 'MyReadOnly',
             \   'modified': 'MyModified',
             \   'filename' : 'MyFilename',
             \   'fugitive': 'MyFugitive',
-            \   'gitgutter': 'MyGitGutter',
             \ },
             \ 'component_visible_condition': {
             \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -54,25 +48,4 @@ function! MyFugitive()
   catch
   endtry
   return ''
-endfunction
-
-function! MyGitGutter()
-  if ! exists('*GitGutterGetHunkSummary')
-        \ || ! get(g:, 'gitgutter_enabled', 0)
-        \ || winwidth('.') <= 90
-    return ''
-  endif
-  let symbols = [
-        \ g:gitgutter_sign_added . ' ',
-        \ g:gitgutter_sign_modified . ' ',
-        \ g:gitgutter_sign_removed . ' '
-        \ ]
-  let hunks = GitGutterGetHunkSummary()
-  let ret = []
-  for i in [0, 1, 2]
-    if hunks[i] > 0
-      call add(ret, symbols[i] . hunks[i])
-    endif
-  endfor
-  return join(ret, ' ')
 endfunction
