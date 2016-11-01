@@ -58,6 +58,14 @@ vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
+
+" 括弧の補完　
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+
 " formap 
 " nnoremap <Leader>a :Autoformat<CR>
 
