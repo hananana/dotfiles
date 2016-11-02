@@ -4,6 +4,7 @@
 augroup basic
     autocmd!
 augroup END
+
 " leaderをspaceにする
 let mapleader = "\<Space>"
 " vim内部で使われる文字エンコーディングをutf-8に設定する
@@ -19,8 +20,8 @@ set fileformats=unix,dos,mac
 " インデントまわり
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
-set softtabstop=0
 set smarttab
 set cindent
 " /検索でbottomからtopに戻らない
@@ -62,6 +63,8 @@ set lazyredraw
 set synmaxcol=300
 " 他のエディタなどで変更があった場合チェックする
 set autoread
+" 他のエディタなどで変更があった場合チェックする
+set autowrite
 " ウィンドウの自動調整停止
 set noequalalways
 " focusした時に外部から更新があったかチェック
@@ -70,8 +73,5 @@ autocmd basic WinEnter * checktime
 set diffopt=vertical
 " preview非表示
 set completeopt-=preview
-
-" --------------------------------
-" command
-" --------------------------------
-command! ReloadVimrc :so ~/.vimrc
+" カーソル行をハイライト
+set cursorline
