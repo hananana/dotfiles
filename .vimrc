@@ -131,7 +131,7 @@ endfunction
 autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
 
 function! AddUniteCustonSource() abort
-    let pattern = '/\v(.git|.vim/plugged)'
+    let pattern = '/\v(.git/|.vim/plugged)'
     call unite#custom#source('file_rec, file_rec/async', 'ignore_pattern', pattern)
 
 " FIXME: gitignoreをparseできるようにしたい 
