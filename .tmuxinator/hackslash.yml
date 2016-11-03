@@ -21,3 +21,12 @@ windows:
       layout: even-horizontal
       panes:
         - cd ../hackslash.wiki
+  - tulip:
+      layout: even-horizontal
+      panes:
+        - cd ../TulipUtils; vim
+  - tulipgit:
+      layout: even-horizontal
+      panes:
+        - cd ../TulipUtils
+
