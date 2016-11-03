@@ -41,8 +41,6 @@ nnoremap <Leader>< <C-w><
 nnoremap <Leader>+ <C-w>+
 " height減らす
 nnoremap <Leader>- <C-w>-
-"簡単な保存
-nnoremap <Leader>w :w<CR>
 " ヘッダーとの移動
 au keymap FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
 " ドキュメント検索
