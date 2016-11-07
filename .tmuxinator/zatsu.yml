@@ -7,4 +7,4 @@ windows:
   - editor:
       layout: main-verticle
       panes:
-        - vim -O todo/201610.md attendance/201610.yml
+        - vim -O todo/201610.md attendance/201611.yml
