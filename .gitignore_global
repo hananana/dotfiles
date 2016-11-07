@@ -4,6 +4,7 @@ libcocos2d iOS.a
 .clang_complete
 .ycm_extra_conf.py
 .ycm_extra_conf.pyc
+*.vimsessions
 tags
 tags.lock
-*.vimsessions
+omnisharp.json
