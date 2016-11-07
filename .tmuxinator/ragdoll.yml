@@ -13,3 +13,12 @@ windows:
       panes:
         - ls -l
         - tig
+  - tulip:
+      layout: even-horizontal
+      panes:
+        - cd ../TulipUtils; vim
+  - tulipgit:
+      layout: even-horizontal
+      panes:
+        - cd ../TulipUtils
+
