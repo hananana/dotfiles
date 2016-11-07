@@ -56,4 +56,5 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 " --------------------------------
 autocmd completion FileType cs nnoremap <Leader>or :OmniSharpReloadSolution<CR>
 autocmd completion FileType cs nnoremap <Leader>ot :OmniSharpTypeLookup<CR>
-autocmd completion FileType cs nnoremap <Leader>oc :OmniSharpCodeFormat<CR>
+autocmd completion FileType cs nnoremap = :OmniSharpCodeFormat<CR>
+let g:OmniSharp_selector_ui = 'unite'
