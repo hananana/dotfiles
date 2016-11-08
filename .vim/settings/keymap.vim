@@ -56,8 +56,8 @@ vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
-" formap 
-" nnoremap <Leader>a :Autoformat<CR>
+
+nnoremap <Leader>w :w<CR>
 
 " nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
 " function RunIDE()
