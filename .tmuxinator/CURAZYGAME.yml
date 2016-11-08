@@ -1,7 +1,10 @@
-# ~/.tmuxinator/ragdoll.yml
+# ~/.tmuxinator/CURAZYGAME.yml
 
-name: ragdoll
-root: ~/Works/Projects/ragdoll
+name: CURAZYGAME
+root: ~/
+
+name: CURAZYGAME
+root: ~/Works/Projects/CURAZYGAME
 
 windows:
   - editor:
@@ -16,9 +19,11 @@ windows:
   - tulip:
       layout: even-horizontal
       panes:
-        - cd ../TulipUtils; vim
+        - builtin cd ../TulipUtils; vim
   - tulipgit:
       layout: even-horizontal
       panes:
-        - cd ../TulipUtils
+        - builtin cd ../TulipUtils
+        - builtin cd ../TulipUtils; tig
+
 
