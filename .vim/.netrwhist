@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/hanazawa/vagrant_work/cluclucycle-server/config'
 let g:netrw_dirhist_2='/Users/hanazawa/.dotfiles/dotfiles/.git'
 let g:netrw_dirhist_3='/Users/Hanac/.dotfiles/dotfiles/.vim/bundle/clang_complete-getopts-ios/autoload/getopts'
 let g:netrw_dirhist_4='/Users/hanazawa/.dotfiles/dotfiles/.vim'
+let g:netrw_dirhist_5='/Users/hanazawa/Works/Projects/hackslash'
+let g:netrw_dirhist_6='/Users/hanazawa/.dotfiles'
+let g:netrw_dirhist_7='/Users/hanazawa/.dotfiles/.vim/settings/plugins'

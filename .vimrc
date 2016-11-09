@@ -33,8 +33,6 @@ Plug 'tyru/caw.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 " my plugin
@@ -83,11 +81,10 @@ Plug 'tpope/vim-endwise'
 call plug#end()
 filetype plugin indent on
 
-source ~/.vim/settings/basic.vim
-source ~/.vim/settings/keymap.vim
-source ~/.vim/settings/functions.vim
-set rtp+=~/.vim/settings/
-runtime! plugins/*.vim
+set rtp+=~/.vim/
+runtime! settings/*.vim
+runtime! settings/plugins/*.vim
+runtime! settings/snippets/*.vim
 
 " -------------------------------
 " scheme
