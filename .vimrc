@@ -43,6 +43,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'w0ng/vim-hybrid'
 Plug 'raphamorim/lucario'
 
+" go
+Plug 'fatih/vim-go'
+
 " completion
 Plug 'Shougo/neocomplete.vim'
 Plug 'OmniSharp/omnisharp-vim',{

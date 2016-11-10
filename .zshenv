@@ -13,7 +13,7 @@ export PATH=$PATH":$ANDROID_HOME/platform-tools"
 export PATH=$PATH":$ANDROID_HOME/tools"
 
 # go
-export GOPATH=~/.go
+export GOPATH=$HOME/.go
 
 # -------------------------------------
 # Javaのswitch
