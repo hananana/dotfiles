@@ -10,6 +10,9 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=$PATH":$ANDROID_HOME/platform-tools"
 export PATH=$PATH":$ANDROID_HOME/tools"
 
+# go
+export GOPATH=~/.go
+
 # -------------------------------------
 # Javaのswitch
 # brew caskでいれたjavaの場所virtualMachine?のナンバーを指定

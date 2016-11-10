@@ -3,10 +3,10 @@
 
 DOTFILES_DIR=".dotfiles"
 
-confirm_brew() 
+set_brew() 
 {
     beers=`brew list`
-    needBeers=(tmux tig tree the_silver_searcher plantuml graphviz peco rbenv vim cmake ctags gradle reattach-to-user-namespace astyle)
+    needBeers=(go tmux tig tree the_silver_searcher plantuml graphviz peco rbenv vim cmake ctags gradle reattach-to-user-namespace astyle)
     for i in $needBeers; do
         if (( ${beers[(I)$i]} )); then
         else
@@ -18,7 +18,7 @@ confirm_brew()
         fi
     done
 
-    neadCasks=(karabiner eclipse-java appcleaner texturepacker alfred2 dash shiftit caffeine netbeans)
+    neadCasks=(appcleaner texturepacker alfred2 dash shiftit caffeine netbeans)
     for i in $needCasks; do
         if (( ${beers[(I)$i]} )); then
         else
@@ -103,9 +103,8 @@ set_symlink()
     ln -s ~/$DOTFILES_DIR/.commit_template.txt ~/.commit_template.txt
 }
 
-confirm_brew
+set_brew
 set_symlink
-
 
 ## zplug
 if [ -e ~/.zplug ]; then
@@ -113,10 +112,6 @@ if [ -e ~/.zplug ]; then
 else
     git clone https://github.com/b4b4r07/zplug ~/.zplug
 fi
-
-## karabiner
-rm ~/Library/Application\ Support/Karabiner/private.xml
-ln -s ~/.dotfiles/dotfiles/private.xml private.xml
 
 ## tmuxinator
 gem install tmuxinator
