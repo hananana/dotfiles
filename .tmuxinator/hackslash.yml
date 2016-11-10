@@ -14,19 +14,25 @@ windows:
         - ls -l
         - tig
   - wiki:
+      root: ~/Works/Projects/hackslash.wiki
       layout:
       panes:
-        - cd ../hackslash.wiki; vim
+        - vim
   - wikigit:
+      root: ~/Works/Projects/hackslash.wiki
       layout: even-horizontal
       panes:
-        - cd ../hackslash.wiki
+        - 
+        - tig
   - tulip:
+      root: ~/Works/Projects/TulipUtlis
       layout: even-horizontal
       panes:
-        - cd ../TulipUtils; vim
+        - vim
   - tulipgit:
+      root: ~/Works/Projects/TulipUtlis
       layout: even-horizontal
       panes:
-        - cd ../TulipUtils
+        - ls -l
+        - tig
 

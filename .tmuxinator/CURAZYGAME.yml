@@ -17,13 +17,15 @@ windows:
         - ls -l
         - tig
   - tulip:
+      root: ~/Works/Projects/TulipUtlis
       layout: even-horizontal
       panes:
-        - builtin cd ../TulipUtils; vim
+        - vim
   - tulipgit:
+      root: ~/Works/Projects/TulipUtlis
       layout: even-horizontal
       panes:
-        - builtin cd ../TulipUtils
-        - builtin cd ../TulipUtils; tig
+        - ls -l
+        - tig
 
 
