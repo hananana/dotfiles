@@ -34,6 +34,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Shougo/vimfiler'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
