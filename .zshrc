@@ -187,6 +187,11 @@ function graph {
 	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 }
 
+# ghq
+alias ghql='cd $(ghq root)/$(ghq list | peco)'
+alias ghub='hub browse'
+
+
 # -------------------------------------
 # ruby
 # -------------------------------------
