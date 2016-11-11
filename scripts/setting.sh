@@ -3,30 +3,6 @@
 
 DOTFILES_DIR=".dotfiles"
 
-set_brew() 
-{
-    beers=`brew list`
-    needBeers=(go tmux tig tree the_silver_searcher plantuml graphviz peco rbenv vim cmake ctags gradle reattach-to-user-namespace astyle ghq hub)
-    for i in $needBeers; do
-        if (( ${beers[(I)$i]} )); then
-        else
-            if [ $i = 'vim' ]; then
-                brew install vim --with-client-server --with-lua
-            else
-                brew install $i
-            fi
-        fi
-    done
-
-    neadCasks=(appcleaner texturepacker alfred2 dash shiftit caffeine netbeans)
-    for i in $needCasks; do
-        if (( ${beers[(I)$i]} )); then
-        else
-            brew cask install $i
-        fi
-    done
-}
-
 set_symlink()
 {
     # symlink
@@ -103,7 +79,6 @@ set_symlink()
     ln -s ~/$DOTFILES_DIR/.commit_template.txt ~/.commit_template.txt
 }
 
-set_brew
 set_symlink
 
 ## zplug
