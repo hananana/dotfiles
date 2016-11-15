@@ -23,7 +23,7 @@ username="${uri%/*}"
 reponame="${uri#*/}"
 
 # Destination
-dest="${2:-$HOME/src/github.com/${username:?not set}}"
+dest="${2:-$HOME/Works/Projects}"
 if [ -d "$dest" ]; then
     dest="$dest/$reponame"
 fi
