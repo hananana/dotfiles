@@ -55,7 +55,7 @@ Plug 'OmniSharp/omnisharp-vim',{
             \'dir': '~/.vim/plugged/omnisharp-vim/',
             \'do' : 'xbuild server/OmniSharp.sln'}
 Plug 'tpope/vim-dispatch'
-Plug 'Rip-Rip/clang_complete', {
+Plug 'hananana/clang_complete', {
             \'for': ['cpp', 'objc', 'objcpp'],
             \'dir': '~/.vim/plugged/clang_complete/',
             \'do' : 'make'}
