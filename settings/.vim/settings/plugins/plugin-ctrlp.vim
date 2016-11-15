@@ -29,7 +29,7 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtCurEnd()':          ['<nop>'],
             \ 'PrtCurLeft()':         ['<nop>'],
             \ 'PrtCurRight()':        ['<nop>'],
-            \ 'PrtClearCache()':      ['<nop>'],
+            \ 'PrtClearCache()':      ['<c-l>'],
             \ 'PrtDeleteEnt()':       ['<nop>'],
             \ 'CreateNewFile()':      ['<nop>'],
             \ 'MarkToOpen()':         ['<nop>'],
