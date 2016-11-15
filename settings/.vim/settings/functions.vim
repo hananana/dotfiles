@@ -40,3 +40,12 @@ function! AddUniteCustonSource() abort
 "     call unite#custom#source('file_rec, file_rec/async', 'ignore_globs', ignoreList)
 endfunction
 call AddUniteCustonSource()
+
+" nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
+" function RunIDE()
+"     if (&ft=='cs')
+"         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
+"     else
+"         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+"     endif
+" endfunction
