@@ -53,14 +53,5 @@ vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
-
+" easy save
 nnoremap <Leader>w :w<CR>
-
-" nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
-" function RunIDE()
-"     if (&ft=='cs')
-"         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
-"     else
-"         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
-"     endif
-" endfunction
