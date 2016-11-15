@@ -36,6 +36,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/vimfiler'
 Plug 'thinca/vim-qfreplace'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'

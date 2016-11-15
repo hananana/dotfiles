@@ -24,8 +24,6 @@ let g:unite_source_grep_recursive_opt = ''
 " unite呼び出し
 nnoremap <Leader>uu :Unite<CR>
 nnoremap <Leader>uf :Unite file<CR>
-"ファイル検索
-nnoremap <Leader><Leader> :Unite file_rec/async<CR>
 " バッファ一覧表示
 noremap <Leader>ub :Unite buffer<CR>
 " レジスタ一覧
