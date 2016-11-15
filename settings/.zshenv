@@ -15,6 +15,9 @@ export PATH=$PATH":$ANDROID_HOME/tools"
 # go
 export GOPATH=$HOME/.go
 
+# my script
+export PATH=$PATH:$HOME/.dotfiles/bin
+
 # -------------------------------------
 # Javaのswitch
 # brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
