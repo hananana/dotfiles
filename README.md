@@ -1,20 +1,25 @@
 ## これはなに
-vim初心者が最終的に全部をvimで開発するためのrepository  
-C++,C#,ruby,markdown,json,swift,go,pythonに対応済み   
 
-参考のakinama氏の[dotfiles](https://github.com/akinama/dotfiles)  
+terminalに引きこもってなんでも開発することに取り憑かれた人のdotfiles
+
+## なんの開発できる？
+
+- unity
+- cocos2d-x
+- objc
+- java
+- go
+- ruby
+- vim script
+- markdown
+- uml
 
 ## 手順
 
-- brewをいれる
+- HomeBrewをいれる
 
-```sh
-$ git clone git@github.com:hanana0501/dotfiles.git ~/.dotfiles
-$ .dotfiles/scripts/setting.sh
-```
-- karabinerを起動してLeave Insert Mode（以下略をONに
+## scheme
 
-### terminal setting
-
-- Menleo 12pt
-- Japonesque
+- lucario
+- M+ 1m regular Nerd Font Complete 12pt 
+- row height 0.88
