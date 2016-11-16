@@ -8,3 +8,4 @@ windows:
       layout: main-verticle
       panes:
         - vim -O todo/201611.md attendance/201611.csv
+        - ls -l
