@@ -21,6 +21,9 @@ nmap n nzz
 nmap N Nzz
 nmap * *zz
 nmap # #zz
+" escをctrl+jで代替する
+noremap <C-j> <Esc>
+noremap! <C-j> <Esc>
 " こっから<Leader>関連いくぜ！
 " タブとウィンドウ分割"
 nnoremap <Leader>j <C-w>j
