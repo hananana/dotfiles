@@ -37,6 +37,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/vimfiler'
 Plug 'thinca/vim-qfreplace'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
@@ -80,9 +81,6 @@ Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'aklt/plantuml-syntax'
 Plug 'soramugi/auto-ctags.vim'
-
-" only ruby
-Plug 'tpope/vim-endwise'
 
 call plug#end()
 filetype plugin indent on
