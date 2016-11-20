@@ -56,3 +56,8 @@ setopt EXTENDED_HISTORY
 
 # tmuxのwindow,pane,session間で履歴を共有
 setopt share_history
+
+# -------------------------------------
+# fzf
+# -------------------------------------
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
