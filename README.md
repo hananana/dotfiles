@@ -18,8 +18,8 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 
 - HomeBrewをいれる
 
-## scheme
+## terminal scheme
 
-- lucario
+- https://github.com/flipxfx/gruvbox-terminal
 - M+ 1m regular Nerd Font Complete 12pt 
 - row height 0.88
