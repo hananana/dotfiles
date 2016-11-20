@@ -38,14 +38,13 @@ Plug 'Shougo/vimfiler'
 Plug 'thinca/vim-qfreplace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+
+" scheme 
+Plug 'morhetz/gruvbox'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
-
-" scheme
-Plug 'altercation/vim-colors-solarized'
-Plug 'w0ng/vim-hybrid'
-Plug 'raphamorim/lucario'
 
 " go
 Plug 'fatih/vim-go'
@@ -93,11 +92,10 @@ runtime! settings/snippets/*.vim
 " -------------------------------
 " scheme
 " -------------------------------
-
-let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme lucario
+colorscheme gruvbox
+
 " --------------------------------
 " vim-json
 " --------------------------------
