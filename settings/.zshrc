@@ -86,6 +86,7 @@ alias -g P='| peco'
 alias -g K='kill-process'
 alias -g B='"$(git_current_branch_name)"'
 alias -g M='git fetch --prune && git checkout master && git pull origin B && git "$(delete_merged_branches)"'
+alias -g F=fzf
 
 function git_current_branch_name()
 {
