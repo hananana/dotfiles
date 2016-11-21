@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotDir=$HOME/.dotfiles/settings
+dotDir=$HOME/.dotfiles/src
 cd $dotDir
     
 for file in `ls -A`; do
