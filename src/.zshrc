@@ -68,13 +68,13 @@ alias tmux="TERM=screen-256color-bce tmux"
 # ag
 alias agm='ag -S --hidden -g'
 # 通知
-alias notice='~/.dotfiles/scripts/notice.sh'
+alias notice='~/.dotfiles/bin/notice.sh'
 #fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
 #attendance
-alias hello='ruby ~/.dotfiles/scripts/attendance.rb hello'
-alias confirm='ruby ~/.dotfiles/scripts/attendance.rb confirm'
-alias bye='ruby ~/.dotfiles/scripts/attendance.rb bye'
+alias hello='ruby ~/.dotfiles/bin/attendance.rb hello'
+alias confirm='ruby ~/.dotfiles/bin/attendance.rb confirm'
+alias bye='ruby ~/.dotfiles/bin/attendance.rb bye'
 #ag
 alias ag='ag -S'
 #oepn
