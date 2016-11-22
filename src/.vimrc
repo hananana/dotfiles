@@ -42,7 +42,7 @@ Plug 'sheerun/vim-polyglot'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 " scheme 
-Plug 'cocopon/iceberg.vim'
+Plug 'joshdick/onedark.vim'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
@@ -93,8 +93,9 @@ runtime! settings/snippets/*.vim
 " -------------------------------
 " scheme
 " -------------------------------
+let g:onedark_termcolors=16
 syntax enable
-colorscheme iceberg
+colorscheme onedark
 
 " --------------------------------
 " vim-json
