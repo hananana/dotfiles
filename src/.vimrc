@@ -42,7 +42,7 @@ Plug 'sheerun/vim-polyglot'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 " scheme 
-Plug 'morhetz/gruvbox'
+Plug 'cocopon/iceberg.vim'
 
 " my plugin
 Plug 'hananana/lilycomment.vim'
@@ -94,8 +94,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-set background=dark
-colorscheme gruvbox
+colorscheme iceberg
 
 " --------------------------------
 " vim-json
