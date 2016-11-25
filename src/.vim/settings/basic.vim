@@ -73,5 +73,5 @@ autocmd basic WinEnter * checktime
 set diffopt=vertical
 " カーソル行をハイライト
 set cursorline
-" previewを下に表示
-set splitbelow
+" previewを表示しない
+set completeopt=menuone
