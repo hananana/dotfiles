@@ -4,8 +4,6 @@
 
 set -o vi
 
-# ctrl+jをescにする
-bindkey -s '^j' '\e'
 # esc押してディレイがあるのをなくす
 KEYTIMEOUT=1
 
