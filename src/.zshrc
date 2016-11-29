@@ -240,3 +240,9 @@ fi
 # 1: 補完の時にVimで言うsmartcaseにする
 # 2: 例えばs.vでs*.v*なファイルを補完出来るようにする （『zshの本』P.154）
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
+
+# -------------------------------------
+# python
+# -------------------------------------
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+

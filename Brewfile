@@ -38,6 +38,7 @@ brew 'openssl'
 brew 'readline'
 brew 'sqlite'
 brew 'python'
+brew 'pyenv'
 brew 'llvm', args: ['with-python']
 brew 'doxygen'
 brew 'jpeg'
