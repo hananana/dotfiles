@@ -80,7 +80,6 @@ brew 'vim', args: ['with-client-server', 'with-lua']
 brew 'w3m'
 brew 'xctool'
 brew 'zsh'
-brew 'fzf'
 brew 'homebrew/versions/glfw2'
 brew 'homebrew/x11/libxkbcommon'
 brew 'homebrew/x11/xdotool'
