@@ -38,9 +38,9 @@ Plug 'thinca/vim-qfreplace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " scheme 
 Plug 'joshdick/onedark.vim'
@@ -113,8 +113,3 @@ autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdow
 " plantuml
 " --------------------------------
 let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
-
-" --------------------------------
-" fzf
-" --------------------------------
-nnoremap <Leader><Leader> :FZF<CR>
