@@ -41,6 +41,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'tsukkee/unite-help'
 
 " scheme 
 Plug 'joshdick/onedark.vim'
