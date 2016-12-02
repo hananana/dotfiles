@@ -7,7 +7,7 @@ windows:
   - editor:
       layout: main-verticle
       panes:
-        - vim -O todo/201611.md attendance/201611.csv
+        - vim -O todo/201612.md attendance/201612.csv
   - sh:
       layout: main-verticle
       panes:
