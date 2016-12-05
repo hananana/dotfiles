@@ -42,7 +42,6 @@ Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tsukkee/unite-help'
-Plug 'kana/vim-smartinput'
 
 " scheme 
 Plug 'joshdick/onedark.vim'
