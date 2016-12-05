@@ -48,10 +48,10 @@ Plug 'kana/vim-smartinput'
 Plug 'joshdick/onedark.vim'
 
 " my plugin
-Plug 'hananana/lilycomment.vim'
+Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': ['go']}
 
 " completion
 Plug 'Shougo/neocomplete.vim'
@@ -71,15 +71,15 @@ Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'b4winckler/vim-objc'
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp'] }
+Plug 'b4winckler/vim-objc', { 'for': ['objc'] }
 Plug 'keith/swift.vim'
 Plug 'vim-scripts/ShaderHighLight'
 
 " other
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
 Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', {'for' : ['json']}
 Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'aklt/plantuml-syntax'
