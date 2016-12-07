@@ -49,9 +49,6 @@ Plug 'joshdick/onedark.vim'
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
-" go
-Plug 'fatih/vim-go', {'for': ['go']}
-
 " completion
 Plug 'Shougo/neocomplete.vim'
 Plug 'OmniSharp/omnisharp-vim',{
@@ -67,6 +64,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
+Plug 'fatih/vim-go', {'for': ['go']}
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
@@ -81,6 +79,8 @@ Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
 Plug 'elzr/vim-json', {'for' : ['json']}
 Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
+Plug 'chrisbra/csv.vim'
+Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
 Plug 'aklt/plantuml-syntax'
 Plug 'soramugi/auto-ctags.vim'
 
@@ -114,3 +114,8 @@ autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdow
 " plantuml
 " --------------------------------
 let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
+
+" --------------------------------
+" csv.vim
+" --------------------------------
+let g:csv_delim=','
