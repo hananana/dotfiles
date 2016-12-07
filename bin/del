@@ -1,0 +1,85 @@
+#!/bin/bash
+
+SCRIPT_NAME=$(basename $0)
+
+setup_trash_dir() {
+    [[ $TRASH_DIR ]] && trash_dir=$TRASH_DIR || trash_dir="$HOME/.Trash"
+}
+
+print_help() {
+    echo "Safe delete command."
+    echo
+    echo "  Usage:"
+    echo "    \$ $SCRIPT_NAME <files…>"
+    echo
+    echo "  Trash box directory:"
+    echo "    $trash_dir"
+
+    if [[ ! $TRASH_DIR ]]
+    then
+        echo
+        echo "    You can specify the trash box as the environment variable \$TRASH_DIR."
+    fi
+
+    exit 1
+}
+
+make_new_trash_box() {
+
+    trash_dir=$trash_dir/$(date +%y%m%d.%H%M%S)
+
+    suffix=""
+    number=0
+    while [ -e $trash_dir$suffix ]
+    do
+        suffix=".$number"
+        number=$(expr $number + 1)
+    done
+    trash_dir=$trash_dir$suffix
+
+    mkdir $trash_dir
+}
+
+check_file_exists() {
+
+    has_error=0
+
+    for filename in $@
+    do
+        if [ ! -e $filename ]
+        then
+            echo "$SCRIPT_NAME: delete $filename: No such file or directory" >&2
+            has_error=1
+        fi
+    done
+
+    [[ $has_error -eq 1 ]] && exit 1
+}
+
+remove_files() {
+    for filename in $@
+    do
+        dest_filename=$trash_dir/$(basename $filename)
+
+        suffix=""
+        number=0
+        while [ -e $dest_filename$suffix ]
+        do
+            suffix=" - copy $i"
+            number=$(expr $number + 1)
+        done
+
+        mv -vi $filename $dest_filename$suffix
+    done
+}
+
+setup_trash_dir
+
+if [ $# -eq 0 ]
+then
+    print_help
+fi
+
+make_new_trash_box
+check_file_exists $@
+remove_files $@
