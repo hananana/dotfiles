@@ -27,7 +27,3 @@ windows:
       panes:
         - ls -l
         - tig
-  - fswatch:
-      layout: main-vertical
-      panes:
-        - fswatch -o Assets/BuildSettings | xargs -n1 -I{} cp -r ./Assets/BuildSettings ~/Dropbox/unity/CURAZYGAME/
