@@ -1,0 +1,23 @@
+#! /bin/bash
+#
+# filter mruFile with peco and stdout
+
+err(){
+    echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
+}
+
+mruFile=$HOME/.cache/ctrlp/mru/cache.txt
+
+if [ ! -e $mruFile ]
+then
+    err "does NOT exists $mruFile"
+    exit 1
+fi
+
+if ! type peco >/dev/null 2>&1
+then
+    err 'must install peco. PLZ $brew install peco'
+fi
+
+
+less $mruFile | peco
