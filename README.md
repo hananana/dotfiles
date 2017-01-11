@@ -23,3 +23,7 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 - https://github.com/flipxfx/gruvbox-terminal
 - M+ 1m regular Nerd Font Complete 12pt 
 - row height 0.88
+
+## IME
+
+http://qiita.com/nabezokodaikon/items/ae9f18a7bbf0bd58c8de
