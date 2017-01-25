@@ -50,18 +50,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-Plug 'Shougo/neocomplete.vim'
-Plug 'OmniSharp/omnisharp-vim',{
-            \'for': ['cs'],
-            \'dir': '~/.vim/plugged/omnisharp-vim/',
-            \'do' : 'xbuild server/OmniSharp.sln'}
-Plug 'tpope/vim-dispatch'
-Plug 'hananana/clang_complete', {
-            \'for': ['cpp', 'objc', 'objcpp'],
-            \'dir': '~/.vim/plugged/clang_complete/',
-            \'do' : 'make'}
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
