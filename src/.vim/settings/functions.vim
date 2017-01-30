@@ -5,6 +5,17 @@ augroup END
 command! ReloadVimrc :so ~/.vimrc
 
 " --------------------------------
+" astyle
+" --------------------------------
+function! AStyleFormat() abort
+    let l:pos = getpos(".")
+    :%!astyle --style=allman --indent-namespaces --indent-continuation=3
+    :call setpos(".", pos)
+endfunction
+
+autocmd functions FileType cs nnoremap <Leader>a :call AStyleFormat()<CR>
+
+" --------------------------------
 " develop
 " --------------------------------
 function! AnemoneFormat() abort
@@ -19,7 +30,7 @@ function! AnemoneFormat() abort
     call cursor(l, c)
     call delete(tempFilePath)
 endfunction
-autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
+" autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
 
 " --------------------------------
 " unite
@@ -58,6 +69,9 @@ function! AddUniteCustonSource() abort
 endfunction
 call AddUniteCustonSource()
 
+" --------------------------------
+" vimからIDE RUN
+" --------------------------------
 " nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
 " function RunIDE()
 "     if (&ft=='cs')
