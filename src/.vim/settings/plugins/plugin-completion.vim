@@ -10,7 +10,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_show_diagnostics_ui = 0
-autocmd completion FileType c,cpp,objcpp nnoremap <Leader>yt :YcmCompleter GetType<CR>
+
+autocmd completion FileType c,cpp,objcpp,cs nnoremap <Leader>yt :YcmCompleter GetType<CR>
 autocmd completion FileType cs nnoremap <Leader>yr :YcmCompleter ReloadSolution<CR>
 
 " --------------------------------
