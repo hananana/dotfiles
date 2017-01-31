@@ -33,7 +33,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Shougo/vimfiler'
 Plug 'thinca/vim-qfreplace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
@@ -42,6 +41,7 @@ Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tsukkee/unite-help'
+Plug 'cocopon/vaffle.vim'
 
 " scheme 
 Plug 'joshdick/onedark.vim'
@@ -50,18 +50,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-Plug 'Shougo/neocomplete.vim'
-Plug 'OmniSharp/omnisharp-vim',{
-            \'for': ['cs'],
-            \'dir': '~/.vim/plugged/omnisharp-vim/',
-            \'do' : 'xbuild server/OmniSharp.sln'}
-Plug 'tpope/vim-dispatch'
-Plug 'hananana/clang_complete', {
-            \'for': ['cpp', 'objc', 'objcpp'],
-            \'dir': '~/.vim/plugged/clang_complete/',
-            \'do' : 'make'}
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
