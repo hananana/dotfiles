@@ -62,51 +62,6 @@ function! UncrustifyAuto()
 endfunction
 
 " --------------------------------
-" astyle
-" --------------------------------
-" function! AStyleFormat() abort
-"     let l:pos = getpos(".")
-"     :%!astyle --style=allman --indent-namespaces --indent-continuation=3
-"     :call setpos(".", pos)
-" endfunction
-"
-" autocmd functions FileType cs nnoremap <Leader>a :call AStyleFormat()<CR>
-
-" --------------------------------
-" develop
-" --------------------------------
-function! AnemoneFormat() abort
-    let l = line(".")
-    let c = col(".")
-    let tempFilePath = "$HOME/AnemoneTemp.cs"
-    execute ":write! " . tempFilePath
-    0,$delete
-    execute('r! mono ~/Works/Projects/Anemone/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . tempFilePath)
-    0delete
-    $delete
-    call cursor(l, c)
-    call delete(tempFilePath)
-endfunction
-" autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
-
-" --------------------------------
-" develop
-" --------------------------------
-function! AnemoneFormat() abort
-    let l = line(".")
-    let c = col(".")
-    let tempFilePath = "$HOME/AnemoneTemp.cs"
-    execute ":write! " . tempFilePath
-    0,$delete
-    execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . tempFilePath)
-    0delete
-    $delete
-    call cursor(l, c)
-    call delete(tempFilePath)
-endfunction
-autocmd vimrc FileType cs nnoremap <Leader>a :call AnemoneFormat()<CR>
-
-" --------------------------------
 " unite
 " --------------------------------
 function! AddUniteCustonSource() abort
