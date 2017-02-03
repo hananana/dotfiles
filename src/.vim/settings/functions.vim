@@ -64,9 +64,9 @@ endfunction
 " --------------------------------
 " unite
 " --------------------------------
-function! AddUniteCustonSource() abort
-    let pattern = '/\v(.git/|.vim/plugged)'
-    call unite#custom#source('file_rec, file_rec/async', 'ignore_pattern', pattern)
+" function! AddUniteCustonSource() abort
+"     let pattern = '/\v(.git/|.vim/plugged)'
+"     call unite#custom#source('file_rec, file_rec/async', 'ignore_pattern', pattern)
 
 " FIXME: gitignoreをparseできるようにしたい 
 "     let ignoreList = ['.git]
@@ -95,8 +95,8 @@ function! AddUniteCustonSource() abort
 "     endif
 "
 "     call unite#custom#source('file_rec, file_rec/async', 'ignore_globs', ignoreList)
-endfunction
-call AddUniteCustonSource()
+" endfunction
+" call AddUniteCustonSource()
 
 " --------------------------------
 " vimからIDE RUN
