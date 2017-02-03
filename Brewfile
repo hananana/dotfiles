@@ -74,7 +74,8 @@ brew 'tig'
 brew 'utf8proc'
 brew 'tmux'
 brew 'tree'
-brew 'vim', args: ['with-client-server', 'with-lua']
+brew 'vim', args: ['with-client-server', 'with-lua', '--with-python3']
+brew 'python3'
 brew 'w3m'
 brew 'xctool'
 brew 'zsh'
