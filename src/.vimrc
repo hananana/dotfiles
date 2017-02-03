@@ -24,13 +24,13 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
 Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neoyank.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tyru/caw.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'ryanoasis/vim-devicons'
-Plug 'thinca/vim-qfreplace'
 Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
@@ -44,6 +44,7 @@ Plug 'cocopon/vaffle.vim'
 " Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'tsukkee/unite-help'
+" Plug 'thinca/vim-qfreplace'
 
 " scheme 
 Plug 'joshdick/onedark.vim'
