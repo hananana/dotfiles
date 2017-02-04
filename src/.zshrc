@@ -196,32 +196,24 @@ alias ghub='hub browse'
 # -------------------------------------
 eval "$(rbenv init -)"
 
+# 糞遅い。要対策
 # -------------------------------------
 # zplug
 # -------------------------------------
 source ~/.zplug/zplug
 zplug "b4b4r07/enhancd", of:init.sh
 ENHANCD_HOOK_AFTER_CD=l
-zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 zplug "zsh-users/zsh-completions", of:src
-zplug "zsh-users/zsh-autosuggestions"
-zplug "mollifier/cd-gitroot"
-# myplugin
-zplug "hananana/horsetail", as:command
+# zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
+# zplug "zsh-users/zsh-autosuggestions"
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 zplug load --verbose
-
-# -------------------------------------
-# binフォルダのスクリプト読み込み
-# -------------------------------------
-
-source $HOME/.dotfiles/bin/gt
 
 # -------------------------------------
 # tmux自動起動
@@ -246,3 +238,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
 # -------------------------------------
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# if (which zprof > /dev/null) ; then
+#     zprof | less
+# fi

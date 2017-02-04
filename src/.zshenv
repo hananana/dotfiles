@@ -1,3 +1,5 @@
+# zmodload zsh/zprof && zprof
+
 export EDITOR=vim
 
 # -------------------------------------
