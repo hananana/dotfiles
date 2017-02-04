@@ -13,7 +13,7 @@ noremap <Right> <Nop>
 nnoremap j gj
 nnoremap k gk
 " omni補完
-imap <C-o> <C-x><C-o>
+imap <C-j> <C-x><C-o>
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
 "検索結果を画面中央にもってくる
