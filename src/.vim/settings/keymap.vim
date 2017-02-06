@@ -13,7 +13,7 @@ noremap <Right> <Nop>
 nnoremap j gj
 nnoremap k gk
 " omni補完
-imap <C-o> <C-x><C-o>
+imap <C-j> <C-x><C-o>
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
 "検索結果を画面中央にもってくる
@@ -23,10 +23,6 @@ nmap * *zz
 nmap # #zz
 " こっから<Leader>関連いくぜ！
 " タブとウィンドウ分割"
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
-nnoremap <Leader>h <C-w>h
 nnoremap <Leader>s :<C-u>sp<CR>
 nnoremap <Leader>v :<C-u>vs<CR>
 " ウィンドウ移動
@@ -55,3 +51,5 @@ nnoremap x "_x
 nnoremap s "_s
 " easy save
 nnoremap <Leader>w :w<CR>
+" help
+nnoremap <Leader>h :<C-u>vertical belowright help<Space>
