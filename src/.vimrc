@@ -47,8 +47,7 @@ Plug 'cocopon/vaffle.vim'
 " Plug 'thinca/vim-qfreplace'
 
 " scheme 
-Plug 'joshdick/onedark.vim'
-
+Plug 'alessandroyorba/alduin'
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
@@ -89,9 +88,8 @@ runtime! settings/snippets/*.vim
 " -------------------------------
 " scheme
 " -------------------------------
-let g:onedark_termcolors=16
 syntax enable
-colorscheme onedark
+colorscheme alduin
 
 " --------------------------------
 " vim-json

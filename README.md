@@ -2,7 +2,7 @@
 
 terminalに引きこもってなんでも開発することに取り憑かれた人のdotfiles
 
-## なんの開発できる？
+## なにを書ける？
 
 - unity
 - cocos2d-x
@@ -14,13 +14,9 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 - markdown
 - uml
 
-## 手順
+## scheme
 
-- HomeBrewをいれる
-
-## terminal scheme
-
-- https://github.com/flipxfx/gruvbox-terminal
+- Ciapre
 - M+ 1m regular Nerd Font Complete 12pt 
 - row height 0.88
 
