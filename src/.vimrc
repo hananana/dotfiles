@@ -37,6 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
 Plug 'cocopon/vaffle.vim'
 
+" Plug 'Shougo/unite.vim'
 " Plug 'tsukkee/unite-tag'
 " Plug 'thinca/vim-qfreplace'
 
