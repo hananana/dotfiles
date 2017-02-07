@@ -37,17 +37,12 @@ Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
 Plug 'cocopon/vaffle.vim'
 
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/unite-outline'
 " Plug 'tsukkee/unite-tag'
-" Plug 'rizzatti/dash.vim'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'tsukkee/unite-help'
 " Plug 'thinca/vim-qfreplace'
 
 " scheme 
-Plug 'alessandroyorba/alduin'
+Plug 'morhetz/gruvbox'
+
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
@@ -89,7 +84,8 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme alduin
+colorscheme gruvbox
+set background=dark
 
 " --------------------------------
 " vim-json
