@@ -10,6 +10,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_show_diagnostics_ui = 0
+let g:EclimCompletionMethod = 'omnifunc'
 
 autocmd completion FileType c,cpp,objcpp,cs nnoremap <Leader>yt :YcmCompleter GetType<CR>
 autocmd completion FileType cs nnoremap <Leader>yr :YcmCompleter ReloadSolution<CR>
@@ -17,7 +18,8 @@ autocmd completion FileType cs nnoremap <Leader>yr :YcmCompleter ReloadSolution<
 " --------------------------------
 " javacomplete2
 " --------------------------------
-autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
+
 
 " --------------------------------
 " vim-monster
