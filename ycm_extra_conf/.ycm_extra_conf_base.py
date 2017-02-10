@@ -14,6 +14,7 @@ flags = [
 '-fblocks',
 '-fencode-extended-block-signature',
 '-fexceptions',
+'-ObjC++'
 ]
 
 SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
