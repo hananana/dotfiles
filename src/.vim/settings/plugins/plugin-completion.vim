@@ -18,7 +18,7 @@ autocmd completion FileType cs nnoremap <Leader>yr :YcmCompleter ReloadSolution<
 " --------------------------------
 " javacomplete2
 " --------------------------------
-" autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
+autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
 
 
 " --------------------------------
