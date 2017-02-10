@@ -26,3 +26,13 @@ http://qiita.com/nabezokodaikon/items/ae9f18a7bbf0bd58c8de
 
 ## eclim
 http://eclim.org/index.html
+
+- build.gradleにapply plugin: 'eclipse'
+- $gradle build; gradle eclipse
+- vim
+- :ProjectImport . 
+- :ProjectNatureAdd project android
+
+## objc, objec++, c++
+
+- ln -s ycm_extra_conf/.ycm_extra_conf_base.py .ycm_extra_conf.py
