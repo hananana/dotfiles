@@ -51,7 +51,6 @@ Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'artur-shaik/vim-javacomplete2', { 'for': [ 'java' ] }
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
 

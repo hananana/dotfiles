@@ -16,12 +16,6 @@ autocmd completion FileType c,cpp,objcpp,cs nnoremap <Leader>yt :YcmCompleter Ge
 autocmd completion FileType cs nnoremap <Leader>yr :YcmCompleter ReloadSolution<CR>
 
 " --------------------------------
-" javacomplete2
-" --------------------------------
-autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
-
-
-" --------------------------------
 " vim-monster
 " --------------------------------
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
