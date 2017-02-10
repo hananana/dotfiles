@@ -23,3 +23,6 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 ## IME
 
 http://qiita.com/nabezokodaikon/items/ae9f18a7bbf0bd58c8de
+
+## eclim
+http://eclim.org/index.html
