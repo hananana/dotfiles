@@ -242,3 +242,7 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # if (which zprof > /dev/null) ; then
 #     zprof | less
 # fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/hanazawa/.sdkman"
+[[ -s "/Users/hanazawa/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/hanazawa/.sdkman/bin/sdkman-init.sh"
