@@ -9,10 +9,10 @@ command! ReloadVimrc :so ~/.vimrc
 "----------------------------------------
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
-autocmd functions FileType cs nnoremap = :call UncrustifyAuto()<CR>
+" autocmd functions FileType cs nnoremap = :call UncrustifyAuto()<CR>
 
 " 例: 保存時に自動フォーマット
-autocmd functions BufWritePre <buffer> :call UncrustifyAuto()
+" autocmd functions BufWritePre <buffer> :call UncrustifyAuto()
 
 " uncrustifyの設定ファイル
 let g:uncrustify_cfg_file_path = '~/.dotfiles/src/.uncrustifyconfig'
@@ -59,6 +59,25 @@ function! UncrustifyAuto()
         call Uncrustify(g:uncrustify_lang)
     endif
 endfunction
+
+
+" --------------------------------
+" Anemone
+" --------------------------------
+function! AnemoneFormat() abort
+    let l = line(".")
+    let c = col(".")
+    let tempFilePath = "$HOME/AnemoneTemp.cs"
+    execute ":write! " . tempFilePath
+    0,$delete
+    execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . tempFilePath)
+    0delete
+    $delete
+    call cursor(l, c)
+    call delete(tempFilePath)
+endfunction
+
+autocmd vimrc FileType cs nnoremap <C-f> :call AnemoneFormat()<CR>
 
 " --------------------------------
 " vimからIDE RUN
