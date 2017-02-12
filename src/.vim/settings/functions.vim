@@ -77,7 +77,7 @@ function! AnemoneFormat() abort
     call delete(tempFilePath)
 endfunction
 
-autocmd vimrc FileType cs nnoremap <C-f> :call AnemoneFormat()<CR>
+autocmd vimrc FileType cs nnoremap <C-s> :call AnemoneFormat()<CR>
 
 " --------------------------------
 " vimからIDE RUN
