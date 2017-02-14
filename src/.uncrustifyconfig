@@ -35,7 +35,6 @@ nl_brace_fparen = remove
 eat_blanks_before_close_brace	= TRUE
 eat_blanks_after_open_brace	= TRUE
 
-
 sp_before_semi			= remove
 sp_paren_paren			= remove	# space between (( and ))
 sp_return_paren			= remove	# "return (1);" vs "return(1);"
@@ -50,7 +49,7 @@ sp_inside_paren			= remove
 sp_inside_fparen		= remove
 sp_inside_sparen		= remove
 sp_inside_square		= remove
-sp_before_square		= add
+sp_before_square		= remove
 #sp_type_func			= ignore
 sp_assign			= force
 sp_arith			= force
@@ -58,9 +57,9 @@ sp_bool				= force
 sp_compare			= force
 sp_assign			= force
 sp_after_comma			= force
-sp_func_def_paren		= force		# "int foo (){" vs "int foo(){"
-sp_func_call_paren		= force		# "foo (" vs "foo("
-sp_func_proto_paren		= force		# "int foo ();" vs "int foo();"
+sp_func_def_paren		= remove		# "int foo (){" vs "int foo(){"
+sp_func_call_paren		= remove		# "foo (" vs "foo("
+sp_func_proto_paren		= remove		# "int foo ();" vs "int foo();"
 
 # align_with_tabs			= FALSE		# use tabs to align
 # align_on_tabstop		= FALSE		# align on tabstops
