@@ -9,7 +9,7 @@ command! ReloadVimrc :so ~/.vimrc
 "----------------------------------------
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
-" autocmd functions FileType cs nnoremap = :call UncrustifyAuto()<CR>
+autocmd functions FileType cs nnoremap <Leader>f :call UncrustifyAuto()<CR>
 
 " 例: 保存時に自動フォーマット
 " autocmd functions BufWritePre <buffer> :call UncrustifyAuto()
@@ -77,7 +77,7 @@ function! AnemoneFormat() abort
     call delete(tempFilePath)
 endfunction
 
-autocmd vimrc FileType cs nnoremap <C-s> :call AnemoneFormat()<CR>
+" autocmd vimrc FileType cs nnoremap <C-s> :call AnemoneFormat()<CR>
 
 " --------------------------------
 " vimからIDE RUN

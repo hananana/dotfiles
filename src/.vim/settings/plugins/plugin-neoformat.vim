@@ -9,4 +9,4 @@ let g:neoformat_cs_uncrustify = {
             \ 'stdin': 1, 
             \}
 
-autocmd functions FileType cs nnoremap <Leader>f :Neoformat<CR>
+" autocmd functions FileType cs nnoremap <Leader>f :Neoformat<CR>
