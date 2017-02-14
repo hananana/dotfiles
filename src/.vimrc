@@ -37,8 +37,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'cocopon/vaffle.vim'
 Plug 'sbdchd/neoformat'
 
-" Plug 'Shougo/unite.vim'
-" Plug 'tsukkee/unite-tag'
 " Plug 'thinca/vim-qfreplace'
 
 " scheme 
