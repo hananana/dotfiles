@@ -1,4 +1,5 @@
 ##### Uncrustify config
+## http://qiita.com/ayakix/items/3f05da9541b8e130e39f
 
 ### Preprocessor
 ## http://qiita.com/items/dd7c5ffdff27451dae16
@@ -351,19 +352,19 @@ mod_full_paren_if_bool = false
 # 余分なセミコロンを削除する { false, true }
 mod_remove_extra_semicolon = true
 # 関数ボディの行数が指定数を超えるような長い関数の場合、'}'の後にコメントが付く { number }
-mod_add_long_function_closebrace_comment = 0
+mod_add_long_function_closebrace_comment = 10
 # 'switch'文のボディの行数が指定数を超えるような長いボディの場合、'}'の後にコメントが付く { number }
-mod_add_long_switch_closebrace_comment = 0
+mod_add_long_switch_closebrace_comment = 5
 # #ifdefのボディの行数が指定数を超えるような長いボディの場合、#endifの後にコメントが付く { number }
-mod_add_long_ifdef_endif_comment = 0
+mod_add_long_ifdef_endif_comment = 5
 # #ifdefもしくは#elseのボディが指定数を超えるような長いボディの場合、#elseの後にコメントが付く { number }
-mod_add_long_ifdef_else_comment = 0
+mod_add_long_ifdef_else_comment = 5
 # 連続する1行の'import'文をソートするかどうか (Java言語、D言語) { false, true }
-mod_sort_import = false
+mod_sort_import = true
 # 連続する1行の'using'文をソートするかどうか (C#言語) { false, true }
-mod_sort_using = false
+mod_sort_using = true
 # 連続する1行の'#include'文もしくは'#import'文をソートするかどうか (Objective-C言語) コードを破壊する可能性があるので、一般的にソートしなおすのは良くない { false, true }
-mod_sort_include = false
+mod_sort_include = true
 # '{}'で囲われた'case'の後にある'break'文を'}'の内側に移動する { false, true }
 mod_move_case_break = true
 # '{}'で囲われた'case'文の前後に'{}'を追加/削除する もし、ブロック内に変数宣言がない場合に限り、'{}'を削除できる { ignore, add, remove, force }
