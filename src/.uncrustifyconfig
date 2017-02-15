@@ -324,6 +324,16 @@ nl_after_annotation = ignore
 nl_between_annotation = ignore
 # 関数宣言の')'と'{'の間に改行を挿入するかどうか { ignore, add, remove, force }
 nl_fdef_brace = force
+# ifと{の間に改行するかどうか
+nl_if_brace = force
+# }とelseの間に改行するかどうか
+nl_brace_else = force
+# elseifと{の間に改行するかどうか
+nl_elseif_brace = force
+# elseと{の間に改行するかどうか
+nl_else_brace = force
+# elseとifの間に改行するかどうか
+nl_else_if = force
 
 ### Code transformation
 ## http://qiita.com/items/d1289c116451b709f610
