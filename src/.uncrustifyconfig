@@ -334,6 +334,12 @@ nl_elseif_brace = force
 nl_else_brace = force
 # elseとifの間に改行するかどうか
 nl_else_if = force
+# }と)の間に改行するかどうか
+nl_brace_fparen = remove
+# }と]の間に改行するかどうか
+nl_brace_squre = remove
+# enumと{の間に改行するかどうか
+nl_enum_brace = force
 
 ### Code transformation
 ## http://qiita.com/items/d1289c116451b709f610
