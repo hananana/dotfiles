@@ -20,9 +20,6 @@ def FlagsForFile(filename, **kwargs):
     '/usr/local/include',
     '-isystem',
     '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
-
-#     '-ObjC',
-#     '-ObjC++',
   ]
 
   data = kwargs['client_data']
