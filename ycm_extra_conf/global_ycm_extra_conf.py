@@ -27,14 +27,26 @@ def FlagsForFile(filename, **kwargs):
   data = kwargs['client_data']
   filetype = data['&filetype']
 
-  # developing start
-  currentDir = data['expand(expand("<sfile>:p:h"))']
-  print "debug"
-  print currentDir
-  for (root, dirs, files) in os.walk(currentDir):
+  print "debug start"
+
+  dir = data['expand(expand("<sfile>:p:h"))']
+  candidates = []
+  for root, dirs, files in os.walk(dir):
     for file in files:
-        print file
-  # developing end
+      path, ext = os.path.splitext(file)
+      if ext == ".mm":
+        candidates.append(root)
+      if ext == ".m":
+        candidates.append(root)
+      if ext == ".cpp":
+        candidates.append(root)
+  uniq_flags = list(set(candidates))
+
+  for f in uniq_flags:
+    flags += ['-I']
+    flags += [f]
+
+  print "debug end"
 
   if filetype == 'c':
     flags += ['-xc']
