@@ -37,7 +37,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'cocopon/vaffle.vim'
 
 " Plug 'sbdchd/neoformat'
-
 " Plug 'thinca/vim-qfreplace'
 
 " scheme 
