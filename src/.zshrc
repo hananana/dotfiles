@@ -77,7 +77,6 @@ alias bye='ruby ~/.dotfiles/bin/attendance.rb bye'
 alias ag='ag -S'
 #oepn
 alias o='open'
-
 # 一文字alias
 alias -g G='| grep'
 alias -g P='| peco'
@@ -95,24 +94,6 @@ function delete_merged_branches()
 {
     git branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
 }
-
-# archive
-function extract() {
-    case $1 in
-        *.tar.gz|*.tgz) tar xzvf $1;;
-        *.tar.xz) tar Jxvf $1;;
-        *.zip) unzip $1;;
-        *.lzh) lha e $1;;
-        *.tar.bz2|*.tbz) tar xjvf $1;;
-        *.tar.Z) tar zxvf $1;;
-        *.gz) gzip -d $1;;
-        *.bz2) bzip2 -dc $1;;
-        *.Z) uncompress $1;;
-        *.tar) tar xvf $1;;
-        *.arj) unarj $1;;
-    esac
-}
-alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
 # ファイルを一括リネーム 
 autoload -Uz zmv
@@ -181,15 +162,40 @@ function kill-process () {
 # zle -N kill-process
 # bindkey '^k' kill-process   # C-x k
 
-#グラフ描画
-function graph {
-	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-}
-
 # ghq
 alias ghql='cd $(ghq root)/$(ghq list | peco)'
 alias ghub='hub browse'
 
+# -------------------------------------
+# useful functions
+# -------------------------------------
+# pathをみやすく
+function flower_show_path(){
+      echo -e ${PATH//:/'\n'}
+}
+
+# gitグラフ描画
+function flower_graph {
+	git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)― %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+}
+
+# 解凍
+function flower_extract() {
+    case $1 in
+        *.tar.gz|*.tgz) tar xzvf $1;;
+        *.tar.xz) tar Jxvf $1;;
+        *.zip) unzip $1;;
+        *.lzh) lha e $1;;
+        *.tar.bz2|*.tbz) tar xjvf $1;;
+        *.tar.Z) tar zxvf $1;;
+        *.gz) gzip -d $1;;
+        *.bz2) bzip2 -dc $1;;
+        *.Z) uncompress $1;;
+        *.tar) tar xvf $1;;
+        *.arj) unarj $1;;
+    esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
 # -------------------------------------
 # ruby
