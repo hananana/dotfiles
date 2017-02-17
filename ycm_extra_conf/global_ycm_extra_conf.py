@@ -1,6 +1,8 @@
 # https://github.com/vheon/dotvim/blob/5321347027c21e4c22dc6fcea4cc315052ed25f1/ycm.py
 # https://github.com/vheon/dotvim/blob/eeca7006c9e78a70579dc57b7c8ba4ea3f5ee0ef/vimrc
 
+import os
+
 def FlagsForFile(filename, **kwargs):
 
   flags = [
@@ -24,6 +26,15 @@ def FlagsForFile(filename, **kwargs):
 
   data = kwargs['client_data']
   filetype = data['&filetype']
+
+  # developing start
+  currentDir = data['expand(expand("<sfile>:p:h"))']
+  print "debug"
+  print currentDir
+  for (root, dirs, files) in os.walk(currentDir):
+    for file in files:
+        print file
+  # developing end
 
   if filetype == 'c':
     flags += ['-xc']
