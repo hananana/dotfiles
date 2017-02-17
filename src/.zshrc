@@ -205,15 +205,14 @@ zplug "b4b4r07/enhancd", of:init.sh
 ENHANCD_HOOK_AFTER_CD=l
 zplug "zsh-users/zsh-completions", of:src
 zplug "mollifier/cd-gitroot"
-# zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
-# zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 zplug load --verbose
 
 # -------------------------------------
@@ -243,6 +242,9 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 #     zprof | less
 # fi
 
+# -------------------------------------
+# SDKMAN
+# -------------------------------------
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
