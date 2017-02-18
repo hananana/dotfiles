@@ -2,6 +2,7 @@
 # https://github.com/vheon/dotvim/blob/eeca7006c9e78a70579dc57b7c8ba4ea3f5ee0ef/vimrc
 
 import os
+import re
 
 def FlagsForFile(filename, **kwargs):
 
@@ -27,8 +28,6 @@ def FlagsForFile(filename, **kwargs):
   data = kwargs['client_data']
   filetype = data['&filetype']
 
-  print "debug start"
-
   dir = data['expand(expand("<sfile>:p:h"))']
   candidates = []
   for root, dirs, files in os.walk(dir):
@@ -46,7 +45,17 @@ def FlagsForFile(filename, **kwargs):
     flags += ['-I']
     flags += [f]
 
-  print "debug end"
+  frameworks_candidates = []
+  for root, dirs, files in os.walk(dir):
+    for dir in dirs:
+      dir_to_str = str(dir)
+      target = '.framework'
+      if str(dir).endswith(target, len(dir_to_str) - len(target), len(dir_to_str)):
+        frameworks_candidates.append(root)
+  uniq_frameworks = list(set(frameworks_candidates))
+  for f in uniq_frameworks:
+    flags += ['-F']
+    flags += [f]
 
   if filetype == 'c':
     flags += ['-xc']
