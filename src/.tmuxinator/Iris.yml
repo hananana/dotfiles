@@ -1,0 +1,15 @@
+# ~/.tmuxinator/Iris.yml
+
+name: Iris
+root: ~/.go/src/Iris
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - git: 
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig

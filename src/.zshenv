@@ -16,6 +16,7 @@ export PATH=$PATH":$ANDROID_HOME/tools"
 
 # go
 export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 
 # my script
 export PATH=$PATH:$HOME/.dotfiles/bin
