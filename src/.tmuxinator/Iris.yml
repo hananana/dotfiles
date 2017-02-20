@@ -1,6 +1,6 @@
-# ~/.tmuxinator/Iris.yml
+# ~/.tmuxinator/iris.yml
 
-name: Iris
+name: iris
 root: ~/.go/src/Iris
 
 windows:
