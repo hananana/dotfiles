@@ -35,7 +35,6 @@ brew 'gdbm'
 brew 'openssl'
 brew 'readline'
 brew 'sqlite'
-brew 'python'
 brew 'llvm', args: ['with-python']
 brew 'doxygen'
 brew 'jpeg'
