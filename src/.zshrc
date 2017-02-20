@@ -244,10 +244,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
 # -------------------------------------
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# if (which zprof > /dev/null) ; then
-#     zprof | less
-# fi
-
 # -------------------------------------
 # SDKMAN
 # -------------------------------------
