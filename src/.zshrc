@@ -245,7 +245,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|.=*'
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH=${PYENV_ROOT}/bin:$PATH
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
 # -------------------------------------
 # SDKMAN
 # -------------------------------------
