@@ -1,20 +1,24 @@
-## これはなに
+## Intro
 
 terminalに引きこもってなんでも開発することに取り憑かれた人のdotfiles
 
-## なにを書ける？
+## Language
 
-- unity
-- cocos2d-x
+- c#
 - objc
-- java
+- objcpp
+- cpp
 - go
 - ruby
 - vim script
 - markdown
 - uml
+- python(new!)
 
-## scheme
+### Tuning....
+- java
+
+## Scheme
 
 - gruvbox
 - M+ 1m regular Nerd Font Complete 12pt 
@@ -24,7 +28,13 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 
 http://qiita.com/nabezokodaikon/items/ae9f18a7bbf0bd58c8de
 
-## eclim
+## Python
+
+$ PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install 3.6.0
+$ pyenv global 3.6.0
+$ pyenv rehash
+
+## Eclim
 http://eclim.org/index.html
 
 - build.gradleにapply plugin: 'eclipse'
@@ -32,7 +42,3 @@ http://eclim.org/index.html
 - vim
 - :ProjectImport . 
 - :ProjectNatureAdd project android
-
-## objc, objec++, c++
-
-- ln -s ycm_extra_conf/.ycm_extra_conf_base.py .ycm_extra_conf.py

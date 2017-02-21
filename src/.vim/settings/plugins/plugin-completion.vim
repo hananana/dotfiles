@@ -16,9 +16,6 @@ let g:ycm_global_ycm_extra_conf = '~/.dotfiles/ycm_extra_conf/global_ycm_extra_c
 let g:ycm_extra_conf_vim_data = ['&filetype', 'expand(expand("<sfile>:p:h"))']
 let g:EclimCompletionMethod = 'omnifunc'
 
-autocmd completion FileType c,cpp,objcpp,cs nnoremap <Leader>yt :YcmCompleter GetType<CR>
-autocmd completion FileType cs nnoremap <Leader>yr :YcmCompleter ReloadSolution<CR>
-
 " --------------------------------
 " vim-monster
 " --------------------------------
