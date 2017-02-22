@@ -1,0 +1,15 @@
+# ~/.tmuxinator/iris.yml
+
+name: iris
+root: ~/Works/Projects/iris
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - source ./venv/bin/activate && vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - source ./venv/bin/activate
+        - source ./venv/bin/activate && tig
