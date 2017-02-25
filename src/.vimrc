@@ -8,7 +8,7 @@ augroup END
 " vim-plug
 " -------------------------------
 if has('vim_starting')
-    set rtp+=~/.vim/plugged/vim-plug
+    set runtimepath+=~/.vim/plugged/vim-plug
     if !isdirectory(expand('~/.vim/plugged/vim-plug'))
         echo 'install vim-plug...'
         call system('mkdir -p ~/.vim/plugged/vim-plug')
@@ -74,7 +74,7 @@ Plug 'soramugi/auto-ctags.vim'
 call plug#end()
 filetype plugin indent on
 
-set rtp+=~/.vim/
+set runtimepath+=~/.vim/
 runtime! settings/*.vim
 runtime! settings/plugins/*.vim
 runtime! settings/snippets/*.vim
@@ -100,7 +100,7 @@ autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdow
 " --------------------------------
 " plantuml
 " --------------------------------
-let g:plantuml_excutable_script="~/.dotfiles/scripts/make_uml"
+let g:plantuml_excutable_script='~/.dotfiles/scripts/make_uml'
 
 " --------------------------------
 " csv.vim
