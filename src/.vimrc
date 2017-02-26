@@ -35,6 +35,7 @@ Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
 Plug 'cocopon/vaffle.vim'
 Plug 'w0rp/ale'
+Plug 'Yggdroot/indentLine'
 
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
