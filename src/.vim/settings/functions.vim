@@ -64,18 +64,18 @@ endfunction
 " --------------------------------
 " Anemone
 " --------------------------------
-function! AnemoneFormat() abort
-    let l = line(".")
-    let c = col(".")
-    let tempFilePath = "$HOME/AnemoneTemp.cs"
-    execute ":write! " . tempFilePath
-    0,$delete
-    execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . tempFilePath)
-    0delete
-    $delete
-    call cursor(l, c)
-    call delete(tempFilePath)
-endfunction
+" function! AnemoneFormat() abort
+"     let l = line(".")
+"     let c = col(".")
+"     let tempFilePath = "$HOME/AnemoneTemp.cs"
+"     execute ":write! " . tempFilePath
+"     0,$delete
+"     execute('r! mono ~/Works/Projects/AnemoneFormat/AnemoneFormat/bin/Debug/AnemoneFormat.exe -o ' . tempFilePath)
+"     0delete
+"     $delete
+"     call cursor(l, c)
+"     call delete(tempFilePath)
+" endfunction
 
 " autocmd vimrc FileType cs nnoremap <C-s> :call AnemoneFormat()<CR>
 

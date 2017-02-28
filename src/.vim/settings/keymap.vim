@@ -51,3 +51,5 @@ nnoremap s "_s
 nnoremap <Leader>w :w<CR>
 " help
 nnoremap <Leader>h :<C-u>vertical belowright help<Space>
+" tag
+nnoremap <C-]> g<C-]>

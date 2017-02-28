@@ -99,9 +99,6 @@ function delete_merged_branches()
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
-# ctags
-alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
-
 # フォルダ履歴から絞り込む
 function peco-cdr () {
     local selected_dir=$(cd | awk '{ print $2 }' | peco)
