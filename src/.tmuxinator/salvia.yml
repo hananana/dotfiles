@@ -1,0 +1,20 @@
+# ~/.tmuxinator/salvia.yml
+
+name: salvia
+root: ~/Works/Projects/salvia
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - source ./venv/bin/activate && vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - source ./venv/bin/activate
+        - source ./venv/bin/activate && tig
+  - json:
+      root: ~/Dropbox/misc/slack
+      layout: main-vertical
+      panes:
+        - vim
