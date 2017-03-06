@@ -41,6 +41,7 @@ Plug 'w0rp/ale'
 
 " scheme 
 Plug 'morhetz/gruvbox'
+Plug 'whatyouhide/gotham'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -82,7 +83,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme gruvbox
+colorscheme gotham
 set background=dark
 
 " --------------------------------
