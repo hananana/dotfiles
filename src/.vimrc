@@ -41,7 +41,6 @@ Plug 'w0rp/ale'
 
 " scheme 
 Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -83,8 +82,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-" colorscheme gruvbox
-colorscheme PaperColor
+colorscheme gruvbox
 set background=dark
 
 " --------------------------------

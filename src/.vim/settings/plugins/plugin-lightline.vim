@@ -3,7 +3,7 @@
 " --------------------------------
 
 let g:lightline = {
-            \ 'colorscheme' : 'PaperColor',
+            \ 'colorscheme' : 'gruvbox',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'filename' ] ]
