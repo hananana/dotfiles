@@ -43,6 +43,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/gotham'
 Plug 'w0ng/vim-hybrid'
+Plug 'pasela/edark.vim'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -84,9 +85,10 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-" let g:hybrid_custom_term_color = 1
-" let g:hybrid_reduced_contrast = 1
+let g:hybrid_custom_term_color = 1
+let g:hybrid_reduced_contrast = 1
 colorscheme gruvbox
+set background=dark
 
 " --------------------------------
 " vim-json
