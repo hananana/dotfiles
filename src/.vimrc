@@ -22,7 +22,7 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neoyank.vim'
 Plug 'itchyny/lightline.vim'
@@ -42,8 +42,7 @@ Plug 'sheerun/vim-polyglot'
 " scheme 
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/gotham'
-Plug 'w0ng/vim-hybrid'
-Plug 'pasela/edark.vim'
+Plug 'rakr/vim-one'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -85,8 +84,6 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-let g:hybrid_custom_term_color = 1
-let g:hybrid_reduced_contrast = 1
 colorscheme gruvbox
 set background=dark
 

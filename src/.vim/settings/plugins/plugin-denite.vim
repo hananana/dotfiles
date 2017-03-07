@@ -19,9 +19,3 @@ nmap <silent> <Leader>g :<C-u>Denite grep -file_rec<CR>
 nmap <silent> <Leader>o :<C-u>Denite outline<CR>
 nmap <silent> <Leader>n :<C-u>Denite -resume -select=+1 -immediately<CR>
 nmap <silent> <Leader>p :<C-u>Denite -resume -select=-1 -immediately<CR>
-
-" grepしてまとめてfix
-
-" tagjump
-
-" tagjumpから戻る
