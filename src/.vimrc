@@ -28,13 +28,13 @@ Plug 'Shougo/neoyank.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tyru/caw.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
 Plug 'cocopon/vaffle.vim'
 Plug 'w0rp/ale'
+Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot'
 
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
@@ -42,6 +42,7 @@ Plug 'w0rp/ale'
 " scheme 
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/gotham'
+Plug 'w0ng/vim-hybrid'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -83,8 +84,9 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme gotham
-set background=dark
+" let g:hybrid_custom_term_color = 1
+" let g:hybrid_reduced_contrast = 1
+colorscheme gruvbox
 
 " --------------------------------
 " vim-json
