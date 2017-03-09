@@ -29,6 +29,7 @@ def FlagsForFile(filename, **kwargs):
   filetype = data['&filetype']
 
   dir = data['expand(expand("<sfile>:p:h"))']
+
   candidates = []
   for root, dirs, files in os.walk(dir):
     for file in files:
@@ -43,6 +44,18 @@ def FlagsForFile(filename, **kwargs):
 
   for f in uniq_flags:
     flags += ['-I']
+    flags += [f]
+
+  header_candidates = []
+  for root, dirs, files in os.walk(dir):
+    for file in files:
+      path, ext = os.path.splitext(file)
+      if ext == ".h":
+        header_candidates.append(root)
+    uniq_headers = list(set(header_candidates))
+
+  for f in uniq_headers:
+    flags += ['-isystem']
     flags += [f]
 
   frameworks_candidates = []
