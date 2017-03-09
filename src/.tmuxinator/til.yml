@@ -1,0 +1,15 @@
+# ~/.tmuxinator/til.yml
+
+name: til
+root: ~/Works/Projects/til
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig
