@@ -14,7 +14,6 @@ let g:ycm_show_diagnostics_ui = 0
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.dotfiles/ycm_extra_conf/global_ycm_extra_conf.py'
 let g:ycm_extra_conf_vim_data = ['&filetype', 'expand(expand("<sfile>:p:h"))']
-let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_semantic_triggers = {
             \ 'objc' : ['re!\@"\.*"\s',
             \ 're!\@\w+\.*\w*\s',
@@ -54,5 +53,5 @@ let g:monster#completion#rcodetools#backend = 'async_rct_complete'
 " --------------------------------
 " javacomplete
 " --------------------------------
-" autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
-" let g:JavaComplete_UsePython3 = 1
+autocmd completion FileType java setlocal omnifunc=javacomplete#Complete
+let g:JavaComplete_UsePython3 = 1
