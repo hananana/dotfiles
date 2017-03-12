@@ -35,6 +35,7 @@ Plug 'cocopon/vaffle.vim'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
+Plug 'majutsushi/tagbar'
 
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
