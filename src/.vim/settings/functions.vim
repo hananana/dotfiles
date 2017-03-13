@@ -2,6 +2,10 @@ augroup functions
     autocmd!
 augroup END
 
+"----------------------------------------
+" reload vimrc
+"----------------------------------------
+"
 command! ReloadVimrc :so ~/.vimrc
 
 "----------------------------------------

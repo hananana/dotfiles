@@ -109,3 +109,9 @@ let g:plantuml_excutable_script='~/.dotfiles/scripts/make_uml'
 " csv.vim
 " --------------------------------
 let g:csv_delim=','
+
+" --------------------------------
+" tagbar
+" --------------------------------
+
+autocmd vimrc VimEnter * nested :TagbarOpen
