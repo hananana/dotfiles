@@ -65,14 +65,22 @@ Plug 'vim-scripts/ShaderHighLight'
 
 " other
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
+
 Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
+
 Plug 'elzr/vim-json', {'for' : ['json']}
-Plug 'kannokanno/previm', { 'for' : [ 'markdown' ] }
+
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
+
 Plug 'chrisbra/csv.vim'
+
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
+
 Plug 'aklt/plantuml-syntax'
+
 Plug 'soramugi/auto-ctags.vim'
+
+Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
 
 call plug#end()
 filetype plugin indent on
