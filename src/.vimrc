@@ -94,7 +94,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme gruvbox
+colorscheme one
 set background=dark
 
 " --------------------------------
