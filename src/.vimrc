@@ -121,5 +121,9 @@ let g:csv_delim=','
 " --------------------------------
 " tagbar
 " --------------------------------
-
 autocmd vimrc VimEnter * nested :TagbarOpen
+
+" --------------------------------
+" markdown-preview
+" --------------------------------
+let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
