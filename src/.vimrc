@@ -43,7 +43,8 @@ Plug 'majutsushi/tagbar'
 " scheme 
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/gotham'
-Plug 'rakr/vim-one'
+Plug '0xcharly/vim-frictionless'
+Plug 'thomd/vim-wasabi-colorscheme'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -94,7 +95,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme one
+colorscheme frictionless
 set background=dark
 
 " --------------------------------
