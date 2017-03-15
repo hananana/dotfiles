@@ -35,7 +35,6 @@ Plug 'cocopon/vaffle.vim'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-Plug 'majutsushi/tagbar'
 
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
@@ -118,11 +117,6 @@ let g:plantuml_excutable_script='~/.dotfiles/scripts/make_uml'
 " csv.vim
 " --------------------------------
 let g:csv_delim=','
-
-" --------------------------------
-" tagbar
-" --------------------------------
-autocmd vimrc VimEnter * nested :TagbarOpen
 
 " --------------------------------
 " markdown-preview
