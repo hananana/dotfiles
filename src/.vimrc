@@ -40,10 +40,8 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'thinca/vim-qfreplace'
 
 " scheme 
-Plug 'morhetz/gruvbox'
+Plug 'cocopon/iceberg.vim'
 Plug 'whatyouhide/gotham'
-Plug '0xcharly/vim-frictionless'
-Plug 'thomd/vim-wasabi-colorscheme'
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
@@ -94,7 +92,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme frictionless
+colorscheme iceberg
 set background=dark
 
 " --------------------------------
