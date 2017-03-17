@@ -39,8 +39,13 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
 
-" scheme 
-Plug 'cocopon/iceberg.vim'
+" scheme
+Plug 'jacoborus/tender.vim'
+Plug '0xcharly/vim-frictionless'
+Plug 'nanotech/jellybeans.vim'
+Plug 'tomasr/molokai'
+
+" for lightlight
 Plug 'whatyouhide/gotham'
 
 " my plugin
@@ -92,7 +97,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme iceberg
+colorscheme jellybeans
 set background=dark
 
 " --------------------------------
