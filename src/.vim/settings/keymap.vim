@@ -42,8 +42,6 @@ au keymap FileType cpp,objc,objcpp nnoremap <Leader>/ :Dox<CR>
 "コメントアウト
 nmap <Leader>c <Plug>(caw:zeropos:toggle)
 vmap <Leader>c <Plug>(caw:zeropos:toggle)
-" vmodeでCtrl+cでclicpboardへコピー
-vmap <C-c> :w !pbcopy<cr><cr>
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
