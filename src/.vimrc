@@ -31,7 +31,6 @@ Plug 'tyru/caw.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
-Plug 'cocopon/vaffle.vim'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
@@ -125,3 +124,4 @@ let g:csv_delim=','
 " markdown-preview
 " --------------------------------
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+
