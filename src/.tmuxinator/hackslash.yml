@@ -24,15 +24,3 @@ windows:
       panes:
         - 
         - tig
-  - tulip:
-      root: ~/Works/Projects/Tulip
-      layout: even-horizontal
-      panes:
-        - vim
-  - tulipgit:
-      root: ~/Works/Projects/Tulip
-      layout: even-horizontal
-      panes:
-        - ls -l
-        - tig
-
