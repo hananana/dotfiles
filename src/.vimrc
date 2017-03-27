@@ -43,6 +43,7 @@ Plug 'jacoborus/tender.vim'
 Plug '0xcharly/vim-frictionless'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
+Plug 'wesgibbs/vim-irblack'
 
 " for lightlight
 Plug 'whatyouhide/gotham'
@@ -96,7 +97,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme jellybeans
+colorscheme ir_black
 set background=dark
 
 " --------------------------------
