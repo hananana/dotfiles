@@ -1,7 +1,7 @@
 # ~/.tmuxinator/hackslash.yml
 
 name: hackslash
-root: ~/Works/Projects/hackslash
+root: ~/Works/hackslash
 
 windows:
   - editor:
@@ -14,12 +14,12 @@ windows:
         - ls -l
         - tig
   - wiki:
-      root: ~/Works/Projects/hackslash.wiki
+      root: ~/Works/hackslash.wiki
       layout:
       panes:
         - vim
   - wikigit:
-      root: ~/Works/Projects/hackslash.wiki
+      root: ~/Works/hackslash.wiki
       layout: even-horizontal
       panes:
         - 

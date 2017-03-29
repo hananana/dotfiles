@@ -1,7 +1,7 @@
 # ~/.tmuxinator/til.yml
 
 name: til
-root: ~/Works/Projects/til
+root: ~/Works/til
 
 windows:
   - editor:

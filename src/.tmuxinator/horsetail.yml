@@ -1,7 +1,7 @@
 # ~/.tmuxinator/horsetail.yml
 
 name: horsetail
-root: ~/Works/Projects/horsetail
+root: ~/Works/horsetail
 
 windows:
   - editor:

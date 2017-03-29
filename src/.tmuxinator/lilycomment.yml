@@ -1,7 +1,7 @@
 # ~/.tmuxinator/lilycomment.yml
 
 name: lilycomment
-root: ~/Works/Projects/lilycomment.vim
+root: ~/Works/lilycomment.vim
 
 windows:
   - editor:

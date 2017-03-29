@@ -23,5 +23,3 @@
 	required = true
 [commit]
     template = ~/.commit_template.txt
-[ghq]
-    root = ~/Works/Projects
