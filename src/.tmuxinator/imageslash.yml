@@ -1,7 +1,7 @@
 # ~/.tmuxinator/imageslash.yml
 
 name: imageslash
-root: ~/Works/Projects/imageslash
+root: ~/Works/imageslash
 
 windows:
   - editor:
