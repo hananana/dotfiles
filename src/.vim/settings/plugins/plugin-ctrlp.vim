@@ -1,9 +1,12 @@
+
 nnoremap <Leader>t :CtrlPTag<CR>
+" TODO: make fuction
 nnoremap <Leader>g :Ag --hidden
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
 nnoremap <Leader>o :CtrlPLine<CR>
-" TODO: yank
+nnoremap <Leader>y :CtrlPYankRound<CR>
+nnoremap <Leader>a :CtrlpLastMode<CR>
 
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 1
