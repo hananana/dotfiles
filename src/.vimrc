@@ -23,6 +23,7 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'LeafCage/yankround.vim'
 Plug 'rking/ag.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
@@ -38,6 +39,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'thinca/vim-qfreplace'
 
 " scheme
+Plug 'hara/ctrlp-colorscheme'
 Plug 'jacoborus/tender.vim'
 Plug '0xcharly/vim-frictionless'
 Plug 'nanotech/jellybeans.vim'
