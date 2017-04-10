@@ -1,7 +1,8 @@
 
+" " TODO: make fuction
+nnoremap <Leader>g :Ag
+
 nnoremap <Leader>t :CtrlPTag<CR>
-" TODO: make fuction
-nnoremap <Leader>g :Ag --hidden
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
 nnoremap <Leader>o :CtrlPLine<CR>
@@ -11,7 +12,7 @@ nnoremap <Leader>a :CtrlpLastMode<CR>
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s --nocolor --hidden -g ""'
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
             \ 'PrtDelete()':          ['<del>'],
