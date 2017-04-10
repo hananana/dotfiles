@@ -73,8 +73,6 @@ alias fuck='eval $(thefuck $(fc -ln -1))'
 alias hello='ruby ~/.dotfiles/bin/attendance.rb hello'
 alias confirm='ruby ~/.dotfiles/bin/attendance.rb confirm'
 alias bye='ruby ~/.dotfiles/bin/attendance.rb bye'
-#ag
-alias ag='ag -S'
 #oepn
 alias o='open'
 # 一文字alias
