@@ -98,7 +98,7 @@ runtime! settings/snippets/*.vim
 " scheme
 " -------------------------------
 syntax enable
-colorscheme ir_black
+colorscheme jellybeans
 set background=dark
 
 " --------------------------------
