@@ -1,4 +1,2 @@
-src/.vim/plugged
+src/vim/plugged
 app
-src/.vim/eclim
-src/.vim/plugin/eclim.vim
