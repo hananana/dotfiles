@@ -1,3 +1,4 @@
+# 起動時間計測
 # zmodload zsh/zprof && zprof
 
 export EDITOR=vim

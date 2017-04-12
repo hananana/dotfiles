@@ -208,12 +208,14 @@ zplug "zsh-users/zsh-completions", of:src
 zplug "mollifier/cd-gitroot"
 zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# zsh起動のボトルネックなので飛ばした
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
+
 zplug load --verbose
 
 # -------------------------------------
@@ -248,3 +250,8 @@ eval "$(pyenv virtualenv-init -)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# 起動時間計測
+# if (which zprof > /dev/null) ;then
+#     zprof | less
+# fi
