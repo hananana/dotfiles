@@ -34,8 +34,6 @@ nnoremap <Leader>+ <C-w>+
 nnoremap <Leader>- <C-w>-
 " ヘッダーとの移動
 au keymap FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
-" ドキュメント検索
-au keymap FileType cs,cpp,objc,objcpp,vim nmap <silent> <Leader>d <Plug>DashSearch
 " コメントテンプレ展開
 au keymap FileType cs nnoremap <Leader>/ :LilyComment<CR>
 au keymap FileType cpp,objc,objcpp nnoremap <Leader>/ :Dox<CR>
