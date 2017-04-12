@@ -40,11 +40,10 @@ Plug 'sheerun/vim-polyglot'
 
 " scheme
 Plug 'hara/ctrlp-colorscheme'
-Plug 'jacoborus/tender.vim'
 Plug '0xcharly/vim-frictionless'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
-Plug 'wesgibbs/vim-irblack'
+Plug 'vim-scripts/twilight'
 
 " for lightlight
 Plug 'whatyouhide/gotham'
@@ -100,6 +99,7 @@ runtime! settings/snippets/*.vim
 syntax enable
 colorscheme jellybeans
 set background=dark
+
 
 " --------------------------------
 " vim-json
