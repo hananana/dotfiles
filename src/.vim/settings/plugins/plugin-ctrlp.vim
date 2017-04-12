@@ -7,7 +7,8 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
 nnoremap <Leader>o :CtrlPLine<CR>
 nnoremap <Leader>y :CtrlPYankRound<CR>
-nnoremap <Leader>a :CtrlpLastMode<CR>
+nnoremap <Leader>a :CtrlPLastMode<CR>
+nnoremap <Leader>d :CtrlPColorscheme<CR>
 
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 1
