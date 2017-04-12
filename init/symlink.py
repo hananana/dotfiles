@@ -2,9 +2,26 @@
 # coding: UTF-8
 
 import os.path
-import logging
-import glob
+import shutil
 
 home = os.environ['HOME']
 entityDir = os.path.join(home, '.dotfiles/src')
 listDir = os.listdir(entityDir)
+
+for path in listDir:
+    dotPath = '.' + path
+    linkPath = os.path.join(home, dotPath)
+    entityPath = os.path.join(entityDir, path)
+    if os.path.exists(linkPath):
+        if os.path.isdir(linkPath):
+            if os.path.islink(linkPath):
+                os.unlink(linkPath)
+            else:
+                shutil.rmtree(linkPath)
+        else:
+            if os.path.islink(linkPath):
+                os.unlink(linkPath)
+            else:
+                os.remove(linkPath)
+
+    os.symlink(entityPath, linkPath)
