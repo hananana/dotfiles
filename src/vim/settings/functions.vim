@@ -19,7 +19,7 @@ autocmd functions FileType cs nnoremap <Leader>f :call UncrustifyAuto()<CR>
 " autocmd functions BufWritePre <buffer> :call UncrustifyAuto()
 
 " uncrustifyの設定ファイル
-let g:uncrustify_cfg_file_path = '~/.dotfiles/src/.uncrustifyconfig'
+let g:uncrustify_cfg_file_path = '~/.dotfiles/src/uncrustifyconfig'
 
 " uncrustifyでフォーマットする言語
 let g:uncrustify_lang = ""
