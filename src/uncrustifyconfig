@@ -315,7 +315,7 @@ eat_blanks_before_close_brace = true
 # プリプロセッサ以外の改行をどのぐらい積極的に削除するか 0: 変更しない 1: 他の設定でハンドルされない改行を可能な限り削除する 2: 全ての改行を一度削除して、設定から完全に整形しなおす { number }
 nl_remove_extra_newlines = 0
 # 'return'文の前に改行を挿入するかどうか ('{'直後の'return'以外) { false, true }
-nl_before_return = true
+nl_before_return = false
 # 'return'文の後に改行を挿入するかどうか ('}'が直後にある'return'以外) { false, true }
 nl_after_return = false
 # Java注釈文の後に改行を挿入するかどうか 改行後の注釈文にのみ適用される { ignore, add, remove, force }
