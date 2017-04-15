@@ -1,7 +1,7 @@
 # ~/.tmuxinator/Rafflesia.yml
 
 name: Rafflesia
-root: ~/Works/Rafflesia
+root: ~/src/github.com/hananana/Rafflesia
 
 windows:
   - editor:

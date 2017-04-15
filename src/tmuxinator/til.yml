@@ -1,7 +1,7 @@
 # ~/.tmuxinator/til.yml
 
 name: til
-root: ~/Works/til
+root: ~/src/github.com/hananana/til
 
 windows:
   - editor:
