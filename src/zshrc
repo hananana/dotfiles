@@ -245,6 +245,12 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # -------------------------------------
+# GO
+# -------------------------------------
+
+export GOPATH="$HOME/go"
+
+# -------------------------------------
 # SDKMAN
 # -------------------------------------
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
