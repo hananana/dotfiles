@@ -1,7 +1,7 @@
 # ~/.tmuxinator/CURAZYGAME.yml
 
 name: CURAZYGAME
-root: ~/Works/CURAZYGAME
+root: ~/src/github.com/ignis-ltd/CURAZYGAME
 
 windows:
   - editor:
