@@ -1,0 +1,15 @@
+# ~/.tmuxinator/snug.yml
+
+name: snug
+root: ~/src/github.com/dynoentertainment-group/snug
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - ls -l
+        - tig
