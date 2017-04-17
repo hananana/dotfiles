@@ -52,7 +52,7 @@ Plug 'whatyouhide/gotham'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer --gocode-completer'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
