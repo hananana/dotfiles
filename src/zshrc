@@ -248,7 +248,7 @@ eval "$(pyenv virtualenv-init -)"
 # GO
 # -------------------------------------
 
-export GOPATH="$HOME/go"
+export GOPATH="$HOME"
 
 # -------------------------------------
 # SDKMAN
