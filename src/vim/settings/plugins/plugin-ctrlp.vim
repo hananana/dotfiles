@@ -10,9 +10,15 @@ nnoremap <Leader>a :CtrlPLastMode<CR>
 nnoremap <Leader>d :CtrlPColorscheme<CR>
 
 let g:ctrlp_map = '<Leader><Leader>'
-let g:ctrlp_show_hidden = 1
+
+let g:ctrlp_show_hidden = 0
+" let g:ctrlp_show_hidden = 1
+
+let g:ctrlp_user_command = 'ag %s -s --nocolor -g ""'
+" let g:ctrlp_user_command = 'ag %s -s --nocolor --hidden -g ""'
+
 let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = 'ag %s -s --nocolor --hidden -g ""'
+
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
