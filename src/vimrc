@@ -34,6 +34,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdtree'
 
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
