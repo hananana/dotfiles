@@ -1,5 +1,5 @@
 
-nnoremap <Leader>g :Ag -s -i 
+nnoremap <Leader>g :Ag 
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
