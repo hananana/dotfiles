@@ -24,6 +24,7 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'LeafCage/yankround.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'rking/ag.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
