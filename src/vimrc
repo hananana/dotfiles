@@ -22,10 +22,9 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'LeafCage/yankround.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'rking/ag.vim'
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neoyank.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tyru/caw.vim'
