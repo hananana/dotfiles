@@ -4,10 +4,11 @@ nnoremap <Leader>g :Ag
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
-nnoremap <Leader>o :CtrlPLine<CR>
+nnoremap <Leader>o :CtrlPFunky<CR>
 nnoremap <Leader>y :CtrlPYankRound<CR>
 nnoremap <Leader>a :CtrlPLastMode<CR>
 nnoremap <Leader>d :CtrlPColorscheme<CR>
+nnoremap <Leader>m :CtrlPMRUFiles<CR>
 
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 0
