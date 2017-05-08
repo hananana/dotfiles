@@ -9,17 +9,16 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 - objcpp
 - cpp
 - go
+- python
 - ruby
 - vim script
 - markdown
 - uml
-- python(new!)
 
 ## Scheme
 
-- gruvbox
+- iterm2 Twilight
 - M+ 1m regular Nerd Font Complete 12pt 
-- row height 0.88
 
 ## IME
 
