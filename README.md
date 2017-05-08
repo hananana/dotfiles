@@ -17,7 +17,7 @@ terminalに引きこもってなんでも開発することに取り憑かれた
 
 ## Scheme
 
-- iterm2 Twilight
+- iterm2 Bragrammer
 - M+ 1m regular Nerd Font Complete 12pt 
 
 ## IME
