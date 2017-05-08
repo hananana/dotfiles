@@ -340,6 +340,10 @@ nl_brace_fparen = remove
 nl_brace_squre = remove
 # enumと{の間に改行するかどうか
 nl_enum_brace = force
+# whileの後に改行
+nl_while_brace = force
+# switchの後に改行
+nl_switch_brace = force
 
 ### Code transformation
 ## http://qiita.com/items/d1289c116451b709f610
@@ -515,7 +519,7 @@ sp_angle_shift = remove
 # 'foo >'の'> >'の間の空白の削除を許可する (C++11のみ) (デフォルト: false) このオプションなしで、sp_angle_shiftは空白を削除できない。 { true, false }
 sp_permit_cpp11_shift = false
 # 'if'、'for'、'switch'、'while'の'('の前に空白を挿入/削除する { ignore, add, remove, force }
-sp_before_sparen = add
+sp_before_sparen = remove
 # if条件の'('と')'の内側に空白を挿入/削除する { ignore, add, remove, force }
 sp_inside_sparen = remove
 # if条件の')'の前に空白を挿入/削除する (sp_inside_sparenを上書き) { ignore, add, remove, force }
@@ -523,9 +527,9 @@ sp_inside_sparen_close = remove
 # if条件の'('の後に空白を挿入/削除する (sp_inside_sparenを上書き) { ignore, add, remove, force }
 sp_inside_sparen_open = remove
 # 'if'、'for'、'switch'、'while'の')'の後に空白を挿入/削除する { ignore, add, remove, force }
-sp_after_sparen = add
+sp_after_sparen = remove
 # 'if'、'for'、'switch'、'while'の')'と'{'の間に空白を挿入/削除する { ignore, add, remove, force }
-sp_sparen_brace = add
+sp_sparen_brace = remove
 # 'invariant'と'('の間に空白を追加/削除する (D言語) { ignore, add, remove, force }
 sp_invariant_paren = ignore
 # 'invariant (C) c'の')'の後に空白を追加/削除する (D言語) { ignore, add, remove, force }
