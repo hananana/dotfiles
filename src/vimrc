@@ -36,7 +36,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-Plug 'lambdalisue/gina.vim'
 
 " Plug 'sbdchd/neoformat'
 " Plug 'thinca/vim-qfreplace'
