@@ -82,9 +82,6 @@ alias notice='~/.dotfiles/bin/notice.sh'
 #oepn
 alias o='open'
 
-# 一文字alias
-# alias -g B='"$(git_current_branch_name)"'
-
 # 現在のbranch取得
 function git-current-branch-name() {
     git branch | grep '^\*' | sed 's/^\* *//'
