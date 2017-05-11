@@ -47,3 +47,5 @@ nnoremap s "_s
 nnoremap <Leader>w :w<CR>
 " help
 nnoremap <Leader>h :<C-u>vertical belowright help<Space>
+" Oで改行
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
