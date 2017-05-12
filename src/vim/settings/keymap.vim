@@ -49,3 +49,5 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>h :<C-u>vertical belowright help<Space>
 " Oで改行
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+" Yで現在のカーソルから行末までヤンク
+nnoremap Y y$
