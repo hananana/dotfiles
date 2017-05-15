@@ -5,14 +5,13 @@ root: ~/src/github.com/hananana/hackslash
 
 windows:
   - editor:
-      layout: main-vertical
+      layout:
       panes:
         - vim
   - git: 
-      layout: even-horizontal
+      layout:
       panes:
         - ls -l
-        - tig
   - wiki:
       root: ~/src/github.com/hananana/hackslash.wiki
       layout:
@@ -23,4 +22,3 @@ windows:
       layout: even-horizontal
       panes:
         - 
-        - tig

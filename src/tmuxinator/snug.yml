@@ -5,11 +5,10 @@ root: ~/src/github.com/dynoentertainment-group/snug
 
 windows:
   - editor:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - vim
   - git:
       layout: even-horizontal
       panes:
         - ls -l
-        - tig
