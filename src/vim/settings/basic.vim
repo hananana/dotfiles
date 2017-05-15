@@ -87,3 +87,8 @@ set pumheight=10
 set relativenumber
 
 
+" --------------------------------
+" Color
+" --------------------------------
+
+autocmd ColorScheme * highlight LineNr guibg=#333333
