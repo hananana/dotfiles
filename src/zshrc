@@ -176,6 +176,11 @@ function flower_extract() {
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
+# gitのbranch切り替え。まだローカルブランチのみ
+function gbr() {
+    git checkout $(git branch -a | peco --prompt "select branch >" | head -n 1 | sed -e "s/^\*\s*//g")
+}
+
 # -------------------------------------
 # ruby
 # -------------------------------------
