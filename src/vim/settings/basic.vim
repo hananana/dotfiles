@@ -83,3 +83,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set nofoldenable
 " 補完ウィンドウは10項目まで
 set pumheight=10 
+" 行番号を相対表示
+set relativenumber
+
+
