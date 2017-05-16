@@ -39,8 +39,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-qfreplace'
 
 " scheme
-Plug 'hara/ctrlp-colorscheme'
-Plug '0xcharly/vim-frictionless'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
 Plug 'vim-scripts/twilight'
