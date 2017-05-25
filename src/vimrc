@@ -38,6 +38,7 @@ Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'osyo-manga/vim-anzu'
+Plug 'cohama/vim-insert-linenr'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'
