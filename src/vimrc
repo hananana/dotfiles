@@ -25,23 +25,22 @@ Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neoyank.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tyru/caw.vim'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-qfreplace'
+Plug 'itchyny/lightline.vim'
+Plug 'tyru/caw.vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-Plug 'thinca/vim-qfreplace'
+Plug 'wakatime/vim-wakatime'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'
-Plug 'tomasr/molokai'
-Plug 'vim-scripts/twilight'
 
 " for lightlight
 Plug 'whatyouhide/gotham'
@@ -66,21 +65,13 @@ Plug 'vim-scripts/ShaderHighLight'
 
 " other
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
-
 Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
-
 Plug 'elzr/vim-json', {'for' : ['json']}
-
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
-
-Plug 'chrisbra/csv.vim'
-
+Plug 'chrisbra/csv.vim', { 'for' : [ 'csv' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
-
 Plug 'aklt/plantuml-syntax'
-
 Plug 'soramugi/auto-ctags.vim'
-
 Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
 
 call plug#end()
