@@ -14,11 +14,11 @@ nnoremap j gj
 nnoremap k gk
 " 検索結果のハイライトをEsc連打でクリアする
 nnoremap <ESC><ESC> :nohlsearch<CR>
-"検索結果を画面中央にもってくる
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
+"検索結果を画面中央にもってきてstatuslineに位置表示
+nmap n <Plug>(anzu-n-with-echo)zz
+nmap N <Plug>(anzu-N-with-echo)zz
+nmap * <Plug>(anzu-star-with-echo)zz
+nmap # <Plug>(anzu-sharp-with-echo)zz
 " こっから<Leader>関連いくぜ！
 " タブとウィンドウ分割"
 nnoremap <Leader>s :<C-u>sp<CR>

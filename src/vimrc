@@ -37,7 +37,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-Plug 'wakatime/vim-wakatime'
+Plug 'osyo-manga/vim-anzu'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'

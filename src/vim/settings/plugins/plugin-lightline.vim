@@ -6,7 +6,10 @@ let g:lightline = {
             \ 'colorscheme' : 'gotham',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'filename' ] ]
+            \             [ 'fugitive', 'filename', 'anzu' ] ]
+            \ },
+            \ 'component' : {
+            \   'anzu' : '%{anzu#search_status()}',
             \ },
             \ 'component_function': {
             \   'readonly': 'MyReadOnly',
