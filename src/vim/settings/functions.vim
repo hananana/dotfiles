@@ -14,6 +14,25 @@ command! ReloadVimrc :so ~/.vimrc
 command! ShowPath :echo expand("%:p")
 
 "----------------------------------------
+" XBuild
+"----------------------------------------
+
+function! XBuildStdOut(ch, msg)
+    echom a:msg
+endfunction
+
+function! XBuildStdErr(ch, msg)
+endfunction
+
+function! XBuild()
+    let s:command = ['xbuild', '/nologo', '/verbosity:quiet', '/property:AllowUnsafeBlocks=true']
+    let s:opt = {"out_cb": "XBuildStdOut", "err_cb" : "XBuildStdErr"}
+    let s:job = job_start(s:command, s:opt)
+endfunction
+
+command! XBuild :call XBuild()
+
+"----------------------------------------
 " uncrustify
 "----------------------------------------
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
