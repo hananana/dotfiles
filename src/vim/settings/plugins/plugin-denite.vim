@@ -16,7 +16,7 @@ nmap <silent> <Leader>b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>a :<C-u>Denite -resume -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>gg :<C-u>Denite grep -highlight-mode-insert=Search<CR>
-nmap <silent> <Leader>gc :<C-u>DeniteCursorWord --highlight-mode-insert=Search grep<CR>
+nmap <silent> <Leader>gc :<C-u>DeniteCursorWord -highlight-mode-insert=Search grep<CR>
 nmap <silent> <Leader>o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>n :<C-u>Denite -resume -select=+1 -immediately -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>p :<C-u>Denite -resume -select=-1 -immediately -highlight-mode-insert=Search<CR>
