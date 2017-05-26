@@ -82,7 +82,6 @@ filetype plugin indent on
 set runtimepath+=~/.vim/
 runtime! settings/*.vim
 runtime! settings/plugins/*.vim
-runtime! settings/snippets/*.vim
 
 " -------------------------------
 " scheme
@@ -90,7 +89,6 @@ runtime! settings/snippets/*.vim
 syntax enable
 colorscheme jellybeans
 set background=dark
-
 
 " --------------------------------
 " vim-json
