@@ -12,13 +12,11 @@ command! ReloadVimrc :so ~/.vimrc
 "----------------------------------------
 " show path
 "----------------------------------------
-
 command! ShowPath :echo expand("%:p")
 
 "----------------------------------------
 " XBuild
 "----------------------------------------
-
 let g:xbuild_solutionPath = ''
 let s:xbuild_isBuilding = 0
 let s:xbuild_animation_step = 0
@@ -104,7 +102,6 @@ function! s:setSolutionPath(path) abort
     echo g:xbuild_solutionPath
 endfunction
 
-
 command! XBuild call s:xBuild()
 command! -nargs=1 -complete=file SetSolutionPath call s:setSolutionPath(<f-args>)
 autocmd functions BufWritePost *.cs call s:xBuild()
@@ -164,7 +161,6 @@ function! UncrustifyAuto()
         call Uncrustify(g:uncrustify_lang)
     endif
 endfunction
-
 
 " --------------------------------
 " Anemone
