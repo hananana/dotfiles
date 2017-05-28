@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 augroup functions
     autocmd!
 augroup END
@@ -16,21 +18,70 @@ command! ShowPath :echo expand("%:p")
 "----------------------------------------
 " XBuild
 "----------------------------------------
-
-function! XBuildStdOut(ch, msg)
-    echom a:msg
+function! XBuildHandler(ch, msg)
+    let l:temp_format = &errorformat
+    try
+        let &errorformat = '%f(%l\,%c)%m'
+        caddexpr a:msg
+        cwindow
+    catch
+        echo v:exception
+        echo v:throwpoint
+    finally
+        let &errorformat = l:temp_format
+    endtry
 endfunction
 
-function! XBuildStdErr(ch, msg)
+function! XBuildEndHandler(ch, msg) abort
+    echo 'DONE(・∀・)'
 endfunction
 
-function! XBuild()
-    let s:command = ['xbuild', '/nologo', '/verbosity:quiet', '/property:AllowUnsafeBlocks=true']
-    let s:opt = {"out_cb": "XBuildStdOut", "err_cb" : "XBuildStdErr"}
-    let s:job = job_start(s:command, s:opt)
+function! GetSolutionFile() abort
+    let l:fileListStr = glob(getcwd() . '/*.sln')
+    let l:fileList = split(fileListStr, "\n")
+    if len(fileList) != 1
+        return ''
+    endif
+    return l:fileList[0]
 endfunction
 
-command! XBuild :call XBuild()
+function! XBuild() abort
+    echo 'Building...(´・ω・`)'
+    let l:solutionPath = ''
+    if g:xbuild#solutionPath ==# ''
+        let l:solutionPath = GetSolutionFile()
+    else
+        let l:solutionPath = g:xbuild#solutionPath
+    endif
+        
+    if l:solutionPath ==# ''
+        echo 'not found .sln'
+        return
+    endif
+
+    cexpr []
+
+    let l:command = ['xbuild',
+                \ '/nologo',
+                \ '/verbosity:quiet',
+                \ '/property:AllowUnsafeBlocks=true',
+                \ l:solutionPath
+                \]
+    let l:opt = {'callback': 'XBuildHandler',
+                \ 'exit_cb': 'XBuildEndHandler'}
+    let l:job = job_start(l:command, l:opt)
+endfunction
+
+function! SetSolutionPath(path) abort
+    let g:xbuild#solutionPath = getcwd() . '/' . a:path
+    echo g:xbuild#solutionPath
+endfunction
+
+let g:xbuild#solutionPath = ''
+
+command! XBuild call XBuild()
+command! -nargs=1 -complete=file SetSolutionPath call SetSolutionPath(<f-args>)
+autocmd functions BufWritePost *.cs call XBuild()
 
 "----------------------------------------
 " uncrustify
@@ -46,33 +97,33 @@ autocmd functions FileType cs nnoremap <Leader>f :call UncrustifyAuto()<CR>
 let g:uncrustify_cfg_file_path = '~/.dotfiles/src/uncrustifyconfig'
 
 " uncrustifyでフォーマットする言語
-let g:uncrustify_lang = ""
-" autocmd FileType c let g:uncrustify_lang = "c"
-" autocmd FileType cpp let g:uncrustify_lang = "cpp"
-" autocmd FileType java let g:uncrustify_lang = "java"
-" autocmd FileType objc let g:uncrustify_lang = "oc"
-autocmd functions FileType cs let g:uncrustify_lang = "cs"
+let g:uncrustify_lang = ''
+" autocmd FileType c let g:uncrustify_lang = 'c'
+" autocmd FileType cpp let g:uncrustify_lang = 'cpp'
+" autocmd FileType java let g:uncrustify_lang = 'java'
+" autocmd FileType objc let g:uncrustify_lang = 'oc'
+autocmd functions FileType cs let g:uncrustify_lang = 'cs'
 
 " Restore cursor position, window position, and last search after running a
 " command.
 function! Preserve(command)
     " Save the last search.
-    let search = @/
+    let l:search = @/
     " Save the current cursor position.
-    let cursor_position = getpos('.')
+    let l:cursor_position = getpos('.')
     " Save the current window position.
     normal! H
-    let window_position = getpos('.')
-    call setpos('.', cursor_position)
+    let l:window_position = getpos('.')
+    call setpos('.', l:cursor_position)
     " Execute the command.
     execute a:command
     " Restore the last search.
-    let @/ = search
+    let @/ = l:search
     " Restore the previous window position.
-    call setpos('.', window_position)
+    call setpos('.', l:window_position)
     normal! zt
     " Restore the previous cursor position.
-    call setpos('.', cursor_position)
+    call setpos('.', l:cursor_position)
 endfunction
 
 " Don't forget to add Uncrustify executable to $PATH (on Unix) or
@@ -83,7 +134,7 @@ function! Uncrustify(language)
 endfunction
 
 function! UncrustifyAuto()
-    if g:uncrustify_lang != ""
+    if g:uncrustify_lang !=# ''
         call Uncrustify(g:uncrustify_lang)
     endif
 endfunction
