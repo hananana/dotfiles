@@ -18,6 +18,11 @@ command! ShowPath :echo expand("%:p")
 "----------------------------------------
 " XBuild
 "----------------------------------------
+
+let g:xbuild_solutionPath = ''
+let s:xbuild_isBuilding = 0
+let s:xbuild_animation_step = 0
+
 function! s:xBuildHandler(ch, msg)
     let l:temp_format = &errorformat
     try
@@ -32,12 +37,28 @@ function! s:xBuildHandler(ch, msg)
     endtry
 endfunction
 
-function! s:echoFace()
-    echo 'hoge'
+function! s:animate() abort
+    call timer_start(100, function('s:showFace'), { 'repeat' : -1 })
+endfunction
+
+function! s:showFace(timer) abort
+    if s:xbuild_isBuilding == 0
+        call timer_stop(a:timer)
+        echo '(`･ω･´)DONE!!!'
+        return
+    endif
+
+    let s:xbuild_animation_step = s:xbuild_animation_step + 1
+    if s:xbuild_animation_step == 2
+        let s:xbuild_animation_step = 0
+    endif
+
+    let l:list = ['(´･ω･`) XBuilding...', '(´-ω-`) XBuilding...']
+    echo l:list[s:xbuild_animation_step]
 endfunction
 
 function! s:xBuildEndHandler(ch, msg) abort
-    echo 'DONE(・∀・)'
+    let s:xbuild_isBuilding = 0
 endfunction
 
 function! s:getSolutionFile() abort
@@ -50,7 +71,9 @@ function! s:getSolutionFile() abort
 endfunction
 
 function! s:xBuild() abort
-    echo 'Building...(´・ω・`)'
+    let s:xbuild_isBuilding = 1
+    call s:animate()
+
     let l:solutionPath = ''
     if g:xbuild_solutionPath ==# ''
         let l:solutionPath = s:getSolutionFile()
@@ -81,10 +104,7 @@ function! s:setSolutionPath(path) abort
     echo g:xbuild_solutionPath
 endfunction
 
-let g:xbuild_solutionPath = ''
-let s:xbuild_isBuilding = 0
 
-command! EchoFace call s:echoFace()
 command! XBuild call s:xBuild()
 command! -nargs=1 -complete=file SetSolutionPath call s:setSolutionPath(<f-args>)
 " autocmd functions BufWritePost *.cs call s:xBuild()
