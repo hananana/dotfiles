@@ -107,7 +107,7 @@ endfunction
 
 command! XBuild call s:xBuild()
 command! -nargs=1 -complete=file SetSolutionPath call s:setSolutionPath(<f-args>)
-" autocmd functions BufWritePost *.cs call s:xBuild()
+autocmd functions BufWritePost *.cs call s:xBuild()
 
 "----------------------------------------
 " uncrustify
