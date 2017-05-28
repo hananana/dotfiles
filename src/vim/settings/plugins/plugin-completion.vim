@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 augroup completion
     autocmd!
 augroup END
@@ -24,7 +26,7 @@ let g:ycm_semantic_triggers = {
             \ 're!\@\[\s*',
             \ 're!\@\{.*\}\s',
             \ 're!\@\{\s*',
-            \ "re!\@\’.*\’\s",
+            \ 're!\@\’.*\’\s',
             \ '#ifdef ',
             \ 're!:\s*',
             \ 're!=\s*',
@@ -39,7 +41,7 @@ let g:ycm_semantic_triggers = {
             \ 're!\@\[\s*',
             \ 're!\@\{.*\}\s',
             \ 're!\@\{\s*',
-            \ "re!\@\’.*\’\s",
+            \ 're!\@\’.*\’\s',
             \ '#ifdef ',
             \ 're!:\s*',
             \ 're!=\s*',
