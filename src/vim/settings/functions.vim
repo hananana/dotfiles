@@ -18,7 +18,7 @@ command! ShowPath :echo expand("%:p")
 "----------------------------------------
 " XBuild
 "----------------------------------------
-function! XBuildHandler(ch, msg)
+function! s:xBuildHandler(ch, msg)
     let l:temp_format = &errorformat
     try
         let &errorformat = '%f(%l\,%c)%m'
@@ -32,26 +32,30 @@ function! XBuildHandler(ch, msg)
     endtry
 endfunction
 
-function! XBuildEndHandler(ch, msg) abort
+function! s:echoFace()
+    echo 'hoge'
+endfunction
+
+function! s:xBuildEndHandler(ch, msg) abort
     echo 'DONE(・∀・)'
 endfunction
 
-function! GetSolutionFile() abort
+function! s:getSolutionFile() abort
     let l:fileListStr = glob(getcwd() . '/*.sln')
-    let l:fileList = split(fileListStr, "\n")
-    if len(fileList) != 1
+    let l:fileList = split(l:fileListStr, "\n")
+    if len(l:fileList) != 1
         return ''
     endif
     return l:fileList[0]
 endfunction
 
-function! XBuild() abort
+function! s:xBuild() abort
     echo 'Building...(´・ω・`)'
     let l:solutionPath = ''
-    if g:xbuild#solutionPath ==# ''
-        let l:solutionPath = GetSolutionFile()
+    if g:xbuild_solutionPath ==# ''
+        let l:solutionPath = s:getSolutionFile()
     else
-        let l:solutionPath = g:xbuild#solutionPath
+        let l:solutionPath = g:xbuild_solutionPath
     endif
         
     if l:solutionPath ==# ''
@@ -67,21 +71,23 @@ function! XBuild() abort
                 \ '/property:AllowUnsafeBlocks=true',
                 \ l:solutionPath
                 \]
-    let l:opt = {'callback': 'XBuildHandler',
-                \ 'exit_cb': 'XBuildEndHandler'}
+    let l:opt = {'callback': function('s:xBuildHandler'),
+                \ 'exit_cb': function('s:xBuildEndHandler')}
     let l:job = job_start(l:command, l:opt)
 endfunction
 
-function! SetSolutionPath(path) abort
-    let g:xbuild#solutionPath = getcwd() . '/' . a:path
-    echo g:xbuild#solutionPath
+function! s:setSolutionPath(path) abort
+    let g:xbuild_solutionPath = getcwd() . '/' . a:path
+    echo g:xbuild_solutionPath
 endfunction
 
-let g:xbuild#solutionPath = ''
+let g:xbuild_solutionPath = ''
+let s:xbuild_isBuilding = 0
 
-command! XBuild call XBuild()
-command! -nargs=1 -complete=file SetSolutionPath call SetSolutionPath(<f-args>)
-autocmd functions BufWritePost *.cs call XBuild()
+command! EchoFace call s:echoFace()
+command! XBuild call s:xBuild()
+command! -nargs=1 -complete=file SetSolutionPath call s:setSolutionPath(<f-args>)
+" autocmd functions BufWritePost *.cs call s:xBuild()
 
 "----------------------------------------
 " uncrustify
