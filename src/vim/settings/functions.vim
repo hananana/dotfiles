@@ -17,9 +17,10 @@ command! ShowPath :echo expand("%:p")
 "----------------------------------------
 " XBuild
 "----------------------------------------
-let g:xbuild_solutionPath = ''
-let s:xbuild_isBuilding = 0
+let g:xbuild_solution_path = ''
+let s:xbuild_is_building = 0
 let s:xbuild_animation_step = 0
+let s:xbuild_warning_level = 0
 
 function! s:xBuildHandler(ch, msg)
     let l:temp_format = &errorformat
@@ -40,7 +41,7 @@ function! s:animate() abort
 endfunction
 
 function! s:showFace(timer) abort
-    if s:xbuild_isBuilding == 0
+    if s:xbuild_is_building == 0
         call timer_stop(a:timer)
         echo '(`･ω･´)DONE!!!'
         return
@@ -56,7 +57,7 @@ function! s:showFace(timer) abort
 endfunction
 
 function! s:xBuildEndHandler(ch, msg) abort
-    let s:xbuild_isBuilding = 0
+    let s:xbuild_is_building = 0
 endfunction
 
 function! s:getSolutionFile() abort
@@ -69,18 +70,19 @@ function! s:getSolutionFile() abort
 endfunction
 
 function! s:xBuild() abort
-    let s:xbuild_isBuilding = 1
+    let s:xbuild_is_building = 1
     call s:animate()
 
     let l:solutionPath = ''
-    if g:xbuild_solutionPath ==# ''
+    if g:xbuild_solution_path ==# ''
         let l:solutionPath = s:getSolutionFile()
     else
-        let l:solutionPath = g:xbuild_solutionPath
+        let l:solutionPath = g:xbuild_solution_path
     endif
         
     if l:solutionPath ==# ''
-        echo 'not found .sln'
+        let s:xbuild_is_building = 0
+        echo 'xbuild error: not found .sln'
         return
     endif
 
@@ -90,6 +92,7 @@ function! s:xBuild() abort
                 \ '/nologo',
                 \ '/verbosity:quiet',
                 \ '/property:AllowUnsafeBlocks=true',
+                \ '/property:WarningLevel=' . s:xbuild_warning_level,
                 \ l:solutionPath
                 \]
     let l:opt = {'callback': function('s:xBuildHandler'),
@@ -98,13 +101,17 @@ function! s:xBuild() abort
 endfunction
 
 function! s:setSolutionPath(path) abort
-    let g:xbuild_solutionPath = getcwd() . '/' . a:path
-    echo g:xbuild_solutionPath
+    let g:xbuild_solution_path = getcwd() . '/' . a:path
+    echo g:xbuild_solution_path
+endfunction
+
+function! s:setWarningLevel(level) abort
+    let s:xbuild_warning_level = a:level
 endfunction
 
 command! XBuild call s:xBuild()
 command! -nargs=1 -complete=file SetSolutionPath call s:setSolutionPath(<f-args>)
-autocmd functions BufWritePost *.cs call s:xBuild()
+command! -nargs=1 SetWarningLevel call s:setWarningLevel(<f-args>)
 
 "----------------------------------------
 " uncrustify
