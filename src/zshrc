@@ -205,22 +205,23 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # -------------------------------------
 # zplug
 # -------------------------------------
-source ~/.zplug/zplug
-zplug "b4b4r07/enhancd", of:init.sh
+unset ZPLUG_SHALLOW
+source ~/.zplug/init.zsh
+
+zplug "b4b4r07/enhancd", use:init.sh
 ENHANCD_HOOK_AFTER_CD=l
-zplug "zsh-users/zsh-completions", of:src
+zplug "zsh-users/zsh-completions", use:src
 zplug "mollifier/cd-gitroot"
-zplug "zsh-users/zsh-syntax-highlighting", of:zsh-syntax-highlighting.zsh
+zplug "zsh-users/zsh-syntax-highlighting", use:zsh-syntax-highlighting.zsh
 
-# zsh起動のボトルネックなので飛ばした
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-zplug load --verbose
+zplug load
 
 # -------------------------------------
 # tmux自動起動
