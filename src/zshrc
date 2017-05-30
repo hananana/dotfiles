@@ -206,7 +206,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # zplug
 # -------------------------------------
 unset ZPLUG_SHALLOW
-source ~/.zplug/init.zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 zplug "b4b4r07/enhancd", use:init.sh
 ENHANCD_HOOK_AFTER_CD=l
