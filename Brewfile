@@ -6,7 +6,7 @@ tap 'homebrew/core'
 tap 'homebrew/versions'
 tap 'homebrew/x11'
 tap 'peco/peco'
-tap 'universal-ctags/universal-ctags
+tap 'universal-ctags/universal-ctags'
 brew 'ant'
 brew 'astyle'
 brew 'autoconf'
