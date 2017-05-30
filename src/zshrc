@@ -236,6 +236,6 @@ if [ -z $TMUX ]; then
 fi
 
 # 起動時間計測
-# if (which zprof > /dev/null) ;then
-#     zprof | less
-# fi
+if (which zprof > /dev/null) ;then
+    zprof | less
+fi
