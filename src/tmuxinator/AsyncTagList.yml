@@ -1,0 +1,14 @@
+# ~/.tmuxinator/AsyncTagList.yml
+
+name: AsyncTagList
+root: ~/src/github.com/hananana/AsyncTagList
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - ls -l

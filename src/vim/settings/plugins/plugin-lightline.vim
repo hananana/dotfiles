@@ -1,9 +1,11 @@
+scriptencoding utf-8
+
 " --------------------------------
 " lightline
 " --------------------------------
 
 let g:lightline = {
-            \ 'colorscheme' : 'gotham',
+            \ 'colorscheme' : 'jellybeans',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'filename', 'anzu' ] ]
@@ -26,27 +28,27 @@ let g:lightline = {
             \ }
 
 function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &filetype =~# 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+  return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
 endfunction
 
 function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
+  return ('' !=# MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \  &filetype ==# 'unite' ? unite#get_status_string() :
+        \  &filetype ==# 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+        \ '' !=# expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' !=# MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyFugitive()
    try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-      let _ = fugitive#head()
-      return strlen(_) ? '⭠ '._ : ''
+    if &filetype !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+      let l:_ = fugitive#head()
+      return strlen(l:_) ? '⭠ '.l:_ : ''
     endif
   catch
   endtry
