@@ -30,6 +30,7 @@ $ pyenv global 3.6.0
 $ pyenv rehash
 $ mkdir $HOME/src
 $ mkdir $HOME/bin
+$ gem install tmuxinator
 
 ```
 

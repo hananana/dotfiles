@@ -71,7 +71,6 @@ brew 'utf8proc'
 brew 'tmux'
 brew 'tree'
 brew 'vim', args: ['with-client-server', 'with-python3', 'with-override-system-vi']
-brew 'python3'
 brew 'w3m'
 brew 'xctool'
 brew 'zsh'
