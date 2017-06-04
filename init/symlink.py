@@ -14,12 +14,12 @@ for path in listDir:
     entityPath = os.path.join(entityDir, path)
 
     if os.path.exists(linkPath):
-	if os.path.islink(linkPath):
-	    os.unlink(linkPath)
-	elif os.path.isdir:
-	    shutil.rmtree(linkPath)
-	else:
-	    os.remove(linkPath)
+        if os.path.islink(linkPath):
+            os.unlink(linkPath)
+        elif os.path.isdir:
+            shutil.rmtree(linkPath)
+        else:
+            os.remove(linkPath)
 
     print(entityPath)
     print(linkPath)
