@@ -40,6 +40,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'osyo-manga/vim-anzu'
 Plug 'cohama/vim-insert-linenr'
 Plug 'koron/codic-vim'
+Plug 'wakatime/vim-wakatime'
 
 " XXX 使えてない
 Plug 'tpope/vim-surround'
@@ -118,3 +119,7 @@ let g:csv_delim=','
 " --------------------------------
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 
+" --------------------------------
+" vim-wakatime
+" --------------------------------
+let g:wakatime_ScreenRedraw = 1
