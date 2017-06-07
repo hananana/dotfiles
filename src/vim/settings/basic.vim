@@ -1,3 +1,5 @@
+set encoding=utf-8
+scriptencoding utf-8
 " --------------------------------
 " 基本設定
 " --------------------------------
@@ -6,9 +8,8 @@ augroup basic
 augroup END
 
 " leaderをspaceにする
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 " vim内部で使われる文字エンコーディングをutf-8に設定する
-set encoding=utf-8
 " tmuxで色を有効にする
 set t_Co=256
 " airlineを常時表示するよ
@@ -27,7 +28,7 @@ set cindent
 " /検索でbottomからtopに戻らない
 set nowrapscan
 " ビープ音いらん
-set vb t_vb=
+set visualbell t_vb=
 "コマンド表示
 set showcmd
 "バックアップファイルをとらない
@@ -91,4 +92,4 @@ set relativenumber
 " Color
 " --------------------------------
 
-autocmd ColorScheme * highlight LineNr guibg=#333333
+autocmd basic ColorScheme * highlight LineNr guibg=#333333
