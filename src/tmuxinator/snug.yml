@@ -12,3 +12,13 @@ windows:
       layout: even-horizontal
       panes:
         - ls -l
+  - wiki:
+      root: ~/src/github.com/dynoentertainment-group/snug.wiki
+      layout: even-horizontal
+      panes:
+        - vim
+  - wikigit:
+      root: ~/src/github.com/dynoentertainment-group/snug.wiki
+      layout: even-horizontal
+      panes:
+        - ls -l
