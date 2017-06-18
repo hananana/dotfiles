@@ -58,15 +58,15 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp'] }
 Plug 'b4winckler/vim-objc', { 'for': ['objc'] }
-Plug 'keith/swift.vim'
+Plug 'keith/swift.vim', { 'for': ['swift'] }
 Plug 'vim-scripts/ShaderHighLight'
-Plug 'aklt/plantuml-syntax'
+Plug 'aklt/plantuml-syntax', { 'for': ['uml'] }
 
 " other
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
