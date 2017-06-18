@@ -3,13 +3,8 @@ call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
 call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'final_opts', [])
-call denite#custom#var('grep', 'separator', [])
-call denite#custom#var('grep', 'default_opts', ['--nocolor', '--nogroup'])
-call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+call denite#custom#var('grep', 'command', ['rg'])
 
 nmap <silent> <Leader><Leader> :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
