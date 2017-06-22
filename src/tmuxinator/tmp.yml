@@ -1,0 +1,10 @@
+# ~/.tmuxinator/tmp.yml
+
+name: tmp
+root: ~/
+
+windows:
+  - zsh:
+      layout: main-vertical
+      panes:
+        - 

@@ -1,0 +1,8 @@
+# ~/.tmuxinator/unibuilder.yml
+
+name: unibuilder
+root: ~/src/github.com/hananana/unibuilder
+
+windows:
+  - editor: vim
+  - git: 
