@@ -1,0 +1,14 @@
+# ~/.tmuxinator/NextChoco.yml
+
+name: NextChoco
+root: ~/src/github.com/hananana/NextChoco
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+  - zsh:
+      layout: main-vertical
+      panes:
+        - 
