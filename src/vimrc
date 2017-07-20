@@ -41,6 +41,7 @@ Plug 'cohama/vim-insert-linenr'
 Plug 'koron/codic-vim'
 Plug 'lambdalisue/gina.vim'
 Plug 'glidenote/memolist.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 " XXX 使えてない
 Plug 'tpope/vim-surround'
@@ -125,4 +126,8 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 let g:memolist_path = '$HOME/Dropbox/memolist'
 let g:memolist_denite = 1
 
+" --------------------------------
+" vim-multiple-cursors
+" --------------------------------
+let g:multi_cursor_use_default_mapping=1
 
