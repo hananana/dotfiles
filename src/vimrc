@@ -42,10 +42,7 @@ Plug 'koron/codic-vim'
 Plug 'lambdalisue/gina.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'terryma/vim-multiple-cursors'
-
-" XXX 使えてない
 Plug 'tpope/vim-surround'
-" XXX 使えてない
 Plug 'thinca/vim-quickrun'
 
 " scheme
