@@ -15,6 +15,27 @@ command! ReloadVimrc :so ~/.vimrc
 command! ShowPath :echo expand("%:p")
 
 "----------------------------------------
+" Denite
+"----------------------------------------
+function! DeniteReplace(context)
+      let l:qflist = []
+      for l:target in a:context['targets']
+        if !has_key(l:target, 'action__path') | continue | endif
+        if !has_key(l:target, 'action__line') | continue | endif
+        if !has_key(l:target, 'action__text') | continue | endif
+
+        call add(l:qflist, {
+              \ 'filename': l:target['action__path'],
+              \ 'lnum': l:target['action__line'],
+              \ 'text': l:target['action__text']
+              \ })
+      endfor
+      call setqflist(l:qflist)
+      call qfreplace#start('')
+    endfunction
+call denite#custom#action('file', 'qfreplace', 'DeniteReplace')
+
+"----------------------------------------
 " XBuild
 "----------------------------------------
 let g:xbuild_solution_path = ''
