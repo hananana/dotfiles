@@ -15,3 +15,5 @@ nmap <silent> <Leader>gc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gr
 nmap <silent> <Leader>o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>n :<C-u>Denite -resume -select=+1 -immediately -highlight-mode-insert=Search<CR>
 nmap <silent> <Leader>p :<C-u>Denite -resume -select=-1 -immediately -highlight-mode-insert=Search<CR>
+nmap <Leader>tt :<C-u>Denite -highlight-mode-insert=Search gtags_def:
+nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>

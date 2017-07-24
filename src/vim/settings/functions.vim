@@ -15,6 +15,11 @@ command! ReloadVimrc :so ~/.vimrc
 command! ShowPath :echo expand("%:p")
 
 "----------------------------------------
+" gtags
+"----------------------------------------
+command! GenerateGtags :!gtags -v
+
+"----------------------------------------
 " Denite
 "----------------------------------------
 function! DeniteReplace(context)

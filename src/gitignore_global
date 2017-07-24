@@ -8,3 +8,7 @@ libcocos2d iOS.a
 tags
 tags.lock
 omnisharp.json
+
+GPATH
+GRTAGS
+GTAGS
