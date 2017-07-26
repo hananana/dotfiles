@@ -40,6 +40,12 @@ function! DeniteReplace(context)
     endfunction
 call denite#custom#action('file', 'qfreplace', 'DeniteReplace')
 
+function! s:memoGrepDenite()
+    let l:option = '-path=' . expand('$HOME/Dropbox/memolist')
+    exe 'Denite' 'grep' l:option '-highlight-mode-insert=Search'
+endfunction
+command! MemoGrepDenite call s:memoGrepDenite()<CR>
+
 "----------------------------------------
 " XBuild
 "----------------------------------------
