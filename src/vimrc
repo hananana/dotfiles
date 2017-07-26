@@ -124,7 +124,6 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 let g:memolist_path = '$HOME/Dropbox/memolist'
 let g:memolist_denite = 1
 let g:memolist_memo_suffix = 'md'
-let g:memolist_filename_prefix_none = 1
 
 " --------------------------------
 " vim-multiple-cursors
