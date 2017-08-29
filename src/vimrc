@@ -121,7 +121,12 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " --------------------------------
 " memolist.vim
 " --------------------------------
-let g:memolist_path = '$HOME/Dropbox/memolist'
+if has('mac')
+    let g:memolist_path = '$HOME/Dropbox/memolist'
+elseif has('unix')
+    let g:memolist_path = '/mnt/c/Users/' . $USER . '/Dropbox/memolist'
+endif
+
 let g:memolist_denite = 1
 let g:memolist_memo_suffix = 'md'
 
