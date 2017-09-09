@@ -9,7 +9,6 @@ augroup END
 
 " leaderをspaceにする
 let g:mapleader = "\<Space>"
-" vim内部で使われる文字エンコーディングをutf-8に設定する
 " tmuxで色を有効にする
 set t_Co=256
 " airlineを常時表示するよ

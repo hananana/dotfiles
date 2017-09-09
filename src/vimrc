@@ -24,9 +24,7 @@ Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
-Plug 'Shougo/denite.nvim'
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neoyank.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-qfreplace'
 Plug 'itchyny/lightline.vim'
@@ -82,8 +80,7 @@ call plug#end()
 filetype plugin indent on
 
 set runtimepath+=~/.vim/
-runtime! settings/*.vim
-runtime! settings/plugins/*.vim
+runtime! misc/*.vim
 
 " -------------------------------
 " scheme
@@ -102,7 +99,7 @@ let g:vim_json_syntax_conceal = 0
 " --------------------------------
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-
+let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 " --------------------------------
 " plantuml
 " --------------------------------
@@ -112,11 +109,6 @@ let g:plantuml_excutable_script='~/.dotfiles/scripts/make_uml'
 " csv.vim
 " --------------------------------
 let g:csv_delim=','
-
-" --------------------------------
-" markdown-preview
-" --------------------------------
-let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 
 " --------------------------------
 " memolist.vim
@@ -135,3 +127,11 @@ let g:memolist_memo_suffix = 'md'
 " --------------------------------
 let g:multi_cursor_use_default_mapping=1
 
+" --------------------------------
+" grep
+" :grep hoge | cw
+" --------------------------------
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
