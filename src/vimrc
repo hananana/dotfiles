@@ -9,21 +9,25 @@ augroup END
 " -------------------------------
 " vim-plug
 " -------------------------------
-if has('vim_starting')
-    set runtimepath+=~/.vim/plugged/vim-plug
-    if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+if has('vim_starting') && has('win32') == 0
+    set runtimepath+=~/.dotfiles/src/vim/plugged/vim-plug
+    if !isdirectory(expand('~/.dotfiles/src/vim/plugged/vim-plug'))
         echo 'install vim-plug...'
-        call system('mkdir -p ~/.vim/plugged/vim-plug')
-        call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+        call system('mkdir -p ~/.dotfiles/src/vim/plugged/vim-plug')
+        call system('git clone https://github.com/junegunn/vim-plug.git ~/.dotfiles/src/vim/plugged/vim-plug/autoload')
     end
 endif
 
-call plug#begin('~/.vim/plugged')
+if has('vim_starting') && has('win32') == 1
+    set runtimepath+=~/.dotfiles/src/vim/plugged/vim-plug
+endif
 
-Plug 'junegunn/vim-plug', {'dir': '~/.vim/plugged/vim-plug/autoload'}
+call plug#begin('~/.dotfiles/src/vim/plugged')
+
+Plug 'junegunn/vim-plug', {'dir': '~/.dotfiles/src/plugged/vim-plug/autoload'}
 
 " must
-Plug 'Shougo/vimproc.vim', {'dir': '~/.vim/plugged/vimproc.vim', 'do': 'make'}
+Plug 'Shougo/vimproc.vim', {'dir': '~/.dotfiles/src/vim/plugged/vimproc.vim', 'do': 'make'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-qfreplace'
@@ -42,7 +46,6 @@ Plug 'glidenote/memolist.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
-Plug 'ozelentok/denite-gtags'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'
@@ -79,7 +82,7 @@ Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
 call plug#end()
 filetype plugin indent on
 
-set runtimepath+=~/.vim/
+set runtimepath+=~/.dotfiles/src/vim/
 runtime! misc/*.vim
 
 " -------------------------------
@@ -119,7 +122,6 @@ elseif has('unix')
     let g:memolist_path = '/mnt/c/Users/' . $USER . '/Dropbox/memolist'
 endif
 
-let g:memolist_denite = 1
 let g:memolist_memo_suffix = 'md'
 
 " --------------------------------
