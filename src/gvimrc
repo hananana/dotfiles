@@ -1,0 +1,10 @@
+
+" for windows
+
+if has('win32')
+    source $VIMRUNTIME/delmenu.vim
+    set langmenu=ja_jp.utf-8
+    source $VIMRUNTIME/menu.viM
+    set iminsert=0
+    set imsearch=-1
+endif
