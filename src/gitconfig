@@ -3,7 +3,7 @@
 	email = hananana.vimmer@gmail.com
 [core]
 	editor = /usr/local/bin/vim
-    excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -26,3 +26,5 @@
 
 [ghq]
     root = ~/src
+[http]
+    sslcainfo = ~/.ssh/cacert.pem

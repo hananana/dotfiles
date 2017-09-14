@@ -28,6 +28,7 @@ Plug 'junegunn/vim-plug', {'dir': '~/.dotfiles/src/plugged/vim-plug/autoload'}
 
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.dotfiles/src/vim/plugged/vimproc.vim', 'do': 'make'}
+Plug 'tpope/vim-dispatch'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-qfreplace'
@@ -54,12 +55,15 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
+" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
+
+Plug 'Shougo/neocomplete.vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }

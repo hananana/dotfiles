@@ -7,4 +7,12 @@ if has('win32')
     source $VIMRUNTIME/menu.viM
     set iminsert=0
     set imsearch=-1
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=b
+    set guifont=SauceCodePro_NF:h11:cANSI:qDRAFT
 endif
