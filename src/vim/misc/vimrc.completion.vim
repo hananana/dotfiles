@@ -15,9 +15,9 @@ let g:neocomplete#enable_at_startup = 1
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 
 function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
+"     return neocomplete#close_popup() . "\<CR>"
     " For no inserting <CR> key.
-      "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+      return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 
 " <TAB>: completion.
