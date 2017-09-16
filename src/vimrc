@@ -50,6 +50,7 @@ Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 " completion
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Robzz/deoplete-omnisharp'
 else
     Plug 'Shougo/neocomplete.vim'
 endif
