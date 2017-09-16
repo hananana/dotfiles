@@ -9,17 +9,10 @@ augroup END
 " -------------------------------
 " vim-plug
 " -------------------------------
-if has('vim_starting') && has('win32') == 0
-    set runtimepath+=~/.dotfiles/src/vim/plugged/vim-plug
-    if !isdirectory(expand('~/.dotfiles/src/vim/plugged/vim-plug'))
-        echo 'install vim-plug...'
-        call system('mkdir -p ~/.dotfiles/src/vim/plugged/vim-plug')
-        call system('git clone https://github.com/junegunn/vim-plug.git ~/.dotfiles/src/vim/plugged/vim-plug/autoload')
-    end
-endif
+set runtimepath+=~/.dotfiles/src/vim/plugged/vim-plug
 
-if has('vim_starting') && has('win32') == 1
-    set runtimepath+=~/.dotfiles/src/vim/plugged/vim-plug
+if has('vim_starting') && !glob('~/.dotfiles/src/vim/autoload/plug.vim')
+    call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
 call plug#begin('~/.dotfiles/src/vim/plugged')
@@ -62,7 +55,11 @@ Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 
-Plug 'Shougo/neocomplete.vim'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/neocomplete.vim'
+endif
 Plug 'OmniSharp/omnisharp-vim'
 
 " syntax
