@@ -2,7 +2,7 @@
 	name = hananana
 	email = hananana.vimmer@gmail.com
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/local/bin/nvim
 	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
