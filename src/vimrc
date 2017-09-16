@@ -48,18 +48,16 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --omnisharp-completer'}
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
-Plug 'fatih/vim-go', {'for': ['go']}
-Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
-
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
     Plug 'Shougo/neocomplete.vim'
 endif
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
+Plug 'fatih/vim-go', {'for': ['go']}
+Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 Plug 'OmniSharp/omnisharp-vim'
 
 " syntax
