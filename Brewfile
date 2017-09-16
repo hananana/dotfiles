@@ -65,7 +65,7 @@ brew 'tig'
 brew 'utf8proc'
 brew 'tmux'
 brew 'tree'
-brew 'vim', args: ['with-client-server', 'with-python3', 'with-override-system-vi']
+brew 'vim', args: ['with-lua', 'with-python3', 'with-override-system-vi']
 brew 'w3m'
 brew 'xctool'
 brew 'zsh'
