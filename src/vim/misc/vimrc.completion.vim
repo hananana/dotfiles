@@ -10,7 +10,9 @@ if has('nvim')
     " deoplete.nvim
     " --------------------------------
     let g:deoplete#enable_at_startup = 1 
-
+    let g:deoplete#auto_complete_delay = 0
+    let g:deoplete#enable_refresh_always = 1
+    let g:deoplete#enable_smart_case = 1
 
 else
     " --------------------------------
