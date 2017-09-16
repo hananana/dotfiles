@@ -34,7 +34,7 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - vim
+        - nvim
   - git:
       layout: main-vertical
       panes:
