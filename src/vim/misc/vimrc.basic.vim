@@ -83,7 +83,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set nofoldenable
 " 補完ウィンドウは10項目まで
 set pumheight=10 
-
+" neovimの文字化け対策
+set ttimeout
+set ttimeoutlen=50
 
 " --------------------------------
 " Color
