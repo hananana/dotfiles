@@ -9,7 +9,6 @@ augroup END
 " -------------------------------
 " vim-plug
 " -------------------------------
-set runtimepath+=~/.dotfiles/src/vim/plugged/vim-plug
 
 if has('vim_starting') && !glob('~/.dotfiles/src/vim/autoload/plug.vim')
     call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
@@ -48,12 +47,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Robzz/deoplete-omnisharp'
-else
-    Plug 'Shougo/neocomplete.vim'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Robzz/deoplete-omnisharp'
+Plug 'Shougo/neocomplete.vim'
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
