@@ -6,6 +6,10 @@ augroup vimrc
     autocmd!
 augroup END
 
+let g:vimproc#download_windows_dll = 1
+let g:python3_host_prog='C:/Users/hanazawa/AppData/Local/Programs/Python/Python35/python.exe'
+let g:python_host_prog='C:/Python27/python.exe'
+
 " -------------------------------
 " vim-plug
 " -------------------------------
@@ -49,14 +53,13 @@ Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 " completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Robzz/deoplete-omnisharp'
-Plug 'Shougo/neocomplete.vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
-Plug 'OmniSharp/omnisharp-vim'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
