@@ -1,15 +1,21 @@
+scriptencoding utf-8
 
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.viM
+set iminsert=0
+set imsearch=-1
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set guioptions-=b
 
-    source $VIMRUNTIME/delmenu.vim
-    set langmenu=ja_jp.utf-8
-    source $VIMRUNTIME/menu.viM
-    set iminsert=0
-    set imsearch=-1
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=r
-    set guioptions-=R
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=b
+if has('nvim')
+    Guifont! SauceCodePro\ NF:h11
+    call GuiWindowFullScreen(1)
+else
     set guifont=SauceCodePro_NF:h11:cANSI:qDRAFT
+endif
