@@ -1,7 +1,5 @@
 
-" for windows
 
-if has('win32')
     source $VIMRUNTIME/delmenu.vim
     set langmenu=ja_jp.utf-8
     source $VIMRUNTIME/menu.viM
@@ -15,4 +13,3 @@ if has('win32')
     set guioptions-=L
     set guioptions-=b
     set guifont=SauceCodePro_NF:h11:cANSI:qDRAFT
-endif
