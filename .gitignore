@@ -1,5 +1,8 @@
 # for nvim
 init.vim
+ginit.vim
+
 # for vim-plug 
 plug.vim
 src/vim/plugged
+
