@@ -7,6 +7,7 @@ nnoremap <Leader>q :CtrlPQuickfix<CR>
 nnoremap <Leader>o :CtrlPFunky<CR>
 nnoremap <Leader>a :CtrlPLastMode<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
+nnoremap <Leader>q :CtrlPQuickfix<CR>
 
 nnoremap <Leader>d :CtrlPColorscheme<CR>
 nnoremap <Leader>y :CtrlPYankRound<CR>
