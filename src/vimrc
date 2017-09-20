@@ -52,8 +52,8 @@ Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Robzz/deoplete-omnisharp'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'Robzz/deoplete-omnisharp'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
