@@ -6,9 +6,13 @@ augroup vimrc
     autocmd!
 augroup END
 
-let g:vimproc#download_windows_dll = 1
-let g:python3_host_prog='C:/Users/hanazawa/AppData/Local/Programs/Python/Python35/python.exe'
-let g:python_host_prog='C:/Python27/python.exe'
+if has('nvim')
+    if has('win32')
+        let g:vimproc#download_windows_dll = 1
+        let g:python3_host_prog='C:/Users/hanazawa/AppData/Local/Programs/Python/Python35/python.exe'
+        let g:python_host_prog='C:/Python27/python.exe'
+    endif
+endif
 
 " -------------------------------
 " vim-plug
