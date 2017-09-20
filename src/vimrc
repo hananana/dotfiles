@@ -55,7 +55,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Robzz/deoplete-omnisharp'
 
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
@@ -116,12 +115,7 @@ let g:csv_delim=','
 " --------------------------------
 " memolist.vim
 " --------------------------------
-if has('mac')
-    let g:memolist_path = '$HOME/Dropbox/memolist'
-elseif has('unix')
-    let g:memolist_path = '/mnt/c/Users/' . $USER . '/Dropbox/memolist'
-endif
-
+let g:memolist_path = '$HOME/Dropbox/memolist'
 let g:memolist_memo_suffix = 'md'
 
 " --------------------------------
