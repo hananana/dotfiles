@@ -14,15 +14,12 @@ if has('nvim')
     let g:deoplete#enable_refresh_always = 1
     let g:deoplete#enable_smart_case = 1
 
-    inoremap <silent><expr> <Tab>
-        \ pumvisible() ?  "\<C-n>" :
-        \ deoplete#mappings#manual_complete()
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
     inoremap <silent> <CR> <C-r>=<SID>cr_func()<CR>
     function! s:cr_func() abort
-     return pumvisible() ? deoplete#close_popup() : "\<CR>"
+        return pumvisible() ? deoplete#close_popup() : "\<CR>"
     endfunction
-
 
 else
     " --------------------------------
