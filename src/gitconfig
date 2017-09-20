@@ -23,8 +23,5 @@
 	required = true
 [commit]
     template = ~/.commit_template.txt
-
 [ghq]
     root = ~/src
-[http]
-    sslcainfo = ~/.ssh/cacert.pem
