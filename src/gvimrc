@@ -18,5 +18,5 @@ if has('nvim')
     Guifont! Knack\ NF:h11
     call GuiWindowFullScreen(1)
 else
-    set guifont=SauceCodePro_NF:h11:cANSI:qDRAFT
+    set guifont=Knack\ NF:h11:cANSI:qDRAFT
 endif
