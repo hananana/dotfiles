@@ -19,12 +19,12 @@ endif
 " -------------------------------
 
 if has('vim_starting') && !glob('~/.dotfiles/src/vim/autoload/plug.vim')
-    call system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+    call system('curl -fLo ~/.dotfiles/src/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
 call plug#begin('~/.dotfiles/src/vim/plugged')
 
-Plug 'junegunn/vim-plug', {'dir': '~/.dotfiles/src/plugged/vim-plug/autoload'}
+Plug 'junegunn/vim-plug', {'dir': '~/.dotfiles/src/vim/plugged/vim-plug/autoload'}
 
 " must
 Plug 'Shougo/vimproc.vim', {'dir': '~/.dotfiles/src/vim/plugged/vimproc.vim', 'do': 'make'}
@@ -55,11 +55,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neocomplete.vim'
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'Robzz/deoplete-omnisharp'
+Plug 'Rip-Rip/clang_complete'
 
-Plug 'honza/vim-snippets'
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
