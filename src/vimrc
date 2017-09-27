@@ -105,6 +105,7 @@ let g:vim_json_syntax_conceal = 0
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+
 " --------------------------------
 " plantuml
 " --------------------------------
@@ -134,3 +135,5 @@ if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0 | copen | endif
