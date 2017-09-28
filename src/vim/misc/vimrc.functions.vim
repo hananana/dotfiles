@@ -7,7 +7,7 @@ augroup END
 "----------------------------------------
 " reload vimrc
 "----------------------------------------
-command! ReloadVimrc :so ~/.vimrc
+command! ReloadVimrc :so ~/.dotfiles/src/vimrc
 
 "----------------------------------------
 " show path
@@ -15,9 +15,9 @@ command! ReloadVimrc :so ~/.vimrc
 command! ShowPath :echo expand("%:p")
 
 "----------------------------------------
-" gtags
+" ctags
 "----------------------------------------
-command! GenerateGtags :!gtags -v
+command! GenerateCtags :!ctags -R
 
 "----------------------------------------
 " Denite
