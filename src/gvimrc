@@ -14,7 +14,6 @@ set guioptions-=L
 set guioptions-=b
 
 if has('nvim')
-"     Guifont! SauceCodePro\ NF:h11
     Guifont! Knack\ NF:h11
     call GuiWindowFullScreen(1)
 else
