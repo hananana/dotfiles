@@ -1,20 +1,23 @@
+nnoremap <Leader>gg :grep 
+nnoremap <Leader>gc :grep <cword>
 
-" nnoremap <Leader>g :Ag 
-
+" --------------------------------
+" ctrlp.vim
+" --------------------------------
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>q :CtrlPQuickfix<CR>
-nnoremap <Leader>o :CtrlPFunky<CR>
-nnoremap <Leader>a :CtrlPLastMode<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
 
-nnoremap <Leader>d :CtrlPColorscheme<CR>
-nnoremap <Leader>y :CtrlPYankRound<CR>
-
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 0
+
+if has('mac')
+    let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch' }
+endif
+
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_prompt_mappings = {
@@ -36,7 +39,7 @@ let g:ctrlp_prompt_mappings = {
             \ 'AcceptSelection("v")': ['<c-v>'],
             \ 'ToggleFocus()':        ['<nop>'],
             \ 'ToggleRegex()':        ['<nop>'],
-            \ 'ToggleByFname()':      ['<nop>'],
+            \ 'ToggleByFname()':      ['<c-d>'],
             \ 'ToggleType(1)':        ['<c-k>'],
             \ 'ToggleType(-1)':       ['<c-j>'],
             \ 'PrtExpandDir()':       ['<nop>'],
