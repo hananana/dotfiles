@@ -1,0 +1,14 @@
+# ~/.tmuxinator/otomevr.yml
+
+name: otomevr
+root: /media/sf_vmshare/src/github.com/ignis-ltd/otome-vr
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - ls -l
