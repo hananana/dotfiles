@@ -2,7 +2,7 @@
 	name = hananana
 	email = hananana.vimmer@gmail.com
 [core]
-	editor = /usr/local/bin/nvim
+	editor = /usr/local/bin/vim
 	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -13,8 +13,6 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
-[credential]
-	helper = osxkeychain
 [push]
 	default = simple
 [filter "hawser"]
