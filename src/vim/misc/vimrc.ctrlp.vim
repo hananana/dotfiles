@@ -12,10 +12,6 @@ nnoremap <Leader>q :CtrlPQuickfix<CR>
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 0
 
-if has('mac')
-    let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch' }
-endif
-
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
 let g:ctrlp_use_caching = 0

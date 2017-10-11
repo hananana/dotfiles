@@ -81,10 +81,6 @@ Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
 Plug 'soramugi/auto-ctags.vim'
 Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
 
-if has('mac')
-    Plug 'nixprime/cpsm'
-endif
-
 call plug#end()
 filetype plugin indent on
 
