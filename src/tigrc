@@ -23,5 +23,3 @@ bind main C !?git checkout %(commit)
 bind generic M none
 bind branch M none
 bind branch M !?git merge %(branch)
-
-set main-view-id = yes
