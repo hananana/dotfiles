@@ -1,7 +1,8 @@
 # ~/.tmuxinator/otomevr.yml
 
 name: otomevr
-root: /media/sf_vmshare/src/github.com/ignis-ltd/otome-vr
+root: /mnt/hgfs/share/src/github.com/ignis-ltd/otome-vr
+
 
 windows:
   - editor:

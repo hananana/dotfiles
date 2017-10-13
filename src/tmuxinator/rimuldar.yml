@@ -1,7 +1,7 @@
 # ~/.tmuxinator/rimuldar.yml
 
 name: rimuldar
-root: /media/sf_vmshare/src/github.com/ClusterVR/Rimuldar
+root: /mnt/hgfs/share/src/github.com/ClusterVR/Rimuldar
 
 windows:
   - editor:
