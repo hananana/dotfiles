@@ -1,3 +1,9 @@
+## How to install(W.I.P)
+
+```
+$ https://raw.githubusercontent.com/hananana/dotfiles/master/install.sh | bash
+```
+
 ## What's this?
 
 my dotfiles
