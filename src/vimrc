@@ -120,7 +120,7 @@ let g:csv_delim=','
 " memolist.vim
 " --------------------------------
 if has('unix')
-    let g:memolist_path = '/media/sf_vmshare/Dropbox/memolist'
+    let g:memolist_path = '/mnt/hgfs/share/Dropbox/memolist'
 else
     let g:memolist_path = '$HOME/Dropbox/memolist'
 endif
