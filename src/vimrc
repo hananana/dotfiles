@@ -47,6 +47,7 @@ Plug 'glidenote/memolist.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
+Plug 'wakatime/vim-wakatime'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'

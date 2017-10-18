@@ -46,3 +46,6 @@ $ gem install tmuxinator
 
 http://qiita.com/nabezokodaikon/items/ae9f18a7bbf0bd58c8de
 
+## Clipboard on iTerm2
+
+https://qiita.com/snaka/items/e720a91d05944f01c8bf
