@@ -42,7 +42,6 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'cohama/vim-insert-linenr'
 Plug 'glidenote/memolist.vim'
 Plug 'wakatime/vim-wakatime'
-Plug 'mbbill/undotree'
 
 " NOTE: ubuntuで動いてない
 Plug 'christoomey/vim-tmux-navigator'
@@ -53,6 +52,7 @@ Plug 'koron/codic-vim'
 Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
+Plug 'mbbill/undotree'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'
