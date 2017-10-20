@@ -14,7 +14,12 @@ let g:ctrlp_show_hidden = 0
 
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
-let g:ctrlp_use_caching = 0
+if has('mac')
+    let g:ctrlp_use_caching = 0
+else
+    let g:ctrlp_use_caching = 1
+endif
+
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
