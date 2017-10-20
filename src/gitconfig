@@ -22,4 +22,4 @@
 [commit]
     template = ~/.commit_template.txt
 [ghq]
-    root = /media/sf_vmshare/src
+    root = ~/

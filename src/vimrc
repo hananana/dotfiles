@@ -47,6 +47,7 @@ Plug 'glidenote/memolist.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
+Plug 'wakatime/vim-wakatime'
 
 " scheme
 Plug 'nanotech/jellybeans.vim'
@@ -102,7 +103,6 @@ let g:vim_json_syntax_conceal = 0
 " --------------------------------
 " markdown
 " --------------------------------
-let g:previm_open_cmd = 'open -a Google\ Chrome'
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 
