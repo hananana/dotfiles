@@ -42,8 +42,6 @@ Plug 'osyo-manga/vim-anzu'
 Plug 'cohama/vim-insert-linenr'
 Plug 'glidenote/memolist.vim'
 Plug 'wakatime/vim-wakatime'
-
-" NOTE: ubuntuで動いてない
 Plug 'christoomey/vim-tmux-navigator'
 
 " NOTE: 使いこなせてない

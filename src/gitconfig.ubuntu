@@ -22,4 +22,4 @@
 [commit]
     template = ~/.commit_template.txt
 [ghq]
-    root = /mnt/hgfs/share
+    root = /mnt/hgfs/share/src
