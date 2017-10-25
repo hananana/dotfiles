@@ -22,4 +22,4 @@
 [commit]
     template = ~/.commit_template.txt
 [ghq]
-    root = ~/
+    root = ~/src
