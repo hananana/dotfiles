@@ -20,6 +20,19 @@ command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
 
 "----------------------------------------
+" IME for ubuntu
+"----------------------------------------
+
+function! ImInActivate()
+    call system('fcitx-remote -c')
+endfunction
+
+if has('mac') == 0 && has('win64') == 0
+    inoremap <silent> <C-[> <ESC>:call ImInActivate()<cr>
+endif
+
+
+"----------------------------------------
 " Denite
 "----------------------------------------
 "function! DeniteReplace(context)
