@@ -39,6 +39,8 @@ https://qiita.com/hoshitocat/items/a80d613ef73b7a06ec50
 
 ## TODO
 
+- [ ] install script
+- [ ] combine prezto
 - [ ] deoplete-clang2's tab confliction
 - [ ] deoplete-swift
 - [ ] deoplete-go
