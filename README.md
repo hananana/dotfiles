@@ -8,22 +8,6 @@ $ https://raw.githubusercontent.com/hananana/dotfiles/master/install.sh | bash
 
 my dotfiles
 
-## Supported Language
-
-- c#
-- objc
-- objcpp
-- cpp
-- go
-- python
-- ruby
-- vim script
-- markdown
-- uml
-- json
-- csv
-- xml
-
 ## HOW TO(WIP)
 
 ```
@@ -47,8 +31,19 @@ http://qiita.com/nabezokodaikon/items/ae9f18a7bbf0bd58c8de
 
 https://qiita.com/snaka/items/e720a91d05944f01c8bf
 
-# Ubuntu
+## Ubuntu
 
 ## IME setting
 
 https://qiita.com/hoshitocat/items/a80d613ef73b7a06ec50
+
+## TODO
+
+- [ ] deoplete-clang2's tab confliction
+- [ ] deoplete-swift
+- [ ] deoplete-go
+- [ ] deoplete-github
+- [ ] deoplete-neco
+- [ ] deoplete-zsh
+- [ ] deoplete-emoji
+

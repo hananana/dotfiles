@@ -60,9 +60,16 @@ Plug 'hara/ctrlp-colorscheme'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
-Plug 'Shougo/neocomplete.vim'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'dimixar/deoplete-omnisharp'
+    Plug 'tweekmonster/deoplete-clang2'
+else
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Rip-Rip/clang_complete'
+endif
+
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'Rip-Rip/clang_complete'
 
 Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 Plug 'fatih/vim-go', {'for': ['go']}
@@ -90,6 +97,12 @@ filetype plugin indent on
 
 set runtimepath+=~/.dotfiles/src/vim/
 runtime! misc/*.vim
+
+if has('nvim')
+    runtime! misc/only.nvim/*.vim
+else
+    runtime! misc/only.vim/*.vim
+endif
 
 " -------------------------------
 " scheme
