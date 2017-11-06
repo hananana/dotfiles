@@ -1,0 +1,36 @@
+# -------------------------------------
+# export
+# -------------------------------------
+
+# android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH=$PATH":$ANDROID_HOME/platform-tools"
+export PATH=$PATH":$ANDROID_HOME/tools"
+export EDITOR='vim'
+
+# go
+case ${OSTYPE} in
+    darwin*)
+        export GOPATH="$HOME"
+        export PATH=$PATH:$GOPATH/bin
+        ;;
+    linux*)
+        export GOPATH="/mnt/hgfs/share"
+        export PATH=$PATH:$GOPATH/bin
+        ;;
+esac
+
+# my script
+export PATH=$PATH:$HOME/.dotfiles/bin
+
+# -------------------------------------
+# Javaのswitch
+# brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
+# -------------------------------------
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
+
+case ${OSTYPE} in
+    darwin*)
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+        ;;
+esac
