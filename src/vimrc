@@ -22,6 +22,7 @@ Plug 'junegunn/vim-plug', {'dir': '~/.dotfiles/src/vim/plugged/vim-plug/autoload
 Plug 'Shougo/vimproc.vim', {'dir': '~/.dotfiles/src/vim/plugged/vimproc.vim', 'do': 'make'}
 Plug 'tpope/vim-dispatch'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-qfreplace'
 Plug 'itchyny/lightline.vim'
