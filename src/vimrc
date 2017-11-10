@@ -6,14 +6,6 @@ augroup vimrc
     autocmd!
 augroup END
 
-if has('nvim')
-    if has('win32')
-        let g:vimproc#download_windows_dll = 1
-        let g:python3_host_prog='C:/Users/hanazawa/AppData/Local/Programs/Python/Python35/python.exe'
-        let g:python_host_prog='C:/Python27/python.exe'
-    endif
-endif
-
 " -------------------------------
 " vim-plug
 " -------------------------------
@@ -61,18 +53,32 @@ Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
 if has('nvim')
+    " GOD
     Plug 'Shougo/deoplete.nvim'
+    " cs
     Plug 'dimixar/deoplete-omnisharp'
+    " cpp, objc, objcpp
     Plug 'tweekmonster/deoplete-clang2'
+    " vim
+    Plug 'Shougo/neco-vim'
+    " go
+    Plug 'zchee/deoplete-go', {'do' : 'make'}
+    " ruby
+    Plug 'fishbullet/deoplete-ruby'
 else
+    " GOD
     Plug 'Shougo/neocomplete.vim'
+    " cpp, objc, objcpp
     Plug 'Rip-Rip/clang_complete'
+    " go
+    Plug 'fatih/vim-go', {'for': ['go']}
+    " ruby
+    Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
 endif
 
-Plug 'OmniSharp/omnisharp-vim'
-
-Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
-Plug 'fatih/vim-go', {'for': ['go']}
+" cs
+Plug 'OmniSharp/omnisharp-vim', {'do' : './server/msbuild'}
+" java
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 
 " syntax
