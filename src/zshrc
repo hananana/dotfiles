@@ -14,7 +14,14 @@ function random-emoji() {
     echo $emojis[$(($ran + 1))]
 }
 
-PROMPT='$(random-emoji)  %F{cyan}%~%f '
+case ${OSTYPE} in
+    darwin*)
+        PROMPT='$(random-emoji) %F{cyan}%~%f '
+        ;;
+    linux*)
+        PROMPT='%F{cyan}%~%f '
+        ;;
+esac
 RPROMPT="%D{%Y年%m月%d日（%a）%T}"
 
 # -------------------------------------

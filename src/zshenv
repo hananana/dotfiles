@@ -9,16 +9,8 @@ export PATH=$PATH":$ANDROID_HOME/tools"
 export EDITOR='vim'
 
 # go
-case ${OSTYPE} in
-    darwin*)
-        export GOPATH="$HOME"
-        export PATH=$PATH:$GOPATH/bin
-        ;;
-    linux*)
-        export GOPATH="/mnt/hgfs/share"
-        export PATH=$PATH:$GOPATH/bin
-        ;;
-esac
+export GOPATH="$HOME"
+export PATH=$PATH:$GOPATH/bin
 
 # my script
 export PATH=$PATH:$HOME/.dotfiles/bin
