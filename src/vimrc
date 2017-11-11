@@ -64,6 +64,8 @@ if has('nvim')
     Plug 'zchee/deoplete-go', {'do' : 'make'}
     " ruby
     Plug 'fishbullet/deoplete-ruby', {'for' : ['ruby']}
+    " zsh
+    Plug 'zchee/deoplete-zsh'
 else
     " GOD
     Plug 'Shougo/neocomplete.vim'
