@@ -66,6 +66,8 @@ if has('nvim')
     Plug 'fishbullet/deoplete-ruby', {'for' : ['ruby']}
     " zsh
     Plug 'zchee/deoplete-zsh'
+    " python
+    Plug 'zchee/deoplete-jedi'
 else
     " GOD
     Plug 'Shougo/neocomplete.vim'
