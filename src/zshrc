@@ -9,14 +9,19 @@ function random-emoji() {
 		'\U1F525' # fire
 		'\U1F363' # sushi
 		'\U1F64A' # iwazaru
+        '\U1F608' # devil
+        '\U1F440' # eyes
+        '\U1F496' # shining heart
+        '\U1F49E' # two heart
+        '\U1F4AC' # balloon
 	)
-    local ran=$(($(od -vAn -N4 -tu4 < /dev/random) % 3))
+    local ran=$(($(od -vAn -N4 -tu4 < /dev/random) % 8))
     echo $emojis[$(($ran + 1))]
 }
 
 case ${OSTYPE} in
     darwin*)
-        PROMPT='$(random-emoji) %F{cyan}%~%f '
+        PROMPT='$(random-emoji)  %F{cyan}%~%f '
         ;;
     linux*)
         PROMPT='%F{cyan}%~%f '
