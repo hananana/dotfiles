@@ -14,9 +14,9 @@ then
     exit 1
 fi
 
-if ! type peco >/dev/null 2>&1
+if ! type fzy >/dev/null 2>&1
 then
-    err 'must install peco. PLZ $brew install peco'
+    err 'must install fzy.'
 fi
 
-less $hist | peco
+less $hist | fzy

@@ -6,9 +6,9 @@ err(){
     echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
 }
 
-if ! type peco >/dev/null 2>&1
+if ! type fzy >/dev/null 2>&1
 then
-    err 'must install peco. PLZ $brew install peco'
+    err 'must install fzy.'
 fi
 
-find $(pwd) -iname "*" | peco
+find $(pwd) -iname "*" | fzy
