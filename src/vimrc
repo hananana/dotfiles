@@ -41,11 +41,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'koron/codic-vim'
-Plug 'lambdalisue/gina.vim'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
-Plug 'mbbill/undotree'
-
 
 " my plugin
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
