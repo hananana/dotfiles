@@ -1,48 +1,110 @@
 # -------------------------------------
-# prompt
+# export
 # -------------------------------------
-# enable function in prompt
-setopt PROMPT_SUBST
+export EDITOR='nvim'
 
-function random-emoji() {
-	local emojis=(
-		'\U1F525' # fire
-		'\U1F363' # sushi
-		'\U1F64A' # iwazaru
-        '\U1F608' # devil
-        '\U1F440' # eyes
-        '\U1F496' # shining heart
-        '\U1F49E' # two heart
-        '\U1F4AC' # balloon
-	)
-    local ran=$(($(od -vAn -N4 -tu4 < /dev/random) % 8))
-    echo $emojis[$(($ran + 1))]
-}
+# android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH=$PATH":$ANDROID_HOME/platform-tools"
+export PATH=$PATH":$ANDROID_HOME/tools"
+
+# go
+export GOPATH="$HOME"
+export PATH=$PATH:$GOPATH/bin
+
+# my script
+export PATH=$PATH:$HOME/.dotfiles/bin
+
+# -------------------------------------
+# Javaのswitch
+# brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
+# -------------------------------------
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
 
 case ${OSTYPE} in
     darwin*)
-        PROMPT='$(random-emoji)  %F{cyan}%~%f '
-        ;;
-    linux*)
-        PROMPT='%F{cyan}%~%f '
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
         ;;
 esac
-RPROMPT="%D{%Y年%m月%d日（%a）%T}"
+
+# -------------------------------------
+# setopt
+# -------------------------------------
+setopt PROMPT_SUBST
+setopt no_beep
+setopt correct
+setopt magicequalsubst
+setopt auto_list
+setopt auto_menu
+
+# -------------------------------------
+# autoload
+# -------------------------------------
+
+autoload -Uz vcs_info
+
+# -------------------------------------
+# completion
+# -------------------------------------
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# -------------------------------------
+# ls
+# -------------------------------------
+export LSCOLORS=Exfxcxdxbxegedabagacad
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export ZLS_COLORS=$LS_COLORS
+export CLICOLOR=true
+
+# -------------------------------------
+# prompt
+# -------------------------------------
+
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr ""
+zstyle ':vcs_info:git:*' unstagedstr ""
+zstyle ':vcs_info:*' formats "  %b %u%c "
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+
+function random_glyphs() {
+    local glyphs=(
+        ' '
+        ' '
+        ' '
+        ' '
+        ' '
+        ' '
+    )
+    local ran=$(($(od -vAn -N4 -tu4 < /dev/random) % 6))
+    echo $glyphs[$(($ran + 1))]
+}
+
+PROMPT='%K{015}%F{black} $(random_glyphs) %~ %f%k%K{246}%F{015}%f%k%F{black}%K{246}${vcs_info_msg_0_}%f%k%F{246}%K{black}%k%f '
+
+# -------------------------------------
+# zgen
+# -------------------------------------
+
+source "${HOME}/.zgen/zgen.zsh"
+
+if ! zgen saved; then
+    zgen load b4b4r07/enhancd
+    ENHANCD_HOOK_AFTER_CD=l
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen save
+fi
 
 # -------------------------------------
 # keybind&alias
 # -------------------------------------
 
 # ls
-if [ -x "`which colorls`" ]; then
-    export RUBYOPT=-W0
-    alias ls="colorls -l -a --sd"
-    alias l="colorls -l -a --sd"
-else
-    alias ls="ls -GF"
-    alias l='ls -lah'
-    alias la='ls -lAh'
-fi
+alias l='ls -lah'
 
 # git
 alias g='git'
@@ -187,11 +249,3 @@ function select_history() {
 zle -N select_history
 bindkey '^r' select_history 
 
-# -------------------------------------
-# zgen
-# -------------------------------------
-
-source "${HOME}/.zgen/zgen.zsh"
-zgen load b4b4r07/enhancd
-ENHANCD_HOOK_AFTER_CD=l
-zgen load zsh-users/zsh-syntax-highlighting
