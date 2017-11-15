@@ -62,9 +62,9 @@ if has('nvim')
     " ruby
     Plug 'fishbullet/deoplete-ruby', {'for' : ['ruby']}
     " zsh
-    Plug 'zchee/deoplete-zsh'
+    Plug 'zchee/deoplete-zsh', {'for' : ['zsh']}
     " python
-    Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-jedi', {'for' : ['python']}
 else
     " GOD
     Plug 'Shougo/neocomplete.vim'
@@ -77,7 +77,7 @@ else
 endif
 
 " cs
-Plug 'OmniSharp/omnisharp-vim', {'do' : './server/msbuild'}
+Plug 'OmniSharp/omnisharp-vim', {'do' : './server/msbuild', 'for' : ['cs']}
 " java
 Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 
