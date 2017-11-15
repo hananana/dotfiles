@@ -67,7 +67,7 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr ""
 zstyle ':vcs_info:git:*' unstagedstr ""
-zstyle ':vcs_info:*' formats "  %b %u%c "
+zstyle ':vcs_info:*' formats "%F{black}%K{246}   %b %u%c %f%k%F{246}%K{black}%k%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 
@@ -84,7 +84,7 @@ function random_glyphs() {
     echo $glyphs[$(($ran + 1))]
 }
 
-PROMPT='%K{015}%F{black} $(random_glyphs) %~ %f%k%K{246}%F{015}%f%k%F{black}%K{246}${vcs_info_msg_0_}%f%k%F{246}%K{black}%k%f '
+PROMPT='%K{015}%F{black} $(random_glyphs) %~ %f%k%K{246}%F{015}%f%k${vcs_info_msg_0_} '
 
 # -------------------------------------
 # zgen
@@ -104,7 +104,11 @@ fi
 # -------------------------------------
 
 # ls
-alias l='ls -lah'
+alias l='/usr/local/bin/gls --color -XlAh'
+# vim
+alias v='nvim'
+# cd
+alias c='cd'
 
 # git
 alias g='git'

@@ -82,7 +82,7 @@ brew 'fortune'
 brew 'gibo'
 brew 'source-highlight'
 brew 'ripgrep'
-brew 'global, args; ['with-pygments', 'with-ctags']
+brew 'coreutils'
 cask 'iterm2'
 cask 'appcleaner'
 cask 'java6'
