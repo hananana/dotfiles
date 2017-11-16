@@ -105,7 +105,15 @@ fi
 # -------------------------------------
 
 # ls
-alias l='/usr/local/bin/gls --color -XlAh'
+case ${OSTYPE} in
+    darwin*)
+        alias l='/usr/local/bin/gls --color -XlAh'
+        ;;
+    linux*)
+        alias l='ls --color -XlAh'
+        ;;
+esac
+
 # vim
 alias v='nvim'
 # cd
