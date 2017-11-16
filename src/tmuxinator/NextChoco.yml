@@ -7,8 +7,8 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - nvim
+        - v
   - zsh:
       layout: main-vertical
       panes:
-        - 
+        - l

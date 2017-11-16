@@ -7,8 +7,8 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - nvim
+        - v
   - git:
       layout: even-horizontal
       panes:
-        - ls -l
+        - l
