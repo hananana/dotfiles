@@ -1,0 +1,10 @@
+# ~/.tmuxinator/dropbox.yml
+
+name: dropbox
+root: ~/Dropbox
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - ls
