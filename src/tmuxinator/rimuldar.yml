@@ -1,14 +1,14 @@
 # ~/.tmuxinator/rimuldar.yml
 
 name: rimuldar
-root: /mnt/hgfs/share/src/github.com/ClusterVR/Rimuldar
+root: /mnt/d/src/github.com/ClusterVR/Rimuldar
 
 windows:
   - editor:
       layout: even-horizontal
       panes:
-        - vim
+        - nvim
   - git:
       layout: even-horizontal
       panes:
-        - ls -l
+        - l
