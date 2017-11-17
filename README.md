@@ -40,12 +40,12 @@ https://qiita.com/hoshitocat/items/a80d613ef73b7a06ec50
 ## TODO
 
 - [ ] install script
-- [ ] combine prezto
+- [x] combine prezto
 - [ ] deoplete-clang2's tab confliction
 - [ ] deoplete-swift
-- [ ] deoplete-go
+- [x] deoplete-go
 - [ ] deoplete-github
-- [ ] deoplete-neco
-- [ ] deoplete-zsh
+- [x] deoplete-neco
+- [x] deoplete-zsh
 - [ ] deoplete-emoji
 
