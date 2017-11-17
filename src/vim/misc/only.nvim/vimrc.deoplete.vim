@@ -18,3 +18,8 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
+
+" --------------------------------
+" deoplete-omnisharp
+" --------------------------------
+let g:deoplete_omnisharp_exe_path = get(g:, "deoplete_omnisharp_exe_path", '~/.dotfiles/src/vim/plugged/deoplete-omnisharp/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe')
