@@ -52,7 +52,7 @@ if has('nvim')
     " GOD
     Plug 'Shougo/deoplete.nvim'
     " cs
-    Plug 'dimixar/deoplete-omnisharp', {'for' : ['cs'] }
+    Plug 'Robzz/deoplete-omnisharp', {'for' : ['cs'] }
     " cpp, objc, objcpp
     Plug 'tweekmonster/deoplete-clang2', {'for' : ['cpp', 'objc', 'objcpp']}
     " vim
