@@ -58,7 +58,7 @@ if has('nvim')
     " vim
     Plug 'Shougo/neco-vim', {'for' : ['vim'] }
     " go
-    Plug 'zchee/deoplete-go', {'do' : 'make'}
+    Plug 'zchee/deoplete-go', {'for' : ['go'], 'do' : 'make'}
     " ruby
     Plug 'fishbullet/deoplete-ruby', {'for' : ['ruby']}
     " zsh
