@@ -1,0 +1,10 @@
+# ~/.tmuxinator/tasks.yml
+
+name: tasks
+root: ~/Dropbox/tasks
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - v -O general.md nextchoco.md
