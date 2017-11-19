@@ -36,16 +36,3 @@ https://qiita.com/snaka/items/e720a91d05944f01c8bf
 ## IME setting
 
 https://qiita.com/hoshitocat/items/a80d613ef73b7a06ec50
-
-## TODO
-
-- [ ] install script
-- [x] combine prezto
-- [ ] deoplete-clang2's tab confliction
-- [ ] deoplete-swift
-- [x] deoplete-go
-- [ ] deoplete-github
-- [x] deoplete-neco
-- [x] deoplete-zsh
-- [ ] deoplete-emoji
-
