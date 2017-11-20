@@ -48,11 +48,16 @@ Plug 'thinca/vim-quickrun'
 Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
 
 " completion
+" cs
+Plug 'OmniSharp/omnisharp-vim', {'do' : './server/msbuild', 'for' : ['cs']}
+" java
+Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
+
 if has('nvim')
     " GOD
     Plug 'Shougo/deoplete.nvim'
     " cs
-    Plug 'cyansprite/deoplete-omnisharp', {'do': './install.sh', 'for' : ['cs'] }
+    Plug 'autozimu/deoplete-omnisharp'
     " cpp, objc, objcpp
     Plug 'tweekmonster/deoplete-clang2', {'for' : ['cpp', 'objc', 'objcpp']}
     " vim
@@ -74,12 +79,8 @@ else
     Plug 'fatih/vim-go', {'for': ['go']}
     " ruby
     Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
-    " cs
-    Plug 'OmniSharp/omnisharp-vim', {'do' : './server/msbuild', 'for' : ['cs']}
 endif
 
-" java
-Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
