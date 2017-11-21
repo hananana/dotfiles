@@ -36,6 +36,7 @@ Plug 'cohama/vim-insert-linenr'
 Plug 'glidenote/memolist.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'gregsexton/VimCalc'
 
 " NOTE: 使いこなせてない
 Plug 'sheerun/vim-polyglot'
