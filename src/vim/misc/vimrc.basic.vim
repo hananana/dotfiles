@@ -74,7 +74,7 @@ set diffopt=vertical
 " カーソル行をハイライト
 set cursorline
 " previewを表示しない
-set completeopt=menuone
+set completeopt=menuone,preview
 " truecolor
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
