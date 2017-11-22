@@ -7,6 +7,15 @@ augroup vimrc
 augroup END
 
 " -------------------------------
+" echo startup time
+" -------------------------------
+
+if has('vim_starting') && has('reltime')
+    let g:startuptime = reltime()
+    autocmd vimrc VimEnter * let g:startuptime = reltime(g:startuptime) | redraw | echomsg 'startuptime: ' . reltimestr(g:startuptime)
+endif
+
+" -------------------------------
 " vim-plug
 " -------------------------------
 
