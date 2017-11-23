@@ -1,172 +1,913 @@
+set encoding=utf-8
 scriptencoding utf-8
-
-filetype plugin indent off
 
 augroup vimrc
     autocmd!
 augroup END
 
-" -------------------------------
-" echo startup time
-" -------------------------------
+" echomsg startup time {{{
 
 if has('vim_starting') && has('reltime')
     let g:startuptime = reltime()
     autocmd vimrc VimEnter * let g:startuptime = reltime(g:startuptime) | redraw | echomsg 'startuptime: ' . reltimestr(g:startuptime)
 endif
+" }}}
+" define variable {{{
+let s:env = {}
+let s:env.path = {}
+let s:env.path.cache = expand('~/.cache')
+let s:env.path.dein = s:env.path.cache . '/dein'
+let s:env.dein = {
+            \ 'repo' : 'https://github.com/Shougo/dein.vim',
+            \ 'path' : s:env.path.dein . '/repos/github.com/Shougo/dein.vim'}
+" }}}
+" clone dein if needed {{{
+if !isdirectory(s:env.dein.path)
+    execute '!git clone' s:env.dein.repo s:env.dein.path
+endif
+" }}}
+" dein add {{{
 
-" -------------------------------
-" vim-plug
-" -------------------------------
+if &compatible
+    set nocompatible
+endif
+execute 'set runtimepath+=' . s:env.dein.path
 
-if has('vim_starting') && !glob('~/.dotfiles/src/vim/autoload/plug.vim')
-    call system('curl -fLo ~/.dotfiles/src/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+if dein#load_state(s:env.path.dein)
+    call dein#begin(s:env.path.dein)
+
+    call dein#add('nanotech/jellybeans.vim')
+    call dein#add('Shougo/vimproc.vim', { 'timeout' : 1800, 'build' : 'make' })
+    call dein#add('tpope/vim-dispatch')
+    call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('lambdalisue/gina.vim')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('thinca/vim-qfreplace')
+    call dein#add('itchyny/lightline.vim')
+    call dein#add('tyru/caw.vim')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('ryanoasis/vim-devicons')
+    call dein#add('osyo-manga/vim-anzu')
+    call dein#add('cohama/vim-insert-linenr')
+    call dein#add('glidenote/memolist.vim')
+    call dein#add('wakatime/vim-wakatime')
+    call dein#add('christoomey/vim-tmux-navigator')
+    call dein#add('gregsexton/VimCalc')
+    call dein#add('junegunn/vim-easy-align')
+    call dein#add('sheerun/vim-polyglot')
+    call dein#add('osyo-manga/vim-watchdogs')
+
+    " more expert
+    call dein#add('terryma/vim-multiple-cursors')
+    call dein#add('koron/codic-vim')
+    call dein#add('tpope/vim-surround')
+    call dein#add('thinca/vim-quickrun')
+
+    " completion
+    call dein#add('OmniSharp/omnisharp-vim',       { 'lazy' : 1, 'on_ft' : ['cs'], 'build' : 'xbuild server/Omnisharp.sln' })
+    call dein#add('artur-shaik/vim-javacomplete2', { 'lazy' : 1, 'on_ft' : ['java'] })
+
+    call dein#add('Shougo/deoplete.nvim',          { 'if' : has('nvim'), 'lazy' : 1, 'on_i' : 1 })
+    call dein#add('autozimu/deoplete-omnisharp',   { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['cs'] })
+    call dein#add('tweekmonster/deoplete-clang2',  { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['cpp', 'objc', 'objcpp']})
+    call dein#add('Shougo/neco-vim',               { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['vim']})
+    call dein#add('zchee/deoplete-go',             { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['go']})
+    call dein#add('fishbullet/deoplete-ruby',      { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['ruby']})
+    call dein#add('zchee/deoplete-zsh',            { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['zsh']})
+    call dein#add('zchee/deoplete-jedi',           { 'if' : has('nvim'), 'lazy' : 1, 'on_ft' : ['python']})
+
+    call dein#add('Shougo/neocomplete.vim', { 'if' : !has('nvim'), 'lazy' : 1, 'on_i' : 1 })
+    call dein#add('Rip-Rip/clang_complete', { 'if' : !has('nvim'), 'lazy' : 1, 'on_ft' : ['cpp', 'objc', 'objcpp'] })
+    call dein#add('fatih/vim-go',           { 'if' : !has('nvim'), 'lazy' : 1, 'on_ft' : ['go'] })
+    call dein#add('osyo-manga/vim-monster', { 'if' : !has('nvim'), 'lazy' : 1, 'on_ft' : ['ruby'] })
+
+   " syntax
+    call dein#add('OrangeT/vim-csharp',               { 'lazy' : 1, 'on_ft':  [ 'cs', 'csi', 'csx' ]})
+    call dein#add('octol/vim-cpp-enhanced-highlight', { 'lazy' : 1, 'on_ft': ['cpp'] })
+    call dein#add('b4winckler/vim-objc',              { 'lazy' : 1, 'on_ft': ['objc'] })
+    call dein#add('keith/swift.vim',                  { 'lazy' : 1, 'on_ft': ['swift'] })
+    call dein#add('aklt/plantuml-syntax',             { 'lazy' : 1, 'on_ft': ['uml'] })
+    call dein#add('vim-scripts/ShaderHighLight')
+ 
+    " other
+    call dein#add('hananana/lilycomment.vim',       { 'lazy' : 1, 'on_ft' : ['cs'] })
+    call dein#add('vim-scripts/DoxygenToolkit.vim', { 'lazy' : 1, 'on_ft' : ['cpp', 'objcpp', 'objc'] } )
+    call dein#add('kana/vim-altr',                  { 'lazy' : 1, 'on_ft' : ['cpp', 'objcpp', 'objc'] })
+    call dein#add('elzr/vim-json',                  { 'lazy' : 1, 'on_ft' : ['json']})
+    call dein#add('stephpy/vim-yaml',               { 'lazy' : 1, 'on_ft' : [ 'yaml' ] })
+    call dein#add('chrisbra/csv.vim',               { 'lazy' : 1, 'on_ft' : [ 'csv' ] })
+    call dein#add('vim-scripts/Align',              { 'lazy' : 1, 'on_ft' : [ 'csv' ] })
+    call dein#add('iamcco/markdown-preview.vim',    { 'lazy' : 1, 'on_ft' : [ 'markdown' ] })
+ 
+    call dein#end()
+    call dein#save_state()
 endif
 
-call plug#begin('~/.dotfiles/src/vim/plugged')
-
-Plug 'junegunn/vim-plug', {'dir': '~/.dotfiles/src/vim/plugged/vim-plug/autoload'}
-
-" must
-Plug 'nanotech/jellybeans.vim'
-Plug 'Shougo/vimproc.vim', {'dir': '~/.dotfiles/src/vim/plugged/vimproc.vim', 'do': 'make'}
-Plug 'tpope/vim-dispatch'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'lambdalisue/gina.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'thinca/vim-qfreplace'
-Plug 'itchyny/lightline.vim'
-Plug 'tyru/caw.vim'
-Plug 'w0rp/ale'
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'osyo-manga/vim-anzu'
-Plug 'cohama/vim-insert-linenr'
-Plug 'glidenote/memolist.vim'
-Plug 'wakatime/vim-wakatime'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'gregsexton/VimCalc'
-
-" NOTE: 使いこなせてない
-Plug 'sheerun/vim-polyglot'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'koron/codic-vim'
-Plug 'tpope/vim-surround'
-Plug 'thinca/vim-quickrun'
-
-" my plugin
-Plug 'hananana/lilycomment.vim', {'for': ['cs'] }
-
-" completion
-" cs
-Plug 'OmniSharp/omnisharp-vim', {'do' : './server/msbuild', 'for' : ['cs']}
-" java
-Plug 'artur-shaik/vim-javacomplete2', {'for': ['java']}
-
-if has('nvim')
-    " GOD
-    Plug 'Shougo/deoplete.nvim'
-    " cs
-    Plug 'autozimu/deoplete-omnisharp'
-    " cpp, objc, objcpp
-    Plug 'tweekmonster/deoplete-clang2', {'for' : ['cpp', 'objc', 'objcpp']}
-    " vim
-    Plug 'Shougo/neco-vim', {'for' : ['vim'] }
-    " go
-    Plug 'zchee/deoplete-go', {'for' : ['go'], 'do' : 'make'}
-    " ruby
-    Plug 'fishbullet/deoplete-ruby', {'for' : ['ruby']}
-    " zsh
-    Plug 'zchee/deoplete-zsh', {'for' : ['zsh']}
-    " python
-    Plug 'zchee/deoplete-jedi', {'for' : ['python']}
-else
-    " GOD
-    Plug 'Shougo/neocomplete.vim'
-    " cpp, objc, objcpp
-    Plug 'Rip-Rip/clang_complete', {'for' : ['cpp', 'objc', 'objcpp']}
-    " go
-    Plug 'fatih/vim-go', {'for': ['go']}
-    " ruby
-    Plug 'osyo-manga/vim-monster', {'for': ['ruby'] }
+if dein#check_install()
+    call dein#install()
 endif
 
-
-" syntax
-Plug 'OrangeT/vim-csharp', { 'for':  [ 'cs', 'csi', 'csx' ]  }
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp'] }
-Plug 'b4winckler/vim-objc', { 'for': ['objc'] }
-Plug 'keith/swift.vim', { 'for': ['swift'] }
-Plug 'vim-scripts/ShaderHighLight'
-Plug 'aklt/plantuml-syntax', { 'for': ['uml'] }
-
-" other
-Plug 'vim-scripts/DoxygenToolkit.vim', { 'for' : ['cpp', 'objcpp', 'objc'] } 
-Plug 'kana/vim-altr', {'for' : ['cpp', 'objcpp', 'objc'] }
-Plug 'elzr/vim-json', {'for' : ['json']}
-Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
-Plug 'chrisbra/csv.vim', { 'for' : [ 'csv' ] }
-Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
-Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
-
-call plug#end()
-filetype plugin indent on
-
-set runtimepath+=~/.dotfiles/src/vim/
-runtime! misc/*.vim
-
-if has('nvim')
-    runtime! misc/only.nvim/*.vim
-else
-    runtime! misc/only.vim/*.vim
-endif
-
-" -------------------------------
-" scheme
-" -------------------------------
+" }}}
+" colorscheme {{{
 syntax enable
 colorscheme jellybeans
 set background=dark
+" }}}
 
-" --------------------------------
-" vim-json
-" --------------------------------
-let g:vim_json_syntax_conceal = 0
+filetype plugin indent on
 
-" --------------------------------
-" markdown
-" --------------------------------
+" basic setting  {{{
+
+" leaderをspaceにする
+let g:mapleader = "\<Space>"
+" tmuxで色を有効にする
+set t_Co=256
+" airlineを常時表示するよ
+set laststatus=2
+"キーのリマップ
+nnoremap [ %
+" 想定される改行コードの指定する
+set fileformats=unix,dos,mac
+" インデントまわり
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set smarttab
+set cindent
+" /検索でbottomからtopに戻らない
+set nowrapscan
+" ビープ音いらん
+set visualbell t_vb=
+"コマンド表示
+set showcmd
+"バックアップファイルをとらない
+set nobackup
+" チルダファイル作成を完全無効化
+set noundofile
+"スワップファイル用のディレクトリを指定する
+set noswapfile
+" コマンドライン補完をshellと同一にする
+set wildmode=list:longest
+"クリップボードを連携する
+set clipboard=unnamed
+"変更中のファイルでも、保存しないで他のファイルを表示する
+set hidden
+"インクリメンタルサーチを行う
+set incsearch
+"検索したらハイライト
+set hlsearch
+" 大文字小文字を区別しないで検索する
+set ignorecase
+set smartcase
+" escした時日本語入力をやめる
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+"行番号を表示する
+set number
+" バックスペースでインデント削除
+set backspace=indent,eol,start
+"閉括弧が入力された時、対応する括弧を強調する
+set showmatch
+" マクロ実行中は再描画しない
+set lazyredraw
+" くそ長い行を値までで略しちゃう
+set synmaxcol=300
+" 他のエディタなどで変更があった場合チェックする
+set autoread
+" 他のエディタなどで変更があった場合チェックする
+set autowrite
+" ウィンドウの自動調整停止
+set noequalalways
+" focusした時に外部から更新があったかチェック
+autocmd vimrc WinEnter * checktime
+" vimdiffを縦で割る
+set diffopt=vertical
+" カーソル行をハイライト
+set cursorline
+" previewを表示しない
+set completeopt=menuone,preview
+" truecolor
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" 折りたたみ無効
+set foldmethod=marker
+" set nofoldenable
+" 補完ウィンドウは10項目まで
+set pumheight=10 
+" neovimの文字化け対策
+set ttimeout
+set ttimeoutlen=50
+
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 
-" --------------------------------
-" plantuml
-" --------------------------------
-let g:plantuml_excutable_script='~/.dotfiles/scripts/make_uml'
-
-" --------------------------------
-" csv.vim
-" --------------------------------
-let g:csv_delim=','
-
-" --------------------------------
-" memolist.vim
-" --------------------------------
-let g:memolist_path = '$HOME/Dropbox/memolist'
-let g:memolist_memo_suffix = 'md'
-
-" --------------------------------
-" vim-multiple-cursors
-" --------------------------------
-let g:multi_cursor_use_default_mapping=1
-
-" --------------------------------
 " grep
-" :grep hoge | cw
-" --------------------------------
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0 | copen | endif
+"}}}
+" keymaps {{{
+
+set helplang=en,ja
+"矢印キー無効
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+" 移動を常にgjに
+nnoremap j gj
+nnoremap k gk
+" 検索結果のハイライトをEsc連打でクリアする
+nnoremap <ESC><ESC> :nohlsearch<CR>
+"検索結果を画面中央にもってきてstatuslineに位置表示
+nmap n <Plug>(anzu-n-with-echo)zz
+nmap N <Plug>(anzu-N-with-echo)zz
+nmap * <Plug>(anzu-star-with-echo)zz
+nmap # <Plug>(anzu-sharp-with-echo)zz
+" こっから<Leader>関連いくぜ！
+" タブとウィンドウ分割"
+nnoremap <Leader>s :<C-u>sp<CR>
+nnoremap <Leader>v :<C-u>vs<CR>
+" ヘッダーとの移動
+autocmd vimrc FileType cpp,objc,objcpp nmap <Leader>i <Plug>(altr-forward)
+" コメントテンプレ展開
+autocmd vimrc FileType cs nnoremap <Leader>/ :LilyComment<CR>
+autocmd vimrc FileType cpp,objc,objcpp nnoremap <Leader>/ :Dox<CR>
+"コメントアウト
+nmap <Leader>c <Plug>(caw:zeropos:toggle)
+vmap <Leader>c <Plug>(caw:zeropos:toggle)
+" レジスタ汚染防止
+nnoremap x "_x
+nnoremap s "_s
+" easy save
+nnoremap <Leader>w :w<CR>
+" help
+nnoremap <Leader>h :<C-u>vertical belowright help<Space>
+" Oで改行
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+" Yで現在のカーソルから行末までヤンク
+nnoremap Y y$
+
+nnoremap <Leader>gg :grep 
+nnoremap <Leader>gc :grep <cword>
+" }}}
+
+" itchyny/lightline.vim {{{
+if dein#tap('lightline.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:lightline = {
+                    \ 'colorscheme' : 'jellybeans',
+                    \ 'active': {
+                    \   'left': [ [ 'mode', 'paste' ],
+                    \             [ 'fugitive', 'filename', 'anzu' ] ]
+                    \ },
+                    \ 'component' : {
+                    \   'anzu' : '%{anzu#search_status()}',
+                    \ },
+                    \ 'component_function': {
+                    \   'readonly': 'MyReadOnly',
+                    \   'modified': 'MyModified',
+                    \   'filename' : 'MyFilename',
+                    \   'fugitive': 'MyFugitive',
+                    \ },
+                    \ 'component_visible_condition': {
+                    \   'readonly': '(&filetype!="help"&& &readonly)',
+                    \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+                    \ },
+                    \ 'separator': { 'left': '', 'right': '' },
+                    \ 'subseparator': { 'left': '', 'right': '' }
+                    \ }
+    endfunction
+
+    function! MyModified()
+      return &filetype =~# 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    endfunction
+
+    function! MyReadonly()
+      return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+    endfunction
+
+    function! MyFilename()
+      return ('' !=# MyReadonly() ? MyReadonly() . ' ' : '') .
+            \ (&filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+            \  &filetype ==# 'unite' ? unite#get_status_string() :
+            \  &filetype ==# 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+            \ '' !=# expand('%:t') ? expand('%:t') : '[No Name]') .
+            \ ('' !=# MyModified() ? ' ' . MyModified() : '')
+    endfunction
+
+    function! MyFugitive()
+       try
+        if &filetype !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+          let l:_ = fugitive#head()
+          return strlen(l:_) ? '⭠ '.l:_ : ''
+        endif
+      catch
+      endtry
+      return ''
+    endfunction
+
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" ctrlp/ctrlp.vim {{{
+if dein#tap('ctrlp.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        nnoremap <Leader>t :CtrlPTag<CR>
+        nnoremap <Leader>b :CtrlPBuffer<CR>
+        nnoremap <Leader>m :CtrlPMRUFiles<CR>
+        nnoremap <Leader>q :CtrlPQuickfix<CR>
+
+        let g:ctrlp_map = '<Leader><Leader>'
+        let g:ctrlp_show_hidden = 0
+
+        let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+
+        if has('mac')
+            let g:ctrlp_use_caching = 0
+        else
+            let g:ctrlp_use_caching = 1
+        endif
+
+        let g:ctrlp_working_path_mode = 0
+        let g:ctrlp_prompt_mappings = {
+                    \ 'PrtBS()':              ['<bs>'],
+                    \ 'PrtDelete()':          ['<del>'],
+                    \ 'PrtDeleteWord()':      ['<nop>'],
+                    \ 'PrtClear()':           ['<nop>'],
+                    \ 'PrtSelectMove("j")':   ['<c-n>'],
+                    \ 'PrtSelectMove("k")':   ['<c-p>'],
+                    \ 'PrtSelectMove("t")':   ['<nop>'],
+                    \ 'PrtSelectMove("b")':   ['<nop>'],
+                    \ 'PrtSelectMove("u")':   ['<nop>'],
+                    \ 'PrtSelectMove("d")':   ['<nop>'],
+                    \ 'PrtHistory(-1)':       ['<nop>'],
+                    \ 'PrtHistory(1)':        ['<nop>'],
+                    \ 'AcceptSelection("e")': ['<cr>'],
+                    \ 'AcceptSelection("h")': ['<c-h>'],
+                    \ 'AcceptSelection("t")': ['<nop>'],
+                    \ 'AcceptSelection("v")': ['<c-v>'],
+                    \ 'ToggleFocus()':        ['<nop>'],
+                    \ 'ToggleRegex()':        ['<nop>'],
+                    \ 'ToggleByFname()':      ['<c-d>'],
+                    \ 'ToggleType(1)':        ['<c-k>'],
+                    \ 'ToggleType(-1)':       ['<c-j>'],
+                    \ 'PrtExpandDir()':       ['<nop>'],
+                    \ 'PrtInsert("c")':       ['<nop>'],
+                    \ 'PrtInsert()':          ['<nop>'],
+                    \ 'PrtCurStart()':        ['<nop>'],
+                    \ 'PrtCurEnd()':          ['<nop>'],
+                    \ 'PrtCurLeft()':         ['<nop>'],
+                    \ 'PrtCurRight()':        ['<nop>'],
+                    \ 'PrtClearCache()':      ['<c-l>'],
+                    \ 'PrtDeleteEnt()':       ['<nop>'],
+                    \ 'CreateNewFile()':      ['<nop>'],
+                    \ 'MarkToOpen()':         ['<nop>'],
+                    \ 'OpenMulti()':          ['<nop>'],
+                    \ 'PrtExit()':            ['<c-[>'],
+                    \ }
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" scrooloose/nerdtree {{{
+if dein#tap('nerdtree')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        nmap <C-e> :NERDTreeToggle<CR>
+	 	autocmd vimrc BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" lambdalisue/gina.vim {{{
+if dein#tap('gina.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        noremap <silent> <Leader>gis :<C-u>Gina status<CR>
+        noremap <silent> <Leader>gic :<C-u>Gina commit<CR>
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" glidenote/memolist.vim {{{
+if dein#tap('memolist.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+let g:memolist_path = '$HOME/Dropbox/memolist'
+let g:memolist_memo_suffix = 'md'
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" ryanoasis/vim-devicons {{{
+if dein#tap('vim-devicons')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        " vim-devicons
+        let g:webdevicons_conceal_nerdtree_brackets = 1
+        let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+        " dir-icons
+        let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+        let g:DevIconsEnableFoldersOpenClose = 1
+        let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
+        let g:DevIconsDefaultFolderOpenSymbol = ''
+        " file-icons
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cs'] = ''
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['objc'] = ''
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['objcpp'] = ''
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['swift'] = ''
+        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ruby'] = ''
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+
+" }}}
+" terryma/vim-multiple-cursors {{{
+if dein#tap('vim-multiple-cursors')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:multi_cursor_use_default_mapping=1
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" thinca/vim-quickrun {{{
+if dein#tap('vim-quickrun')
+    let g:quickrun_config = get(g:, 'quickrun_config', {})
+    let g:quickrun_config['_'] = {
+                \ 'runner' : 'vimproc',
+                \ 'runner/vimproc/updatetime' : 60}
+endif
+" }}}
+" osyo-manga/vim-watchdogs {{{
+if dein#tap('vim-watchdogs')
+    let g:watchdogs_check_BufWritePost_enable = 1
+    let g:quickrun_config = get(g:, 'quickrun_config', {})
+	" Vim script {{{
+	if executable('vint')
+		let g:quickrun_config['vim/watchdogs_checker'] = {
+					\ 'type': 'watchdogs_checker/vint'}
+		let g:quickrun_config['watchdogs_checker/vint'] = {
+					\ 'command': 'vint',
+					\ 'exec': '%c %o %s:p',
+					\ 'cmdopt': '--style-problem --color'}
+	endif
+	"}}}
+    " C# {{{
+    if executable('mcs')
+        let g:quickrun_config['cs/watchdogs_checker'] = {
+                    \ 'type' : 'watchdogs_checker/mcs'}
+        let g:quickrun_config['watchdogs_checker/mcs'] = {
+                    \ 'command' : 'mcs',
+                    \ 'exec' : '%c %o %s:p',
+                    \ 'cmdopt' : '--parse',
+                    \ 'quickfix/error': '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m' }
+    endif
+    " }}}
+	" Shell script {{{
+	if executable('shellcheck')
+		let g:quickrun_config['sh/watchdogs_checker'] = {
+					\ 'type': 'watchdogs_checker/shellcheck'}
+		let g:quickrun_config['watchdogs_checker/shellcheck'] = {
+					\ 'command': 'shellcheck',
+					\ 'exec': '%c %o %s:p'}
+	endif
+	"}}}
+    call watchdogs#setup(g:quickrun_config)
+endif
+" }}}
+
+" artur-shaik/vim-javacomplete2' {{{
+if dein#tap('vim-javacomplete2')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
+endif
+" }}}
+"Shougo/deoplete.nvim' {{{
+if dein#tap('deoplete.nvim')
+
+    let g:deoplete#enable_at_startup = 1 
+    let g:deoplete#auto_complete_delay = 0
+    let g:deoplete#enable_refresh_always = 1
+    let g:deoplete#enable_smart_case = 1
+
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ deoplete#mappings#manual_complete()
+
+        function! s:check_back_space() abort 
+            let col = col('.') - 1
+            return !col || getline('.')[col - 1]  =~ '\s'
+        endfunction
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_post_source', function('s:' . s:on_source))
+endif
+" }}}
+" tweekmonster/deoplete-clang2' {{{
+if dein#tap('deoplete-clang2')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:deoplete#sources#clang#executable = '/usr/bin/clang'
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
+endif
+" }}}
+
+"Shougo/neocomplete.vim' {{{
+if dein#tap('neocomplete.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:neocomplete#enable_at_startup = 1
+
+        " Recommended key-mappings.
+        " <CR>: close popup and save indent.
+        " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+        " function! s:my_cr_function()
+        "     return neocomplete#close_popup() . "\<CR>"
+            " For no inserting <CR> key.
+        "       return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+        " endfunction
+
+        " <TAB>: completion.
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+        " <C-h>, <BS>: close popup and delete backword char.
+        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+        inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+        inoremap <expr><C-y>  neocomplete#close_popup()
+        inoremap <expr><C-e>  neocomplete#cancel_popup()
+        " Close popup by <Space>.
+        "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :
+        ""\<Space>"
+
+        autocmd neocomplete FileType cs setlocal omnifunc=OmniSharp#Complete
+
+        " Enable heavy omni completion.
+        if !exists('g:neocomplete#sources#omni#input_patterns')
+              let g:neocomplete#sources#omni#input_patterns = {}
+          endif
+
+        "let g:neocomplete#sources#omni#input_patterns.php = '[^.
+        "\t]->\h\w*\|\h\w*::'
+        "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:]
+        "*\t]\%(\.\|->\)'
+        "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:]
+        "*\t]\%(\.\|->\)\|\h\w*::'
+
+        " For perlomni.vim setting.
+        " https://github.com/c9s/perlomni.vim
+        " let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+        let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+
+        if !exists('g:neocomplete#force_omni_input_patterns')
+          let g:neocomplete#force_omni_input_patterns = {}
+        endif
+        let g:neocomplete#force_omni_input_patterns.c =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+        let g:neocomplete#force_omni_input_patterns.cpp =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+        let g:neocomplete#force_omni_input_patterns.objc =
+              \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
+        let g:neocomplete#force_omni_input_patterns.objcpp =
+              \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
+endif
+" }}}
+" Rip-Rip/clang_complete' {{{
+if dein#tap('clang_complete')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:clang_complete_auto = 0
+        let g:clang_auto_select = 0
+        let g:clang_omnicppcomplete_compliance = 0
+        let g:clang_make_default_keymappings = 0
+        let g:clang_library_path='/usr/local/Cellar/llvm/4.0.1/lib/'
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
+endif
+" }}}
+
+" osyo-manga/vim-monster {{{
+if dein#tap('vim-monster')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:monster#completion#rcodetools#backend = 'async_rct_complete'
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
+endif
+" }}}
+" elzr/vim-json {{{
+if dein#tap('vim-json')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:vim_json_syntax_conceal = 0
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
+endif
+" }}}
+" iamcco/markdown-preview.vim' {{{
+if dein#tap('markdown-preview.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" chrisbra/csv.vim' {{{
+if dein#tap('csv.vim')
+    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
+    function! s:{s:on_source}() abort
+        let g:csv_delim=','
+    endfunction
+    call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+
+" functions {{{
+
+command! ReloadVimrc :so ~/.dotfiles/src/vimrc
+command! ShowPath :echo expand("%:p")
+command! GenerateCtags :!ctags -R
+
+"----------------------------------------
+" Denite
+"----------------------------------------
+"function! DeniteReplace(context)
+"      let l:qflist = []
+"      for l:target in a:context['targets']
+"        if !has_key(l:target, 'action__path') | continue | endif
+"        if !has_key(l:target, 'action__line') | continue | endif
+"        if !has_key(l:target, 'action__text') | continue | endif
+"
+"        call add(l:qflist, {
+"              \ 'filename': l:target['action__path'],
+"              \ 'lnum': l:target['action__line'],
+"              \ 'text': l:target['action__text']
+"              \ })
+"      endfor
+"      call setqflist(l:qflist)
+"      call qfreplace#start('')
+"    endfunction
+"call denite#custom#action('file', 'qfreplace', 'DeniteReplace')
+"
+"function! s:memoGrepDenite()
+"    let l:option = '-path=' . expand('$HOME/Dropbox/memolist')
+"    exe 'Denite' 'grep' l:option '-highlight-mode-insert=Search'
+"endfunction
+"command! MemoGrepDenite call s:memoGrepDenite()<CR>
+
+"----------------------------------------
+" XBuild
+"----------------------------------------
+let g:xbuild_solution_path = ''
+let s:xbuild_is_building = 0
+let s:xbuild_animation_step = 0
+let s:xbuild_warning_level = 0
+
+function! s:xBuildHandler(ch, msg)
+    let l:temp_format = &errorformat
+    try
+        let &errorformat = '%f(%l\,%c)%m'
+        caddexpr a:msg
+        cwindow
+    catch
+        echo v:exception
+        echo v:throwpoint
+    finally
+        let &errorformat = l:temp_format
+    endtry
+endfunction
+
+function! s:animate() abort
+    call timer_start(100, function('s:showFace'), { 'repeat' : -1 })
+endfunction
+
+function! s:showFace(timer) abort
+    if s:xbuild_is_building == 0
+        call timer_stop(a:timer)
+        echo '(`･ω･´)DONE!!!'
+        return
+    endif
+
+    let s:xbuild_animation_step = s:xbuild_animation_step + 1
+    if s:xbuild_animation_step == 2
+        let s:xbuild_animation_step = 0
+    endif
+
+    let l:list = ['(´･ω･`) XBuilding...', '(´-ω-`) XBuilding...']
+    echo l:list[s:xbuild_animation_step]
+endfunction
+
+function! s:xBuildEndHandler(ch, msg) abort
+    let s:xbuild_is_building = 0
+endfunction
+
+function! s:getSolutionFile() abort
+    let l:fileListStr = glob(getcwd() . '/*.sln')
+    let l:fileList = split(l:fileListStr, "\n")
+    if len(l:fileList) != 1
+        return ''
+    endif
+    return l:fileList[0]
+endfunction
+
+function! s:xBuild() abort
+    let s:xbuild_is_building = 1
+    call s:animate()
+
+    let l:solutionPath = ''
+    if g:xbuild_solution_path ==# ''
+        let l:solutionPath = s:getSolutionFile()
+    else
+        let l:solutionPath = g:xbuild_solution_path
+    endif
+        
+    if l:solutionPath ==# ''
+        let s:xbuild_is_building = 0
+        echo 'xbuild error: not found .sln'
+        return
+    endif
+
+    cexpr []
+
+    let l:command = ['xbuild',
+                \ '/nologo',
+                \ '/verbosity:quiet',
+                \ '/property:AllowUnsafeBlocks=true',
+                \ '/property:WarningLevel=' . s:xbuild_warning_level,
+                \ l:solutionPath
+                \]
+    let l:opt = {'callback': function('s:xBuildHandler'),
+                \ 'exit_cb': function('s:xBuildEndHandler')}
+    let l:job = job_start(l:command, l:opt)
+endfunction
+
+function! s:setSolutionPath(path) abort
+    let g:xbuild_solution_path = getcwd() . '/' . a:path
+    echo g:xbuild_solution_path
+endfunction
+
+function! s:setWarningLevel(level) abort
+    let s:xbuild_warning_level = a:level
+endfunction
+
+command! XBuild call s:xBuild()
+command! -nargs=1 -complete=file SetSolutionPath call s:setSolutionPath(<f-args>)
+command! -nargs=1 SetWarningLevel call s:setWarningLevel(<f-args>)
+
+"----------------------------------------
+" uncrustify
+"----------------------------------------
+" see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
+
+autocmd vimrc FileType cs nnoremap <Leader>f :call UncrustifyAuto()<CR>
+
+" 例: 保存時に自動フォーマット
+" autocmd functions BufWritePre <buffer> :call UncrustifyAuto()
+
+" uncrustifyの設定ファイル
+let g:uncrustify_cfg_file_path = '~/.dotfiles/src/uncrustifyconfig'
+
+" uncrustifyでフォーマットする言語
+let g:uncrustify_lang = ''
+" autocmd FileType c let g:uncrustify_lang = 'c'
+" autocmd FileType cpp let g:uncrustify_lang = 'cpp'
+" autocmd FileType java let g:uncrustify_lang = 'java'
+" autocmd FileType objc let g:uncrustify_lang = 'oc'
+autocmd vimrc FileType cs let g:uncrustify_lang = 'cs'
+
+" Restore cursor position, window position, and last search after running a
+" command.
+function! Preserve(command)
+    " Save the last search.
+    let l:search = @/
+    " Save the current cursor position.
+    let l:cursor_position = getpos('.')
+    " Save the current window position.
+    normal! H
+    let l:window_position = getpos('.')
+    call setpos('.', l:cursor_position)
+    " Execute the command.
+    execute a:command
+    " Restore the last search.
+    let @/ = l:search
+    " Restore the previous window position.
+    call setpos('.', l:window_position)
+    normal! zt
+    " Restore the previous cursor position.
+    call setpos('.', l:cursor_position)
+endfunction
+
+" Don't forget to add Uncrustify executable to $PATH (on Unix) or
+" %PATH% (on Windows) for this command to work.
+function! Uncrustify(language)
+    call Preserve(':silent %!uncrustify'.' -q '.' -l '.a:language.' -c '.
+                \shellescape(fnamemodify(g:uncrustify_cfg_file_path, ':p')))
+endfunction
+
+function! UncrustifyAuto()
+    if g:uncrustify_lang !=# ''
+        call Uncrustify(g:uncrustify_lang)
+    endif
+endfunction
+
+" --------------------------------
+" vimからIDE RUN
+" --------------------------------
+" nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
+" function RunIDE()
+"     if (&ft=='cs')
+"         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
+"     else
+"         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+"     endif
+" endfunction
+
+" }}}
+
+" NOT ACTIVE old plugin setting {{{
+" }}}
+" Shougo/denite.nvim {{{
+if dein#tap('denite.nvim')
+    call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+    call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+    call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+    
+    call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+    call denite#custom#var('grep', 'command', ['rg'])
+    
+    nmap <silent> <Leader><Leader> :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>a :<C-u>Denite -resume -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>gg :<C-u>Denite grep -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>gc :<C-u>DeniteCursorWord -highlight-mode-insert=Search grep<CR>
+    nmap <silent> <Leader>o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>n :<C-u>Denite -resume -select=+1 -immediately -highlight-mode-insert=Search<CR>
+    nmap <silent> <Leader>p :<C-u>Denite -resume -select=-1 -immediately -highlight-mode-insert=Search<CR>
+    nmap <Leader>tt :<C-u>Denite -highlight-mode-insert=Search gtags_def:
+    nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>
+endif
+" }}}
+" Valloric/YouCompleteMe {{{
+if dein#tap('YouCompleteMe')
+    let g:UltiSnipsExpandTrigger='<c-k>'
+    let g:UltiSnipsJumpForwardTrigger='<c-k>'
+    let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+    let g:UltiSnipsEditSplit='vertical'
+    let g:ycm_min_num_of_chars_for_completion = 99
+    let g:ycm_use_ultisnips_completer = 1
+    let g:ycm_show_diagnostics_ui = 0
+    let g:ycm_confirm_extra_conf = 0
+    let g:ycm_key_detailed_diagnostics = ''
+    let g:ycm_global_ycm_extra_conf = '~/.dotfiles/src/global_ycm_extra_conf.py'
+    let g:ycm_extra_conf_vim_data = ['&filetype', 'expand(expand("<sfile>:p:h"))']
+    let g:ycm_semantic_triggers = {
+                \ 'objc' : ['re!\@"\.*"\s',
+                \ 're!\@\w+\.*\w*\s',
+                \ 're!\@\(\w+\.*\w*\)\s',
+                \ 're!\@\(\s*',
+                \ 're!\@\[.*\]\s',
+                \ 're!\@\[\s*',
+                \ 're!\@\{.*\}\s',
+                \ 're!\@\{\s*',
+                \ 're!\@\’.*\’\s',
+                \ '#ifdef ',
+                \ 're!:\s*',
+                \ 're!=\s*',
+                \ 're!,\s*', ],
+                \ 'cpp,objcpp' : [
+                \ '->','::',
+                \ 're!\@"\.*"\s',
+                \ 're!\@\w+\.*\w*\s',
+                \ 're!\@\(\w+\.*\w*\)\s',
+                \ 're!\@\(\s*',
+                \ 're!\@\[.*\]\s',
+                \ 're!\@\[\s*',
+                \ 're!\@\{.*\}\s',
+                \ 're!\@\{\s*',
+                \ 're!\@\’.*\’\s',
+                \ '#ifdef ',
+                \ 're!:\s*',
+                \ 're!=\s*',
+                \ 're!,\s*', ],
+                \ }
+endif
+" }}}
