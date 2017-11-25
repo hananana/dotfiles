@@ -56,6 +56,8 @@ if dein#load_state(s:env.path.dein)
     call dein#add('junegunn/vim-easy-align')
     call dein#add('sheerun/vim-polyglot')
     call dein#add('osyo-manga/vim-watchdogs')
+    call dein#add('cohama/vim-hier')
+    call dein#add('osyo-manga/shabadou.vim')
 
     " more expert
     call dein#add('terryma/vim-multiple-cursors')
@@ -108,13 +110,11 @@ if dein#check_install()
 endif
 
 " }}}
-" colorscheme {{{
-syntax enable
-colorscheme jellybeans
-set background=dark
-" }}}
 
 filetype plugin indent on
+
+syntax enable
+colorscheme jellybeans
 
 " basic setting  {{{
 
@@ -444,6 +444,8 @@ endif
 if dein#tap('vim-quickrun')
     let g:quickrun_config = get(g:, 'quickrun_config', {})
     let g:quickrun_config['_'] = {
+                \ 'hook/neco/enable' : 1,
+                \ 'hook/neco/wait' : 20,
                 \ 'runner' : 'vimproc',
                 \ 'runner/vimproc/updatetime' : 60}
 endif
@@ -497,25 +499,20 @@ endif
 " }}}
 "Shougo/deoplete.nvim' {{{
 if dein#tap('deoplete.nvim')
-
     let g:deoplete#enable_at_startup = 1 
     let g:deoplete#auto_complete_delay = 0
     let g:deoplete#enable_refresh_always = 1
     let g:deoplete#enable_smart_case = 1
 
-    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
-    function! s:{s:on_source}() abort
-        inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ deoplete#mappings#manual_complete()
+    inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ deoplete#mappings#manual_complete()
 
-        function! s:check_back_space() abort 
-            let col = col('.') - 1
-            return !col || getline('.')[col - 1]  =~ '\s'
-        endfunction
+    function! s:check_back_space() abort 
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~ '\s'
     endfunction
-    call dein#set_hook(g:dein#name, 'hook_post_source', function('s:' . s:on_source))
 endif
 " }}}
 " tweekmonster/deoplete-clang2' {{{
