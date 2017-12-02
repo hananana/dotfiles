@@ -1,7 +1,7 @@
 # -------------------------------------
 # export
 # -------------------------------------
-export EDITOR='nvim'
+export EDITOR='vim'
 
 # android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -115,7 +115,7 @@ case ${OSTYPE} in
 esac
 
 # vim
-alias v='nvim'
+alias v='vim'
 # cd
 alias c='cd'
 
