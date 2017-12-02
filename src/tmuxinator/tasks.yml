@@ -7,7 +7,7 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - v -O general.md nextchoco.md
+        - vim -O general.md nextchoco.md
   - zsh:
       layout: even-horizontal
       panes:
