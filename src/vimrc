@@ -36,7 +36,8 @@ execute 'set runtimepath+=' . s:env.dein.path
 if dein#load_state(s:env.path.dein)
     call dein#begin(s:env.path.dein)
 
-    call dein#add('nanotech/jellybeans.vim')
+    call dein#add('w0ng/vim-hybrid')
+
     call dein#add('Shougo/vimproc.vim', { 'timeout' : 1800, 'build' : 'make' })
     call dein#add('tpope/vim-dispatch')
     call dein#add('ctrlpvim/ctrlp.vim')
@@ -104,7 +105,8 @@ endif
 filetype plugin indent on
 
 syntax enable
-colorscheme jellybeans
+colorscheme hybrid
+set background=dark
 
 " basic setting  {{{
 
@@ -252,7 +254,7 @@ if dein#tap('lightline.vim')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
     function! s:{s:on_source}() abort
         let g:lightline = {
-                    \ 'colorscheme' : 'jellybeans',
+                    \ 'colorscheme' : 'one',
                     \ 'active': {
                     \   'left': [ [ 'mode', 'paste' ],
                     \             [ 'fugitive', 'filename', 'anzu' ] ]
