@@ -190,8 +190,18 @@ set pumheight=10
 " neovimの文字化け対策
 set ttimeout
 set ttimeoutlen=50
-
+" spellcheck日本語対応
 set spelllang=en,cjk
+
+set previewheight=10
+autocmd vimrc BufEnter ?* call PreviewHeightWorkAround()
+function! PreviewHeightWorkAround()
+    if &previewwindow
+        exec 'set local winheight='.&previewheight
+    endif
+endfunction
+
+
 
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
