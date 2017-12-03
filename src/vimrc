@@ -188,6 +188,8 @@ set pumheight=10
 set ttimeout
 set ttimeoutlen=50
 
+set spelllang=en,cjk
+
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " grep
