@@ -69,6 +69,7 @@ if dein#load_state(s:env.path.dein)
     call dein#add('Valloric/YouCompleteMe', {'build' : 'git submodule update --init --recursive && ./install.py --cs-completer --clang-completer' })
     call dein#add('artur-shaik/vim-javacomplete2', { 'lazy' : 1, 'on_ft' : ['java'] })
     call dein#add('fatih/vim-go',                  { 'lazy' : 1, 'on_ft' : ['go']})
+    call dein#add('vim-ruby/vim-ruby',             { 'lazy' : 1, 'on_ft' : ['ruby']})
     call dein#add('SirVer/ultisnips')
     call dein#add('honza/vim-snippets')
 
@@ -483,6 +484,8 @@ let g:UltiSnipsJumpForwardTrigger='<c-k>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 let g:UltiSnipsEditSplit='vertical'
 
+let g:ycm_min_num_of_chars_for_completion = 4
+let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_key_invoke_completion = '<C-o>'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_confirm_extra_conf = 0
@@ -535,22 +538,15 @@ let g:ycm_semantic_triggers.cpp = [
             \ 're!:\s*',
             \ 're!=\s*',
             \ 're!,\s*', ]
+let g:ycm_filetype_blacklist = {
+            \ 'ruby' : 1
+    \}
 " }}}
 " artur-shaik/vim-javacomplete2' {{{
 if dein#tap('vim-javacomplete2')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
     function! s:{s:on_source}() abort
         autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
-    endfunction
-    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
-endif
-" }}}
-
-" osyo-manga/vim-monster {{{
-if dein#tap('vim-monster')
-    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
-    function! s:{s:on_source}() abort
-        let g:monster#completion#rcodetools#backend = 'async_rct_complete'
     endfunction
     call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
 endif
