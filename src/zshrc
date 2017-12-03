@@ -139,16 +139,6 @@ alias gst='git status'
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
 
-fb() {
-    local branches branch
-    branches=$(git branch -vv) &&
-    branch=$(echo "$branches" | fzy) &&
-    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-fbr() {
-	echo "not implemented"
-}
 
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
@@ -262,3 +252,19 @@ function select_history() {
 zle -N select_history
 bindkey '^r' select_history 
 
+function fb() {
+    local branches branch
+    branches=$(git branch -vv) &&
+    branch=$(echo "$branches" | fzy) &&
+    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+function fbr() {
+	echo "not implemented"
+}
+
+function select_ghq() {
+    builtin cd $(ghq list -p | fzy)
+}
+zle -N select_ghq
+bindkey '^g' select_ghq
