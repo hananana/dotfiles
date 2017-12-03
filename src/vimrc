@@ -59,23 +59,18 @@ if dein#load_state(s:env.path.dein)
     call dein#add('cohama/vim-hier')
     call dein#add('osyo-manga/shabadou.vim')
 
-    " more expert
+    " training now...
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('koron/codic-vim')
     call dein#add('tpope/vim-surround')
     call dein#add('thinca/vim-quickrun')
 
     " completion
-    call dein#add('Shougo/deoplete.nvim',          { 'do' : ':UpdateRemotePlugins' })
-    call dein#add('OmniSharp/omnisharp-vim',       { 'lazy' : 1, 'on_ft' : ['cs'], 'build' : 'xbuild server/Omnisharp.sln' })
+    call dein#add('Valloric/YouCompleteMe', {'build' : 'git submodule update --init --recursive && ./install.py --cs-completer --clang-completer' })
     call dein#add('artur-shaik/vim-javacomplete2', { 'lazy' : 1, 'on_ft' : ['java'] })
-    call dein#add('autozimu/deoplete-omnisharp',   { 'lazy' : 1, 'on_ft' : ['cs'] })
-    call dein#add('tweekmonster/deoplete-clang2',  { 'lazy' : 1, 'on_ft' : ['cpp', 'objc', 'objcpp']})
-    call dein#add('Shougo/neco-vim',               { 'lazy' : 1, 'on_ft' : ['vim']})
-    call dein#add('zchee/deoplete-go',             { 'lazy' : 1, 'on_ft' : ['go']})
-    call dein#add('Shougo/deoplete-rct',           { 'lazy' : 1, 'on_ft' : ['ruby']})
-    call dein#add('zchee/deoplete-zsh',            { 'lazy' : 1, 'on_ft' : ['zsh']})
-    call dein#add('zchee/deoplete-jedi',           { 'lazy' : 1, 'on_ft' : ['python']})
+    call dein#add('fatih/vim-go',                  { 'lazy' : 1, 'on_ft' : ['go']})
+    call dein#add('SirVer/ultisnips')
+    call dein#add('honza/vim-snippets')
 
    " syntax
     call dein#add('OrangeT/vim-csharp',               { 'lazy' : 1, 'on_ft':  [ 'cs', 'csi', 'csx' ]})
@@ -480,113 +475,70 @@ if dein#tap('vim-watchdogs')
 endif
 " }}}
 
+" Valloric/YouCompleteMe {{{
+let g:UltiSnipsExpandTrigger='<c-k>'
+let g:UltiSnipsJumpForwardTrigger='<c-k>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+let g:UltiSnipsEditSplit='vertical'
+
+let g:ycm_key_invoke_completion = '<C-o>'
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_detailed_diagnostics = ''
+let g:ycm_global_ycm_extra_conf = '~/.dotfiles/src/global_ycm_extra_conf.py'
+let g:ycm_extra_conf_vim_data = ['&filetype', 'expand(expand("<sfile>:p:h"))']
+let g:ycm_semantic_triggers = get( g:,'ycm_semantic_triggers', {} )
+let g:ycm_semantic_triggers.vim = ['$', '&', 're![\w&$<-][\w:#<>-]*']
+let g:ycm_semantic_triggers.objc = [
+            \ 're!\@"\.*"\s',
+            \ 're!\@\w+\.*\w*\s',
+            \ 're!\@\(\w+\.*\w*\)\s',
+            \ 're!\@\(\s*',
+            \ 're!\@\[.*\]\s',
+            \ 're!\@\[\s*',
+            \ 're!\@\{.*\}\s',
+            \ 're!\@\{\s*',
+            \ 're!\@\’.*\’\s',
+            \ '#ifdef ',
+            \ 're!:\s*',
+            \ 're!=\s*',
+            \ 're!,\s*', ]
+let g:ycm_semantic_triggers.objcpp = [
+            \ '->','::',
+            \ 're!\@"\.*"\s',
+            \ 're!\@\w+\.*\w*\s',
+            \ 're!\@\(\w+\.*\w*\)\s',
+            \ 're!\@\(\s*',
+            \ 're!\@\[.*\]\s',
+            \ 're!\@\[\s*',
+            \ 're!\@\{.*\}\s',
+            \ 're!\@\{\s*',
+            \ 're!\@\’.*\’\s',
+            \ '#ifdef ',
+            \ 're!:\s*',
+            \ 're!=\s*',
+            \ 're!,\s*', ]
+let g:ycm_semantic_triggers.cpp = [
+            \ '->','::',
+            \ 're!\@"\.*"\s',
+            \ 're!\@\w+\.*\w*\s',
+            \ 're!\@\(\w+\.*\w*\)\s',
+            \ 're!\@\(\s*',
+            \ 're!\@\[.*\]\s',
+            \ 're!\@\[\s*',
+            \ 're!\@\{.*\}\s',
+            \ 're!\@\{\s*',
+            \ 're!\@\’.*\’\s',
+            \ '#ifdef ',
+            \ 're!:\s*',
+            \ 're!=\s*',
+            \ 're!,\s*', ]
+" }}}
 " artur-shaik/vim-javacomplete2' {{{
 if dein#tap('vim-javacomplete2')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
     function! s:{s:on_source}() abort
         autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
-    endfunction
-    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
-endif
-" }}}
-"Shougo/deoplete.nvim' {{{
-if dein#tap('deoplete.nvim')
-    let g:deoplete#enable_at_startup = 1 
-    let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#enable_refresh_always = 1
-    let g:deoplete#enable_smart_case = 1
-
-    inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ deoplete#mappings#manual_complete()
-
-    function! s:check_back_space() abort 
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~ '\s'
-    endfunction
-endif
-" }}}
-" tweekmonster/deoplete-clang2' {{{
-if dein#tap('deoplete-clang2')
-    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
-    function! s:{s:on_source}() abort
-        let g:deoplete#sources#clang#executable = '/usr/bin/clang'
-    endfunction
-    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
-endif
-" }}}
-
-"Shougo/neocomplete.vim' {{{
-if dein#tap('neocomplete.vim')
-    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
-    function! s:{s:on_source}() abort
-        let g:neocomplete#enable_at_startup = 1
-
-        " Recommended key-mappings.
-        " <CR>: close popup and save indent.
-        " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-
-        " function! s:my_cr_function()
-        "     return neocomplete#close_popup() . "\<CR>"
-            " For no inserting <CR> key.
-        "       return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-        " endfunction
-
-        " <TAB>: completion.
-        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-        " <C-h>, <BS>: close popup and delete backword char.
-        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-        inoremap <expr><C-y>  neocomplete#close_popup()
-        inoremap <expr><C-e>  neocomplete#cancel_popup()
-        " Close popup by <Space>.
-        "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() :
-        ""\<Space>"
-
-        autocmd neocomplete FileType cs setlocal omnifunc=OmniSharp#Complete
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplete#sources#omni#input_patterns')
-              let g:neocomplete#sources#omni#input_patterns = {}
-          endif
-
-        "let g:neocomplete#sources#omni#input_patterns.php = '[^.
-        "\t]->\h\w*\|\h\w*::'
-        "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:]
-        "*\t]\%(\.\|->\)'
-        "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:]
-        "*\t]\%(\.\|->\)\|\h\w*::'
-
-        " For perlomni.vim setting.
-        " https://github.com/c9s/perlomni.vim
-        " let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-        let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
-        if !exists('g:neocomplete#force_omni_input_patterns')
-          let g:neocomplete#force_omni_input_patterns = {}
-        endif
-        let g:neocomplete#force_omni_input_patterns.c =
-              \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-        let g:neocomplete#force_omni_input_patterns.cpp =
-              \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-        let g:neocomplete#force_omni_input_patterns.objc =
-              \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-        let g:neocomplete#force_omni_input_patterns.objcpp =
-              \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-    endfunction
-    call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
-endif
-" }}}
-" Rip-Rip/clang_complete' {{{
-if dein#tap('clang_complete')
-    let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
-    function! s:{s:on_source}() abort
-        let g:clang_complete_auto = 0
-        let g:clang_auto_select = 0
-        let g:clang_omnicppcomplete_compliance = 0
-        let g:clang_make_default_keymappings = 0
-        let g:clang_library_path='/usr/local/Cellar/llvm/4.0.1/lib/'
     endfunction
     call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
 endif
@@ -601,6 +553,7 @@ if dein#tap('vim-monster')
     call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
 endif
 " }}}
+
 " elzr/vim-json {{{
 if dein#tap('vim-json')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
@@ -853,50 +806,5 @@ if dein#tap('denite.nvim')
     nmap <silent> <Leader>p :<C-u>Denite -resume -select=-1 -immediately -highlight-mode-insert=Search<CR>
     nmap <Leader>tt :<C-u>Denite -highlight-mode-insert=Search gtags_def:
     nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>
-endif
-" }}}
-" Valloric/YouCompleteMe {{{
-if dein#tap('YouCompleteMe')
-    let g:UltiSnipsExpandTrigger='<c-k>'
-    let g:UltiSnipsJumpForwardTrigger='<c-k>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-    let g:UltiSnipsEditSplit='vertical'
-    let g:ycm_min_num_of_chars_for_completion = 99
-    let g:ycm_use_ultisnips_completer = 1
-    let g:ycm_show_diagnostics_ui = 0
-    let g:ycm_confirm_extra_conf = 0
-    let g:ycm_key_detailed_diagnostics = ''
-    let g:ycm_global_ycm_extra_conf = '~/.dotfiles/src/global_ycm_extra_conf.py'
-    let g:ycm_extra_conf_vim_data = ['&filetype', 'expand(expand("<sfile>:p:h"))']
-    let g:ycm_semantic_triggers = {
-                \ 'objc' : ['re!\@"\.*"\s',
-                \ 're!\@\w+\.*\w*\s',
-                \ 're!\@\(\w+\.*\w*\)\s',
-                \ 're!\@\(\s*',
-                \ 're!\@\[.*\]\s',
-                \ 're!\@\[\s*',
-                \ 're!\@\{.*\}\s',
-                \ 're!\@\{\s*',
-                \ 're!\@\’.*\’\s',
-                \ '#ifdef ',
-                \ 're!:\s*',
-                \ 're!=\s*',
-                \ 're!,\s*', ],
-                \ 'cpp,objcpp' : [
-                \ '->','::',
-                \ 're!\@"\.*"\s',
-                \ 're!\@\w+\.*\w*\s',
-                \ 're!\@\(\w+\.*\w*\)\s',
-                \ 're!\@\(\s*',
-                \ 're!\@\[.*\]\s',
-                \ 're!\@\[\s*',
-                \ 're!\@\{.*\}\s',
-                \ 're!\@\{\s*',
-                \ 're!\@\’.*\’\s',
-                \ '#ifdef ',
-                \ 're!:\s*',
-                \ 're!=\s*',
-                \ 're!,\s*', ],
-                \ }
 endif
 " }}}
