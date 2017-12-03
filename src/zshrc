@@ -1,6 +1,5 @@
-# -------------------------------------
-# export
-# -------------------------------------
+
+# export {{{
 export EDITOR='vim'
 
 # android
@@ -15,21 +14,18 @@ export PATH=$PATH:$GOPATH/bin
 # my script
 export PATH=$PATH:$HOME/.dotfiles/bin
 
-# -------------------------------------
-# Javaのswitch
-# brew caskでいれたjavaの場所virtualMachine?のナンバーを指定
-# -------------------------------------
+# Java_HOME
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
-
 case ${OSTYPE} in
     darwin*)
         export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
         ;;
 esac
 
-# -------------------------------------
-# setopt
-# -------------------------------------
+# }}}
+
+# setopt {{{
+
 setopt PROMPT_SUBST
 setopt no_beep
 setopt correct
@@ -37,30 +33,30 @@ setopt magicequalsubst
 setopt auto_list
 setopt auto_menu
 
-# -------------------------------------
-# autoload
-# -------------------------------------
+# }}}
+
+# autoload {{{
 
 autoload -Uz vcs_info
 
-# -------------------------------------
-# completion
-# -------------------------------------
+# }}}
+
+# completion {{{
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# -------------------------------------
-# ls
-# -------------------------------------
+# }}}
+
+# meaningless
+# ls {{{
 export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export ZLS_COLORS=$LS_COLORS
 export CLICOLOR=true
+# }}}
 
-# -------------------------------------
-# prompt
-# -------------------------------------
+# prompt {{{
 
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -86,9 +82,9 @@ function random_glyphs() {
 
 PROMPT='%K{015}%F{black} $(random_glyphs) %~ %f%k%K{246}%F{015}%f%k${vcs_info_msg_0_} '
 
-# -------------------------------------
-# zgen
-# -------------------------------------
+# }}}
+
+# zgen {{{
 
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -100,9 +96,9 @@ if ! zgen saved; then
     zgen save
 fi
 
-# -------------------------------------
-# keybind&alias
-# -------------------------------------
+# }}}
+
+# keybind alias function {{{
 
 # ls
 case ${OSTYPE} in
@@ -268,3 +264,5 @@ function select_ghq() {
 }
 zle -N select_ghq
 bindkey '^g' select_ghq
+
+# }}}
