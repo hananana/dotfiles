@@ -784,8 +784,7 @@ endfunction
 
 " }}}
 
-" NOT ACTIVE old plugin setting {{{
-" }}}
+" NOT ACTIVE old plugin setting
 " Shougo/denite.nvim {{{
 if dein#tap('denite.nvim')
     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
