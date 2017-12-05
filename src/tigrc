@@ -1,7 +1,7 @@
 # Gを無効
 bind generic G none
 
-set main-view = date author id commit-title:graph=yes,refs=yes
+set main-view = date id author commit-title:graph=yes,refs=yes
 
 # status
 bind status C !git commit -v
