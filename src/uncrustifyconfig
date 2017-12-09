@@ -307,7 +307,7 @@ nl_around_cs_property = 0
 # get/set/add/removeハンドラの間の改行数 (C#言語) (0: 変更無し) { number }
 nl_between_get_set = 0
 # プロパティと'{'の間に改行を挿入/削除する (C#言語) { ignore, add, remove, force }
-nl_property_brace = ignore
+nl_property_brace = Add
 # '{'の後の改行を削除するかどうか { false, true }
 eat_blanks_after_open_brace = true
 # '}'の前の改行を削除するかどうか { false, true }
