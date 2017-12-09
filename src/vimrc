@@ -41,6 +41,7 @@ if dein#load_state(s:env.path.dein)
     call dein#add('Shougo/vimproc.vim', { 'timeout' : 1800, 'build' : 'make' })
     call dein#add('tpope/vim-dispatch')
     call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('FelikZ/ctrlp-py-matcher', { 'depends' : ['ctrlpvim/ctrlp.vim'] })
     call dein#add('lambdalisue/gina.vim')
     call dein#add('tpope/vim-fugitive')
     call dein#add('thinca/vim-qfreplace')
@@ -329,16 +330,11 @@ if dein#tap('ctrlp.vim')
 
         let g:ctrlp_map = '<Leader><Leader>'
         let g:ctrlp_show_hidden = 0
-
         let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-
-        if has('mac')
-            let g:ctrlp_use_caching = 0
-        else
-            let g:ctrlp_use_caching = 1
-        endif
-
+        let g:ctrlp_use_caching = 1
         let g:ctrlp_working_path_mode = 0
+        let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
+
         let g:ctrlp_prompt_mappings = {
                     \ 'PrtBS()':              ['<bs>'],
                     \ 'PrtDelete()':          ['<del>'],
@@ -420,8 +416,8 @@ if dein#tap('vim-devicons')
         " dir-icons
         let g:WebDevIconsUnicodeDecorateFolderNodes = 1
         let g:DevIconsEnableFoldersOpenClose = 1
-        let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
-        let g:DevIconsDefaultFolderOpenSymbol = ''
+        let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ' '
+        let g:DevIconsDefaultFolderOpenSymbol = ' '
         " file-icons
         let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
         let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
