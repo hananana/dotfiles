@@ -42,6 +42,7 @@ if dein#load_state(s:env.path.dein)
     call dein#add('tpope/vim-dispatch')
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('FelikZ/ctrlp-py-matcher', { 'depends' : ['ctrlpvim/ctrlp.vim'] })
+    call dein#add('fisadev/vim-ctrlp-cmdpalette',  { 'depends' : ['ctrlpvim/ctrlp.vim']})
     call dein#add('lambdalisue/gina.vim')
     call dein#add('tpope/vim-fugitive')
     call dein#add('thinca/vim-qfreplace')
@@ -373,6 +374,11 @@ if dein#tap('ctrlp.vim')
                     \ }
     endfunction
     call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
+endif
+" }}}
+" fisadev/vim-ctrlp-cmdpalette {{{
+if dein#tap('vim-ctrlp-cmdpalette')
+    nnoremap <Leader>p :CtrlPCmdPalette<CR>
 endif
 " }}}
 " scrooloose/nerdtree {{{
