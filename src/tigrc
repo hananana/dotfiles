@@ -1,8 +1,9 @@
 # Gを無効
 bind generic G none
-
+# idを表示
 set main-view = date id author commit-title:graph=yes,refs=yes
-
+# untrackedfileを表示
+set status-show-untracked-files = yes
 # status
 bind status C !git commit -v
 
