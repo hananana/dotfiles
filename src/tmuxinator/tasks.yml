@@ -8,6 +8,10 @@ windows:
       layout: even-horizontal
       panes:
         - vim -O general.md nextchoco.md
+  - todo:
+      layout: even-horizontal
+      panes:
+        - vim 
   - zsh:
       layout: even-horizontal
       panes:
