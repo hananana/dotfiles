@@ -35,17 +35,9 @@ balias gd 'git diff'
 balias mux 'tmuxinator'
 balias o 'open'
 balias tree 'tree -NC'
+balias l show_dir_info
 
-switch (uname)
-    case Linux
-        # NOTE: ubuntuだとみづらいねん    
-        balias l 'ls --color=never -XlAh'
-    case Darwin
-        balias l '/usr/local/bin/gls --color -XlAh'
-end
-
-# }}}
-
+# }}} 
 # bind {{{
 function fish_user_key_bindings
     bind \cr fzy_history
@@ -64,11 +56,23 @@ function fish_prompt
     set -l glyphs ' ' ' ' ' ' ' ' ' ' ' '
     set -l ran (random 1 (count $glyphs))
     echo -n "$glyphs[$ran] $PWD "
-    set_color yellow
+
+    if test -e $PWD/.git
+        set_color white -b black
+        echo -n ''
+        set_color black -b white
+        echo -n '  '
+        echo -n (git_current_branch_name)
+        set_color white -b black
+        echo -n ''
+        set_color -b normal
+    end
+
+    set_color -o yellow
+    echo -n " >"
+    set_color -o blue
     echo -n ">"
-    set_color blue
-    echo -n ">"
-    set_color green
+    set_color -o green
     echo -n "> "
 end
 
@@ -92,7 +96,7 @@ function cd
     end
 
     echo $PWD >> $CD_HISTORY_FILE 
-    ls -la
+    show_dir_info
     awk '!a[$0]++' $CD_HISTORY_FILE >/dev/null 2>&1
 end
 
@@ -108,7 +112,7 @@ end
 
 function cdg
     cd (ghq list -p | fzy)
-    ls -la
+    show_dir_info
 end
 
 function git_current_branch_name
@@ -128,6 +132,30 @@ end
 function fzy_branch
     git branch -a --sort=-authordate | cut -b 3- | perl -pe 's#^remotes/origin/###' | perl -nlE 'say if !$c{$_}++' | grep -v -- "->" | fzy | read -l temp
     commandline -a $temp
+end
+
+function show_dir_info
+    echo '------------------------'
+    echo ''
+    custom_ls
+    echo ''
+    echo '------------------------'
+    if test -e $PWD/.git
+        echo ''
+        git status
+        echo ''
+        echo '------------------------'
+    end
+end
+
+function custom_ls
+    switch (uname)
+        case Linux
+            # NOTE: ubuntuだとみづらいねん    
+            ls --color=never -XlAh
+        case Darwin
+            /usr/local/bin/gls --color -XlAh
+    end
 end
 
 # }}}
