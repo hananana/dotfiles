@@ -1,4 +1,8 @@
 
+set -x GOPATH $HOME
+set -x PATH $HOME/bin $PATH
+set -x PATH $HOME/.dotfiles/bin $PATH
+
 if type -q balias
     balias gst 'git status'
     balias gf 'git fetch --prune'
@@ -12,9 +16,16 @@ if type -q balias
     balias gco 'git checkout'
     balias gd 'git diff'
     balias gl 'git pull --prune'
-    balias l 'ls -la'
+
+    switch (uname)
+        case Linux
+            # NOTE: ubuntuだとみづらいねん    
+            balias l 'ls --color=never -XlAh'
+        case Darwin
+            balias l '/usr/local/bin/gls --color -XlAh'
+    end
 else
-    echo 'install balias. fisher balias'
+    echo 'PLZ. install balias'
 end
 
 function cdz
