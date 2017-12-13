@@ -61,7 +61,15 @@ end
 
 # prompt {{{
 function fish_prompt
-    echo (prompt_pwd)
+    set -l glyphs ' ' ' ' ' ' ' ' ' ' ' '
+    set -l ran (random 1 (count $glyphs))
+    echo -n "$glyphs[$ran] $PWD "
+    set_color yellow
+    echo -n ">"
+    set_color blue
+    echo -n ">"
+    set_color green
+    echo -n "> "
 end
 
 # promptのI表示を消す
