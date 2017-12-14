@@ -58,7 +58,7 @@ function fish_prompt
         echo -n ''
         set_color black -b FFFFFF
         echo -n '  '
-        echo -n (git_current_branch_name)
+        echo -n (git_current_branch_name)' '
         set_color FFFFFF -b black
         echo -n ''
         set_color normal -b normal
