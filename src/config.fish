@@ -54,21 +54,21 @@ function fish_prompt
     echo -n "$glyphs[$ran] $PWD "
 
     if test -e $PWD/.git
-        set_color white -b black
+        set_color FFFFFF -b black
         echo -n ''
-        set_color black -b white
+        set_color black -b FFFFFF
         echo -n '  '
         echo -n (git_current_branch_name)
-        set_color white -b black
+        set_color FFFFFF -b black
         echo -n ''
-        set_color -b normal
+        set_color normal -b normal
     end
 
-    set_color -o yellow
+    set_color -o FFFF00 
     echo -n " >"
-    set_color -o blue
+    set_color -o 0000FF
     echo -n ">"
-    set_color -o green
+    set_color -o 008000
     echo -n "> "
 end
 
