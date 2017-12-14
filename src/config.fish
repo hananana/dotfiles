@@ -1,19 +1,16 @@
-
 # check and install commands {{{
-type -q fisher; or echo 'install fisher'
-type -q ghq; or echo 'install ghq'
-type -q go; or echo 'install go'
-type -q fzy; or echo 'install fzy'
-type -q rg; or echo 'install rg'
-type -q balias; or echo 'install balias'
+type -q fisher; or install_fisher
+type -q go; or install_go
+type -q ghq; or install_ghq
+type -q fzy; or install_fzy
+type -q rg; or install_rg
+type -q balias; or install_balias
 # }}}
-
 # path {{{
 set -x GOPATH $HOME
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.dotfiles/bin $PATH
 # }}}
-
 # alias {{{
 balias gst 'git status'
 balias gf 'git fetch --prune'
@@ -50,7 +47,6 @@ function fish_user_key_bindings
     end
 end
 # }}}
-
 # prompt {{{
 function fish_prompt
     set -l glyphs ' ' ' ' ' ' ' ' ' ' ' '
@@ -80,7 +76,6 @@ end
 function fish_mode_prompt
 end
 # }}}
-
 # function {{{
 
 # cd {{{
@@ -163,6 +158,44 @@ end
 
 function git_current_branch_name
     git branch | grep '^\*' | sed 's/^\* *//'
+end
+# }}}
+
+# installer {{{
+function install_fisher
+    echo 'install fisher'
+    echo 'not implment yet'
+end
+
+function install_go
+    echo 'install go'
+    echo 'not implment yet'
+end
+
+function install_ghq
+    echo 'install ghq'
+    echo 'not implment yet'
+end
+
+function install_fzy
+    echo 'install fzy'
+    echo 'not implment yet'
+end
+
+function install_rg
+    echo 'install rg'
+    echo 'not implment yet'
+end
+
+function install_balias
+    fisher omf/balias
+end
+
+function install_vim
+    echo 'install vim'
+    echo 'not implment yet'
+    ghq get vim/vim
+    builtin cd (ghq root)/vim/vim/src
 end
 # }}}
 
