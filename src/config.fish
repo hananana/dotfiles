@@ -82,6 +82,8 @@ end
 # }}}
 
 # function {{{
+
+# cd {{{
 set CD_HISTORY_FILE $HOME/.cd_history_file
 test -e $CD_HISTORY_FILE; or touch $CD_HISTORY_FILE
 
@@ -115,10 +117,9 @@ function cdg
     show_dir_info
 end
 
-function git_current_branch_name
-    git branch | grep '^\*' | sed 's/^\* *//'
-end
+# }}}
 
+# fzy {{{
 function fzy_history
     history | fzy | read temp
     eval $temp
@@ -147,7 +148,9 @@ function show_dir_info
         echo '------------------------'
     end
 end
+# }}}
 
+# zatsu {{{
 function custom_ls
     switch (uname)
         case Linux
@@ -157,5 +160,10 @@ function custom_ls
             /usr/local/bin/gls --color -XlAh
     end
 end
+
+function git_current_branch_name
+    git branch | grep '^\*' | sed 's/^\* *//'
+end
+# }}}
 
 # }}}
