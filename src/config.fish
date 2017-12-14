@@ -51,13 +51,13 @@ end
 function fish_prompt
     set -l glyphs ' ' ' ' ' ' ' ' ' ' ' '
     set -l ran (random 1 (count $glyphs))
-    echo -n "$glyphs[$ran] $PWD "
+    echo -n " $glyphs[$ran] $PWD "
 
     if test -e $PWD/.git
         set_color FFFFFF -b black
         echo -n ''
         set_color black -b FFFFFF
-        echo -n '  '
+        echo -n '   '
         echo -n (git_current_branch_name)' '
         set_color FFFFFF -b black
         echo -n ''
@@ -158,6 +158,10 @@ end
 
 function git_current_branch_name
     git branch | grep '^\*' | sed 's/^\* *//'
+end
+
+# disappear greeting
+function fish_greeting
 end
 # }}}
 
