@@ -61,6 +61,7 @@ if dein#load_state(s:env.path.dein)
     call dein#add('osyo-manga/vim-watchdogs')
     call dein#add('cohama/vim-hier')
     call dein#add('osyo-manga/shabadou.vim')
+    call dein#add('kmszk/CCSpellCheck.vim')
 
     " training now...
     call dein#add('terryma/vim-multiple-cursors')
@@ -193,6 +194,7 @@ set pumheight=10
 set ttimeout
 set ttimeoutlen=50
 " spellcheck日本語対応
+set spell
 set spelllang=en,cjk
 
 set previewheight=10
