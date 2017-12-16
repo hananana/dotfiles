@@ -1,10 +1,24 @@
 # check and install commands {{{
-type -q fisher; or install_fisher
-type -q go; or install_go
-type -q ghq; or install_ghq
-type -q fzy; or install_fzy
-type -q rg; or install_rg
-type -q balias; or install_balias
+type -q go
+or install_go
+
+type -q ghq
+or install_ghq
+
+type -q fzy
+or install_fzy
+
+type -q rg
+or install_rg
+
+type -q fisher
+or install_fisher
+
+type -q spin
+or fisher spin
+
+type -q balias
+or fisher balias
 # }}}
 # path {{{
 set -x GOPATH $HOME
