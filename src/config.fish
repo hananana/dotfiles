@@ -131,17 +131,17 @@ end
 # fzy {{{
 function fzy_history
     history | fzy | read temp
-    eval $temp
+    and eval $temp
 end
 
 function fzy_recursive
     find -L . | fzy | read temp
-    commandline -a $temp
+    and commandline -a $temp
 end
 
 function fzy_branch
     git branch -a --sort=-authordate | cut -b 3- | perl -pe 's#^remotes/origin/###' | perl -nlE 'say if !$c{$_}++' | grep -v -- "->" | fzy | read -l temp
-    commandline -a $temp
+    and commandline -a $temp
 end
 
 function show_dir_info

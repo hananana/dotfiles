@@ -61,7 +61,6 @@ if dein#load_state(s:env.path.dein)
     call dein#add('osyo-manga/vim-watchdogs')
     call dein#add('cohama/vim-hier')
     call dein#add('osyo-manga/shabadou.vim')
-    call dein#add('kmszk/CCSpellCheck.vim')
 
     " training now...
     call dein#add('terryma/vim-multiple-cursors')
