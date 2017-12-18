@@ -1,92 +1,3 @@
-# check and install commands {{{
-type -q go
-or install_go
-
-type -q ghq
-or install_ghq
-
-type -q fzy
-or install_fzy
-
-type -q rg
-or install_rg
-
-type -q fisher
-or install_fisher
-
-type -q balias
-or fisher balias
-# }}}
-# path {{{
-set -x GOPATH $HOME
-set -x PATH $HOME/bin $PATH
-set -x PATH $HOME/.dotfiles/bin $PATH
-# }}}
-# alias {{{
-balias gst 'git status'
-balias gf 'git fetch --prune'
-balias gfp 'git fetch --prune'
-balias ga 'git add'
-balias gaa 'git add --all'
-balias gb 'git branch'
-balias gba 'git branch -a'
-balias gc 'git commit -v'
-balias gcb 'git checkout -b'
-balias gco 'git checkout'
-balias gd 'git diff'
-balias gl 'git pull --prune'
-balias gp 'git push'
-balias gpu 'git push -u origin (git_current_branch_name)'
-balias grh 'git reset HEAD'
-balias grhh 'git reset HEAD --hard'
-balias gd 'git diff'
-balias mux 'tmuxinator'
-balias o 'open'
-balias tree 'tree -NC'
-balias l show_dir_info
-
-# }}} 
-# bind {{{
-function fish_user_key_bindings
-    bind \cr fzy_history
-    bind \cf fzy_recursive
-    bind \cg fzy_branch
-    if bind -M insert >/dev/null ^/dev/null
-        bind -M insert \cr fzy_history
-        bind -M insert \cf fzy_recursive
-        bind -M insert \cg fzy_branch
-    end
-end
-# }}}
-# prompt {{{
-function fish_prompt
-    set -l glyphs ' ' ' ' ' ' ' ' ' ' ' '
-    set -l ran (random 1 (count $glyphs))
-    echo -n " $glyphs[$ran] $PWD "
-
-    if test -e $PWD/.git
-        set_color FFFFFF -b black
-        echo -n ''
-        set_color black -b FFFFFF
-        echo -n '   '
-        echo -n (git_current_branch_name)' '
-        set_color FFFFFF -b black
-        echo -n ''
-        set_color normal -b normal
-    end
-
-    set_color -o FFFF00 
-    echo -n " >"
-    set_color -o 0000FF
-    echo -n ">"
-    set_color -o 008000
-    echo -n "> "
-end
-
-# promptのI表示を消す
-function fish_mode_prompt
-end
-# }}}
 # function {{{
 
 # cd {{{
@@ -174,44 +85,181 @@ end
 # disappear greeting
 function fish_greeting
 end
+
+# blue bold echo
+function becho
+    echo -e "\033[1;34m$argv[1]\033[0;39m"
+end
+
+# red bold echo
+function recho
+    echo -e "\033[1;31m$argv[1]\033[0;39m"
+end
 # }}}
 
 # installer {{{
 function install_fisher
-    echo 'install fisher'
-    echo 'not implment yet'
+    becho 'Install fisher...'
+    recho 'not implement yet'
 end
 
 function install_go
-    echo 'install go'
-    echo 'not implment yet'
+    becho 'Install go...'
+    recho 'not implement yet'
 end
 
 function install_ghq
-    echo 'install ghq'
-    echo 'not implment yet'
+    becho 'Install ghq...'
+    recho 'not implement yet'
 end
 
 function install_fzy
-    echo 'install fzy'
-    echo 'not implment yet'
+    becho 'Install fzy'
+    recho 'not implement yet'
 end
 
 function install_rg
-    echo 'install rg'
-    echo 'not implment yet'
+    becho 'Install rg...'
+    recho 'not implement yet'
 end
 
 function install_balias
+    becho 'Install balias...'
     fisher omf/balias
 end
 
+
 function install_vim
-    echo 'install vim'
-    echo 'not implment yet'
-    ghq get vim/vim
-    builtin cd (ghq root)/vim/vim/src
+    becho 'Install vim...'
+    set startDir $PWD
+    set vimDir (ghq root)/github.com/vim/vim
+    test -e $vimDir
+    and becho 'found vim src...!'
+    or echo ghq get vim/vim
+
+    becho 'git pull'
+    git pull > /dev/null 2>&1
+
+    git -C $vimDir tag | tail -n 1 | read -l vimTag
+    becho 'newest tag is '$vimTag
+    git -C $vimDir checkout $vimTag > /dev/null 2>&1
+
+    becho 'make distclean...'
+    builtin cd $vimDir/src
+    and make distclean
+    and ./configure --enable-fail-if-missing --enable-pythoninterp --enable-rubyinterp --enable-terminal --enable-multibyte --enable-fontset --enable-cscope
+    and sudo make
+    and sudo make install
+    and builtin cd $startDir
+    becho 'ready to vim!!!!!'
+end
+
+function install_library_for_vim_in_ubuntu
+    becho 'cmake'
+    becho 'mono'
+end
+
+function install_library_for_vim_in_mac
+    becho 'cmake'
+    becho 'mono'
+end
+
+function install_if_needed
+    type -q go
+    or install_go
+
+    type -q ghq
+    or install_ghq
+
+    type -q fzy
+    or install_fzy
+
+    type -q rg
+    or install_rg
+
+    type -q fisher
+    or install_fisher
+
+    type -q balias
+    or install_balias
+
+    vim --version | grep +python | read -l hasPythonVim
+    test -z $hasPythonVim
+    and install_vim
 end
 # }}}
 
 # }}}
+# path {{{
+set -x GOPATH $HOME
+set -x PATH $HOME/bin $PATH
+set -x PATH $HOME/.dotfiles/bin $PATH
+# }}}
+# bind {{{
+function fish_user_key_bindings
+    bind \cr fzy_history
+    bind \cf fzy_recursive
+    bind \cg fzy_branch
+    if bind -M insert >/dev/null ^/dev/null
+        bind -M insert \cr fzy_history
+        bind -M insert \cf fzy_recursive
+        bind -M insert \cg fzy_branch
+    end
+end
+# }}}
+# prompt {{{
+function fish_prompt
+    set -l glyphs ' ' ' ' ' ' ' ' ' ' ' '
+    set -l ran (random 1 (count $glyphs))
+    echo -n " $glyphs[$ran] $PWD "
+
+    if test -e $PWD/.git
+        set_color FFFFFF -b black
+        echo -n ''
+        set_color black -b FFFFFF
+        echo -n '   '
+        echo -n (git_current_branch_name)' '
+        set_color FFFFFF -b black
+        echo -n ''
+        set_color normal -b normal
+    end
+
+    set_color -o FFFF00 
+    echo -n " >"
+    set_color -o 0000FF
+    echo -n ">"
+    set_color -o 008000
+    echo -n "> "
+end
+
+# promptのI表示を消す
+function fish_mode_prompt
+end
+# }}}
+
+install_if_needed
+
+# alias {{{
+balias gst 'git status'
+balias gf 'git fetch --prune'
+balias gfp 'git fetch --prune'
+balias ga 'git add'
+balias gaa 'git add --all'
+balias gb 'git branch'
+balias gba 'git branch -a'
+balias gc 'git commit -v'
+balias gcb 'git checkout -b'
+balias gco 'git checkout'
+balias gd 'git diff'
+balias gl 'git pull --prune'
+balias gp 'git push'
+balias gpu 'git push -u origin (git_current_branch_name)'
+balias grh 'git reset HEAD'
+balias grhh 'git reset HEAD --hard'
+balias gd 'git diff'
+balias mux 'tmuxinator'
+balias o 'open'
+balias tree 'tree -NC'
+balias l show_dir_info
+
+# }}} 
