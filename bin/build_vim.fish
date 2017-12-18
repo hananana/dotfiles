@@ -6,7 +6,7 @@ and echo 'found vim src...!'
 or echo ghq get vim/vim
 
 echo 'wait some seconds. git pull....'
-spin 'git pull > /dev/null 2>&1'
+git pull > /dev/null 2>&1
 
 git -C $vimDir tag | tail -n 1 | read -l vimTag
 echo 'complete'

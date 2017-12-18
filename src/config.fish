@@ -14,9 +14,6 @@ or install_rg
 type -q fisher
 or install_fisher
 
-type -q spin
-or fisher spin
-
 type -q balias
 or fisher balias
 # }}}
