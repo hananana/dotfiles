@@ -1,7 +1,7 @@
 # ~/.tmuxinator/dot.yml
 
 name: dotfiles
-root: ~/.dotfiles
+root: ~/src/github.com/hananana/dotfiles
 
 windows:
   - editor:
