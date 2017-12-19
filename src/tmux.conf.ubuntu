@@ -16,7 +16,7 @@ set-option -g status-left '#[bg=colour15, fg=black]   FUCKING SESSION: #[fg=c
 set-option -g status-left-length 120
 
 # right
-set-option -g status-right '#($HOME/.dotfiles/bin/kaomoji.sh) #[bg=black, fg=colour246]#[fg=black, bg=colour246] #($HOME/.dotfiles/bin/wifi-signal-strength) #[fg=colour15, bg=colour246]#[bg=colour15, fg=black]   %Y-%m-%d(%a) %H:%M '
+set-option -g status-right '#($DOTDIR/bin/kaomoji.sh) #[bg=black, fg=colour246]#[fg=black, bg=colour246] #($DOTDIR/bin/wifi-signal-strength) #[fg=colour15, bg=colour246]#[bg=colour15, fg=black]   %Y-%m-%d(%a) %H:%M '
 set-option -g status-right-length 120
 
 # ステータスバーの色を設定する
@@ -27,7 +27,7 @@ set -g status-bg black
 setw -g window-status-current-bg colour15
 setw -g window-status-current-fg black
 setw -g window-status-format '#[fg=colour246, bg=black]#[bg=colour246, fg=black] #I:#W #[fg=colour246, bg=black]'
-setw -g window-status-current-format '#[fg=colour15, bg=black]#[bg=colour15, fg=black] #I:#W #($HOME/.dotfiles/bin/random_icon.sh #I) #[fg=colour15, bg=black]'
+setw -g window-status-current-format '#[fg=colour15, bg=black]#[bg=colour15, fg=black] #I:#W #($DOTDIR/bin/random_icon.sh #I) #[fg=colour15, bg=black]'
 
 # - でペインを縦に分割する
 bind - split-window -v

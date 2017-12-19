@@ -82,6 +82,34 @@ function git_current_branch_name
     git branch | grep '^\*' | sed 's/^\* *//'
 end
 
+function update_symlink
+    rm -rf $HOME/.vimrc
+    ln -s $DOTDIR/src/vimrc $HOME/.vimrc
+    rm -rf $HOME/.vim
+    ln -s $DOTDIR/src/vim $HOME/.vim
+    rm -rf $HOME/.commit_template.txt
+    ln -s $DOTDIR/src/commit_template.txt $HOME/.commit_template.txt
+    rm -rf $HOME/.gitconfig
+    ln -s $DOTDIR/src/gitconfig $HOME/.gitconfig
+    rm -rf $HOME/.gitignore_global
+    ln -s $DOTDIR/src/gitignore_global $HOME/.gitignore_global
+    rm -rf $HOME/.tigrc
+    ln -s $DOTDIR/src/tigrc $HOME/.tigrc
+    rm -rf $HOME/.tmuxinator
+    ln -s $DOTDIR/src/tmuxinator $HOME/.tmuxinator
+    rm -rf $HOME/.uncrustifyconfig
+    
+    rm -rf $HOME/.tmux.conf
+    switch (uname)
+        case Linux
+            ln -s $DOTDIR/src/tmux.conf.ubuntu $HOME/.tmux.conf
+        case Darwin
+            ln -s $DOTDIR/src/tmux.conf $HOME/.tmux.conf
+    end
+
+
+end
+
 # disappear greeting
 function fish_greeting
 end
@@ -192,6 +220,7 @@ end
 # }}}
 # path {{{
 set -x GOPATH $HOME
+set -x DOTDIR $HOME/src/github.com/hananana/dotfiles
 set -x PATH $HOME/bin $PATH
 set -x PATH $HOME/.dotfiles/bin $PATH
 # }}}
