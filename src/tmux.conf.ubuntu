@@ -12,22 +12,20 @@ set -s escape-time 0
 set-option -g allow-rename off
 
 # left
-set-option -g status-left '#[bg=colour15, fg=black]   FUCKING SESSION: #[fg=colour15, bg=colour246] #[fg=black, bg=colour246]   #S #[fg=colour246, bg=black]'
+set-option -g status-left '#[bg=colour19, fg=colour255]   FUCKING SESSION: #[fg=colour19, bg=colour62] #[fg=colour255, bg=colour62]   #S #[fg=colour62, bg=colour75]'
 set-option -g status-left-length 120
 
 # right
-set-option -g status-right '#($DOTDIR/bin/kaomoji.sh) #[bg=black, fg=colour246]#[fg=black, bg=colour246] #($DOTDIR/bin/wifi-signal-strength) #[fg=colour15, bg=colour246]#[bg=colour15, fg=black]   %Y-%m-%d(%a) %H:%M '
+set-option -g status-right '#[fg=colour255, bg=colour75]#($HOME/src/github.com/hananana/dotfiles/bin/kaomoji.sh) #[bg=colour75, fg=colour62]#[fg=colour255, bg=colour62] #($HOME/src/github.com/hananana/dotfiles/bin/wifi-signal-strength) #[fg=colour19, bg=colour62]#[bg=colour19, fg=colour255]   %Y-%m-%d(%a) %H:%M '
 set-option -g status-right-length 120
 
 # ステータスバーの色を設定する
-set -g status-fg white
-set -g status-bg black
+set -g status-fg colour75 
+set -g status-bg colour75
 
 # 現在のペインの背景色など
-setw -g window-status-current-bg colour15
-setw -g window-status-current-fg black
-setw -g window-status-format '#[fg=colour246, bg=black]#[bg=colour246, fg=black] #I:#W #[fg=colour246, bg=black]'
-setw -g window-status-current-format '#[fg=colour15, bg=black]#[bg=colour15, fg=black] #I:#W #($DOTDIR/bin/random_icon.sh #I) #[fg=colour15, bg=black]'
+setw -g window-status-format '#[fg=colour62, bg=colour75]#[bg=colour62, fg=colour255] #I:#W #[fg=colour62, bg=colour75]'
+setw -g window-status-current-format '#[fg=colour166, bg=colour75]#[bg=colour166, fg=colour255] #I:#W #($DOTDIR/bin/random_icon.sh #I) #[fg=colour166, bg=colour75]'
 
 # - でペインを縦に分割する
 bind - split-window -v

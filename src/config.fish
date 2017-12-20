@@ -222,7 +222,7 @@ end
 set -x GOPATH $HOME
 set -x DOTDIR $HOME/src/github.com/hananana/dotfiles
 set -x PATH $HOME/bin $PATH
-set -x PATH $HOME/.dotfiles/bin $PATH
+set -x PATH $DOTDIR/bin $PATH
 # }}}
 # bind {{{
 function fish_user_key_bindings
