@@ -18,6 +18,10 @@ function install_fish() {
     fi
 }
 
+function install_vim() {
+    becho hoge
+}
+
 function install_brew() {
     becho 'Install HomeBrew!'
     if type 'brew' > /dev/null 2>&1
