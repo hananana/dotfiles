@@ -88,13 +88,13 @@ export CLICOLOR=true
 # prompt {{{
 
 autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr ""
-zstyle ':vcs_info:git:*' unstagedstr ""
-zstyle ':vcs_info:*' formats "%F{black}%K{246}   %b %u%c %f%k%F{246}%K{black}%k%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
+# setopt prompt_subst
+# zstyle ':vcs_info:git:*' check-for-changes true
+# zstyle ':vcs_info:git:*' stagedstr ""
+# zstyle ':vcs_info:git:*' unstagedstr ""
+# zstyle ':vcs_info:*' formats "%F{black}%K{246}   %b %u%c %f%k%F{246}%K{black}%k%f"
+# zstyle ':vcs_info:*' actionformats '[%b|%a]'
+# precmd () { vcs_info }
 
 function random_glyphs() {
     local glyphs=(
@@ -107,9 +107,15 @@ function random_glyphs() {
     )
     local ran=$(($(od -vAn -N4 -tu4 < /dev/random) % 6))
     echo $glyphs[$(($ran + 1))]
+    
 }
 
-PROMPT='%K{015}%F{black} $(random_glyphs) %~ %f%k%K{246}%F{015}%f%k${vcs_info_msg_0_} '
+function show_git_info_if_needed() {
+    branch=$(git branch | grep '*' | awk '{ print $2 }')
+    echo '%F{255}%f%K{255}%F{000}'    $branch '%k%f%F{255}%f'
+}
+
+PROMPT=' $(random_glyphs) %~ $(show_git_info_if_needed)'
 
 # }}}
 
@@ -183,7 +189,7 @@ alias notice='~/.dotfiles/bin/notice.sh'
 # mux
 alias mux="tmuxinator"
 
-#oepn
+#open
 alias o='open'
 
 # 現在のbranch取得
