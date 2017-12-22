@@ -87,15 +87,6 @@ export CLICOLOR=true
 
 # prompt {{{
 
-autoload -Uz vcs_info
-# setopt prompt_subst
-# zstyle ':vcs_info:git:*' check-for-changes true
-# zstyle ':vcs_info:git:*' stagedstr ""
-# zstyle ':vcs_info:git:*' unstagedstr ""
-# zstyle ':vcs_info:*' formats "%F{black}%K{246}   %b %u%c %f%k%F{246}%K{black}%k%f"
-# zstyle ':vcs_info:*' actionformats '[%b|%a]'
-# precmd () { vcs_info }
-
 function random_glyphs() {
     local glyphs=(
         ' '
@@ -107,15 +98,17 @@ function random_glyphs() {
     )
     local ran=$(($(od -vAn -N4 -tu4 < /dev/random) % 6))
     echo $glyphs[$(($ran + 1))]
-    
 }
 
 function show_git_info_if_needed() {
-    branch=$(git branch | grep '*' | awk '{ print $2 }')
-    echo '%F{255}%f%K{255}%F{000}'    $branch '%k%f%F{255}%f'
+    if [ -e $PWD/.git ]
+    then
+        branch=$(git branch | grep '*' | awk '{ print $2 }')
+        echo '%F{255}%f%K{255}%F{000}   '$branch' %k%f%F{255}%f'
+    fi
 }
 
-PROMPT=' $(random_glyphs) %~ $(show_git_info_if_needed)'
+PROMPT=' $(random_glyphs) $PWD $(show_git_info_if_needed)  '
 
 # }}}
 
