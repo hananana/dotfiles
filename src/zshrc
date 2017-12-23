@@ -168,9 +168,6 @@ alias vi="vim"
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# 通知
-alias notice='~/.dotfiles/bin/notice.sh'
-
 # mux
 alias mux="tmuxinator"
 
