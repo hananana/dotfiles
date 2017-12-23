@@ -92,7 +92,7 @@ function random_glyphs() {
 }
 
 function show_git_info_if_needed() {
-    if [ -e $PWD/.git ]
+    if [ -e $PWD/.git ] || git rev-parse --is-inside-work-tree > /dev/null 2>&1
     then
         branch=$(git branch | grep '*' | awk '{ print $2 }')
         echo '%F{255}%f%K{255}%F{000}   '$branch' %k%f%F{255}%f'
@@ -303,6 +303,19 @@ function update_symlink() {
             ln -s $DOTDIR/src/tmux.conf $HOME/.tmux.conf
             ;;
     esac
+}
+
+function ggl() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            str="$str+$i"
+        done
+        str=`echo $str | sed 's/^\+//'`
+        opt='search?num=50&hl=ja&lr=lang_ja'
+        opt="${opt}&q=${str}"
+    fi
+    w3m http://www.google.co.jp/$opt
 }
 
 # }}}
