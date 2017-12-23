@@ -1,18 +1,15 @@
 
 # export {{{
 export EDITOR='vim'
+export GOPATH="$HOME"
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.dotfiles/bin
+export DOTDIR=$HOME/src/github.com/hananana/dotfiles
 
 # android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=$PATH":$ANDROID_HOME/platform-tools"
 export PATH=$PATH":$ANDROID_HOME/tools"
-
-# go
-export GOPATH="$HOME"
-export PATH=$PATH:$GOPATH/bin
-
-# my script
-export PATH=$PATH:$HOME/.dotfiles/bin
 
 # Java_HOME
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
@@ -61,12 +58,6 @@ setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt HIST_BEEP 
-
-# }}}
-
-# autoload {{{
-
-autoload -Uz vcs_info
 
 # }}}
 
@@ -191,20 +182,6 @@ function git-current-branch-name() {
     git branch | grep '^\*' | sed 's/^\* *//'
 }
 
-# ブランチを絞り込む
-function git_branch(){
-    local branch=$(git branch -a | fzy | tr -d ' ' | tr -d '*')
-    if [ -n "$branch" ]; then
-        if [ -n "$LBUFFER" ]; then
-            local new_left="${LBUFFER%\ } $branch"
-        else
-            local new_left="$branch"
-        fi
-        BUFFER=${new_left}${RBUFFER}
-        CURSOR=${#new_left}
-    fi
-}
-
 #アプリを終了させる
 function kill_process () {
     ps -ef | fzy | awk '{ print $2 }' | xargs kill
@@ -264,7 +241,7 @@ function cd_gitroot() {
 }
 
 # ヒストリを絞り込む
-function select_history() {
+function fzy_history() {
     local tac
     if which tac > /dev/null; then
         tac="tac"
@@ -277,19 +254,8 @@ function select_history() {
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N select_history
-bindkey '^r' select_history 
-
-function fb() {
-    local branches branch
-    branches=$(git branch -vv) &&
-    branch=$(echo "$branches" | fzy) &&
-    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-function fbr() {
-	echo "not implemented"
-}
+zle -N fzy_history
+bindkey '^r' fzy_history 
 
 function cdg() {
     builtin cd $(ghq list -p | fzy)
@@ -312,6 +278,5 @@ function fzy_any_recursive() {
 
 zle -N fzy_any_recursive
 bindkey '^f' fzy_any_recursive
-
 
 # }}}
