@@ -294,6 +294,24 @@ function fbr() {
 function cdg() {
     builtin cd $(ghq list -p | fzy)
 }
-zle -N cdg
+
+function fzy_branch() {
+    git branch -a --sort=-authordate | cut -b 3- | perl -pe 's#^remotes/origin/###' | perl -nlE 'say if !$c{$_}++' | grep -v -- "->" | fzy | read temp_branch
+    BUFFER+=$temp_branch
+    zle clear-screen
+}
+
+zle -N fzy_branch
+bindkey '^g' fzy_branch
+
+function fzy_any_recursive() {
+    rg --files | fzy | read temp_any
+    BUFFER+=$temp_any
+    zle clear-screen
+}
+
+zle -N fzy_any_recursive
+bindkey '^f' fzy_any_recursive
+
 
 # }}}
