@@ -291,10 +291,9 @@ function fbr() {
 	echo "not implemented"
 }
 
-function select_ghq() {
+function cdg() {
     builtin cd $(ghq list -p | fzy)
 }
-zle -N select_ghq
-bindkey '^g' select_ghq
+zle -N cdg
 
 # }}}
