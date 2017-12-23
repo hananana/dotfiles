@@ -276,4 +276,33 @@ function fzy_any_recursive() {
 zle -N fzy_any_recursive
 bindkey '^f' fzy_any_recursive
 
+function update_symlink() {
+    rm -rf $HOME/.vimrc
+    ln -s $DOTDIR/src/vimrc $HOME/.vimrc
+    rm -rf $HOME/.vim
+    ln -s $DOTDIR/src/vim $HOME/.vim
+    rm -rf $HOME/.commit_template.txt
+    ln -s $DOTDIR/src/commit_template.txt $HOME/.commit_template.txt
+    rm -rf $HOME/.gitconfig
+    ln -s $DOTDIR/src/gitconfig $HOME/.gitconfig
+    rm -rf $HOME/.gitignore_global
+    ln -s $DOTDIR/src/gitignore_global $HOME/.gitignore_global
+    rm -rf $HOME/.tigrc
+    ln -s $DOTDIR/src/tigrc $HOME/.tigrc
+    rm -rf $HOME/.tmuxinator
+    ln -s $DOTDIR/src/tmuxinator $HOME/.tmuxinator
+    rm -rf $HOME/.uncrustifyconfig
+    ln -s $DOTDIR/src/uncrustifyconfig $HOME/.uncrustifyconfig
+    
+    rm -rf $HOME/.tmux.conf
+    case ${OSTYPE} in
+        darwin*)
+            ln -s $DOTDIR/src/tmux.conf.ubuntu $HOME/.tmux.conf
+            ;;
+        linux*)
+            ln -s $DOTDIR/src/tmux.conf $HOME/.tmux.conf
+            ;;
+    esac
+}
+
 # }}}
