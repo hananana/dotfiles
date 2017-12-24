@@ -500,8 +500,8 @@ let g:UltiSnipsJumpForwardTrigger='<c-k>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 let g:UltiSnipsEditSplit='vertical'
 
-let g:ycm_min_num_of_chars_for_completion = 4
-let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_identifier_candidate_chars = 3
 let g:ycm_key_invoke_completion = '<C-o>'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_confirm_extra_conf = 0
