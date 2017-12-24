@@ -94,8 +94,8 @@ function random_glyphs() {
 function show_git_info_if_needed() {
     if [ -e $PWD/.git ] || git rev-parse --is-inside-work-tree > /dev/null 2>&1
     then
-        branch=$(git branch | grep '*' | awk '{ print $2 }')
-        echo '%F{255}%f%K{255}%F{000}   '$branch' %k%f%F{255}%f'
+        branch=$(git branch | grep '*' | awk -F '*' '{ print $2 }')
+        echo '%F{255}%f%K{255}%F{000}  '$branch' %k%f%F{255}%f'
     fi
 }
 
@@ -318,4 +318,44 @@ function ggl() {
     w3m http://www.google.co.jp/$opt
 }
 
+function install_vim() {
+    becho 'Install vim...'
+    startDir=$PWD
+    vimDir=$(ghq root)/github.com/vim/vim
+    if [ -e $vimDir ] 
+    then
+        becho 'found vim src...!'
+    else
+        ghq get vim/vim
+    fi
+
+    becho 'git pull'
+    builtin cd $vimDir/src
+    git pull origin master > /dev/null 2>&1
+
+    vimTag=$(git tag | tail -n 1)
+    becho 'newest tag is '$vimTag
+    git checkout $vimTag > /dev/null 2>&1
+
+    becho 'make distclean'
+    make distclean
+    becho 'configure...!'
+    ./configure --enable-fail-if-missing --enable-pythoninterp --enable-rubyinterp --enable-terminal --enable-multibyte --enable-fontset --enable-cscope
+    becho 'make'
+    sudo make
+    becho 'make install'
+    sudo make install
+    builtin cd $startDir
+    becho 'ready to vim!!!!!'
+}
+
+# blue bold echo
+function becho() {
+    echo -e "\033[1;34m$1\033[0;39m"
+}
+
+# red bold echo
+function recho() {
+    echo -e "\033[1;31m$1\033[0;39m"
+}
 # }}}
