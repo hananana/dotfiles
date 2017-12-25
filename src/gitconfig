@@ -23,3 +23,5 @@
     template = ~/.commit_template.txt
 [ghq]
     root = ~/src
+[merge]
+	tool = vimdiff
