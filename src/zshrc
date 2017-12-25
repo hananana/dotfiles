@@ -1,4 +1,6 @@
 
+# zmodload zsh/zprof && zprof
+
 # export {{{
 export EDITOR='vim'
 export GOPATH="$HOME"
@@ -118,6 +120,9 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-completions
     zgen save
 fi
+
+# for zsh-completion-generator
+compinit -u
 
 # }}}
 
@@ -359,3 +364,8 @@ function recho() {
     echo -e "\033[1;31m$1\033[0;39m"
 }
 # }}}
+
+# if (which zprof > /dev/null)
+# then
+#     zprof | less
+# fi
