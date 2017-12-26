@@ -43,7 +43,6 @@ if dein#load_state(s:env.path.dein)
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('FelikZ/ctrlp-py-matcher', { 'depends' : ['ctrlpvim/ctrlp.vim'] })
     call dein#add('fisadev/vim-ctrlp-cmdpalette',  { 'depends' : ['ctrlpvim/ctrlp.vim']})
-    call dein#add('lambdalisue/gina.vim')
     call dein#add('tpope/vim-fugitive')
     call dein#add('thinca/vim-qfreplace')
     call dein#add('itchyny/lightline.vim')
@@ -61,11 +60,7 @@ if dein#load_state(s:env.path.dein)
     call dein#add('osyo-manga/vim-watchdogs')
     call dein#add('cohama/vim-hier')
     call dein#add('osyo-manga/shabadou.vim')
-
-    " training now...
-    call dein#add('terryma/vim-multiple-cursors')
     call dein#add('koron/codic-vim')
-    call dein#add('tpope/vim-surround')
     call dein#add('thinca/vim-quickrun')
 
     " completion
