@@ -122,7 +122,9 @@ if ! zgen saved; then
 fi
 
 # for zsh-completion-generator
-compinit -u
+# for completion of hub command
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit -u
 
 # }}}
 
