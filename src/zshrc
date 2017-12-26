@@ -123,6 +123,11 @@ fi
 
 # for zsh-completion-generator
 # for completion of hub command
+if [ ! -e $HOME/.zsh/completions/_hub ]
+then
+    mkdir -p $HOME/.zsh/completions
+    wget https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -O $HOME/.zsh/completions/_hub
+fi
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit -u
 
