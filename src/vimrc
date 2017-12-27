@@ -28,9 +28,6 @@ endif
 " }}}
 " dein add {{{
 
-if &compatible
-    set nocompatible
-endif
 execute 'set runtimepath+=' . s:env.dein.path
 
 if dein#load_state(s:env.path.dein)
@@ -189,7 +186,7 @@ set ttimeoutlen=50
 set spell
 set spelllang=en,cjk
 
-set relativenumber
+set norelativenumber
 
 set helplang=ja,en
 
@@ -447,6 +444,8 @@ endif
 if dein#tap('vim-quickrun')
     let g:quickrun_config = get(g:, 'quickrun_config', {})
     let g:quickrun_config['_'] = {
+                \ 'hook/echo/enable' : 1,
+                \ 'hook/echo/output_success':'> No Errors Found.',
                 \ 'runner' : 'vimproc',
                 \ 'runner/vimproc/updatetime' : 60}
 endif
@@ -454,17 +453,6 @@ endif
 " osyo-manga/vim-watchdogs {{{
 if dein#tap('vim-watchdogs')
     let g:watchdogs_check_BufWritePost_enable = 1
-    let g:quickrun_config = get(g:, 'quickrun_config', {})
-	" Vim script {{{
-	if executable('vint')
-		let g:quickrun_config['vim/watchdogs_checker'] = {
-					\ 'type': 'watchdogs_checker/vint'}
-		let g:quickrun_config['watchdogs_checker/vint'] = {
-					\ 'command': 'vint',
-					\ 'exec': '%c %o %s:p',
-					\ 'cmdopt': '--style-problem --color'}
-	endif
-	"}}}
     " C# {{{
     if executable('mcs')
         let g:quickrun_config['cs/watchdogs_checker'] = {
@@ -488,6 +476,11 @@ if dein#tap('vim-watchdogs')
 	endif
 	"}}}
     call watchdogs#setup(g:quickrun_config)
+endif
+" }}}
+" osyo-manga/shobadou.vim {{{
+if dein#tap('shabadou.vim')
+
 endif
 " }}}
 

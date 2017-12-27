@@ -361,6 +361,19 @@ function install_vim() {
     becho 'ready to vim!!!!!'
 }
 
+function install_check() {
+#     rg check
+#     fzy check
+#     vint check
+# tmux check
+# tmuxinator check
+# python check
+# go check
+# ghq check
+# vim check
+}
+
+
 function alc() {
     if [ $ != 0 ]
     then
