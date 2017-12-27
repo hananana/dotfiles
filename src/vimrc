@@ -57,10 +57,11 @@ if dein#load_state(s:env.path.dein)
     call dein#add('gregsexton/VimCalc')
     call dein#add('junegunn/vim-easy-align')
     call dein#add('sheerun/vim-polyglot')
-    call dein#add('osyo-manga/vim-watchdogs')
-    call dein#add('cohama/vim-hier')
-    call dein#add('osyo-manga/shabadou.vim')
     call dein#add('koron/codic-vim')
+    call dein#add('osyo-manga/vim-watchdogs',
+                \ { 'depends': [ 'Shougo/vimproc.vim', 'thinca/vim-quickrun', 'osyo-manga/shabadou.vim']})
+    call dein#add('cohama/vim-hier')
+    call dein#add('osyo-manga/shabadou.vim', { 'depends': ['thinca/vim-quickrun']})
     call dein#add('thinca/vim-quickrun')
 
     " completion
@@ -190,6 +191,8 @@ set spelllang=en,cjk
 
 set relativenumber
 
+set helplang=ja,en
+
 set previewheight=10
 autocmd vimrc BufEnter ?* call PreviewHeightWorkAround()
 function! PreviewHeightWorkAround()
@@ -212,7 +215,6 @@ autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0
 "}}}
 " keymaps {{{
 
-set helplang=en,ja
 "矢印キー無効
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -476,6 +478,8 @@ if dein#tap('vim-watchdogs')
     " }}}
 	" Shell script {{{
 	if executable('shellcheck')
+		let g:quickrun_config['zsh/watchdogs_checker'] = {
+					\ 'type': 'watchdogs_checker/shellcheck'}
 		let g:quickrun_config['sh/watchdogs_checker'] = {
 					\ 'type': 'watchdogs_checker/shellcheck'}
 		let g:quickrun_config['watchdogs_checker/shellcheck'] = {
