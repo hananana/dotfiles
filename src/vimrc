@@ -466,8 +466,6 @@ if dein#tap('vim-watchdogs')
     " }}}
 	" Shell script {{{
 	if executable('shellcheck')
-		let g:quickrun_config['zsh/watchdogs_checker'] = {
-					\ 'type': 'watchdogs_checker/shellcheck'}
 		let g:quickrun_config['sh/watchdogs_checker'] = {
 					\ 'type': 'watchdogs_checker/shellcheck'}
 		let g:quickrun_config['watchdogs_checker/shellcheck'] = {
