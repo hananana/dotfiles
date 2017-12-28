@@ -242,8 +242,6 @@ vmap <Leader>c <Plug>(caw:zeropos:toggle)
 " レジスタ汚染防止
 nnoremap x "_x
 nnoremap s "_s
-" easy save
-nnoremap <Leader>w :w<CR>
 " help
 nnoremap <Leader>h :<C-u>vertical belowright help<Space>
 " Oで改行
@@ -442,18 +440,36 @@ endif
 " }}}
 " thinca/vim-quickrun {{{
 if dein#tap('vim-quickrun')
+    nnoremap <Leader>q :<C-u>QuickRun<CR>
     let g:quickrun_config = get(g:, 'quickrun_config', {})
     let g:quickrun_config['_'] = {
-                \ 'hook/echo/enable' : 1,
-                \ 'hook/echo/output_success':'> No Errors Found.',
                 \ 'runner' : 'vimproc',
-                \ 'runner/vimproc/updatetime' : 60}
+                \ 'runner/vimproc/updatetime' : 1,
+                \ 'outputter' : 'multi:buffer:quickfix',
+                \ 'outputter/buffer/close_on_empty' : 1,
+                \ 'outputter/buffer/split' : 'botright',
+                \ 'outputter/quickfix/into' : 1,
+                \ 'hook/echo/enable' : 1,
+                \ 'hook/echo/output_success' : 'SUCCESS  ',
+                \ 'hook/echo/output_failure' : 'FAILURE  ',
+                \ 'hook/inu/enable' : 1,
+                \ 'hook/inu/wait' : 1
+                \}
+    let g:quickrun_config.cs = { 'type' : 'xbuild' }
+    let g:quickrun_config.xbuild = {
+                \ 'command' : 'xbuild',
+                \ 'exec' : '%c %o',
+                \ 'cmdopt' : '/nologo /verbosity:quiet /property:WarningLevel=1', 
+                \ 'quickfix/error': '%f\\(%l\\,%c\\)%m', 
+                \ 'outputter' : 'quickfix'
+                \ }
 endif
 " }}}
 " osyo-manga/vim-watchdogs {{{
 if dein#tap('vim-watchdogs')
     let g:watchdogs_check_BufWritePost_enable = 1
-    " C# {{{
+
+    " C# 
     if executable('mcs')
         let g:quickrun_config['cs/watchdogs_checker'] = {
                     \ 'type' : 'watchdogs_checker/mcs'}
@@ -461,9 +477,9 @@ if dein#tap('vim-watchdogs')
                     \ 'command' : 'mcs',
                     \ 'exec' : '%c %o %s:p',
                     \ 'cmdopt' : '--parse',
-                    \ 'quickfix/error': '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m' }
+                    \ 'quickfix/error': '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m'
+                    \ }
     endif
-    " }}}
 	" Shell script {{{
 	if executable('shellcheck')
 		let g:quickrun_config['sh/watchdogs_checker'] = {
