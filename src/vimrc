@@ -167,9 +167,7 @@ set autowrite
 autocmd vimrc WinEnter * checktime
 " vimdiffを縦で割る
 set diffopt=vertical
-" カーソル行をハイライト
-set cursorline
-" previewを表示しない
+" previewを表示する
 set completeopt=menuone,preview
 " truecolor
 set termguicolors
@@ -185,8 +183,6 @@ set ttimeoutlen=50
 " spellcheck日本語対応
 set spell
 set spelllang=en,cjk
-
-set norelativenumber
 
 set helplang=ja,en
 
