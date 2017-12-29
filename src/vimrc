@@ -405,21 +405,14 @@ if dein#tap('vim-devicons')
     function! s:{s:on_source}() abort
         " vim-devicons
         let g:webdevicons_conceal_nerdtree_brackets = 1
-        let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-
-        " dir-icons
+        let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
         let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-        let g:DevIconsEnableFoldersOpenClose = 1
-        let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ' '
-        let g:DevIconsDefaultFolderOpenSymbol = ' '
+        let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+        let g:WebDevIconsUnicodeDecorateFolderNodes = 1
         " file-icons
         let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
-        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
         let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cs'] = ''
-        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['objc'] = ''
-        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['objcpp'] = ''
         let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['swift'] = ''
-        let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ruby'] = ''
     endfunction
     call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
 endif
