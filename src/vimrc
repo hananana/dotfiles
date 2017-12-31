@@ -262,7 +262,7 @@ if dein#tap('lightline.vim')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
     function! s:{s:on_source}() abort
         let g:lightline = {
-                    \ 'colorscheme' : 'one',
+                    \ 'colorscheme' : 'jellybeans',
                     \ 'active': {
                     \   'left': [ [ 'mode', 'paste' ],
                     \             [ 'fugitive', 'filename', 'anzu' ] ]
