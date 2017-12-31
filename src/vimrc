@@ -1,5 +1,13 @@
-set encoding=utf-8
-scriptencoding utf-8
+if has('vim_starting')
+    set encoding=utf-8
+    scriptencoding utf-8
+    
+    if !has('gui_running') && exists(&termguicolors) && $COLORTERM ==# 'truecolor'
+        let &t_8f = "\e[38;2;%lu;%lu;%lum"
+        let &t_8b = "\e[48;2;%lu;%lu;%lum"
+        set termguicolors
+    endif
+endif
 
 augroup vimrc
     autocmd!
@@ -107,6 +115,7 @@ set background=dark
 
 " leaderをspaceにする
 let g:mapleader = "\<Space>"
+let g:maplocalleader = '\'
 " tmuxで色を有効にする
 set t_Co=256
 " airlineを常時表示するよ
@@ -137,7 +146,12 @@ set noswapfile
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
 "クリップボードを連携する
-set clipboard=unnamed
+if has('win32') || has('win63') || has('mac')
+    set clipboard=unnamed
+else
+    set clipboard=unamed, unnamedplus
+endif
+
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
 "インクリメンタルサーチを行う
@@ -169,10 +183,6 @@ autocmd vimrc WinEnter * checktime
 set diffopt=vertical
 " previewを表示する
 set completeopt=menuone,preview
-" truecolor
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " マーカー折りたたみ
 set foldmethod=marker
 " 補完ウィンドウは10項目まで
@@ -491,6 +501,9 @@ endif
 
 
 " Valloric/YouCompleteMe {{{
+nnoremap <LocalLeader>r <C-u>:YcmCompleter ReloadSolution<CR>
+nnoremap <LocalLeader>t <C-u>:YcmCompleter GetType<CR>
+
 let g:UltiSnipsExpandTrigger='<c-k>'
 let g:UltiSnipsJumpForwardTrigger='<c-k>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
@@ -552,7 +565,7 @@ let g:ycm_semantic_triggers.cpp = [
             \ 're!,\s*', ]
 let g:ycm_filetype_blacklist = {
             \ 'ruby' : 1
-    \}
+            \ }
 " }}}
 " artur-shaik/vim-javacomplete2' {{{
 if dein#tap('vim-javacomplete2')
@@ -718,3 +731,5 @@ if dein#tap('denite.nvim')
     nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>
 endif
 " }}}
+
+set secure
