@@ -55,11 +55,11 @@ if dein#load_state(s:env.path.dein)
     call dein#add('junegunn/vim-easy-align')
     call dein#add('sheerun/vim-polyglot')
     call dein#add('koron/codic-vim')
-    call dein#add('osyo-manga/vim-watchdogs',
-                \ { 'depends': [ 'Shougo/vimproc.vim', 'thinca/vim-quickrun', 'osyo-manga/shabadou.vim']})
+    call dein#add('osyo-manga/vim-watchdogs', { 'depends': [ 'Shougo/vimproc.vim', 'thinca/vim-quickrun', 'osyo-manga/shabadou.vim']})
     call dein#add('cohama/vim-hier')
     call dein#add('osyo-manga/shabadou.vim', { 'depends': ['thinca/vim-quickrun']})
     call dein#add('thinca/vim-quickrun')
+    call dein#add('majutsushi/tagbar')
 
     " completion
     call dein#add('Valloric/YouCompleteMe', {'build' : 'git submodule update --init --recursive && ./install.py --cs-completer --clang-completer' })
@@ -310,7 +310,6 @@ endif
 if dein#tap('ctrlp.vim')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
     function! s:{s:on_source}() abort
-        nnoremap <Leader>t :CtrlPTag<CR>
         nnoremap <Leader>b :CtrlPBuffer<CR>
         nnoremap <Leader>m :CtrlPMRUFiles<CR>
         nnoremap <Leader>q :CtrlPQuickfix<CR>
@@ -484,6 +483,12 @@ if dein#tap('shabadou.vim')
 
 endif
 " }}}
+" majutsushi/tagbar {{{
+if dein#tap('tagbar')
+    nnoremap <Leader>t :<C-u>TagbarToggle<CR>
+endif
+" }}}
+
 
 " Valloric/YouCompleteMe {{{
 let g:UltiSnipsExpandTrigger='<c-k>'
