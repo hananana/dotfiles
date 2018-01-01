@@ -498,8 +498,6 @@ if dein#tap('tagbar')
     nnoremap <Leader>t :<C-u>TagbarToggle<CR>
 endif
 " }}}
-
-
 " Valloric/YouCompleteMe {{{
 nnoremap <LocalLeader>r <C-u>:YcmCompleter ReloadSolution<CR>
 nnoremap <LocalLeader>t <C-u>:YcmCompleter GetType<CR>
@@ -576,7 +574,6 @@ if dein#tap('vim-javacomplete2')
     call dein#set_hook(g:dein#name, 'hook_source', function('s:' . s:on_source))
 endif
 " }}}
-
 " elzr/vim-json {{{
 if dein#tap('vim-json')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
