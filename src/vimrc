@@ -41,7 +41,7 @@ execute 'set runtimepath+=' . s:env.dein.path
 if dein#load_state(s:env.path.dein)
     call dein#begin(s:env.path.dein)
 
-    call dein#add('cocopon/iceberg.vim')
+    call dein#add('nanotech/jellybeans.vim')
 
     call dein#add('Shougo/vimproc.vim', { 'timeout' : 1800, 'build' : 'make' })
     call dein#add('tpope/vim-dispatch')
@@ -108,7 +108,7 @@ endif
 filetype plugin indent on
 
 syntax enable
-colorscheme iceberg
+colorscheme jellybeans
 set background=dark
 
 " basic setting  {{{
