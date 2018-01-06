@@ -379,6 +379,8 @@ function install_check() {
 # gem
 # mono
 # zsh
+# anyenv
+# w3m
 }
 
 
@@ -401,6 +403,7 @@ function recho() {
 # }}}
 
 # anyenv {{{
+
 export PATH=$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init -)"
 # }}}
