@@ -2,7 +2,7 @@
 
 # export {{{
 export EDITOR='vim'
-export GOPATH="$HOME"
+export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.dotfiles/bin
 export DOTDIR=$HOME/src/github.com/hananana/dotfiles
@@ -398,6 +398,11 @@ function becho() {
 function recho() {
     echo -e "\033[1;31m$1\033[0;39m"
 }
+# }}}
+
+# anyenv {{{
+export PATH=$HOME/.anyenv/bin:$PATH
+eval "$(anyenv init -)"
 # }}}
 
 # if (which zprof > /dev/null)
