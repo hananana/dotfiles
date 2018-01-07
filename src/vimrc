@@ -616,14 +616,22 @@ function! RestoreSession()
     if IsNeedToSession() == 0
         return
     endif
-    source Session.vim
+
+    let l:sessionPath = getcwd() . '/Session.vim'
+    if filereadable(l:sessionPath)
+        execute 'source ' . fnameescape(l:sessionPath)
+    endif
 endfunction
 
 function! SaveSession()
     if IsNeedToSession() == 0
         return
     endif
-    mks!
+
+    let l:choice =  confirm('Save Session?', '&Yes\n&No', 0)
+    if l:choice == 0
+        mks!
+    endif
 endfunction
 
 function! IsNeedToSession()
