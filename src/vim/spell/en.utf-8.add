@@ -146,3 +146,14 @@ zprof
 fi
 anyenv
 zshrc
+libcocos2d
+ycm
+conf
+py
+pyc
+vimsessions
+omnisharp
+GPATH
+GRTAGS
+GTAGS
+DS

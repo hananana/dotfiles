@@ -608,9 +608,30 @@ command! ReloadVimrc :source $HOME/.vimrc
 command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
 
-"----------------------------------------
-" Denite
-"----------------------------------------
+" Session {{{
+autocmd vimrc VimEnter * call RestoreSession()
+autocmd vimrc VimLeave * call SaveSession()
+
+function! RestoreSession()
+    if IsNeedToSession() == 0
+        return
+    endif
+    source Session.vim
+endfunction
+
+function! SaveSession()
+    if IsNeedToSession() == 0
+        return
+    endif
+    mks!
+endfunction
+
+function! IsNeedToSession()
+    return &ft !=? 'gitcommit'
+endfunction
+
+" }}}
+" Denite {{{
 "function! DeniteReplace(context)
 "      let l:qflist = []
 "      for l:target in a:context['targets']
@@ -635,9 +656,8 @@ command! GenerateCtags :!ctags -R
 "endfunction
 "command! MemoGrepDenite call s:memoGrepDenite()<CR>
 
-"----------------------------------------
-" uncrustify
-"----------------------------------------
+" }}}
+" uncrustify {{{
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
 autocmd vimrc FileType cs nnoremap <Leader>f :call UncrustifyAuto()<CR>
@@ -690,6 +710,8 @@ function! UncrustifyAuto()
         call Uncrustify(g:uncrustify_lang)
     endif
 endfunction
+
+" }}}
 
 " --------------------------------
 " vimからIDE RUN
