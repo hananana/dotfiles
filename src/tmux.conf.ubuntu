@@ -12,7 +12,7 @@ set -s escape-time 0
 set-option -g allow-rename off
 
 # left
-set-option -g status-left '#[bg=colour24, fg=colour255]   SESSION:#[fg=colour255, bg=colour24]   #S #[fg=colour24, bg=colour67] '
+set-option -g status-left '#[bg=colour24, fg=colour255]  SESSION:#[fg=colour255, bg=colour24]  #S #[fg=colour24, bg=colour67] '
 set-option -g status-left-length 120
 
 # right
@@ -25,7 +25,7 @@ set -g status-bg colour67
 
 # 現在のペインの背景色など
 setw -g window-status-format '#[fg=colour67, bg=colour67]#[bg=colour67, fg=colour255] #W #[fg=colour67, bg=colour67]'
-setw -g window-status-current-format '#[fg=colour214, bg=colour67]#[bg=colour214, fg=colour198, bold] #($DOTDIR/bin/random_icon.sh #I)  #W #[fg=colour214, bg=colour67]'
+setw -g window-status-current-format '#[fg=colour214, bg=colour67]#[bg=colour214, fg=colour198, bold] #($DOTDIR/bin/random_icon.sh #I) #W #[fg=colour214, bg=colour67]'
 
 # - でペインを縦に分割する
 bind - split-window -v

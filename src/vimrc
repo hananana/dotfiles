@@ -186,9 +186,6 @@ set pumheight=10
 " neovimの文字化け対策
 set ttimeout
 set ttimeoutlen=50
-" spellcheck日本語対応
-set spell
-set spelllang=en,cjk
 
 set helplang=ja,en
 
