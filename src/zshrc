@@ -140,7 +140,7 @@ case ${OSTYPE} in
         alias l='/usr/local/bin/gls --color -XlAh'
         ;;
     linux*)
-        alias l='ls --color -XlAh'
+        alias l='ls -XlAh'
         ;;
 esac
 
