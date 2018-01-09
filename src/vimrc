@@ -146,11 +146,7 @@ set noswapfile
 " コマンドライン補完をshellと同一にする
 set wildmode=list:longest
 "クリップボードを連携する
-if has('win32') || has('win63') || has('mac')
-    set clipboard=unnamed
-else
-    set clipboard=unamed, unnamedplus
-endif
+set clipboard=unnamed
 
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
