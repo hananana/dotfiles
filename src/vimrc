@@ -93,7 +93,10 @@ if dein#load_state(s:env.path.dein)
     call dein#add('stephpy/vim-yaml',               { 'lazy' : 1, 'on_ft' : [ 'yaml' ] })
     call dein#add('chrisbra/csv.vim',               { 'lazy' : 1, 'on_ft' : [ 'csv' ] })
     call dein#add('vim-scripts/Align',              { 'lazy' : 1, 'on_ft' : [ 'csv' ] })
-    call dein#add('iamcco/markdown-preview.vim',    { 'lazy' : 1, 'on_ft' : [ 'markdown' ] })
+
+    if has('mac')
+        call dein#add('iamcco/markdown-preview.vim',    { 'lazy' : 1, 'on_ft' : [ 'markdown' ] })
+    endif
  
     call dein#end()
     call dein#save_state()
@@ -601,6 +604,15 @@ command! ReloadVimrc :source $HOME/.vimrc
 command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
 
+" MarkDownPreview {{{
+if !has('mac')
+    command! MarkDownPreview call MarkDownPreview()
+    function! MarkDownPreview()
+        let l:path = strpart(substitute(expand('%:p'), getcwd(), '', 'g'), 1)
+        execute('!/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe ' . l:path)
+    endfunction
+endif
+" }}}
 " Session {{{
 autocmd vimrc VimEnter * call RestoreSession()
 autocmd vimrc VimLeave * call SaveSession()
@@ -713,7 +725,7 @@ function! UncrustifyAuto()
 endfunction
 
 " }}}
-
+" RUN IDE {{{
 " --------------------------------
 " vimからIDE RUN
 " --------------------------------
@@ -725,6 +737,7 @@ endfunction
 "         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
 "     endif
 " endfunction
+" }}}
 
 " }}}
 
