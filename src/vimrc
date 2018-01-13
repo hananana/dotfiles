@@ -1,3 +1,4 @@
+" encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
     scriptencoding utf-8
@@ -8,11 +9,12 @@ if has('vim_starting')
         set termguicolors
     endif
 endif
-
+" }}}
+" augroup {{{
 augroup vimrc
     autocmd!
 augroup END
-
+" }}}
 " echomsg startup time {{{
 
 if has('vim_starting') && has('reltime')
@@ -110,10 +112,11 @@ endif
 
 filetype plugin indent on
 
+" colorscheme {{{
 syntax enable
 colorscheme jellybeans
 set background=dark
-
+" }}}
 " basic setting  {{{
 
 " leaderをspaceにする
@@ -150,7 +153,6 @@ set noswapfile
 set wildmode=list:longest
 "クリップボードを連携する
 set clipboard=unnamed
-
 "変更中のファイルでも、保存しないで他のファイルを表示する
 set hidden
 "インクリメンタルサーチを行う
@@ -202,12 +204,6 @@ endfunction
 
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
-" grep
-if executable('rg')
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-
 autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0 | copen | endif
 "}}}
 " keymaps {{{
@@ -252,7 +248,7 @@ nnoremap Y y$
 nnoremap <Leader>gg :grep 
 nnoremap <Leader>gc :grep <cword>
 " }}}
-
+" plugins {{{
 " itchyny/lightline.vim {{{
 if dein#tap('lightline.vim')
     let s:on_source = substitute(g:dein#name, '\W', '_', 'g') . '_on_source'
@@ -597,7 +593,7 @@ if dein#tap('csv.vim')
     call dein#set_hook(g:dein#name, 'hook_add', function('s:' . s:on_source))
 endif
 " }}}
-
+" }}}
 " functions {{{
 
 command! ReloadVimrc :source $HOME/.vimrc
@@ -739,6 +735,12 @@ endfunction
 " endfunction
 " }}}
 
+" }}}
+" prg {{{
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 " }}}
 
 " NOT ACTIVE old plugin setting
