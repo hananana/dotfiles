@@ -136,7 +136,7 @@ autoload -U compinit && compinit -u
 #         ;;
 # esac
 
-alias l='ls-go -la'
+alias l='ls-go -lanL'
 
 # vim
 alias v='vim'
