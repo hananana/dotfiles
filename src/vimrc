@@ -609,37 +609,6 @@ if !has('mac')
     endfunction
 endif
 " }}}
-" Session {{{
-autocmd vimrc VimEnter * call RestoreSession()
-autocmd vimrc VimLeave * call SaveSession()
-
-function! RestoreSession()
-    if IsNeedToSession() == 0
-        return
-    endif
-
-    let l:sessionPath = getcwd() . '/Session.vim'
-    if filereadable(l:sessionPath)
-        execute 'source ' . fnameescape(l:sessionPath)
-    endif
-endfunction
-
-function! SaveSession()
-    if IsNeedToSession() == 0
-        return
-    endif
-
-    let l:choice =  confirm('Save Session?', '&Yes\n&No', 0)
-    if l:choice == 0
-        mks!
-    endif
-endfunction
-
-function! IsNeedToSession()
-    return &ft !=? 'gitcommit'
-endfunction
-
-" }}}
 " Denite {{{
 "function! DeniteReplace(context)
 "      let l:qflist = []
