@@ -505,6 +505,13 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " chrisbra/csv.vim' {{{
 let g:csv_delim=','
 " }}}
+"}}}
+" prg {{{
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+" }}}
 " functions {{{
 
 command! ReloadVimrc :source $HOME/.vimrc
@@ -614,13 +621,13 @@ endfunction
 "     endif
 " endfunction
 " }}}
-
+" Modify Solution File{{{
+function! ModifySolutionFile()
+    :%s/C:/\/mnt\/c/g
+    :%s/D:/\/mnt\/d/g
+endfunction
 " }}}
-" prg {{{
-if executable('rg')
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
+
 " }}}
 
 " NOT ACTIVE old plugin setting
@@ -644,5 +651,4 @@ endif
 "     nmap <Leader>tt :<C-u>Denite -highlight-mode-insert=Search gtags_def:
 "     nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>
 " }}}
-
 set secure
