@@ -95,7 +95,7 @@ Plug 'chrisbra/csv.vim', { 'for' : [ 'csv' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
 
 if has('mac')
-    Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] })
+    Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
 endif
 
 call plug#end()
