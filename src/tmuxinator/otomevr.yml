@@ -1,11 +1,12 @@
 # ~/.tmuxinator/otomevr.yml
 
 name: otomevr
-root: /mnt/d/src/github.com/ignis-ltd/otome-vr
+root: ~/src/github.com/ignis-ltd/otome-vr
 
 
 windows:
   - editor:
+      root: ~/src/github.com/ignis-ltd/otome-vr/client
       layout: even-horizontal
       panes:
         - vim
