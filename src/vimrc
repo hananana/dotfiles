@@ -623,8 +623,16 @@ endfunction
 " }}}
 " Modify Solution File{{{
 function! ModifySolutionFile()
-    :%s/C:/\/mnt\/c/g
-    :%s/D:/\/mnt\/d/g
+    let s:dir = getcwd()
+    let s:candidates = glob(s:dir . "/*")
+    echomsg s:candidates
+    let s:splited = split(s:candidates, "\n")
+    for s:file in s:splited
+        echomsg s:file
+    endfor
+"     echomsg s:splited
+"     :%s/C:/\/mnt\/c/g
+"     :%s/D:/\/mnt\/d/g
 endfunction
 " }}}
 
