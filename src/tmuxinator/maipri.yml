@@ -1,19 +1,19 @@
-# /mnt/d/.tmuxinator/inspix.yml
+# /mnt/d/.tmuxinator/maipri.yml
 
-name: inspix
-root: ~/src/github.com/ignis-ltd/inspix-enogu
+name: inspix-maipri
+root: ~/src/github.com/ignis-ltd/inspix-maipri
 
 windows:
   - editor:
       layout: even-horizontal
       panes:
         - vim
-  - inspix-enogu:
+  - inspix-maipri:
       layout: even-horizontal
       panes:
         - l
   - otome-vr:
-      root: ~/src/github.com/ignis-ltd/inspix-enogu/InspixEnogu/Assets/Ignis
+      root: ~/src/github.com/ignis-ltd/inspix-maipri/InspixMaipri/Assets/Ignis
       layout: even-horizontal
       panes:
         - l

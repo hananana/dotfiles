@@ -1,0 +1,19 @@
+# /mnt/d/.tmuxinator/enogu.yml
+
+name: inspix-enogu
+root: ~/src/github.com/ignis-ltd/inspix-enogu
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-enogu:
+      layout: even-horizontal
+      panes:
+        - l
+  - otome-vr:
+      root: ~/src/github.com/ignis-ltd/inspix-enogu/InspixEnogu/Assets/Ignis
+      layout: even-horizontal
+      panes:
+        - l
