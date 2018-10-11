@@ -12,7 +12,7 @@ windows:
       layout: even-horizontal
       panes:
         - l
-  - otome-vr:
+  - inspix:
       root: ~/src/github.com/ignis-ltd/inspix-enogu/InspixEnogu/Assets/Ignis
       layout: even-horizontal
       panes:
