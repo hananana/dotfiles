@@ -93,6 +93,7 @@ Plug 'elzr/vim-json', { 'for' : ['json']}
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'chrisbra/csv.vim', { 'for' : [ 'csv' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
+Plug 'hananana/sonictemplate-vim'
 
 if has('mac')
     Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
