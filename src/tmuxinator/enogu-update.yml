@@ -1,0 +1,19 @@
+# /mnt/d/.tmuxinator/enogu-update.yml
+
+name: inspix-enogu-update
+root: ~/src/github.com/ignis-ltd/inspix-enogu-for-update
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-enogu:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix:
+      root: ~/src/github.com/ignis-ltd/inspix-enogu-for-update/InspixEnogu/Assets/Ignis
+      layout: even-horizontal
+      panes:
+        - l

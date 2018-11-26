@@ -348,6 +348,8 @@ nnoremap <Leader>p :CtrlPCmdPalette<CR>
 " scrooloose/nerdtree {{{
 nmap <C-e> :NERDTreeToggle<CR>
 autocmd vimrc BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinSize=50
+
 " }}}
 " lambdalisue/gina.vim {{{
 noremap <silent> <Leader>gis :<C-u>Gina status<CR>
