@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/inspix-helper.yml
+
+name: inspix-helper
+root: ~/src/github.com/ignis-ltd/inspix-helper
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-helper:
+      layout: even-horizontal
+      panes:
+        - l
