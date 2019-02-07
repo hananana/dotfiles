@@ -1,0 +1,19 @@
+# /mnt/d/.tmuxinator/inspix-enogu-ios.yml
+
+name: inspix-enogu-ios
+root: ~/src/github.com/ignis-ltd/inspix-enogu-ios
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-enogu:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix:
+      root: ~/src/github.com/ignis-ltd/inspix-enogu-ios/InspixEnogu/Assets/Ignis
+      layout: even-horizontal
+      panes:
+        - l
