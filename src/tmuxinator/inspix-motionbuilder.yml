@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/inspix-motionbuilder.yml
+
+name: inspix-motionbuilder
+root: ~/src/github.com/ignis-ltd/inspix-motionbuilder
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-enogu:
+      layout: even-horizontal
+      panes:
+        - l
