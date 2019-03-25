@@ -409,7 +409,7 @@ if executable('mcs')
     let g:quickrun_config['watchdogs_checker/mcs'] = {
                 \ 'command' : 'mcs',
                 \ 'exec' : '%c %o %s:p',
-                \ 'cmdopt' : '--parse',
+                \ 'cmdopt' : '--parse -unsafe',
                 \ 'quickfix/error': '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m'
                 \ }
 endif
