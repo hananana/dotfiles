@@ -1,0 +1,26 @@
+# /mnt/d/.tmuxinator/inspix-sandbox.yml
+
+name: inspix-sandbox
+root: ~/src/github.com/ignis-ltd/
+
+windows:
+  - editor-win:
+      root: ~/src/github.com/ignis-ltd/inspix-sandbox-win/
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-sandbox-win:
+      root: ~/src/github.com/ignis-ltd/inspix-sandbox-win/
+      layout: even-horizontal
+      panes:
+        - l
+  - editor-mobile:
+      root: ~/src/github.com/ignis-ltd/inspix-sandbox-mobile/
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-sandbox-mobile:
+      root: ~/src/github.com/ignis-ltd/inspix-sandbox-mobile/
+      layout: even-horizontal
+      panes:
+        - l
