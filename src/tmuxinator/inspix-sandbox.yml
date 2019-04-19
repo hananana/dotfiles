@@ -14,6 +14,11 @@ windows:
       layout: even-horizontal
       panes:
         - l
+  - inspix-sandbox-win-core:
+      root: ~/src/github.com/ignis-ltd/inspix-sandbox-win/InspixSandboxWin/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
   - editor-mobile:
       root: ~/src/github.com/ignis-ltd/inspix-sandbox-mobile/
       layout: even-horizontal
@@ -21,6 +26,11 @@ windows:
         - vim
   - inspix-sandbox-mobile:
       root: ~/src/github.com/ignis-ltd/inspix-sandbox-mobile/
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-sandbox-mobile-core:
+      root: ~/src/github.com/ignis-ltd/inspix-sandbox-mobile/InspixSandboxMobile/Assets/Core
       layout: even-horizontal
       panes:
         - l
