@@ -33,14 +33,24 @@ let s:env.dein = {
 " }}}
 
 " clone vim-plug if needed {{{
-if !filereadable(expand('~/.vim/autoload/plug.vim'))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if has('win64') || has('win32') || has('win16')
+    " TODO: download automatically vim-plug
+else
+    if !filereadable(expand('~/.vim/autoload/plug.vim'))
+        execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    endif
 endif
 " }}}
 
 " plugins {{{
 
-call plug#begin('~/.vim/plugged')
+if has('win64') || has('win32') || has('win16')
+"     call plug#begin('$LOCALAPPDATA')
+"     echomsg $LOCALAPPDATA . '\nvim\plugged'
+    call plug#begin($LOCALAPPDATA . '\nvim\plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'nanotech/jellybeans.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -69,13 +79,18 @@ Plug 'osyo-manga/shabadou.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 " completion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --cs-completer --clang-completer' }
-Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
-Plug 'fatih/vim-go', { 'for': 'go' }                  
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }          
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --cs-completer --clang-completer' }
+" Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
+" Plug 'fatih/vim-go', { 'for': 'go' }                  
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }          
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -201,6 +216,10 @@ autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0
 tnoremap <silent> <ESC> <C-\><C-n>
 "}}}
 " keymaps {{{
+
+if has('nvim')
+    tnoremap <silent> <ESC> <C-\><C-n>
+endif
 
 "矢印キー無効
 noremap <Up> <Nop>
@@ -510,7 +529,11 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " chrisbra/csv.vim' {{{
 let g:csv_delim=','
 " }}}
+
 "}}}
+
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 " prg {{{
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -519,7 +542,7 @@ endif
 " }}}
 " functions {{{
 
-command! ReloadVimrc :source $HOME/.vimrc
+command! ReloadVimrc :source $HOME/src/github.com/hananana/dotfiles/src/vimrc
 command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
 
