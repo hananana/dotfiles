@@ -1,3 +1,5 @@
+" TODO: lightlineのseparator
+
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -281,9 +283,7 @@ let g:lightline = {
             \ 'component_visible_condition': {
             \   'readonly': '(&filetype!="help"&& &readonly)',
             \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-            \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
             \ }
 
 function! MyModified()
@@ -312,6 +312,26 @@ function! MyFugitive()
   catch
   endtry
   return ''
+endfunction
+
+function! MySeparator()
+    if has('win32')
+        let l:dic = { 'left': '', 'right': '' }
+        return l:dic
+    else
+        let l:dic = { 'left': '', 'right': '' }
+        return l:dic
+    endif
+endfunction
+
+function! MySubSeparator()
+    if has('win32')
+        let l:dic = { 'left': '|', 'right': '|' }
+        return l:dic
+    else
+        let l:dic = { 'left': '', 'right': '' }
+        return l:dic
+    endif
 endfunction
 " }}}
 " ctrlp/ctrlp.vim {{{
