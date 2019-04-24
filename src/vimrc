@@ -172,9 +172,7 @@ endif
 " }}}
 " load plugins {{{
 
-if has('win64') || has('win32') || has('win16')
-"     call plug#begin('$LOCALAPPDATA')
-"     echomsg $LOCALAPPDATA . '\nvim\plugged'
+if IsWindows()
     call plug#begin($LOCALAPPDATA . '\nvim\plugged')
 else
     call plug#begin('~/.vim/plugged')
