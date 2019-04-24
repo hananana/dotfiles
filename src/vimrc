@@ -23,20 +23,23 @@ if has('vim_starting') && has('reltime')
     autocmd vimrc VimEnter * let g:startuptime = reltime(g:startuptime) | redraw | echomsg 'startuptime: ' . reltimestr(g:startuptime)
 endif
 " }}}
+" unused {{{
 " define variable {{{
-let s:env = {}
-let s:env.path = {}
-let s:env.path.cache = expand('~/.cache')
-let s:env.path.dein = s:env.path.cache . '/dein'
-let s:env.dein = {
-            \ 'repo' : 'https://github.com/Shougo/dein.vim',
-            \ 'path' : s:env.path.dein . '/repos/github.com/Shougo/dein.vim'}
+" let s:env = {}
+" let s:env.path = {}
+" let s:env.path.cache = expand('~/.cache')
+" let s:env.path.dein = s:env.path.cache . '/dein'
+" let s:env.dein = {
+"            \ 'repo' : 'https://github.com/Shougo/dein.vim',
+"            \ 'path' : s:env.path.dein . '/repos/github.com/Shougo/dein.vim'}
+" }}}
 " }}}
 " functions {{{
 
 command! ReloadVimrc :source $HOME/src/github.com/hananana/dotfiles/src/vimrc
 command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
+command! RemoveTildeM :%s///g
 
 " MarkDownPreview {{{
 if !has('mac')
@@ -46,32 +49,6 @@ if !has('mac')
         execute('!/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe ' . l:path)
     endfunction
 endif
-" }}}
-" Denite {{{
-"function! DeniteReplace(context)
-"      let l:qflist = []
-"      for l:target in a:context['targets']
-"        if !has_key(l:target, 'action__path') | continue | endif
-"        if !has_key(l:target, 'action__line') | continue | endif
-"        if !has_key(l:target, 'action__text') | continue | endif
-"
-"        call add(l:qflist, {
-"              \ 'filename': l:target['action__path'],
-"              \ 'lnum': l:target['action__line'],
-"              \ 'text': l:target['action__text']
-"              \ })
-"      endfor
-"      call setqflist(l:qflist)
-"      call qfreplace#start('')
-"    endfunction
-"call denite#custom#action('file', 'qfreplace', 'DeniteReplace')
-"
-"function! s:memoGrepDenite()
-"    let l:option = '-path=' . expand('$HOME/Dropbox/memolist')
-"    exe 'Denite' 'grep' l:option '-highlight-mode-insert=Search'
-"endfunction
-"command! MemoGrepDenite call s:memoGrepDenite()<CR>
-
 " }}}
 " uncrustify {{{
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
@@ -154,10 +131,36 @@ function! IsWindows()
     return has('win64') || has('win32') || has('win16')
 endfunction
 " }}}
-
+" unused {{{
+" Denite {{{
+"function! DeniteReplace(context)
+"      let l:qflist = []
+"      for l:target in a:context['targets']
+"        if !has_key(l:target, 'action__path') | continue | endif
+"        if !has_key(l:target, 'action__line') | continue | endif
+"        if !has_key(l:target, 'action__text') | continue | endif
+"
+"        call add(l:qflist, {
+"              \ 'filename': l:target['action__path'],
+"              \ 'lnum': l:target['action__line'],
+"              \ 'text': l:target['action__text']
+"              \ })
+"      endfor
+"      call setqflist(l:qflist)
+"      call qfreplace#start('')
+"    endfunction
+"call denite#custom#action('file', 'qfreplace', 'DeniteReplace')
+"
+"function! s:memoGrepDenite()
+"    let l:option = '-path=' . expand('$HOME/Dropbox/memolist')
+"    exe 'Denite' 'grep' l:option '-highlight-mode-insert=Search'
+"endfunction
+"command! MemoGrepDenite call s:memoGrepDenite()<CR>
 
 " }}}
+"  }}}
 
+" }}}
 " clone vim-plug if needed {{{
 if IsWindows()
     " TODO: download automatically vim-plug
@@ -167,8 +170,7 @@ else
     endif
 endif
 " }}}
-
-" plugins {{{
+" load plugins {{{
 
 if has('win64') || has('win32') || has('win16')
 "     call plug#begin('$LOCALAPPDATA')
@@ -206,10 +208,10 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " waiting omnisharp with lsp.....
 Plug 'OmniSharp/omnisharp-vim'
@@ -388,7 +390,7 @@ nnoremap Y y$
 nnoremap <Leader>gg :grep 
 nnoremap <Leader>gc :grep <cword>
 " }}}
-" plugins {{{
+" plugins setting {{{
 " itchyny/lightline.vim {{{
 
 let separator = {}
@@ -602,17 +604,7 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " chrisbra/csv.vim' {{{
 let g:csv_delim=','
 " }}}
-
-"}}}
-
-" prg {{{
-if executable('rg')
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-" }}}
-
-" NOT ACTIVE old plugin setting
+" unused {{{
 " Shougo/denite.nvim {{{
 "     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
 "     call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
@@ -633,4 +625,12 @@ endif
 "     nmap <Leader>tt :<C-u>Denite -highlight-mode-insert=Search gtags_def:
 "     nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>
 " }}}
-set secure
+" }}}
+"}}}
+" prg {{{
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+" }}}
+
