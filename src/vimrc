@@ -265,6 +265,18 @@ nnoremap <Leader>gc :grep <cword>
 " }}}
 " plugins {{{
 " itchyny/lightline.vim {{{
+
+let separator = {}
+let subseparator = {}
+
+if has('win64')
+    let sepearator = { 'left': '', 'right': '' }
+    let subseparator = { 'left': '', 'right': '' }
+else
+    let separator = { 'left': '', 'right': '' }
+    let subseparator = { 'left': '', 'right': '' }
+endif
+
 let g:lightline = {
             \ 'colorscheme' : 'jellybeans',
             \ 'active': {
@@ -283,7 +295,9 @@ let g:lightline = {
             \ 'component_visible_condition': {
             \   'readonly': '(&filetype!="help"&& &readonly)',
             \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-            \ }
+            \ },
+            \ 'separator' : separator,
+            \ 'subseparator' : subseparator
             \ }
 
 function! MyModified()
@@ -314,25 +328,6 @@ function! MyFugitive()
   return ''
 endfunction
 
-function! MySeparator()
-    if has('win32')
-        let l:dic = { 'left': '', 'right': '' }
-        return l:dic
-    else
-        let l:dic = { 'left': '', 'right': '' }
-        return l:dic
-    endif
-endfunction
-
-function! MySubSeparator()
-    if has('win32')
-        let l:dic = { 'left': '|', 'right': '|' }
-        return l:dic
-    else
-        let l:dic = { 'left': '', 'right': '' }
-        return l:dic
-    endif
-endfunction
 " }}}
 " ctrlp/ctrlp.vim {{{
 nnoremap <Leader>b :CtrlPBuffer<CR>
