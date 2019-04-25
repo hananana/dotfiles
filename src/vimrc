@@ -3,7 +3,7 @@
 if has('vim_starting')
     set encoding=utf-8
     scriptencoding utf-8
-    
+
     if !has('gui_running') && exists(&termguicolors) && $COLORTERM ==# 'truecolor'
         let &t_8f = "\e[38;2;%lu;%lu;%lum"
         let &t_8b = "\e[48;2;%lu;%lu;%lum"
@@ -426,31 +426,31 @@ let g:lightline = {
             \ }
 
 function! MyModified()
-  return &filetype =~# 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    return &filetype =~# 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-  return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+    return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
 endfunction
 
 function! MyFilename()
-  return ('' !=# MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
-        \  &filetype ==# 'unite' ? unite#get_status_string() :
-        \  &filetype ==# 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-        \ '' !=# expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' !=# MyModified() ? ' ' . MyModified() : '')
+    return ('' !=# MyReadonly() ? MyReadonly() . ' ' : '') .
+                \ (&filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+                \  &filetype ==# 'unite' ? unite#get_status_string() :
+                \  &filetype ==# 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+                \ '' !=# expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' !=# MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyFugitive()
-   try
-    if &filetype !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-      let l:_ = fugitive#head()
-      return strlen(l:_) ? '⭠ '.l:_ : ''
-    endif
-  catch
-  endtry
-  return ''
+    try
+        if &filetype !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+            let l:_ = fugitive#head()
+            return strlen(l:_) ? '⭠ '.l:_ : ''
+        endif
+    catch
+    endtry
+    return ''
 endfunction
 
 " }}}
@@ -461,8 +461,15 @@ nnoremap <Leader>q :CtrlPQuickfix<CR>
 
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 0
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-let g:ctrlp_use_caching = 1
+if executable('rg')
+    if IsWindows()
+        let g:ctrlp_use_caching = 1
+    else
+        let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+        let g:ctrlp_use_caching = 1
+    endif
+else
+endif
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
 
@@ -503,9 +510,9 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtExit()':            ['<c-[>'],
             \ }
 " }}}
-" " fisadev/vim-ctrlp-cmdpalette {{{
+" fisadev/vim-ctrlp-cmdpalette {{{
 nnoremap <Leader>p :CtrlPCmdPalette<CR>
-" " }}}
+" }}}
 " scrooloose/nerdtree {{{
 nmap <C-e> :NERDTreeToggle<CR>
 autocmd vimrc BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -602,6 +609,7 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " chrisbra/csv.vim' {{{
 let g:csv_delim=','
 " }}}
+
 " unused {{{
 " Shougo/denite.nvim {{{
 "     call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
@@ -624,6 +632,7 @@ let g:csv_delim=','
 "     nmap <silent> <Leader>tc :<C-u>DeniteCursorWord -highlight-mode-insert=Search gtags_context<CR>
 " }}}
 " }}}
+
 "}}}
 " prg {{{
 if executable('rg')
@@ -632,3 +641,4 @@ if executable('rg')
 endif
 " }}}
 
+set secure
