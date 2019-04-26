@@ -1,4 +1,6 @@
 
+let g:python3_host_prog = 'C:\Program Files\Python37\python.exe'
+
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -188,7 +190,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-qfreplace'
 Plug 'itchyny/lightline.vim'
 Plug 'tyru/caw.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'osyo-manga/vim-anzu'
 Plug 'cohama/vim-insert-linenr'
@@ -206,11 +208,11 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
+Plug 'Shougo/deoplete.nvim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -607,6 +609,29 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " chrisbra/csv.vim' {{{
 let g:csv_delim=','
 " }}}
+" deoplete {{{
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 2
+
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ deoplete#manual_complete()
+
+call deoplete#custom#option('source', {
+            \ 'cs' : ['omnisharp'],
+            \ })
+" }}}
+
 
 " unused {{{
 " Shougo/denite.nvim {{{
