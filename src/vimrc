@@ -1,6 +1,3 @@
-
-let g:python3_host_prog = 'C:\Program Files\Python37\python.exe'
-
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -13,6 +10,21 @@ if has('vim_starting')
     endif
 endif
 " }}}
+" utils {{{
+" IsWindows{{{
+function! IsWindows()
+    return has('win64') || has('win32') || has('win16')
+endfunction
+" }}}
+" }}}
+
+if IsWindows()
+    let g:python3_host_prog = 'C:\Program Files\Python37\python.exe'
+else
+    let g:python3_host_prog = '/usr/local/bin/python3'
+endif
+
+
 " augroup {{{
 augroup vimrc
     autocmd!
@@ -126,11 +138,6 @@ function! ModifyCSProjFile()
     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\/mnt\/c/g'
     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\/mnt\/d/g'
     :YcmCompleter ReloadSolution
-endfunction
-" }}}
-" IsWindows{{{
-function! IsWindows()
-    return has('win64') || has('win32') || has('win16')
 endfunction
 " }}}
 " unused {{{
