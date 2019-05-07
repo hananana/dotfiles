@@ -1,3 +1,4 @@
+
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -17,14 +18,13 @@ function! IsWindows()
 endfunction
 " }}}
 " }}}
-
-if IsWindows()
-    let g:python3_host_prog = 'C:\Program Files\Python37\python.exe'
-else
+" python3_host_prog {{{
+if has('mac')
     let g:python3_host_prog = '/usr/local/bin/python3'
+else
+    let g:python3_host_prog = '/usr/bin/python3'
 endif
-
-
+" }}}
 " augroup {{{
 augroup vimrc
     autocmd!
@@ -171,21 +171,13 @@ endfunction
 
 " }}}
 " clone vim-plug if needed {{{
-if IsWindows()
-    " TODO: download automatically vim-plug
-else
-    if !filereadable(expand('~/.vim/autoload/plug.vim'))
-        execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    endif
+if !filereadable(expand('~/.vim/autoload/plug.vim'))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 " }}}
 " load plugins {{{
 
-if IsWindows()
-    call plug#begin($LOCALAPPDATA . '\nvim\plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+call plug#begin('~/.vim/plugged')
 
 Plug 'nanotech/jellybeans.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -344,10 +336,6 @@ autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0
 " terminalモードでESCでもどる
 tnoremap <silent> <ESC> <C-\><C-n>
 
-if IsWindows()
-    set shell=powershell.exe
-endif
-
 "}}}
 " keymaps {{{
 
@@ -468,15 +456,12 @@ nnoremap <Leader>q :CtrlPQuickfix<CR>
 
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 0
+
 if executable('rg')
-    if IsWindows()
-        let g:ctrlp_use_caching = 1
-    else
-        let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-        let g:ctrlp_use_caching = 1
-    endif
-else
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 1
 endif
+
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
 
