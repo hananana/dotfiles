@@ -1,7 +1,7 @@
 # zmodload zsh/zprof && zprof
 
 # export {{{
-export EDITOR='vim'
+export EDITOR='nvim'
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.dotfiles/bin
@@ -139,9 +139,8 @@ autoload -U compinit && compinit -u
 alias l='ls-go -lanL'
 
 # vim
-alias v='vim'
-# cd
-alias c='cd'
+alias v='nvim'
+alias vi="nvim"
 
 # git
 alias g='git'
@@ -163,12 +162,8 @@ alias gst='git status'
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
 
-
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
-
-# vim
-alias vi="vim"
 
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
