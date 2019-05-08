@@ -137,7 +137,6 @@ command! ModifyCSProjFile :call ModifyCSProjFile()
 function! ModifyCSProjFile()
     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\/mnt\/c/g'
     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\/mnt\/d/g'
-    :YcmCompleter ReloadSolution
 endfunction
 " }}}
 " unused {{{
@@ -208,12 +207,11 @@ Plug 'majutsushi/tagbar'
 
 " completion
 Plug 'Shougo/deoplete.nvim'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'dimixar/deoplete-omnisharp'
-
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
+Plug 'dimixar/deoplete-omnisharp', { 'for' : ['cs'] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -315,7 +313,9 @@ set diffopt=vertical
 " previewを表示する
 set completeopt=menuone,preview
 " マーカー折りたたみ
-set foldmethod=marker
+if !has('nvim')
+    set foldmethod=marker
+endif
 " 補完ウィンドウは10項目まで
 set pumheight=10 
 " neovimの文字化け対策
