@@ -208,9 +208,11 @@ Plug 'majutsushi/tagbar'
 
 " completion
 Plug 'Shougo/deoplete.nvim'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'dimixar/deoplete-omnisharp'
+
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'lighttiger2505/deoplete-vim-lsp'
 
 " syntax
@@ -618,12 +620,6 @@ inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
             \ <SID>check_back_space() ? "\<TAB>" :
             \ deoplete#manual_complete()
-
-call deoplete#custom#option('source', {
-            \ 'cs' : ['omnisharp'],
-            \ })
-" }}}
-
 
 " unused {{{
 " Shougo/denite.nvim {{{
