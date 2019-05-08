@@ -7,7 +7,7 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - vim
+        - nvim
   - git:
       layout: even-horizontal
       panes:

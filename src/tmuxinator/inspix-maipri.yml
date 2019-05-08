@@ -7,7 +7,7 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - vim
+        - nvim
   - inspix-maipri:
       layout: even-horizontal
       panes:

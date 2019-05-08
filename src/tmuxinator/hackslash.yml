@@ -7,7 +7,7 @@ windows:
   - editor:
       layout:
       panes:
-        - vim
+        - nvim
   - git: 
       layout:
       panes:
@@ -16,7 +16,7 @@ windows:
       root: ~/src/github.com/hananana/hackslash.wiki
       layout:
       panes:
-        - vim
+        - nvim
   - wikigit:
       root: ~/src/github.com/hananana/hackslash.wiki
       layout: even-horizontal
