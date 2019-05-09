@@ -606,7 +606,10 @@ let g:csv_delim=','
 " deoplete {{{
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 2
+
+call deoplete#custom#option('omni_patterns', {
+            \ 'cs': '\.',
+            \})
 
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<TAB>"
