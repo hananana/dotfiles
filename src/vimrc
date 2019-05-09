@@ -303,7 +303,7 @@ set diffopt=vertical
 set completeopt=menuone
 " マーカー折りたたみ
 " NOTE: nvim+wslだとすげぇ遅いからfold封印している
-if !has('nvim')
+if has('mac')
     set foldmethod=marker
 endif
 " 補完ウィンドウは10項目まで
