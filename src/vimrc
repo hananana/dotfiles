@@ -37,17 +37,6 @@ if has('vim_starting') && has('reltime')
     autocmd vimrc VimEnter * let g:startuptime = reltime(g:startuptime) | redraw | echomsg 'startuptime: ' . reltimestr(g:startuptime)
 endif
 " }}}
-" unused {{{
-" define variable {{{
-" let s:env = {}
-" let s:env.path = {}
-" let s:env.path.cache = expand('~/.cache')
-" let s:env.path.dein = s:env.path.cache . '/dein'
-" let s:env.dein = {
-"            \ 'repo' : 'https://github.com/Shougo/dein.vim',
-"            \ 'path' : s:env.path.dein . '/repos/github.com/Shougo/dein.vim'}
-" }}}
-" }}}
 " functions {{{
 
 command! ReloadVimrc :source $HOME/src/github.com/hananana/dotfiles/src/vimrc
@@ -210,8 +199,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
 Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
-Plug 'dimixar/deoplete-omnisharp', { 'for' : ['cs'] }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
