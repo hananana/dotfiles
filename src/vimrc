@@ -1,4 +1,3 @@
-
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -201,6 +200,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
 Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
+Plug 'Shougo/neco-vim'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
