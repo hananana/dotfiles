@@ -194,6 +194,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
+" deoplete > vim-lspでwrapするの最強
 Plug 'Shougo/deoplete.nvim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
