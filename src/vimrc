@@ -202,6 +202,7 @@ Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
 Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
 Plug 'Shougo/neco-vim'
+Plug 'deoplete-plugins/deoplete-zsh'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
