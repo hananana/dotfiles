@@ -138,11 +138,6 @@ autoload -U compinit && compinit -u
 
 alias l='ls-go -lanL'
 
-# vim
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-
 # git
 alias g='git'
 alias gf='git fetch --prune'
