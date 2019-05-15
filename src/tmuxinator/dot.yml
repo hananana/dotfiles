@@ -3,11 +3,12 @@
 name: dotfiles
 root: ~/src/github.com/hananana/dotfiles
 
+# nvim + wslだとfold時にくっそ遅くなるのでvim
 windows:
   - editor:
       layout: even-horizontal
       panes:
-        - nvim
+        - vim
   - git:
       layout: even-horizontal
       panes:
