@@ -195,7 +195,13 @@ Plug 'majutsushi/tagbar'
 
 " completion
 " deoplete > vim-lspでwrapするの最強
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
@@ -308,6 +314,11 @@ set completeopt=menuone
 if has('mac')
     set foldmethod=marker
 endif
+
+if !has('nvim')
+    set foldmethod=marker
+endif
+
 " 補完ウィンドウは10項目まで
 set pumheight=10 
 " neovimの文字化け対策
