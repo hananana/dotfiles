@@ -1,3 +1,14 @@
+" TODO {{{
+" - nvim&wslでfold遅いのなんとかなんねぇかな
+" - quickfix学ぶ
+" - quickrunでc# powered by msbuild
+" - MarkDownPreview in Windows
+" - deoplete swift
+" - deoplete c++
+" - 対応したらvim-lsp + omnisharp
+" - vint
+" - python lint
+" }}}
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -43,6 +54,12 @@ command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
 command! RemoveTildeM :%s///g
 
+" QuickRunHook {{{
+command! QuickRunCustom call QuickRunCustom()
+function! QuickRunCustom()
+    :QuickRun
+endfunction
+" }}}
 " MarkDownPreview {{{
 if !has('mac')
     command! MarkDownPreview call MarkDownPreview()
@@ -108,17 +125,14 @@ endfunction
 
 " }}}
 " RUN IDE {{{
-" --------------------------------
-" vimからIDE RUN
-" --------------------------------
-" nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
-" function RunIDE()
-"     if (&ft=='cs')
-"         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
-"     else
-"         :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
-"     endif
-" endfunction
+nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
+function RunIDE()
+    if (&ft=='cs')
+        :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
+    else
+        :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+    endif
+endfunction
 " }}}
 " Modify Solution File{{{
 command! ModifyCSProjFile :call ModifyCSProjFile()
@@ -155,7 +169,6 @@ endfunction
 
 " }}}
 "  }}}
-
 " }}}
 " clone vim-plug if needed {{{
 if !filereadable(expand('~/.vim/autoload/plug.vim'))
@@ -205,8 +218,8 @@ endif
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
-Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
-Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
+Plug 'autozimu/deoplete-omnisharp'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/neco-vim'
 Plug 'deoplete-plugins/deoplete-zsh'
 
@@ -555,9 +568,9 @@ let g:quickrun_config['_'] = {
             \ 'hook/inu/enable' : 1,
             \ 'hook/inu/wait' : 1
             \}
-let g:quickrun_config.cs = { 'type' : 'xbuild' }
-let g:quickrun_config.xbuild = {
-            \ 'command' : 'xbuild',
+let g:quickrun_config.cs = { 'type' : 'msbuild' }
+let g:quickrun_config.msbuild = {
+            \ 'command' : 'msbuild',
             \ 'exec' : '%c %o',
             \ 'cmdopt' : '/nologo /verbosity:quiet /property:WarningLevel=1', 
             \ 'quickfix/error': '%f\\(%l\\,%c\\)%m', 
