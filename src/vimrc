@@ -1,7 +1,7 @@
 " TODO {{{
 " - nvim&wslでfold遅いのなんとかなんねぇかな
 " - quickfix学ぶ
-" - quickrunでc# powered by msbuild
+" - quickrunのerrorからちゃんと飛ぶように
 " - MarkDownPreview in Windows
 " - deoplete swift
 " - deoplete c++
@@ -126,7 +126,7 @@ endfunction
 " }}}
 " RUN IDE {{{
 nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
-function RunIDE()
+function! RunIDE()
     if (&ft=='cs')
         :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
     else
@@ -554,6 +554,9 @@ let g:multi_cursor_use_default_mapping=1
 " }}}
 " thinca/vim-quickrun {{{
 nnoremap <Leader>q :<C-u>QuickRun<CR>
+function! GetSolutionPath()
+    return system('find . -maxdepth 3 -name "*.sln"')
+endfunction
 let g:quickrun_config = get(g:, 'quickrun_config', {})
 let g:quickrun_config['_'] = {
             \ 'runner' : 'vimproc',
@@ -572,8 +575,8 @@ let g:quickrun_config.cs = { 'type' : 'msbuild' }
 let g:quickrun_config.msbuild = {
             \ 'command' : 'msbuild',
             \ 'exec' : '%c %o',
-            \ 'cmdopt' : '/nologo /verbosity:quiet /property:WarningLevel=1', 
             \ 'quickfix/error': '%f\\(%l\\,%c\\)%m', 
+            \ 'cmdopt' : GetSolutionPath() . '-noLogo -verbosity:quiet -property:WarningLevel=1', 
             \ 'outputter' : 'quickfix'
             \ }
 " }}}
