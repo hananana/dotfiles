@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/inspix-mrs.yml
+
+name: inspix-mrs
+root: ~/src/github.com/ignis-ltd/inspix-mrs
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-mrs:
+      layout: even-horizontal
+      panes:
+        - l
