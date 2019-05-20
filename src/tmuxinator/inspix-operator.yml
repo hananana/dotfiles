@@ -8,7 +8,7 @@ windows:
       layout: even-horizontal
       panes:
         - nvim
-  - inspix-mobile:
+  - inspix-operator:
       layout: even-horizontal
       panes:
         - l
