@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/inspix-operator.yml
+
+name: inspix-operator
+root: ~/src/github.com/ignis-ltd/inspix-operator
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-mobile:
+      layout: even-horizontal
+      panes:
+        - l
