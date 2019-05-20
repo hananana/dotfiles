@@ -8,6 +8,7 @@
 " - 対応したらvim-lsp + omnisharp
 " - vint
 " - python lint
+" - pluginの依存関係をちゃんと明示したい
 " }}}
 " encoding and color {{{
 if has('vim_starting')
@@ -200,7 +201,7 @@ Plug 'gregsexton/VimCalc'
 Plug 'junegunn/vim-easy-align'
 Plug 'sheerun/vim-polyglot'
 Plug 'koron/codic-vim'
-Plug 'osyo-manga/vim-watchdogs'
+Plug 'w0rp/ale'
 Plug 'cohama/vim-hier'
 Plug 'osyo-manga/shabadou.vim'
 Plug 'thinca/vim-quickrun'
@@ -580,33 +581,6 @@ let g:quickrun_config.msbuild = {
             \ 'outputter' : 'quickfix'
             \ }
 " }}}
-" osyo-manga/vim-watchdogs {{{
-let g:watchdogs_check_BufWritePost_enable = 1
-
-" C#  {{{
-if executable('mcs')
-    let g:quickrun_config['cs/watchdogs_checker'] = {
-                \ 'type' : 'watchdogs_checker/mcs'}
-    let g:quickrun_config['watchdogs_checker/mcs'] = {
-                \ 'command' : 'mcs',
-                \ 'exec' : '%c %o %s:p',
-                \ 'cmdopt' : '--parse -unsafe',
-                \ 'quickfix/error': '%f\\(%l\\,%c\\):\ error\ CS%n:\ %m'
-                \ }
-endif
-"}}}
-" Shell script {{{
-if executable('shellcheck')
-    let g:quickrun_config['sh/watchdogs_checker'] = {
-                \ 'type': 'watchdogs_checker/shellcheck'}
-    let g:quickrun_config['watchdogs_checker/shellcheck'] = {
-                \ 'command': 'shellcheck',
-                \ 'exec': '%c %o %s:p'}
-endif
-
-call watchdogs#setup(g:quickrun_config)
-" }}}
-" }}}
 " majutsushi/tagbar {{{
 nnoremap <Leader>t :<C-u>TagbarToggle<CR>
 " }}}
@@ -649,6 +623,13 @@ if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+" }}}
+" ale {{{
+let g:ale_linters = {
+            \ 'cs' : ['mcs'],
+            \ }
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 " }}}
 
 set secure
