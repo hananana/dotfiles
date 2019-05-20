@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/enogu.yml
+
+name: inspix-mobile
+root: ~/src/github.com/ignis-ltd/inspix-mobile
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-mobile:
+      layout: even-horizontal
+      panes:
+        - l
