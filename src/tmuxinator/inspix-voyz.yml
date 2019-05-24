@@ -1,0 +1,19 @@
+# /mnt/d/.tmuxinator/inspix-voyz.yml
+
+name: inspix-voyz
+root: ~/
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-voyz:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix:
+      root: ~/src/github.com/ignis-ltd/inspix-voyz/InspixEnogu/Assets/Ignis
+      layout: even-horizontal
+      panes:
+        - l
