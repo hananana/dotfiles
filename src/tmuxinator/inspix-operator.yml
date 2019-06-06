@@ -12,3 +12,8 @@ windows:
       layout: even-horizontal
       panes:
         - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
