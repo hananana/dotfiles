@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/inspix-slack-bot.yml
+
+name: inspix-slack-bot
+root: ~/src/github.com/ignis-ltd/inspix-slack-bot
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
