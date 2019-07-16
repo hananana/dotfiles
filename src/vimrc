@@ -208,7 +208,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
-" deoplete > vim-lspでwrapするの最強
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -216,11 +215,11 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
+Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
-Plug 'autozimu/deoplete-omnisharp'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/neco-vim'
 Plug 'deoplete-plugins/deoplete-zsh'
 
@@ -322,7 +321,7 @@ autocmd vimrc WinEnter * checktime
 " vimdiffを縦で割る
 set diffopt=vertical
 " previewを表示する
-set completeopt=menuone
+set completeopt=menuone,preview
 " マーカー折りたたみ
 " NOTE: nvim+wslだとすげぇ遅いからfold封印している
 if has('mac')
@@ -601,8 +600,8 @@ let g:csv_delim=','
 let g:deoplete#enable_at_startup = 1
 
 call deoplete#custom#option('omni_patterns', {
-            \ 'cs': '\.',
-            \})
+           \ 'cs': '\.',
+           \})
 
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<TAB>"
@@ -610,7 +609,7 @@ inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<TAB>"
 function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+endfunction "}}}
 
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
@@ -635,5 +634,8 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 0
 " }}}
-
+" OmniSharp {{{
+let g:OmniSharp_typeLookupInPreview = 1
+let g:omnicomplete_fetch_full_documentation = 1
+" }}}
 set secure
