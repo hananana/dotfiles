@@ -340,13 +340,6 @@ set ttimeoutlen=50
 
 set helplang=ja,en
 
-set previewheight=4
-autocmd vimrc BufEnter ?* call PreviewHeightWorkAround()
-function! PreviewHeightWorkAround()
-    if &previewwindow
-        exec 'set local winheight='.&previewheight
-    endif
-endfunction
 
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
@@ -354,7 +347,19 @@ autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0
 " terminalモードでESCでもどる
 tnoremap <silent> <ESC> <C-\><C-n>
 
+" previewがdeopleteとomnisharpでerrorこくので封印 {{{
+" set previewheight=4
+" autocmd vimrc BufEnter ?* call PreviewHeightWorkAround()
+" function! PreviewHeightWorkAround()
+"     if &previewwindow
+"         exec 'set local winheight='.&previewheight
+"     endif
+" endfunction
+" }}}
+
+
 "}}}
+
 " keymaps {{{
 
 if has('nvim')
