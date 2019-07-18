@@ -73,6 +73,10 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # prompt {{{
 
+function remove_merged_branch() {
+    git branch --merged | egrep -v '\*|develop|master' | xargs git branch -d
+}
+
 function random_glyphs() {
     local glyphs=(
         ' '
