@@ -642,5 +642,13 @@ let g:ale_lint_on_save = 0
 " OmniSharp {{{
 let g:OmniSharp_typeLookupInPreview = 1
 let g:omnicomplete_fetch_full_documentation = 1
+
+command! ReadyToCoding call ReadyToCoding()
+function! ReadyToCoding()
+    if (&ft=='cs')
+        :ModifyCSProjFile
+        :OmniSharpRestartServer
+    endif
+endfunction
 " }}}
 set secure
