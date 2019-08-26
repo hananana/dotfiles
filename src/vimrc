@@ -208,7 +208,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
-Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 ./install.py --cs-completer --go-completer' }
+Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 ./install.py --cs-completer' }
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
