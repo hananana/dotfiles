@@ -331,15 +331,16 @@ set pumheight=10
 " neovimの文字化け対策
 set ttimeout
 set ttimeoutlen=50
-
-set helplang=ja,en
-
-
+" help
+set helplang=en
+" markdownのfiletype設定
 autocmd vimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0 | copen | endif
 " terminalモードでESCでもどる
 tnoremap <silent> <ESC> <C-\><C-n>
+" 左端に出るマークを消す
+set signcolumn=no
 
 " previewがdeopleteとomnisharpでerrorこくので封印 {{{
 " set previewheight=4
@@ -626,8 +627,10 @@ endif
 let g:ale_linters = {
             \ 'cs' : ['mcs'],
             \ }
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_set_signs = 0
+" NOTE: 効かねえ
+let g:ale_set_highlights = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
@@ -644,5 +647,6 @@ function! ReadyToCoding()
         :OmniSharpRestartServer
     endif
 endfunction
+" }}}
 " }}}
 set secure
