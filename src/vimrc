@@ -215,6 +215,7 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
 Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
 Plug 'prabirshrestha/async.vim'
@@ -323,14 +324,7 @@ set diffopt=vertical
 " previewを表示する
 set completeopt=menuone,preview
 " マーカー折りたたみ
-" NOTE: nvim+wslだとすげぇ遅いからfold封印している
-if has('mac')
-    set foldmethod=marker
-endif
-
-if !has('nvim')
-    set foldmethod=marker
-endif
+set foldmethod=marker
 
 " 補完ウィンドウは10項目まで
 set pumheight=10 
@@ -637,7 +631,7 @@ let g:ale_set_quickfix = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_save = 0
+let g:ale_lint_on_save = 1
 " }}}
 " OmniSharp {{{
 let g:OmniSharp_typeLookupInPreview = 1
