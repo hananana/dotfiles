@@ -216,8 +216,8 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'autozimu/deoplete-omnisharp', { 'for' : ['cs'] }
-Plug 'OmniSharp/omnisharp-vim', { 'for' : ['cs'] }
+Plug 'autozimu/deoplete-omnisharp'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lighttiger2505/deoplete-vim-lsp'
@@ -639,6 +639,10 @@ let g:ale_lint_on_save = 1
 " OmniSharp {{{
 let g:OmniSharp_typeLookupInPreview = 1
 let g:omnicomplete_fetch_full_documentation = 1
+
+autocmd vimrc FileType cs nmap <Leader>od <Plug>(omnisharp_go_to_definition)
+autocmd vimrc FileType cs nmap <Leader>oi <Plug>(omnisharp_find_implementations)
+autocmd vimrc FileType cs nmap <Leader>ot <Plug>(omnisharp_type_lookup)
 
 command! ReadyToCoding call ReadyToCoding()
 function! ReadyToCoding()
