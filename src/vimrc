@@ -322,7 +322,7 @@ autocmd vimrc WinEnter * checktime
 " vimdiffを縦で割る
 set diffopt=vertical
 " previewを表示する
-set completeopt=menuone,preview
+set completeopt=longest
 " マーカー折りたたみ
 set foldmethod=marker
 
@@ -419,7 +419,7 @@ let g:lightline = {
             \ 'colorscheme' : 'jellybeans',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'filename', 'anzu' ] ]
+            \             [ 'fugitive', 'relativepath', 'anzu' ] ]
             \ },
             \ 'component' : {
             \   'anzu' : '%{anzu#search_status()}',
@@ -444,15 +444,6 @@ endfunction
 
 function! MyReadonly()
     return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-endfunction
-
-function! MyFilename()
-    return ('' !=# MyReadonly() ? MyReadonly() . ' ' : '') .
-                \ (&filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
-                \  &filetype ==# 'unite' ? unite#get_status_string() :
-                \  &filetype ==# 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-                \ '' !=# expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' !=# MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyFugitive()
@@ -529,10 +520,6 @@ autocmd vimrc BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTr
 let g:NERDTreeWinSize=50
 
 " }}}
-" lambdalisue/gina.vim {{{
-noremap <silent> <Leader>gis :<C-u>Gina status<CR>
-noremap <silent> <Leader>gic :<C-u>Gina commit<CR>
-" " }}}
 " glidenote/memolist.vim {{{
 let g:memolist_path = '$HOME/Dropbox/memolist'
 let g:memolist_memo_suffix = 'md'
@@ -548,9 +535,6 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cs'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['swift'] = ''
-" }}}
-" terryma/vim-multiple-cursors {{{
-let g:multi_cursor_use_default_mapping=1
 " }}}
 " thinca/vim-quickrun {{{
 nnoremap <Leader>q :<C-u>QuickRun<CR>
@@ -582,9 +566,6 @@ let g:quickrun_config.msbuild = {
 " }}}
 " majutsushi/tagbar {{{
 nnoremap <Leader>t :<C-u>TagbarToggle<CR>
-" }}}
-" artur-shaik/vim-javacomplete2' {{{
-autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
 " }}}
 " elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
@@ -652,5 +633,29 @@ function! ReadyToCoding()
     endif
 endfunction
 " }}}
+" vim-lsp {{{
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd BufWritePre *.go LspDocumentFormatSync
+endif
+" }}}
+
+
+" unused {{{
+" lambdalisue/gina.vim {{{
+noremap <silent> <Leader>gis :<C-u>Gina status<CR>
+noremap <silent> <Leader>gic :<C-u>Gina commit<CR>
+" " }}}
+" artur-shaik/vim-javacomplete2' {{{
+autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
+" }}}
+" terryma/vim-multiple-cursors {{{
+let g:multi_cursor_use_default_mapping=1
+" }}}
+"}}}
 " }}}
 set secure
