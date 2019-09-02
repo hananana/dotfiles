@@ -1,11 +1,13 @@
 # zmodload zsh/zprof && zprof
 
 # export {{{
+
 export EDITOR='nvim'
-export GOPATH=$HOME
-export PATH=$PATH:$GOPATH/bin
+export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH=$PATH:$HOME/.dotfiles/bin
 export DOTDIR=$HOME/src/github.com/hananana/dotfiles
+
 # hub brose向けの設定
 export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 
@@ -406,6 +408,12 @@ function recho() {
 
 export PATH=$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init -)"
+
+# go
+# must be after anyenv
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+
 # }}}
 
 # if (which zprof > /dev/null)
