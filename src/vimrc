@@ -208,21 +208,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-Plug 'autozimu/deoplete-omnisharp'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'lighttiger2505/deoplete-vim-lsp'
-Plug 'Shougo/neco-vim'
-Plug 'deoplete-plugins/deoplete-zsh'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -578,28 +564,6 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " chrisbra/csv.vim' {{{
 let g:csv_delim=','
 " }}}
-" deoplete {{{
-
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option('omni_patterns', {
-           \ 'cs': '\.',
-           \})
-
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction "}}}
-
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ deoplete#manual_complete()
-
-"}}}
 " prg {{{
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -635,17 +599,8 @@ function! ReadyToCoding()
     endif
 endfunction
 " }}}
-" vim-lsp {{{
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd BufWritePre *.go LspDocumentFormatSync
-else
-    echomsg "PLZ install gopls"
-endif
+" coc.nvim {{{
+let g:coc_global_extension=['coc-omnisharp']
 " }}}
 
 " unused {{{
