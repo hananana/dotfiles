@@ -85,4 +85,4 @@ pyobjc-framework-SystemConfiguration==4.1
 pyobjc-framework-WebKit==4.1
 requests==2.18.4
 ruamel.yaml==0.15.35
-urllib3==1.22
+urllib3==1.24.2
