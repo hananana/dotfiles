@@ -17,6 +17,11 @@ windows:
       layout: even-horizontal
       panes:
         - l
+  - inspix-liveshare:
+      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
   - enogu:
       root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/Core/Enogu
       layout: even-horizontal
