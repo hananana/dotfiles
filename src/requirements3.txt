@@ -83,6 +83,6 @@ pyobjc-framework-StoreKit==4.1
 pyobjc-framework-SyncServices==4.1
 pyobjc-framework-SystemConfiguration==4.1
 pyobjc-framework-WebKit==4.1
-requests==2.18.4
+requests==2.20.0
 ruamel.yaml==0.15.35
 urllib3==1.22
