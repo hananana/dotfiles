@@ -208,7 +208,8 @@ Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 
 " completion
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'prabirshrestha/asyncomplete.vim'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -598,19 +599,6 @@ function! ReadyToCoding()
         :CocRestart
     endif
 endfunction
-" }}}
-" coc.nvim {{{
-let g:coc_global_extension=['coc-omnisharp']
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
 " }}}
 
 " unused {{{
