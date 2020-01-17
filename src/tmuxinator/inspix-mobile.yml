@@ -22,23 +22,8 @@ windows:
       layout: even-horizontal
       panes:
         - l
-  - enogu:
+  - ip:
       root: ~/src/github.com/ignis-ltd/inspix-mobile/InspixEnogu/Assets/Core/Enogu
-      layout: even-horizontal
-      panes:
-        - l
-  - maipri:
-      root: ~/src/github.com/ignis-ltd/inspix-mobile/InspixEnogu/Assets/Core/Maipri
-      layout: even-horizontal
-      panes:
-        - l
-  - marple:
-      root: ~/src/github.com/ignis-ltd/inspix-mobile/InspixEnogu/Assets/Core/Marple
-      layout: even-horizontal
-      panes:
-        - l
-  - junes:
-      root: ~/src/github.com/ignis-ltd/inspix-mobile/InspixEnogu/Assets/Core/Junes
       layout: even-horizontal
       panes:
         - l
