@@ -1,7 +1,7 @@
 # /mnt/d/.tmuxinator/inspix-operator.yml
 
-name: inspix-operator
-root: ~/src/github.com/ignis-ltd/inspix-operator
+name: inspix-operator-2
+root: ~/src/github.com/ignis-ltd/inspix-operator-2
 
 windows:
   - editor:
@@ -13,17 +13,17 @@ windows:
       panes:
         - l
   - inspix-core:
-      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/Core
+      root: ~/src/github.com/ignis-ltd/inspix-operator-2/InspixEnogu/Assets/Core
       layout: even-horizontal
       panes:
         - l
   - inspix-liveshare:
-      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/LiveShare
+      root: ~/src/github.com/ignis-ltd/inspix-operator-2/InspixEnogu/Assets/LiveShare
       layout: even-horizontal
       panes:
         - l
   - ip:
-      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/Core/Enogu
+      root: ~/src/github.com/ignis-ltd/inspix-operator-2/InspixEnogu/Assets/Core/Enogu
       layout: even-horizontal
       panes:
         - l
