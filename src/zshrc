@@ -134,17 +134,11 @@ autoload -U compinit && compinit -u
 
 # keybind alias function {{{
 
-# ls
-# case ${OSTYPE} in
-#     darwin*)
-#         alias l='/usr/local/bin/gls --color -XlAh'
-#         ;;
-#     linux*)
-#         alias l='ls -XlAh'
-#         ;;
-# esac
-
-alias l='ls-go -lanL'
+if type ls-go > /dev/null 2>&1; then
+    alias l='ls-go -lanL'
+else
+    echo 'plz install ls-go'
+fi
 
 # git
 alias g='git'
