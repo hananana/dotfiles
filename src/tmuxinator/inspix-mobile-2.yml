@@ -1,0 +1,29 @@
+# /mnt/d/.tmuxinator/inspix-mobile-2.yml
+
+name: inspix-mobile-2
+root: ~/src/github.com/ignis-ltd/inspix-mobile-2
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-mobile:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-mobile-2/InspixEnogu/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-liveshare:
+      root: ~/src/github.com/ignis-ltd/inspix-mobile-2/InspixEnogu/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-mobile-2/InspixEnogu/Assets/Core/Enogu
+      layout: even-horizontal
+      panes:
+        - l
