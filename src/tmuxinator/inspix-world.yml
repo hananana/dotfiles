@@ -1,0 +1,35 @@
+# /mnt/d/.tmuxinator/inspix-world.yml
+
+name: inspix-world
+root: ~/src/github.com/ignis-ltd/inspix-world
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-world:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-world/program/Demo/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-live-share:
+      root: ~/src/github.com/ignis-ltd/inspix-world/program/Demo/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-live-main:
+      root: ~/src/github.com/ignis-ltd/inspix-world/program/Demo/Assets/LiveMain
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-world/program/Demo/Assets/Core/Enogu
+      layout: even-horizontal
+      panes:
+        - l
+
