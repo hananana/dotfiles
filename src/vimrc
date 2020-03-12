@@ -136,8 +136,8 @@ endfunction
 " Modify Solution File{{{
 command! ModifyCSProjFile :call ModifyCSProjFile()
 function! ModifyCSProjFile()
-    :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\/mnt\/c/g'
-    :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\/mnt\/d/g'
+    :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\\mnt\\c/g'
+    :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\\mnt\\d/g'
 endfunction
 " }}}
 " unused {{{
@@ -585,8 +585,6 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 " }}}
 " OmniSharp {{{
-let g:OmniSharp_typeLookupInPreview = 1
-let g:omnicomplete_fetch_full_documentation = 1
 
 autocmd vimrc FileType cs nmap <Leader>od <Plug>(omnisharp_go_to_definition)
 autocmd vimrc FileType cs nmap <Leader>oi <Plug>(omnisharp_find_implementations)
