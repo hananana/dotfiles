@@ -13,9 +13,5 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=b
 
-if has('nvim')
-    Guifont! Knack\ NF:h11
-    call GuiWindowFullScreen(1)
-else
-    set guifont=Knack\ NF:h11:cANSI:qDRAFT
-endif
+colorscheme jellybeans
+set guifont=mplus\ NF:h14

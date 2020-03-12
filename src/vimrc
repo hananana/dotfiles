@@ -32,8 +32,6 @@ endfunction
 " python3_host_prog {{{
 if has('mac')
     let g:python3_host_prog = '/usr/local/bin/python3'
-else
-    let g:python3_host_prog = '/usr/bin/python3'
 endif
 " }}}
 " augroup {{{
@@ -350,10 +348,6 @@ set signcolumn=no
 
 " keymaps {{{
 
-if has('nvim')
-    tnoremap <silent> <ESC> <C-\><C-n>
-endif
-
 "矢印キー無効
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -614,8 +608,6 @@ autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#s
     \ 'completor': function('asyncomplete#sources#necovim#completor'),
     \ }))
 
-
-
 if executable('bash-language-server')
     au User lsp_setup call lsp#register_server({
                 \ 'name': 'bash-language-server',
@@ -625,6 +617,7 @@ if executable('bash-language-server')
 else
     echomsg "plz install bash-language-server"
 endif
+
 " }}}}
 
 " unused {{{
