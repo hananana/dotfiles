@@ -133,14 +133,14 @@ function! RunIDE()
     endif
 endfunction
 " }}}
-" Modify Solution File{{{
-command! ModifyCSProjFile :call ModifyCSProjFile()
-function! ModifyCSProjFile()
-    :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\\mnt\\c/g'
-    :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\\mnt\\d/g'
-endfunction
-" }}}
 " unused {{{
+" Modify Solution File{{{
+" command! ModifyCSProjFile :call ModifyCSProjFile()
+" function! ModifyCSProjFile()
+"     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\\mnt\\c/g'
+"     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\\mnt\\d/g'
+" endfunction
+" }}}
 " Denite {{{
 "function! DeniteReplace(context)
 "      let l:qflist = []
