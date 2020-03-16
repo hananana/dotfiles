@@ -181,9 +181,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'tpope/vim-dispatch'
+
+" ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'fisadev/vim-ctrlp-cmdpalette'
+Plug 'tacahiroy/ctrlp-funky'
+
 Plug 'tpope/vim-fugitive'
 Plug 'thinca/vim-qfreplace'
 Plug 'itchyny/lightline.vim'
@@ -204,6 +208,7 @@ Plug 'cohama/vim-hier'
 Plug 'osyo-manga/shabadou.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
+Plug 'lambdalisue/vim-fullscreen'
 
 " completion
 Plug 'OmniSharp/omnisharp-vim'
