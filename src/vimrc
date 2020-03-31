@@ -599,18 +599,13 @@ let g:ale_lint_on_save = 1
 " OmniSharp {{{
 
 " stable OmnisharpInstall v1.34.15
+" plz update visual studio
+" and some libraries
 let g:OmniSharp_server_stdio = 1
 autocmd vimrc FileType cs nmap <Leader>od <Plug>(omnisharp_go_to_definition)
 autocmd vimrc FileType cs nmap <Leader>oi <Plug>(omnisharp_find_implementations)
 autocmd vimrc FileType cs nmap <Leader>ot <Plug>(omnisharp_type_lookup)
 
-command! ReadyToCoding call ReadyToCoding()
-function! ReadyToCoding()
-    if (&ft=='cs')
-        :ModifyCSProjFile
-        :CocRestart
-    endif
-endfunction
 " }}}
 " asyncomplete {{{
 
