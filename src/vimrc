@@ -202,6 +202,7 @@ Plug 'osyo-manga/shabadou.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 Plug 'lambdalisue/vim-fullscreen'
+Plug 'pechorin/any-jump.vim'
 
 " completion
 Plug 'OmniSharp/omnisharp-vim'
@@ -330,6 +331,19 @@ autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0
 tnoremap <silent> <ESC> <C-\><C-n>
 " 左端に出るマークを消す
 set signcolumn=no
+
+" tabのlabelをデザイン
+function! GuiTabLabel()
+    let l:splits = split(getcwd(), '\')
+    let l:label = l:splits[len(l:splits) - 1]
+    return l:label
+endfunction
+set guitablabel=%N:\ %{GuiTabLabel()}
+
+function! OnNERDTreePathNotify(event)
+endfunction
+
+call g:NERDTreePathNotifier.AddListener("init", "OnNERDTreePathNotify")
 
 " previewがdeopleteとomnisharpでerrorこくので封印 {{{
 " set previewheight=4
@@ -584,6 +598,8 @@ let g:ale_lint_on_save = 1
 " }}}
 " OmniSharp {{{
 
+" stable OmnisharpInstall v1.34.15
+let g:OmniSharp_server_stdio = 1
 autocmd vimrc FileType cs nmap <Leader>od <Plug>(omnisharp_go_to_definition)
 autocmd vimrc FileType cs nmap <Leader>oi <Plug>(omnisharp_find_implementations)
 autocmd vimrc FileType cs nmap <Leader>ot <Plug>(omnisharp_type_lookup)

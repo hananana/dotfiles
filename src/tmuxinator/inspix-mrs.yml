@@ -11,4 +11,4 @@ windows:
   - inspix-mrs:
       layout: even-horizontal
       panes:
-        - cd project/server/linux && bash server.sh start && ruby ../develop_command/create_room.rb
+#         - cd project/server/linux && bash server.sh start && ruby ../develop_command/create_room.rb
