@@ -7,23 +7,23 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - nvim
+#         - nvim
   - inspix-operator:
       layout: even-horizontal
       panes:
         - l
   - inspix-core:
-      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/Core
+      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixOperator/Assets/Core
       layout: even-horizontal
       panes:
         - l
   - inspix-liveshare:
-      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/LiveShare
+      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixOperator/Assets/LiveShare
       layout: even-horizontal
       panes:
         - l
   - ip:
-      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixEnogu/Assets/Core/Enogu
+      root: ~/src/github.com/ignis-ltd/inspix-operator/InspixOperator/Assets/Core/Enogu
       layout: even-horizontal
       panes:
         - l
