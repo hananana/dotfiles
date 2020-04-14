@@ -134,12 +134,6 @@ autoload -U compinit && compinit -u
 
 # keybind alias function {{{
 
-if type ls-go > /dev/null 2>&1; then
-    alias l='ls-go -lanL'
-else
-    echo 'plz install ls-go'
-fi
-
 # git
 alias g='git'
 alias gf='git fetch --prune'

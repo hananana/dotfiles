@@ -340,11 +340,6 @@ function! GuiTabLabel()
 endfunction
 set guitablabel=%N:\ %{GuiTabLabel()}
 
-function! OnNERDTreePathNotify(event)
-endfunction
-
-call g:NERDTreePathNotifier.AddListener("init", "OnNERDTreePathNotify")
-
 " previewがdeopleteとomnisharpでerrorこくので封印 {{{
 " set previewheight=4
 " autocmd vimrc BufEnter ?* call PreviewHeightWorkAround()
