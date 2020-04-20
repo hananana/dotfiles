@@ -134,6 +134,9 @@ autoload -U compinit && compinit -u
 
 # keybind alias function {{{
 
+# ls-go
+alias l='ls-go -lanL'
+
 # git
 alias g='git'
 alias gf='git fetch --prune'
