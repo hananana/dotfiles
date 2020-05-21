@@ -295,6 +295,8 @@ function update_symlink() {
     ln -s $DOTDIR/src/tmuxinator $HOME/.tmuxinator
     rm -rf $HOME/.uncrustifyconfig
     ln -s $DOTDIR/src/uncrustifyconfig $HOME/.uncrustifyconfig
+    rm -rf $HOME/.gvimrc
+    ln -s $DOTDIR/src/gvimrc $HOME/.gvimrc
     
     rm -rf $HOME/.tmux.conf
     case ${OSTYPE} in
