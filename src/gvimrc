@@ -14,4 +14,9 @@ set guioptions-=L
 set guioptions-=b
 
 colorscheme jellybeans
-set guifont=mplus\ Nerd\ Font:h12
+
+if has('mac')
+    set guifont=mplus\ Nerd\ Font:h16
+else
+    set guifont=mplus\ Nerd\ Font:h12
+endif
