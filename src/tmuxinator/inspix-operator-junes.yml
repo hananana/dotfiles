@@ -1,0 +1,29 @@
+# ~/.tmuxinator/inspix-operator-junes.yml
+
+name: inspix-operator-junes
+root: ~/src/github.com/ignis-ltd/inspix-operator-junes
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+#         - nvim
+  - inspix-operator:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes/InspixOperator/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-liveshare:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes/InspixOperator/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes/InspixOperator/Assets/Core/Enogu
+      layout: even-horizontal
+      panes:
+        - l
