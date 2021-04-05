@@ -23,7 +23,7 @@ windows:
       panes:
         - l
   - ip:
-      root: ~/src/github.com/ignis-ltd/inspix-operator-junes/InspixOperator/Assets/Core/Enogu
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes/InspixOperator/Assets/Core/Junes
       layout: even-horizontal
       panes:
         - l
