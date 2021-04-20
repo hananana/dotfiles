@@ -202,7 +202,6 @@ Plug 'osyo-manga/shabadou.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'majutsushi/tagbar'
 Plug 'lambdalisue/vim-fullscreen'
-Plug 'pechorin/any-jump.vim'
 
 " completion
 Plug 'OmniSharp/omnisharp-vim'

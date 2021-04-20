@@ -2,7 +2,15 @@
 
 # export {{{
 
-export EDITOR='nvim'
+case ${OSTYPE} in
+    darwin*)
+        export EDITOR='vim'
+        ;;
+    linux*)
+        export EDITOR='/mnt/c/Program\ Files/vim82-kaoriya-win64-8.2.0087-20200106/vim82-kaoriya-win64/gvim.exe'
+        ;;
+esac
+
 export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH=$PATH:$HOME/.dotfiles/bin
@@ -133,6 +141,15 @@ autoload -U compinit && compinit -u
 # }}}
 
 # keybind alias function {{{
+
+## onlyWSL
+case ${OSTYPE} in
+    darwin*)
+        ;;
+    linux*)
+        alias vim='/mnt/c/Program\ Files/vim82-kaoriya-win64-8.2.0087-20200106/vim82-kaoriya-win64/gvim.exe'
+        ;;
+esac
 
 # ls-go
 alias l='ls-go -lanL'
