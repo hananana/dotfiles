@@ -2,15 +2,7 @@
 
 # export {{{
 
-case ${OSTYPE} in
-    darwin*)
-        export EDITOR='vim'
-        ;;
-    linux*)
-        export EDITOR='/mnt/c/Program\ Files/vim82-kaoriya-win64-8.2.0087-20200106/vim82-kaoriya-win64/gvim.exe'
-        ;;
-esac
-
+export EDITOR='vim'
 export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH=$PATH:$HOME/.dotfiles/bin
