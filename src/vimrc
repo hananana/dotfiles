@@ -1,5 +1,10 @@
 " TODO
 
+" augroup {{{
+augroup vimrc
+    autocmd!
+augroup END
+" }}}
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -114,17 +119,6 @@ endfunction
 if has('mac')
     let g:python3_host_prog = '/usr/local/bin/python3'
 endif
-" }}}
-" augroup {{{
-augroup vimrc
-    autocmd!
-augroup END
-" }}}
-" git commit時にはpluginを読み込まない {{{
-if $HOME != $USERPROFILE && $GIT_EXEC_PATH != ''
-    finish
-end
-
 " }}}
 " load plugins {{{
 
