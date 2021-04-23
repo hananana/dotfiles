@@ -1,11 +1,5 @@
-" TODO {{{
-" - quickfix学ぶ
-" - quickrunのerrorからちゃんと飛ぶように
-" - MarkDownPreview in Windows
-" - vint
-" - python lint
-" - pluginの依存関係をちゃんと明示したい
-" }}}
+" TODO
+
 " encoding and color {{{
 if has('vim_starting')
     set encoding=utf-8
@@ -19,41 +13,36 @@ if has('vim_starting')
 endif
 " }}}
 " utils {{{
-" IsWindows{{{
-function! IsWindows()
-    return has('win64') || has('win32') || has('win16')
-endfunction
-" }}}
-" }}}
-" python3_host_prog {{{
-if has('mac')
-    let g:python3_host_prog = '/usr/local/bin/python3'
-endif
-" }}}
-" augroup {{{
-augroup vimrc
-    autocmd!
-augroup END
-" }}}
-" echomsg startup time {{{
-
-if has('vim_starting') && has('reltime')
-    let g:startuptime = reltime()
-    autocmd vimrc VimEnter * let g:startuptime = reltime(g:startuptime) | redraw | echomsg 'startuptime: ' . reltimestr(g:startuptime)
-endif
-
-" }}}
-" functions {{{
 
 command! ReloadVimrc :source $HOME/src/github.com/hananana/dotfiles/src/vimrc
 command! ShowPath :echo expand("%:p")
 command! GenerateCtags :!ctags -R
 command! RemoveTildeM :%s///g
 
-" QuickRunHook {{{
-command! QuickRunCustom call QuickRunCustom()
-function! QuickRunCustom()
-    :QuickRun
+" IsWindows{{{
+function! IsWindows()
+    return has('win64') || has('win32') || has('win16')
+endfunction
+" }}}
+" echomsg startup time {{{
+if has('vim_starting') && has('reltime')
+    let g:startuptime = reltime()
+    autocmd vimrc VimEnter * let g:startuptime = reltime(g:startuptime) | redraw | echomsg 'startuptime: ' . reltimestr(g:startuptime)
+endif
+" }}}
+" clone vim-plug if needed {{{
+if !filereadable(expand('~/.vim/autoload/plug.vim'))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+" }}}
+" RUN IDE {{{
+nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
+function! RunIDE()
+    if (&ft=='cs')
+        :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
+    else
+        :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
+    endif
 endfunction
 " }}}
 " MarkDownPreview {{{
@@ -120,61 +109,28 @@ function! UncrustifyAuto()
 endfunction
 
 " }}}
-" RUN IDE {{{
-nnoremap <silent> <Leader>p :call RunIDE()<CR><CR>
-function! RunIDE()
-    if (&ft=='cs')
-        :!osascript ~/.dotfiles/AppleScript/runUnity.scpt
-    else
-        :!osascript ~/.dotfiles/AppleScript/runXcode.scpt
-    endif
-endfunction
 " }}}
-" unused {{{
-" Modify Solution File{{{
-" command! ModifyCSProjFile :call ModifyCSProjFile()
-" function! ModifyCSProjFile()
-"     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/C:/\\mnt\\c/g'
-"     :!find . -maxdepth 2 -name "*.csproj" | xargs sed -i -e 's/D:/\\mnt\\d/g'
-" endfunction
-" }}}
-" Denite {{{
-"function! DeniteReplace(context)
-"      let l:qflist = []
-"      for l:target in a:context['targets']
-"        if !has_key(l:target, 'action__path') | continue | endif
-"        if !has_key(l:target, 'action__line') | continue | endif
-"        if !has_key(l:target, 'action__text') | continue | endif
-"
-"        call add(l:qflist, {
-"              \ 'filename': l:target['action__path'],
-"              \ 'lnum': l:target['action__line'],
-"              \ 'text': l:target['action__text']
-"              \ })
-"      endfor
-"      call setqflist(l:qflist)
-"      call qfreplace#start('')
-"    endfunction
-"call denite#custom#action('file', 'qfreplace', 'DeniteReplace')
-"
-"function! s:memoGrepDenite()
-"    let l:option = '-path=' . expand('$HOME/Dropbox/memolist')
-"    exe 'Denite' 'grep' l:option '-highlight-mode-insert=Search'
-"endfunction
-"command! MemoGrepDenite call s:memoGrepDenite()<CR>
-
-" }}}
-"  }}}
-" }}}
-" clone vim-plug if needed {{{
-if !filereadable(expand('~/.vim/autoload/plug.vim'))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" python3_host_prog {{{
+if has('mac')
+    let g:python3_host_prog = '/usr/local/bin/python3'
 endif
+" }}}
+" augroup {{{
+augroup vimrc
+    autocmd!
+augroup END
+" }}}
+" git commit時にはpluginを読み込まない {{{
+if $HOME != $USERPROFILE && $GIT_EXEC_PATH != ''
+    finish
+end
+
 " }}}
 " load plugins {{{
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'ulwlu/elly.vim'
 Plug 'nanotech/jellybeans.vim'
 
 " ctrlp
@@ -242,7 +198,10 @@ filetype plugin indent on
 
 " colorscheme {{{
 syntax enable
-colorscheme jellybeans
+
+" colorscheme jellybeans
+colorscheme elly
+
 set background=dark
 
 " }}}
@@ -315,7 +274,6 @@ set diffopt=vertical
 set completeopt=longest
 " マーカー折りたたみ
 set foldmethod=marker
-
 " 補完ウィンドウは10項目まで
 set pumheight=10 
 " neovimの文字化け対策
@@ -331,7 +289,6 @@ autocmd vimrc QuickFixCmdPost make,grepadd,grep,vimgrep if len(getqflist()) != 0
 tnoremap <silent> <ESC> <C-\><C-n>
 " 左端に出るマークを消す
 set signcolumn=no
-
 " tabのlabelをデザイン
 function! GuiTabLabel()
     let l:splits = split(getcwd(), '\')
@@ -339,17 +296,6 @@ function! GuiTabLabel()
     return l:label
 endfunction
 set guitablabel=%N:\ %{GuiTabLabel()}
-
-" previewがdeopleteとomnisharpでerrorこくので封印 {{{
-" set previewheight=4
-" autocmd vimrc BufEnter ?* call PreviewHeightWorkAround()
-" function! PreviewHeightWorkAround()
-"     if &previewwindow
-"         exec 'set local winheight='.&previewheight
-"     endif
-" endfunction
-" }}}
-
 
 "}}}
 " keymaps {{{
@@ -409,7 +355,7 @@ else
 endif
 
 let g:lightline = {
-            \ 'colorscheme' : 'jellybeans',
+            \ 'colorscheme' : 'elly',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'relativepath', 'anzu' ] ]
