@@ -204,14 +204,14 @@ Plug 'majutsushi/tagbar'
 Plug 'lambdalisue/vim-fullscreen'
 
 " completion
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'Shougo/neco-vim'
-
+" https://mattn.kaoriya.net/software/vim/20191231213507.htm
 Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-necovim.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'hananana/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -244,6 +244,7 @@ filetype plugin indent on
 syntax enable
 colorscheme jellybeans
 set background=dark
+
 " }}}
 " basic setting  {{{
 
@@ -590,39 +591,53 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 " }}}
-" OmniSharp {{{
+" vim-lsp {{{
+" https://qiita.com/nil2/items/52417115b3fa57b1e296
+if !empty(globpath(&rtp, 'autoload/lsp.vim'))
+  " vim-lspが有効になったバッファで次の設定を行う
+  function! s:on_lsp_buffer_enabled() abort
+    " (必須)オムニ補完の関数を設定
+    setlocal omnifunc=lsp#complete
+    " (任意)補完の表示をメニューのみにする
+    setlocal completeopt=menu
+    " (任意)エラー列を常に表示する
+    " setlocal signcolumn=yes
+    " (任意)定義ジャンプをgdに割り当てる
+    nmap <buffer> gd <plug>(lsp-definition)
+  endfunction
+  augroup lsp_install
+    autocmd!
+    autocmd User lsp_buffer_enabled 
+    \ call s:on_lsp_buffer_enabled()
+  augroup END
 
-" stable OmnisharpInstall v1.34.15
-" plz update visual studio
-" and some libraries
-let g:OmniSharp_server_stdio = 1
-autocmd vimrc FileType cs nmap <Leader>od <Plug>(omnisharp_go_to_definition)
-autocmd vimrc FileType cs nmap <Leader>oi <Plug>(omnisharp_find_implementations)
-autocmd vimrc FileType cs nmap <Leader>ot <Plug>(omnisharp_type_lookup)
-
+  " (必須)プロジェクトルートのマーカーとなるファイル、ディレクトリ一覧
+  " デフォルトではAssembly-CSharp.csprojが含まれていないため、これを追加する
+  let g:lsp_settings_root_markers = ['Assembly-CSharp.csproj', '.git', '.git/']
+endif
 " }}}
+
 " asyncomplete {{{
 
-autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necovim#get_source_options({
-    \ 'name': 'necovim',
-    \ 'whitelist': ['vim'],
-    \ 'completor': function('asyncomplete#sources#necovim#completor'),
-    \ }))
-
-if has('mac')
-    if executable('bash-language-server')
-        au User lsp_setup call lsp#register_server({
-                    \ 'name': 'bash-language-server',
-                    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
-                    \ 'whitelist': ['sh', 'zsh'],
-                    \ })
-    else
-        echomsg "plz install bash-language-server"
-    endif
-endif
+" autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necovim#get_source_options({
+"    \ 'name': 'necovim',
+"    \ 'whitelist': ['vim'],
+"    \ 'completor': function('asyncomplete#sources#necovim#completor'),
+"    \ }))
+" 
+" if has('mac')
+"     if executable('bash-language-server')
+"         au User lsp_setup call lsp#register_server({
+"                    \ 'name': 'bash-language-server',
+"                    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+"                    \ 'whitelist': ['sh', 'zsh'],
+"                    \ })
+"     else
+"         echomsg "plz install bash-language-server"
+"     endif
+" endif
 
 " }}}}
-
 " unused {{{
 " lambdalisue/gina.vim {{{
 noremap <silent> <Leader>gis :<C-u>Gina status<CR>
