@@ -1,4 +1,10 @@
 " TODO
+" pluginを減らす
+" vimの基本機能でなるべく生きる
+
+" 機能把握
+" ctrlp
+" vim-lsp
 
 " augroup {{{
 augroup vimrc
@@ -124,36 +130,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" looks {{{ 
 Plug 'ulwlu/elly.vim'
-Plug 'nanotech/jellybeans.vim'
-
+Plug 'itchyny/lightline.vim'
+" }}}
+" search plugin {{{
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
+" 高速match
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'fisadev/vim-ctrlp-cmdpalette'
-Plug 'tacahiroy/ctrlp-funky'
-
-Plug 'thinca/vim-qfreplace'
-Plug 'itchyny/lightline.vim'
-Plug 'tyru/caw.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'osyo-manga/vim-anzu'
-Plug 'cohama/vim-insert-linenr'
-Plug 'glidenote/memolist.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'gregsexton/VimCalc'
-Plug 'junegunn/vim-easy-align'
-Plug 'sheerun/vim-polyglot'
-Plug 'koron/codic-vim'
-Plug 'w0rp/ale'
-Plug 'cohama/vim-hier'
-Plug 'osyo-manga/shabadou.vim'
-Plug 'thinca/vim-quickrun'
-Plug 'majutsushi/tagbar'
-Plug 'lambdalisue/vim-fullscreen'
-
-" completion
+" }}}
+" completion plugin {{{
 " https://mattn.kaoriya.net/software/vim/20191231213507.htm
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -162,6 +149,31 @@ Plug 'hananana/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+" }}}
+" utils plugin {{{
+" コメントONOFF
+Plug 'tyru/caw.vim'
+" 計算機
+Plug 'gregsexton/VimCalc'
+" translation
+Plug 'koron/codic-vim'
+" fullscreen
+Plug 'lambdalisue/vim-fullscreen'
+" terminal&vim&tmux環境でCTRL+Hとかでシームレスにペイン移動 
+Plug 'christoomey/vim-tmux-navigator'
+" }}}
+
+Plug 'thinca/vim-qfreplace'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'osyo-manga/vim-anzu'
+Plug 'cohama/vim-insert-linenr'
+Plug 'junegunn/vim-easy-align'
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+Plug 'cohama/vim-hier'
+Plug 'osyo-manga/shabadou.vim'
+Plug 'thinca/vim-quickrun'
 
 " syntax
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
@@ -173,22 +185,23 @@ Plug 'vim-scripts/ShaderHighLight'
 
 " other
 Plug 'hananana/lilycomment.vim', { 'for': 'cs' }
+Plug 'hananana/sonictemplate-vim'
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': ['cpp', 'objcpp', 'objc'] } 
 Plug 'kana/vim-altr', { 'for' : ['cpp', 'objcpp', 'objc'] }
+
 Plug 'elzr/vim-json', { 'for' : ['json']}
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
-Plug 'chrisbra/csv.vim', { 'for' : [ 'csv' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
-Plug 'hananana/sonictemplate-vim'
 
 if has('mac')
     Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
 endif
 
 call plug#end()
+filetype plugin indent on
+
 " }}}
 
-filetype plugin indent on
 
 " colorscheme {{{
 syntax enable
