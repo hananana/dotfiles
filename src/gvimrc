@@ -13,7 +13,7 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=b
 
-colorscheme jellybeans
+colorscheme elly
 
 if has('mac')
     set guifont=mplus\ Nerd\ Font:h16
