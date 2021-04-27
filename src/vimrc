@@ -534,6 +534,11 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 " }}}
 " vim-lsp {{{
+
+let g:lsp_completion_documentation_enabled = 0
+let g:lsp_insert_text_enabled = 0
+let g:lsp_text_edit_enabled = 0
+
 " https://qiita.com/nil2/items/52417115b3fa57b1e296
 if !empty(globpath(&rtp, 'autoload/lsp.vim'))
   " vim-lspが有効になったバッファで次の設定を行う
