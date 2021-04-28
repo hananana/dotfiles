@@ -20,7 +20,6 @@ endif
 
 command! ReloadVimrc :source $HOME/src/github.com/hananana/dotfiles/src/vimrc
 command! ShowPath :echo expand("%:p")
-command! GenerateCtags :!ctags -R
 command! RemoveTildeM :%s///g
 
 " IsWindows{{{
@@ -126,6 +125,15 @@ call plug#begin('~/.vim/plugged')
 " looks {{{ 
 Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
+" }}}
+" syntax {{{
+Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+Plug 'b4winckler/vim-objc', { 'for': 'objc' }
+Plug 'keith/swift.vim', { 'for': 'swift' }   
+Plug 'aklt/plantuml-syntax', { 'for': 'uml' } 
+Plug 'vim-scripts/ShaderHighLight'
 " }}}
 " search plugin {{{
 " ctrlp
@@ -146,44 +154,32 @@ Plug 'hrsh7th/vim-vsnip-integ'
 " utils plugin {{{
 " コメントONOFF
 Plug 'tyru/caw.vim'
-" 計算機
-" Plug 'gregsexton/VimCalc'
 " translation
 Plug 'koron/codic-vim'
 " fullscreen
 Plug 'lambdalisue/vim-fullscreen'
 " terminal&vim&tmux環境でCTRL+Hとかでシームレスにペイン移動 
 Plug 'christoomey/vim-tmux-navigator'
+" 検索時にmatch数と順番を表示する
+Plug 'osyo-manga/vim-anzu'
 " }}}
 
-Plug 'scrooloose/nerdtree'
+" filer
+Plug 'lambdalisue/fern.vim'
 
+Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-qfreplace'
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'osyo-manga/vim-anzu'
 Plug 'cohama/vim-insert-linenr'
 Plug 'junegunn/vim-easy-align'
 Plug 'sheerun/vim-polyglot'
 Plug 'cohama/vim-hier'
 Plug 'osyo-manga/shabadou.vim'
 
-Plug 'thinca/vim-quickrun'
-
-" syntax
-Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-Plug 'b4winckler/vim-objc', { 'for': 'objc' }
-Plug 'keith/swift.vim', { 'for': 'swift' }   
-Plug 'aklt/plantuml-syntax', { 'for': 'uml' } 
-Plug 'vim-scripts/ShaderHighLight'
-
 " other
 Plug 'hananana/lilycomment.vim', { 'for': 'cs' }
 Plug 'hananana/sonictemplate-vim'
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': ['cpp', 'objcpp', 'objc'] } 
 Plug 'kana/vim-altr', { 'for' : ['cpp', 'objcpp', 'objc'] }
-
 Plug 'elzr/vim-json', { 'for' : ['json']}
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
@@ -354,16 +350,14 @@ let g:lightline = {
             \ 'colorscheme' : 'jellybeans',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'relativepath', 'anzu' ] ]
+            \             [ 'relativepath', 'anzu' ] ]
             \ },
             \ 'component' : {
             \   'anzu' : '%{anzu#search_status()}',
             \ },
             \ 'component_function': {
-            \   'readonly': 'MyReadOnly',
-            \   'modified': 'MyModified',
-            \   'filename' : 'MyFilename',
-            \   'fugitive': 'MyFugitive',
+            \   'readonly' : 'MyReadOnly',
+            \   'modified' : 'MyModified',
             \ },
             \ 'component_visible_condition': {
             \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -379,17 +373,6 @@ endfunction
 
 function! MyReadonly()
     return &filetype !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-endfunction
-
-function! MyFugitive()
-    try
-        if &filetype !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-            let l:_ = fugitive#head()
-            return strlen(l:_) ? '⭠ '.l:_ : ''
-        endif
-    catch
-    endtry
-    return ''
 endfunction
 
 " }}}
@@ -456,11 +439,8 @@ let g:NERDTreeWinSize=50
 
 " }}}
 " ryanoasis/vim-devicons {{{
-" vim-devicons
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:webdevicons_enable_ctrlp = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 " file-icons
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
