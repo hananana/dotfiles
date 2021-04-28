@@ -2,7 +2,7 @@
 
 # export {{{
 
-export EDITOR='vim'
+export EDITOR='/usr/bin/vim'
 export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH=$PATH:$HOME/.dotfiles/bin
@@ -134,9 +134,10 @@ autoload -U compinit && compinit -u
 
 # keybind alias function {{{
 
-## onlyWSL
+## vim
 case ${OSTYPE} in
     darwin*)
+        alias vim='/usr/bin/vim'
         ;;
     linux*)
         alias vim='/mnt/c/Program\ Files/vim82-kaoriya-win64-8.2.0087-20200106/vim82-kaoriya-win64/gvim.exe'

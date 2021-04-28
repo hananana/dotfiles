@@ -13,6 +13,7 @@ if has('vim_starting')
         let &t_8b = "\e[48;2;%lu;%lu;%lum"
         set termguicolors
     endif
+
 endif
 " }}}
 " utils {{{
@@ -123,7 +124,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " looks {{{ 
-Plug 'ulwlu/elly.vim'
+Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'
 " }}}
 " search plugin {{{
@@ -146,7 +147,7 @@ Plug 'hrsh7th/vim-vsnip-integ'
 " コメントONOFF
 Plug 'tyru/caw.vim'
 " 計算機
-Plug 'gregsexton/VimCalc'
+" Plug 'gregsexton/VimCalc'
 " translation
 Plug 'koron/codic-vim'
 " fullscreen
@@ -197,12 +198,8 @@ filetype plugin indent on
 " }}}
 " colorscheme {{{
 syntax enable
-
-" colorscheme jellybeans
-colorscheme elly
-
+colorscheme jellybeans
 set background=dark
-
 " }}}
 " basic setting  {{{
 
@@ -354,7 +351,7 @@ else
 endif
 
 let g:lightline = {
-            \ 'colorscheme' : 'elly',
+            \ 'colorscheme' : 'jellybeans',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'relativepath', 'anzu' ] ]
@@ -451,19 +448,12 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtExit()':            ['<c-[>'],
             \ }
 " }}}
-" fisadev/vim-ctrlp-cmdpalette {{{
-nnoremap <Leader>p :CtrlPCmdPalette<CR>
-" }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeChDirMode = 3
 nmap <C-e> :NERDTreeToggle<CR>
 autocmd vimrc BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeWinSize=50
 
-" }}}
-" glidenote/memolist.vim {{{
-let g:memolist_path = '$HOME/Dropbox/memolist'
-let g:memolist_memo_suffix = 'md'
 " }}}
 " ryanoasis/vim-devicons {{{
 " vim-devicons
@@ -520,19 +510,6 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 " }}}
-" ale {{{
-let g:ale_linters = {
-            \ 'cs' : ['mcs'],
-            \ }
-let g:ale_open_list = 1
-let g:ale_set_signs = 0
-" NOTE: 効かねえ
-let g:ale_set_highlights = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_save = 1
-" }}}
 " vim-lsp {{{
 
 let g:lsp_completion_documentation_enabled = 0
@@ -563,38 +540,4 @@ if !empty(globpath(&rtp, 'autoload/lsp.vim'))
   let g:lsp_settings_root_markers = ['Assembly-CSharp.csproj', '.git', '.git/']
 endif
 " }}}
-
-" asyncomplete {{{
-
-" autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necovim#get_source_options({
-"    \ 'name': 'necovim',
-"    \ 'whitelist': ['vim'],
-"    \ 'completor': function('asyncomplete#sources#necovim#completor'),
-"    \ }))
-" 
-" if has('mac')
-"     if executable('bash-language-server')
-"         au User lsp_setup call lsp#register_server({
-"                    \ 'name': 'bash-language-server',
-"                    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
-"                    \ 'whitelist': ['sh', 'zsh'],
-"                    \ })
-"     else
-"         echomsg "plz install bash-language-server"
-"     endif
-" endif
-
-" }}}}
-" unused {{{
-" lambdalisue/gina.vim {{{
-noremap <silent> <Leader>gis :<C-u>Gina status<CR>
-noremap <silent> <Leader>gic :<C-u>Gina commit<CR>
-" " }}}
-" artur-shaik/vim-javacomplete2' {{{
-autocmd vimrc FileType java setlocal omnifunc=javacomplete#Complete
-" }}}
-" terryma/vim-multiple-cursors {{{
-let g:multi_cursor_use_default_mapping=1
-" }}}
-"}}}
 " }}}
