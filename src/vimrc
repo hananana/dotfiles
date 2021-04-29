@@ -166,6 +166,7 @@ Plug 'osyo-manga/vim-anzu'
 
 " filer
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-renderer-devicons.vim'
 
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-qfreplace'
@@ -440,6 +441,7 @@ let g:NERDTreeWinSize=50
 " }}}
 " ryanoasis/vim-devicons {{{
 let g:webdevicons_enable_ctrlp = 1
+
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 " file-icons
@@ -519,5 +521,8 @@ if !empty(globpath(&rtp, 'autoload/lsp.vim'))
   " デフォルトではAssembly-CSharp.csprojが含まれていないため、これを追加する
   let g:lsp_settings_root_markers = ['Assembly-CSharp.csproj', '.git', '.git/']
 endif
+" }}}
+" fern {{{
+let g:fern#renderer = "devicons"
 " }}}
 " }}}
