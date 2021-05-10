@@ -127,6 +127,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 " }}}
+" filer {{{
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-renderer-devicons.vim'
+" }}}
 " syntax {{{
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
@@ -143,6 +147,10 @@ Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
 " completion plugin {{{
 " https://mattn.kaoriya.net/software/vim/20191231213507.htm
+
+" NOTE:
+".net frameworkがみつからないとき
+" https://fum1h1ro.github.io/2020/07/19/omnisharp-and-dotnetframework/
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -150,6 +158,7 @@ Plug 'hananana/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+
 " }}}
 " utils plugin {{{
 " コメントONOFF
@@ -163,10 +172,6 @@ Plug 'christoomey/vim-tmux-navigator'
 " 検索時にmatch数と順番を表示する
 Plug 'osyo-manga/vim-anzu'
 " }}}
-
-" filer
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-renderer-devicons.vim'
 
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-qfreplace'
@@ -184,10 +189,6 @@ Plug 'kana/vim-altr', { 'for' : ['cpp', 'objcpp', 'objc'] }
 Plug 'elzr/vim-json', { 'for' : ['json']}
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
-
-if has('mac')
-    Plug 'iamcco/markdown-preview.vim', { 'for' : [ 'markdown' ] }
-endif
 
 call plug#end()
 filetype plugin indent on
@@ -432,13 +433,6 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtExit()':            ['<c-[>'],
             \ }
 " }}}
-" scrooloose/nerdtree {{{
-let g:NERDTreeChDirMode = 3
-nmap <C-e> :NERDTreeToggle<CR>
-autocmd vimrc BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinSize=50
-
-" }}}
 " ryanoasis/vim-devicons {{{
 let g:webdevicons_enable_ctrlp = 1
 
@@ -494,33 +488,15 @@ endif
 " }}}
 " vim-lsp {{{
 
-let g:lsp_completion_documentation_enabled = 0
-let g:lsp_insert_text_enabled = 0
-let g:lsp_text_edit_enabled = 0
+" NOTE: http://blog.sbfm.jp/archives/71
+let g:lsp_log_file = "" 
+" NOTE: なにがしか補完がうまく効かない時はONにすべし
+" let g:lsp_log_file = expand('~/vim-lsp.log')
 
-" https://qiita.com/nil2/items/52417115b3fa57b1e296
-if !empty(globpath(&rtp, 'autoload/lsp.vim'))
-  " vim-lspが有効になったバッファで次の設定を行う
-  function! s:on_lsp_buffer_enabled() abort
-    " (必須)オムニ補完の関数を設定
-    setlocal omnifunc=lsp#complete
-    " (任意)補完の表示をメニューのみにする
-    setlocal completeopt=menu
-    " (任意)エラー列を常に表示する
-    " setlocal signcolumn=yes
-    " (任意)定義ジャンプをgdに割り当てる
-    nmap <buffer> gd <plug>(lsp-definition)
-  endfunction
-  augroup lsp_install
-    autocmd!
-    autocmd User lsp_buffer_enabled 
-    \ call s:on_lsp_buffer_enabled()
-  augroup END
+" let g:lsp_completion_documentation_enabled = 0
+" let g:lsp_insert_text_enabled = 0
+" let g:lsp_text_edit_enabled = 0
 
-  " (必須)プロジェクトルートのマーカーとなるファイル、ディレクトリ一覧
-  " デフォルトではAssembly-CSharp.csprojが含まれていないため、これを追加する
-  let g:lsp_settings_root_markers = ['Assembly-CSharp.csproj', '.git', '.git/']
-endif
 " }}}
 " fern {{{
 let g:fern#renderer = "devicons"
