@@ -1,0 +1,35 @@
+# ~/.tmuxinator/inspix-world-mic.yml
+
+name: inspix-world-mic
+root: ~/src/github.com/ignis-ltd/inspix-world-mic
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - nvim
+  - inspix-world:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-world-mic/program/Demo/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-live-share:
+      root: ~/src/github.com/ignis-ltd/inspix-world-mic/program/Demo/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-live-main:
+      root: ~/src/github.com/ignis-ltd/inspix-world-mic/program/Demo/Assets/LiveMain
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-world-mic/program/Demo/Assets/Core/Ip0001
+      layout: even-horizontal
+      panes:
+        - l
+
