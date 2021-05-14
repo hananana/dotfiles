@@ -132,17 +132,10 @@ Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-renderer-devicons.vim'
 " }}}
 " syntax {{{
-
 " c#
 Plug 'OrangeT/vim-csharp', { 'for': ['cs', 'csi', 'csx' ] }
 " more
 Plug 'sheerun/vim-polyglot'
-" cpp
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-Plug 'b4winckler/vim-objc', { 'for': 'objc' }
-Plug 'keith/swift.vim', { 'for': 'swift' }   
-Plug 'aklt/plantuml-syntax', { 'for': 'uml' } 
-Plug 'vim-scripts/ShaderHighLight'
 
 " }}}
 " search plugin {{{
@@ -184,8 +177,6 @@ Plug 'thinca/vim-qfreplace'
 Plug 'cohama/vim-insert-linenr'
 Plug 'cohama/vim-hier'
 Plug 'osyo-manga/shabadou.vim'
-
-" other
 Plug 'hananana/lilycomment.vim', { 'for': 'cs' }
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': ['cpp', 'objcpp', 'objc'] } 
 Plug 'kana/vim-altr', { 'for' : ['cpp', 'objcpp', 'objc'] }
