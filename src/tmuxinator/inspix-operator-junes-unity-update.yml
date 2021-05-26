@@ -1,0 +1,29 @@
+# ~/.tmuxinator/inspix-operator-junes-unity-update.yml
+
+name: inspix-operator-junes-unity-update
+root: ~/src/github.com/ignis-ltd/inspix-operator-junes-unity-update
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+#         - nvim
+  - inspix-operator:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes-unity-update/InspixOperator/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-liveshare:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes-unity-update/InspixOperator/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes-unity-update/InspixOperator/Assets/Core/Junes
+      layout: even-horizontal
+      panes:
+        - l
