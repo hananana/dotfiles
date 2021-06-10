@@ -1,0 +1,29 @@
+# ~/.tmuxinator/inspix-operator-marple.yml
+
+name: inspix-operator-marple
+root: ~/src/github.com/ignis-ltd/inspix-operator-marple
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+#         - nvim
+  - inspix-operator:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-marple/InspixOperator/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-liveshare:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-marple/InspixOperator/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-marple/InspixOperator/Assets/Core/Marple
+      layout: even-horizontal
+      panes:
+        - l
