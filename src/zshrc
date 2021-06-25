@@ -9,7 +9,11 @@ export PATH=$PATH:$HOME/.dotfiles/bin
 export DOTDIR=$HOME/src/github.com/hananana/dotfiles
 
 # hub brose向けの設定
-export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+case ${OSTYPE} in
+    linux*)
+        export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+        ;;
+esac
 
 # android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -17,7 +21,6 @@ export PATH=$PATH":$ANDROID_HOME/platform-tools"
 export PATH=$PATH":$ANDROID_HOME/tools"
 
 # Java_HOME
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
 case ${OSTYPE} in
     darwin*)
         export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) ;;
