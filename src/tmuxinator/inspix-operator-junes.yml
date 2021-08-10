@@ -5,9 +5,10 @@ root: ~/src/github.com/ignis-ltd/inspix-operator-junes
 
 windows:
   - editor:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-junes/InspixOperator/Assets
       layout: even-horizontal
       panes:
-#         - nvim
+        - vim
   - inspix-operator:
       layout: even-horizontal
       panes:

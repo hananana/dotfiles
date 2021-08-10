@@ -5,7 +5,7 @@ root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-mk
 
 windows:
   - editor:
-      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-mk/InspixLiveViewerApp
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-mk/InspixLiveViewerApp/Assets
       layout: even-horizontal
       panes:
         - vim
