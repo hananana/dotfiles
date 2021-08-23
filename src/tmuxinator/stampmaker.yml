@@ -1,0 +1,14 @@
+# ~/.tmuxinator/stampmaker.yml
+
+name: stampmaker
+root: ~/src/github.com/hananana/StampMaker
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
