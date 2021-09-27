@@ -5,6 +5,7 @@ root: ~/src/github.com/ignis-ltd/inspix-operator-enogu
 
 windows:
   - editor:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-enogu/InspixOperator
       layout: even-horizontal
       panes:
 #         - nvim

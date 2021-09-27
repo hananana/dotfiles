@@ -9,7 +9,7 @@ windows:
       layout: even-horizontal
       panes:
         - vim
-  - inspix-world:
+  - inspix-live-viewer-app:
       layout: even-horizontal
       panes:
         - l
