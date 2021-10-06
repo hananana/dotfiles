@@ -1,0 +1,36 @@
+# ~/.tmuxinator/inspix-live-viewer-app-0015.yml
+
+name: inspix-live-viewer-app-0015
+root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-0015
+
+windows:
+  - editor:
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-0015/InspixLiveViewerApp
+      layout: even-horizontal
+      panes:
+        - vim
+  - inspix-world:
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-core:
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-0015/InspixLiveViewerApp/Assets/Core
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-live-share:
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-0015/InspixLiveViewerApp/Assets/LiveShare
+      layout: even-horizontal
+      panes:
+        - l
+  - inspix-live-main:
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-0015/InspixLiveViewerApp/Assets/LiveMain
+      layout: even-horizontal
+      panes:
+        - l
+  - ip:
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-0015/InspixLiveViewerApp/Assets/Core/Ip0015
+      layout: even-horizontal
+      panes:
+        - l
+
