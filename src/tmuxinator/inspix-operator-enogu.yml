@@ -8,8 +8,12 @@ windows:
       root: ~/src/github.com/ignis-ltd/inspix-operator-enogu/InspixOperator
       layout: even-horizontal
       panes:
-#         - nvim
   - inspix-operator:
+      layout: even-horizontal
+      panes:
+        - l
+  - monoaiLib:
+      root: ~/src/github.com/ignis-ltd/inspix-operator-enogu/InspixOperator/Assets/monoaiLib
       layout: even-horizontal
       panes:
         - l

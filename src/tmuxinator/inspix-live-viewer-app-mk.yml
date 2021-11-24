@@ -13,6 +13,11 @@ windows:
       layout: even-horizontal
       panes:
         - l
+  - inspix-live-viewer:
+      root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-mk/InspixLiveViewerApp/Assets/LiveViewer
+      layout: even-horizontal
+      panes:
+        - l
   - inspix-core:
       root: ~/src/github.com/ignis-ltd/inspix-live-viewer-app-mk/InspixLiveViewerApp/Assets/Core
       layout: even-horizontal
