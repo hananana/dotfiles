@@ -145,15 +145,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
 " completion plugin {{{
-" https://mattn.kaoriya.net/software/vim/20191231213507.htm
 
-" NOTE:
-".net frameworkがみつからないとき
-" https://fum1h1ro.github.io/2020/07/19/omnisharp-and-dotnetframework/
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'hananana/vim-lsp-settings'
+Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
@@ -171,7 +167,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " 検索時にmatch数と順番を表示する
 Plug 'osyo-manga/vim-anzu'
 " }}}
-
+" other plugins {{{
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-qfreplace'
 Plug 'cohama/vim-insert-linenr'
@@ -183,6 +179,7 @@ Plug 'kana/vim-altr', { 'for' : ['cpp', 'objcpp', 'objc'] }
 Plug 'elzr/vim-json', { 'for' : ['json']}
 Plug 'stephpy/vim-yaml', { 'for' : [ 'yaml' ] }
 Plug 'vim-scripts/Align', { 'for' : [ 'csv' ] }
+" }}}
 
 call plug#end()
 filetype plugin indent on
@@ -483,21 +480,15 @@ endif
 " vim-lsp {{{
 
 " NOTE: http://blog.sbfm.jp/archives/71
-let g:lsp_log_file = "" 
-" NOTE: なにがしか補完がうまく効かない時はONにすべし
+" なんかおかしかったらログ出せ
 " let g:lsp_log_file = expand('~/vim-lsp.log')
 
-" let g:lsp_completion_documentation_enabled = 0
-" let g:lsp_insert_text_enabled = 0
-" let g:lsp_text_edit_enabled = 0
+" }}}
+" vim-lsp-settings {{{
+" swift書くには明確なパスが必要。環境毎に書き換える気？マジ？
+" let g:lsp_settings = {'sourcekit-lsp': {'cmd': ['xcrun', '--toolchain', 'org.swift.532202012141a', 'sourcekit-lsp']}}
 
 " }}}
 " fern {{{
 let g:fern#renderer = "devicons"
 "}}}
-
-" vim-lsp-settings {{{
-
-let g:lsp_settings = {'sourcekit-lsp': {'cmd': ['xcrun', '--toolchain', 'org.swift.532202012141a', 'sourcekit-lsp']}}
-
-" }}}
