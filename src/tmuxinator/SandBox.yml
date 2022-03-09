@@ -1,7 +1,7 @@
-# ~/.tmuxinator/dot.yml
+# /mnt/d/.tmuxinator/SandBox.yml
 
-name: dotfiles
-root: ~/src/github.com/hananana/dotfiles
+name: SandBox
+root: ~/src/github.com/hananana/SandBox
 
 windows:
   - editor:

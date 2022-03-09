@@ -255,7 +255,7 @@ function fix_resolution_files() {
     dir="${PWD}"
     for file in *.csproj
     do
-        sed -i "s/C:/\\mnt\\c/g" $file
+        sed -i 's/C:/\\mnt\\c/g' $file
     done
 }
 
