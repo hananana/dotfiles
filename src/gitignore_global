@@ -13,4 +13,5 @@ GPATH
 GRTAGS
 GTAGS
 
-Session.vim
+# VisualStudioの設定ファイル
+.vsconfig
