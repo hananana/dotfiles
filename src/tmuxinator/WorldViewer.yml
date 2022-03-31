@@ -1,0 +1,8 @@
+# /mnt/d/.tmuxinator/WorldViewer.yml
+
+name: WorldViewer
+root: ~/src/github.com/VRHIKKY/WorldViewer
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
