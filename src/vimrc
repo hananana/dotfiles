@@ -138,7 +138,7 @@ Plug 'sheerun/vim-polyglot', { 'tag' : 'v4.17.1' }
 " }}}
 " search plugin {{{
 " ctrlp
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim', { 'tag' : '1.79' }
 " 高速match
 Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
