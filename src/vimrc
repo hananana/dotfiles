@@ -144,13 +144,12 @@ Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
 " completion plugin {{{
 
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim' 
+Plug 'prabirshrestha/asyncomplete-lsp.vim' 
+" 最新で不具合が出たのでtag指定している
 Plug 'prabirshrestha/vim-lsp', { 'tag' : 'v0.1.4' }
-Plug 'mattn/vim-lsp-settings'
-Plug 'mattn/vim-lsp-icons'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'mattn/vim-lsp-settings' 
+Plug 'mattn/vim-lsp-icons' 
 
 " }}}
 " utils plugin {{{
@@ -253,8 +252,8 @@ set autowrite
 autocmd vimrc WinEnter * checktime
 " vimdiffを縦で割る
 set diffopt=vertical
-" previewを表示する
-set completeopt=longest
+" previewを表示しない
+set completeopt-=preview
 " マーカー折りたたみ
 set foldmethod=marker
 " 補完ウィンドウは10項目まで
