@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/VketAvatarMaker.yml
+
+name: VketAvatarMaker
+root: ~/src/github.com/VRHIKKY/VketAvatarMaker
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
