@@ -12,7 +12,7 @@ export DOTDIR=$HOME/src/github.com/hananana/dotfiles
 # hub brose向けの設定
 case ${OSTYPE} in
     linux*)
-        export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+        export BROWSER='/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
         ;;
 esac
 
