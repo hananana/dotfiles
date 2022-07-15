@@ -1,0 +1,16 @@
+# /mnt/d/.tmuxinator/MeetingsByAvatar.yml
+
+name: MeetingsByAvatar
+root: ~/src/github.com/VRHIKKY/MeetingsByAvatar
+
+windows:
+  - editor:
+      root: ~/src/github.com/VRHIKKY/MeetingsByAvatar/MeetingsByAvatar
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
+
