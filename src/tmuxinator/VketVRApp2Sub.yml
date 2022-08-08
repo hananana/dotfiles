@@ -1,0 +1,15 @@
+# /mnt/d/.tmuxinator/VketVRApp2Sub.yml
+
+name: VketVRApp2Sub
+root: ~/src/github.com/VRHIKKY/VketVRApp2Sub
+
+windows:
+  - editor:
+      root: ~/src/github.com/VRHIKKY/VketVRApp2Sub/VketVRApp2
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l

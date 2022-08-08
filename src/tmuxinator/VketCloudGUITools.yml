@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/VketCloudGUITools.yml
+
+name: VketCloudGUITools
+root: ~/src/github.com/VRHIKKY/VketCloudGUITools
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
