@@ -128,8 +128,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 " }}}
 " filer {{{
-Plug 'lambdalisue/fern.vim', { 'tag' : 'v1.43.1' }
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'preservim/nerdtree'
 " }}}
 " syntax {{{
 " more
@@ -163,6 +162,8 @@ Plug 'lambdalisue/vim-fullscreen'
 Plug 'christoomey/vim-tmux-navigator'
 " 検索時にmatch数と順番を表示する
 Plug 'osyo-manga/vim-anzu'
+" editorconfig
+Plug 'editorconfig/editorconfig-vim'
 " }}}
 " other plugins {{{
 Plug 'thinca/vim-quickrun'
