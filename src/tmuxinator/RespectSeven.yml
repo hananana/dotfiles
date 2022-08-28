@@ -1,0 +1,15 @@
+# /mnt/d/.tmuxinator/RespectSeven.yml
+
+name: RespectSeven
+root: ~/src/github.com/hananana/RespectSeven
+
+windows:
+  - editor:
+      root: ~/src/github.com/VRHIKKY/RespectSeven/RespectSeven
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
