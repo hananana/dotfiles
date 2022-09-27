@@ -5,7 +5,7 @@ root: ~/src/github.com/hananana/RespectSeven
 
 windows:
   - editor:
-      root: ~/src/github.com/VRHIKKY/RespectSeven/RespectSeven
+      root: ~/src/github.com/hananana/RespectSeven/RespectSeven
       layout: even-horizontal
       panes:
         - vim 
