@@ -253,10 +253,7 @@ function fzy_branch() {
 
 function fix_resolution_files() {
     dir="${PWD}"
-    for file in *.csproj
-    do
-        sed -i 's/C:/\\mnt\\c/g' $file
-    done
+    find $dir -name "*.csproj" | xargs sed -i 's/C:/\\mnt\\c/g'
 }
 
 zle -N fzy_branch
