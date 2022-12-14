@@ -247,8 +247,19 @@ set hlsearch
 " 大文字小文字を区別しないで検索する
 set ignorecase
 set smartcase
+
 " escした時日本語入力をやめる
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+" inoremap <ESC> <ESC>:set iminsert=0<CR>
+" " let s:lastiminsert = 0
+" " IMEの状態を保持しておく、置換モードではIMEの状態を保持しない
+" " 置換モードではIMEの状態を保持しない。置換モードではIMEオフなので、置換モード後の挿入モードが常にIMEオフになることを避ける
+" " autocmd InsertLeave * if v:insertmode !=# 'r' | let s:lastiminsert = &iminsert | set iminsert=0 | endif
+" " IMEの状態を復帰する。改行時には続けてIMEオンのままにしたいため。
+" " 挿入モード（IMEオン）→ノーマルモード→挿入モード（IMEオン）
+" " となるが。これはむしろできなくていい
+" " 置換モードではIMEの状態を復帰しない
+" autocmd InsertEnter * if v:insertmode ==# 'i' | let &iminsert = s:lastiminsert | endif
+
 "行番号を表示する
 set number
 " バックスペースでインデント削除
@@ -336,6 +347,7 @@ nnoremap Y y$
 
 nnoremap <Leader>gg :grep 
 nnoremap <Leader>gc :grep <cword>
+nnoremap <Leader>f <Plug>:FixResolutionFiles<CR>
 " }}}
 " plugins setting {{{
 " itchyny/lightline.vim {{{

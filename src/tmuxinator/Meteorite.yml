@@ -1,0 +1,15 @@
+# /mnt/d/.tmuxinator/Meteorite.yml
+
+name: Meteorite
+root: ~/src/github.com/DevHIKKY/Meteorite
+
+windows:
+  - editor:
+      root: ~/src/github.com/DevHIKKY/Meteorite/VketVRApp2
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
