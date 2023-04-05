@@ -163,6 +163,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp', { 'tag' : 'v0.1.4' }
 Plug 'mattn/vim-lsp-settings' 
 Plug 'mattn/vim-lsp-icons' 
+Plug 'github/copilot.vim'
 
 " }}}
 " utils plugin {{{
