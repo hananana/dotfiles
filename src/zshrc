@@ -119,6 +119,9 @@ autoload -U compinit && compinit -u
 # }}}
 # keybind alias function {{{
 
+# adb
+alias adb='/mnt/c/Program\ Files/Unity/Hub/Editor/2020.3.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb.exe'
+
 # ls
 alias l='ls -laF'
 
