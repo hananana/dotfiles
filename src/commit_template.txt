@@ -3,5 +3,4 @@
 # feat: :sparkles:
 # fix: :ambulance:
 # refactor: :recycle:
-# style: :card_file_box:
 # test: :alembic:
