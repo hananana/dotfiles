@@ -1,6 +1,6 @@
 
-#docs: :memo:
-#feat: :sparkles:
-#fix: :ambulance:
-#refactor: :recycle:
-#test: :alembic:
+#docs: 
+#feat:
+#fix:
+#refactor: 
+#test: 
