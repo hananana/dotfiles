@@ -1,0 +1,14 @@
+# /mnt/d/.tmuxinator/OneNight.yml
+
+name: OneNight
+root: ~/src/github.com/hananana/OneNight
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
