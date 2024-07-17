@@ -7,6 +7,7 @@ typeset -gU PATH
 
 export EDITOR='vim'
 export PATH=$PATH:$HOME/.dotfiles/bin
+export PATH=$PATH:$HOME/.dotnet/tools
 export DOTDIR=$HOME/src/github.com/hananana/dotfiles
 
 # hub brose向けの設定
