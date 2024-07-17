@@ -1,7 +1,7 @@
-# /mnt/d/.tmuxinator/VketCloudSDK.yml
+# /mnt/d/.tmuxinator/VketCloudSDK_Documents.yml
 
-name: VketCloudSDK
-root: ~/src/github.com/VRHIKKY/VketCloudSDK
+name: VketCloudSDK_Documents
+root: ~/src/github.com/VRHIKKY/VketCloudSDK_Documents
 
 windows:
   - editor:
