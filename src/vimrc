@@ -156,6 +156,11 @@ Plug 'ctrlpvim/ctrlp.vim', { 'tag' : '1.79' }
 Plug 'FelikZ/ctrlp-py-matcher'
 " }}}
 " completion plugin {{{
+"
+" windowsでneovideにてomnisharp-roslynを動かすためには
+" vim-lsp-settingsのinstall処理に修正が必要。
+" $LOCALAPPDATA/nvim-data/plugged/vim-lsp-settings/installer/install-omnisharp-lsp.cmd
+" or shにてlatestではなくv1.39.8をいれるようにすること
 
 Plug 'prabirshrestha/asyncomplete.vim' 
 Plug 'prabirshrestha/asyncomplete-lsp.vim' 
