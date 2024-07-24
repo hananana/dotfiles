@@ -120,6 +120,10 @@ autoload -U compinit && compinit -u
 # }}}
 # keybind alias function {{{
 
+# vim
+# wslからwindowsのneovideを呼ぶ設定
+alias vim='/mnt/c/Users/hananana/scoop/apps/neovide/0.13.3/neovide.exe'
+
 # adb
 alias adb='/mnt/c/Program\ Files/Unity/Hub/Editor/2020.3.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb.exe'
 

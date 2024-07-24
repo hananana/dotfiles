@@ -134,7 +134,7 @@ endif
 " }}}
 " load plugins {{{
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " looks {{{ 
 Plug 'nanotech/jellybeans.vim', { 'tag' : 'v1.7' }
@@ -159,8 +159,7 @@ Plug 'FelikZ/ctrlp-py-matcher'
 
 Plug 'prabirshrestha/asyncomplete.vim' 
 Plug 'prabirshrestha/asyncomplete-lsp.vim' 
-" 最新で不具合が出たのでtag指定している
-Plug 'prabirshrestha/vim-lsp', { 'tag' : 'v0.1.4' }
+Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings' 
 Plug 'mattn/vim-lsp-icons' 
 Plug 'github/copilot.vim'
@@ -261,6 +260,9 @@ set smartcase
 " " となるが。これはむしろできなくていい
 " " 置換モードではIMEの状態を復帰しない
 " autocmd InsertEnter * if v:insertmode ==# 'i' | let &iminsert = s:lastiminsert | endif
+
+"末尾に改行を追加しない
+set nofixeol
 
 "行番号を表示する
 set number
