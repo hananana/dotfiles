@@ -146,9 +146,8 @@ Plug 'sheerun/vim-polyglot', { 'tag' : 'v4.17.1' }
 " }}}
 " search plugin {{{
 " ctrlp
-Plug 'ctrlpvim/ctrlp.vim', { 'tag' : '1.79' }
-" 高速match
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/ctrlp-matchfuzzy'
 " }}}
 " completion plugin {{{
 "
@@ -162,7 +161,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings' 
 Plug 'mattn/vim-lsp-icons' 
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " }}}
 " utils plugin {{{
@@ -402,18 +401,24 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
 
+let g:ctrlp_max_files = 0
 let g:ctrlp_map = '<Leader><Leader>'
-let g:ctrlp_show_hidden = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+\ 'file': '\v\.(exe|so|dll)$',
+\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+\ }
 
 if executable('rg')
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
     let g:ctrlp_use_caching = 1
 else
-    echomsg "PLZ install ripgrep"
+    echomsg "install ripgrep"
 endif
 
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
+let g:ctrlp_working_path_mode = 0 
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
