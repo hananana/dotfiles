@@ -9,6 +9,7 @@ export EDITOR='vim'
 export PATH=$PATH:$HOME/.dotfiles/bin
 export PATH=$PATH:$HOME/.dotnet/tools
 export DOTDIR=$HOME/src/github.com/hananana/dotfiles
+export PATH=$PATH:$HOME/.local/bin
 
 # hub brose向けの設定
 case ${OSTYPE} in
@@ -120,12 +121,14 @@ autoload -U compinit && compinit -u
 # }}}
 # keybind alias function {{{
 
-# vim
-# wslからwindowsのneovideを呼ぶ設定
-alias vim='/mnt/c/Users/hananana/scoop/apps/neovide/0.13.3/neovide.exe'
+# wsl限定
+if grep -qi microsoft /proc/version; then
+    alias vim='/mnt/c/Users/hananana/scoop/apps/neovide/0.13.3/neovide.exe'
+    alias dotnet='/mnt/c/Program\ Files/dotnet/dotnet.exe'
+    alias adb='/mnt/c/Program\ Files/Unity/Hub/Editor/2020.3.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb.exe'
+fi
 
 # adb
-alias adb='/mnt/c/Program\ Files/Unity/Hub/Editor/2020.3.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb.exe'
 
 # ls
 alias l='ls -laF'
