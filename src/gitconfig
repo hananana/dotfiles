@@ -3,6 +3,7 @@
 	email = hananana.vimmer@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+	filemode = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
