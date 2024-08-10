@@ -137,7 +137,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 " }}}
 " filer {{{
-Plug 'preservim/nerdtree'
+Plug 'lambdalisue/vim-fern'
 " }}}
 " syntax {{{
 " more
