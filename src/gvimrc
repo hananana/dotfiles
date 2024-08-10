@@ -1,41 +1,29 @@
-scriptencoding utf-8
+" scriptencoding utf-8
+" 
 
-source $VIMRUNTIME/delmenu.vim
-set langmenu=ja_jp.utf-8
-source $VIMRUNTIME/menu.viM
-set iminsert=0
-set imsearch=-1
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
-set guioptions-=b
 
-colorscheme jellybeans
+set guifont=Inconsolata_Nerd_Font:h14.000000
 
-if has('mac')
-    set guifont=mplus\ Nerd\ Font:h16
-else
-    set guifont=mplus\ Nerd\ Font:h12
+" Enable Mouse
+set mouse=a
+
+" Disable GUI Tabline
+if exists(':GuiTabline')
+        GuiTabline 0
 endif
 
-" ウィンドウの位置サイズを保存して次回に復元する
-let g:save_window_file = expand('~/.vimwinpos')
-augroup SaveWindow
-  autocmd!
-  autocmd VimLeavePre * call s:save_window()
-  function! s:save_window()
-    let options = [
-      \ 'set columns=' . &columns,
-      \ 'set lines=' . &lines,
-      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
-      \ ]
-    call writefile(options, g:save_window_file)
-  endfunction
-augroup END
-
-if filereadable(g:save_window_file)
-  execute 'source' g:save_window_file
+" Disable GUI Popupmenu
+if exists(':GuiPopupmenu')
+        GuiPopupmenu 0
 endif
+
+" Enable GUI ScrollBar
+if exists(':GuiScrollBar')
+        GuiScrollBar 1
+endif
+
+" Right Click Context Menu (Copy-Cut-Paste)
+nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
+inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
+xnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
+snoremap <silent><RightMouse> <C-G>:call GuiShowContextMenu()<CR>gv
