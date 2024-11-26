@@ -1,15 +1,20 @@
 # zmodload zsh/zprof && zprof
 
+autoload -Uz compinit
+compinit
+
 # PATHの重複登録を防ぐ
 typeset -gU PATH
 
 # export {{{
 
-export EDITOR='vim'
 export PATH=$PATH:$HOME/.dotfiles/bin
 export PATH=$PATH:$HOME/.dotnet/tools
-export DOTDIR=$HOME/src/github.com/hananana/dotfiles
 export PATH=$PATH:$HOME/.local/bin
+
+export EDITOR='vim'
+export DOTDIR=$HOME/src/github.com/hananana/dotfiles
+
 
 # hub brose向けの設定
 case ${OSTYPE} in
@@ -97,6 +102,7 @@ if ! [ -e ${HOME}/.zgen ]; then
     git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 fi
 
+# load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
@@ -115,20 +121,19 @@ then
     mkdir -p $HOME/.zsh/completions
     wget https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -O $HOME/.zsh/completions/_hub
 fi
+
 fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit -u
 
 # }}}
 # keybind alias function {{{
 
 # wsl限定
-if grep -qi microsoft /proc/version; then
+if [ -f /proc/version ] && grep -qi microsoft /proc/version; then
+    # WSLの場合の設定
     alias vim='/mnt/c/Users/hananana/scoop/apps/neovide/0.13.3/neovide.exe'
     alias dotnet='/mnt/c/Program\ Files/dotnet/dotnet.exe'
     alias adb='/mnt/c/Program\ Files/Unity/Hub/Editor/2020.3.34f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/platform-tools/adb.exe'
 fi
-
-# adb
 
 # ls
 alias l='ls -laF'
@@ -298,7 +303,7 @@ function update_symlink() {
     ln -s $DOTDIR/src/uncrustifyconfig $HOME/.uncrustifyconfig
     rm -rf $HOME/.gvimrc
     ln -s $DOTDIR/src/gvimrc $HOME/.gvimrc
-    
+
     rm -rf $HOME/.tmux.conf
     case ${OSTYPE} in
         darwin*)
