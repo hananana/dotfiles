@@ -12,9 +12,9 @@ export PATH=$PATH:$HOME/.dotfiles/bin
 export PATH=$PATH:$HOME/.dotnet/tools
 export PATH=$PATH:$HOME/.local/bin
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export DOTDIR=$HOME/src/github.com/hananana/dotfiles
-
+export DOTNET_ROOT=/usr/local/share/dotnet
 
 # hub brose向けの設定
 case ${OSTYPE} in
