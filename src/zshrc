@@ -167,6 +167,9 @@ alias tmux="TERM=screen-256color-bce tmux"
 # mux
 alias mux="tmuxinator"
 
+# vim
+alias vim='nvim'
+
 #open
 case ${OSTYPE} in
     darwin*)
