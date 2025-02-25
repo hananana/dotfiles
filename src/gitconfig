@@ -2,6 +2,7 @@
 	name = hananana
 	email = hananana.vimmer@gmail.com
 [core]
+	ignorecase = false
 	excludesfile = ~/.gitignore_global
 	filemode = false
 [difftool "sourcetree"]
