@@ -1,74 +1,6 @@
 #!/bin/zsh
 
-# ANSI カラー定義
-RED=$'\e[31m'
-GREEN=$'\e[32m'
-YELLOW=$'\e[33m'
-BLUE=$'\e[96m'
-RESET=$'\e[0m'
-
-# brew
-if ! command -v brew >/dev/null 2>&1; then
-    echo "${YELLOW}brew が見つかりません。Homebrew を使ってインストールします。${RESET}"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-else
-    echo "${GREEN}brew は既にインストールされています。${RESET}"
-fi
-
-# wget
-if ! command -v wget >/dev/null 2>&1; then
-    echo "${YELLOW}wget が見つかりません。Homebrew を使ってインストールします。${RESET}"
-    brew install wget
-else
-    echo "${GREEN}wget は既にインストールされています。${RESET}"
-fi
-
-# wget
-if ! command -v tig >/dev/null 2>&1; then
-    echo "${YELLOW}tig が見つかりません。Homebrew を使ってインストールします。${RESET}"
-    brew install tig
-else
-    echo "${GREEN}tig は既にインストールされています。${RESET}"
-fi
-
-# python
-if ! command -v python >/dev/null 2>&1; then
-    echo "${YELLOW}python が見つかりません。Homebrew を使ってインストールします。${RESET}"
-    brew install pyenv
-    # pythonにはこれが必要
-    brew install xz
-    pyenv install 3.13.3
-    pyenv global 3.13.3
-else
-    echo "${GREEN}python は既にインストールされています。${RESET}"
-fi
-
-# nvim
-if ! command -v nvim >/dev/null 2>&1; then
-    echo "${YELLOW}nvim が見つかりません。Homebrew を使ってインストールします。${RESET}"
-    brew install nvim
-else
-    echo "${GREEN}nvim は既にインストールされています。${RESET}"
-fi
-
-# $HOME/.configを生成
-if [[ ! -d "$HOME/.config" ]]; then
-	mkdir -p "$HOME/.config"
-fi
-
-link "$HOME/src/github.com/hananana/dotfiles/src/zshrc" "$HOME/.zshrc"
-link "$HOME/src/github.com/hananana/dotfiles/src/gitconfig" "$HOME/.gitconfig"
-link "$HOME/src/github.com/hananana/dotfiles/src/commit_template.txt" "$HOME/.commit_template.txt"
-link "$HOME/src/github.com/hananana/dotfiles/src/nvim" "$HOME/.config/nvim"
-
-# vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-exec zsh
-
-echo "${GREEN}iTerm2>Settings>General>Settings>ExternalSettingsに$HOME/src/github.com/hananana/dotfiles/srcを指定してください${RESET}"
-
+# 先に関数定義
 link() {
   local source="$1"
   local target="$2"
@@ -86,3 +18,85 @@ link() {
   ln -s "$source" "$target"
   echo "${BLUE}シンボリックリンクを作成しました: $target → $source${RESET}"
 }
+
+# 共通処理：存在確認と関数実行
+ensure_command() {
+  local cmd="$1"
+  local installer_func="$2"
+
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    echo "${YELLOW}${cmd} が見つかりません。インストールを試みます。${RESET}"
+    "$installer_func"
+  else
+    echo "${GREEN}${cmd} は既にインストールされています。${RESET}"
+  fi
+}
+
+install_brew() {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+install_wget() {
+  brew install wget
+}
+
+install_tig() {
+  brew install tig
+}
+
+install_nvim() {
+  brew install nvim
+}
+
+install_python() {
+  brew install pyenv
+  brew install xz
+  pyenv install 3.13.3
+  pyenv global 3.13.3
+}
+
+install_ripgrep() {
+  brew install ripgrep
+}
+
+install_tmux() {
+  brew install tmux
+}
+
+install_tmuxinator() {
+  brew install tmuxinator
+}
+
+# ANSI カラー定義
+RED=$'\e[31m'
+GREEN=$'\e[32m'
+YELLOW=$'\e[33m'
+BLUE=$'\e[96m'
+RESET=$'\e[0m'
+
+ensure_command brew install_brew
+ensure_command wget install_wget
+ensure_command tig install_tig
+ensure_command nvim install_nvim
+ensure_command python install_python
+ensure_command rg install_ripgrep
+ensure_command tmux install_tmux
+ensure_command tmuxinator install_tmuxinator
+
+mkdir -p "$HOME/.config"
+
+link "$HOME/src/github.com/hananana/dotfiles/src/zshrc" "$HOME/.zshrc"
+link "$HOME/src/github.com/hananana/dotfiles/src/gitconfig" "$HOME/.gitconfig"
+link "$HOME/src/github.com/hananana/dotfiles/src/commit_template.txt" "$HOME/.commit_template.txt"
+link "$HOME/src/github.com/hananana/dotfiles/src/nvim" "$HOME/.config/nvim"
+link "$HOME/src/github.com/hananana/dotfiles/src/tigrc" "$HOME/.tigrc"
+link "$HOME/src/github.com/hananana/dotfiles/src/tmux.conf" "$HOME/.tmux.conf"
+link "$HOME/src/github.com/hananana/dotfiles/src/tmuxinator" "$HOME/.tmuxinator"
+
+# vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+exec zsh
+
+echo "${GREEN}iTerm2>Settings>General>Settings>ExternalSettingsに$HOME/src/github.com/hananana/dotfiles/srcを指定してください${RESET}"
