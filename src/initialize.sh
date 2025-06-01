@@ -1,6 +1,13 @@
 #!/bin/zsh
 
-# 先に関数定義
+# ANSI カラー定義
+RED=$'\e[31m'
+GREEN=$'\e[32m'
+YELLOW=$'\e[33m'
+BLUE=$'\e[96m'
+RESET=$'\e[0m'
+
+# シンボリックリンク
 link() {
   local source="$1"
   local target="$2"
@@ -19,7 +26,7 @@ link() {
   echo "${BLUE}シンボリックリンクを作成しました: $target → $source${RESET}"
 }
 
-# 共通処理：存在確認と関数実行
+# コマンドのinstall
 install() {
   local cmd="$1"
   local installer_func="$2"
@@ -32,6 +39,7 @@ install() {
   fi
 }
 
+# caskのinstall
 install_cask() {
   local package="$1"
   local installer_func="$2"
@@ -44,6 +52,7 @@ install_cask() {
   fi
 }
 
+# インストール処理
 install_brew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
@@ -83,12 +92,6 @@ install_sauce_code_pro() {
   brew install --cask font-sauce-code-pro-nerd-font
 }
 
-# ANSI カラー定義
-RED=$'\e[31m'
-GREEN=$'\e[32m'
-YELLOW=$'\e[33m'
-BLUE=$'\e[96m'
-RESET=$'\e[0m'
 
 install brew install_brew
 install wget install_wget
@@ -109,6 +112,7 @@ link "$HOME/src/github.com/hananana/dotfiles/src/nvim" "$HOME/.config/nvim"
 link "$HOME/src/github.com/hananana/dotfiles/src/tigrc" "$HOME/.tigrc"
 link "$HOME/src/github.com/hananana/dotfiles/src/tmux.conf" "$HOME/.tmux.conf"
 link "$HOME/src/github.com/hananana/dotfiles/src/tmuxinator" "$HOME/.tmuxinator"
+link "$HOME/src/github.com/hananana/dotfiles/src/gitignore_global" "$HOME/.gitignore_global"
 
 # vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
