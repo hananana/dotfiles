@@ -20,7 +20,7 @@ link() {
 }
 
 # 共通処理：存在確認と関数実行
-ensure_command() {
+install() {
   local cmd="$1"
   local installer_func="$2"
 
@@ -29,6 +29,18 @@ ensure_command() {
     "$installer_func"
   else
     echo "${GREEN}${cmd} は既にインストールされています。${RESET}"
+  fi
+}
+
+install_cask() {
+  local package="$1"
+  local installer_func="$2"
+
+  if brew list --cask "$package" &> /dev/null; then
+    echo "${GREEN}${package} はすでにインストールされています${RESET}"
+  else
+    echo "${YELLOW}${package} が見つかりません。インストールを試みます。${RESET}"
+    "$installer_func"
   fi
 }
 
@@ -67,6 +79,10 @@ install_tmuxinator() {
   brew install tmuxinator
 }
 
+install_sauce_code_pro() {
+  brew install --cask font-sauce-code-pro-nerd-font
+}
+
 # ANSI カラー定義
 RED=$'\e[31m'
 GREEN=$'\e[32m'
@@ -74,14 +90,15 @@ YELLOW=$'\e[33m'
 BLUE=$'\e[96m'
 RESET=$'\e[0m'
 
-ensure_command brew install_brew
-ensure_command wget install_wget
-ensure_command tig install_tig
-ensure_command nvim install_nvim
-ensure_command python install_python
-ensure_command rg install_ripgrep
-ensure_command tmux install_tmux
-ensure_command tmuxinator install_tmuxinator
+install brew install_brew
+install wget install_wget
+install tig install_tig
+install nvim install_nvim
+install python install_python
+install rg install_ripgrep
+install tmux install_tmux
+install tmuxinator install_tmuxinator
+install_cask font-sauce-code-pro-nerd-font install_sauce_code_pro
 
 mkdir -p "$HOME/.config"
 
