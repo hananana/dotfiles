@@ -92,6 +92,10 @@ install_sauce_code_pro() {
   brew install --cask font-sauce-code-pro-nerd-font
 }
 
+install_gh() {
+  brew install gh
+}
+
 
 install brew install_brew
 install wget install_wget
@@ -101,6 +105,7 @@ install python install_python
 install rg install_ripgrep
 install tmux install_tmux
 install tmuxinator install_tmuxinator
+install gh install_gh
 install_cask font-sauce-code-pro-nerd-font install_sauce_code_pro
 
 mkdir -p "$HOME/.config"
