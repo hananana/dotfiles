@@ -88,10 +88,6 @@ install_tmuxinator() {
   brew install tmuxinator
 }
 
-install_sauce_code_pro() {
-  brew install --cask font-sauce-code-pro-nerd-font
-}
-
 install_gh() {
   brew install gh
 }
@@ -111,7 +107,9 @@ install tmux install_tmux
 install tmuxinator install_tmuxinator
 install gh install_gh
 install fzy install_fzy
-install_cask font-sauce-code-pro-nerd-font install_sauce_code_pro
+
+brew install font-sauce-code-pro-nerd-font
+brew install font-m+-nerd-font
 
 mkdir -p "$HOME/.config"
 
