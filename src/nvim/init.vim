@@ -394,6 +394,7 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>q :CtrlPQuickfix<CR>
 
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
 let g:ctrlp_max_files = 0
 let g:ctrlp_map = '<Leader><Leader>'
 let g:ctrlp_show_hidden = 1
