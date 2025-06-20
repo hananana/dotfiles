@@ -1,0 +1,14 @@
+# /Users/hanazawa_takeyuki/.tmuxinator/p2-proto.yml
+
+name: p2-proto
+root: ~/src/github.com/cocone-private/p2-proto
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - 
+  - git:
+      layout: even-horizontal
+      panes:
+        - l
