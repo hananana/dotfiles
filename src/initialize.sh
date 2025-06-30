@@ -96,6 +96,10 @@ install_fzy() {
   brew install fzy
 }
 
+install_fzf() {
+  brew install fzf
+}
+
 
 install brew install_brew
 install wget install_wget
@@ -107,6 +111,7 @@ install tmux install_tmux
 install tmuxinator install_tmuxinator
 install gh install_gh
 install fzy install_fzy
+install fzf intall_fzf
 
 brew install font-sauce-code-pro-nerd-font
 brew install font-m+-nerd-font
